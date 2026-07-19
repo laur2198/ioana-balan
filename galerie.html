@@ -1,0 +1,369 @@
+<!-- Galerie (SEO & AiO Optimizată) - Ioana Balan -->
+<!DOCTYPE html><html class="dark" lang="ro"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Galerie | IOANA BALAN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Hide scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Mobile menu transition */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#c6c6c6",
+                      "secondary-fixed": "#e3e2e2",
+                      "on-error": "#690005",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "secondary-container": "#484949",
+                      "surface-tint": "#c8c6c5",
+                      "tertiary": "#ffb3b1",
+                      "on-tertiary-container": "#c95a5c",
+                      "on-tertiary-fixed": "#410007",
+                      "on-surface": "#e5e2e1",
+                      "primary-container": "#121212",
+                      "tertiary-fixed-dim": "#ffb3b1",
+                      "surface-container-low": "#1c1b1b",
+                      "error-container": "#93000a",
+                      "outline": "#8e9192",
+                      "background": "#131313",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-primary-container": "#7e7d7d",
+                      "error": "#ffb4ab",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed-variant": "#464747",
+                      "on-primary": "#313030",
+                      "on-primary-fixed-variant": "#474646",
+                      "surface-container-highest": "#353535",
+                      "tertiary-container": "#2f0004",
+                      "on-surface-variant": "#c4c7c7",
+                      "on-tertiary": "#630d16",
+                      "on-secondary": "#2f3131",
+                      "surface": "#131313",
+                      "surface-bright": "#393939",
+                      "on-tertiary-fixed-variant": "#82252a",
+                      "inverse-primary": "#5f5e5e",
+                      "outline-variant": "#444748",
+                      "secondary-fixed-dim": "#c6c6c6",
+                      "surface-container": "#20201f",
+                      "on-primary-fixed": "#1c1b1b",
+                      "surface-variant": "#353535",
+                      "primary-fixed": "#e5e2e1",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdad8",
+                      "on-secondary-container": "#b8b8b8",
+                      "primary": "#c8c6c5",
+                      "inverse-surface": "#e5e2e1",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "surface-container-high": "#2a2a2a",
+                      "inverse-on-surface": "#313030",
+                      "on-background": "#e5e2e1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "64px",
+                      "max-width": "1200px",
+                      "unit": "8px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "label-md": ["EB Garamond"],
+                      "body-lg": ["EB Garamond"],
+                      "headline-lg": ["EB Garamond"],
+                      "headline-md": ["EB Garamond"],
+                      "body-md": ["EB Garamond"],
+                      "headline-lg-mobile": ["EB Garamond"],
+                      "display-lg": ["EB Garamond"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen text-on-background bg-background selection:bg-tertiary-fixed-dim/30">
+<!-- TopNavBar (Updated & Responsive) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/95 border-b border-outline-variant/20 backdrop-blur-md">
+<nav class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center py-4 md:py-6">
+<a class="font-display-lg text-display-lg tracking-tighter text-on-surface" href="#">
+<img alt="Ioana Balan Logo" class="h-10 md:h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6IwN93LivMTI2hijj0gDVaXbDwsOPeGnAJ_P9561ZQ629wyYKlu94JToYl37lThNo8sMf7CRzmtyhvjvf1_bgt2yG594zI52EGSpK7X-L67L4ne_wKksfhJDPYH_-iBxpiXPcCN9sJJyT4rivzYl_B0WmyDGwX7cYQkS15e8_Je8HNfdvBQjR3FX3hd_-S97JwmvP4cWT04vdtpNIhuHwsThg7zBxhq43cXpux_SS3wwpy6X6r5EjiyKrfBidoxkM9mR5upzNebGr">
+</a>
+<div class="hidden md:flex items-center gap-6 lg:gap-8"><a class="text-on-surface-variant font-label-md text-label-md pb-1 hover:text-primary transition-colors duration-300" href="/index.html">Acasă</a><a class="text-primary border-b border-primary font-label-md text-label-md pb-1" href="/galerie.html">Galerie</a><a class="text-on-surface-variant font-label-md text-label-md pb-1 hover:text-primary transition-colors duration-300" href="/discografie.html">Discografie</a><a class="text-on-surface-variant font-label-md text-label-md pb-1 hover:text-primary transition-colors duration-300" href="/servicii.html">Servicii</a><a class="text-on-surface-variant font-label-md text-label-md pb-1 hover:text-primary transition-colors duration-300" href="/oferte.html">Oferte</a><a class="text-on-surface-variant font-label-md text-label-md pb-1 hover:text-primary transition-colors duration-300" href="/contact.html">Contact</a></div>
+<div class="flex items-center gap-4 md:gap-6">
+<button class="hidden lg:block bg-on-error px-6 py-2 font-label-md text-label-md text-secondary-fixed hover:opacity-90 transition-all active:scale-95 duration-200 ease-in-out uppercase tracking-widest">
+                Rezervă Acum
+            </button>
+<button class="md:hidden text-primary p-2" id="menu-toggle">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Mobile Navigation Menu -->
+<div class="fixed inset-0 z-[60] bg-background md:hidden flex flex-col items-center justify-center gap-8 px-margin-mobile" id="mobile-menu">
+<button class="absolute top-6 right-6 text-primary" id="menu-close">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<a class="text-2xl font-headline-md text-primary" href="#">Acasă</a>
+<a class="text-2xl font-headline-md text-on-surface" href="#">Galerie</a>
+<a class="text-2xl font-headline-md text-on-surface-variant" href="#">Discografie</a>
+<a class="text-2xl font-headline-md text-on-surface-variant" href="#">Servicii</a>
+<a class="text-2xl font-headline-md text-on-surface-variant" href="#">Oferte</a>
+<a class="text-2xl font-headline-md text-on-surface-variant" href="#">Contact</a>
+<button class="mt-8 bg-on-error px-10 py-4 font-label-md text-label-md text-secondary-fixed uppercase tracking-widest">
+        Rezervă Acum
+    </button>
+</div>
+<main class="flex-grow pt-32 md:pt-40 pb-16 md:pb-24">
+<!-- Hero Section / Title -->
+<section class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop mb-12 md:mb-20 text-center">
+<span class="font-label-md text-label-md text-tertiary-fixed-dim uppercase mb-4 block tracking-widest">Arhivă Vizuală &amp; Portofoliu</span>
+<h1 class="font-display-lg text-3xl md:text-display-lg text-primary mb-4 md:mb-6">Galerie de Spectacole</h1>
+<p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-secondary max-w-3xl mx-auto opacity-80 px-4">
+            Descoperă cele mai frumoase <strong>imagini live formație nuntă</strong> și momente de la fiecare <strong>spectacol muzică populară</strong> susținut de Ioana Balan. O selecție curată de momente surprinse pe scenă.
+        </p>
+</section>
+<!-- Fully Responsive Flexible Grid Layout -->
+<section class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop mb-24 md:mb-32">
+<div class="flex justify-between items-end mb-8 md:mb-12">
+<div>
+<h2 class="font-headline-md md:font-headline-lg text-headline-md md:text-headline-lg text-on-surface mb-2">Momente și Portrete</h2>
+<div class="w-12 h-[1px] bg-tertiary-fixed-dim"></div>
+</div>
+</div>
+<!-- Adaptive Grid: 1 col Mobile, 2 cols Tablet, 3-4 cols Desktop -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Item 1 -->
+<div class="group relative aspect-square sm:aspect-[3/4] lg:col-span-2 lg:aspect-video overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan - Formatie Nunta Bucuresti - Live Performance" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXHgb54Q2C1w1pLhjBeoIdip-uTPHQ_fJVFjWo7D2ZQkHe5KOTah97-qpKOE_OVYgrSosIFp87frED0nhdoJsjla3w86scWKkAHyjIb0Oue708XL8Eq0Cu5F6PVC0TmBedxNGpiUqqHA8N7c6ErFO4xxH31cxpnEx3jSkSBsPd7f4ILbj9YhcfCY0GTVvd8X0r5XlP6P5bYwlT-WzXuRbZ1rwb8OC1VWM8SFSJhQgjOEFAGuvv6rfxgxX8kJmRTZW5JjnZPvxF9pHT">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 md:p-8">
+<p class="font-label-md text-label-md text-primary">Grand Music Events</p>
+<h3 class="font-headline-md text-headline-md text-white">Show Live Grand Music Events</h3>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan - Solista Muzica Populara Evenimente - Close-up" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaV--gs_ernZqfSxwVTUUKQHY95ZkIgT9cksywcCoUJdubsZZihX0GZRPFsEVuDafnJPmEKfvAeGbGgKW4DuXdE2PiaC0HPWFsaZDcybG9n2bselY2ORQ5Jhbe8tU1SLd9VbOwx9ZWwdUJepZilH9XcK9TZZBFTxClU5itbYEsLO7VbRWXuCr4ANG20wmdZ-olCBLg4qiN7TqTTqZvlfrDhdMbo-9RmwqfWqWvz99mPzJyjy9Kn4PnWmiuJK4rZ6VK4pPwkVFil8qZ">
+<div class="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-white text-4xl">fullscreen</span></div>
+</div>
+<!-- Item 3 -->
+<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan - Portret Artistic Tradițional" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIgWDMLs9w5T_D6aDaLXLpjNgWA3rPE2Ix1qJgeqd3kEJLemvIH_GUarAfE2XxwactvNVFcAo4N-nAISiHNXmP6xufr7U9YJXRiMzOJBEc3njV3JqgYz-5C2p403tK1DLlaZViFOVuOg7pWLe0scBDAECd4cbKvk3wx797dQcp2qsvWKIR1Bf7Hfb9MRFmb9yeqTniPE2-pvjyAtPppaHKTrR1xqrtG18C_Y5kwAC6lujsFlANUbfF5ruA3JNWlwRZ6amP7pgiZAfx">
+<div class="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-white text-4xl">fullscreen</span></div>
+</div>
+<!-- Item 4 -->
+<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan - Sesiune Foto Tematică - Formatie Nunta Preturi 2026" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpilmWRgE2--fumSEdeIk-bBaOWcz4I6CNH6sc-4yQOFHvCTK-J1gzswLz_kYZ5EIe34JhyB5O0AyYTTNOT76MR8ONQJdtGfnQEDT43c3YFtngLwMU0zj9w1YgwawI5w7E8v90lqVfiUP0mULTltl7UixFKbc8cmaQ06V0_WvJearSaAwGHn0gN3DzzEH_gBKpnTCezgOVHXsLFC3s0eEfz8fbuxqzmlPFoKOlL6eHWXcwzGExi2h8IzIynlQ0L-Mo7phODwGraGAf">
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
+<p class="font-label-md text-[10px] md:text-[12px] text-tertiary-fixed-dim uppercase tracking-widest">Sesiune Foto Tematică</p>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan - Spectacol Muzica Populara Live" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9heLLtFm6O4b6DV-jgKUdgUrzlkr4v4lS4Z52lxNjeNcU3zMkdg0QXQNn5WJUh-SqLUQDG1N4WNTXBLDDVXmserA_Qj7ae1VzQ9g2jfb9_dU7yGGdN3XCYVMiMHgxnXyG42HR2dsq6MihGN6RekKnUxGlo0zJZs2_7fOKjdRQX0-BnpQqRtNd2_nRucixetA9VXtg48F8LNV5aRnZ9QWtVTG-9wg5BZXGpBPckYXnYns4W5HG4fk9RH-xGdE1dv8hYEFAdLej6ypR">
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
+<p class="font-label-md text-[10px] md:text-[12px] text-tertiary-fixed-dim uppercase tracking-widest">Esența Autenticității</p>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan - Orchestră Live Nuntă" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIOTF7OrVSN8dvxOPEp6HUGjY_LVvC0DPyaBJGfveO6HeDGVJO7c3_Sz6oUcFndlVh5Jw2vvzfwYWejhrRLy1ecO4y5us3Khe_fsGzba4QEZ5qfYi7NQ7h0We5UoglwVPgdtQE_BDyGynlWz1-_zbZDM4bM7YL1gm0vyvJpqGvP2Pwaxk_9fQqWS_Gdkib3k6HBc6-6vajNUDmaGbN_4dd2fTEKHvQ94_E8mGPjooTSH_w5SUjKKKsnT0tdx19TrS7d3wE1pp5WfJx">
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
+<p class="font-label-md text-[10px] md:text-[12px] text-tertiary-fixed-dim uppercase tracking-widest">Gala Nunților</p>
+</div>
+</div>
+<!-- Item 7 -->
+<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan - Solista Muzica Populara Bucuresti" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvHhb7vH-FX4byAVOeBdUvm3B5sejgUUqk2UYOxpGFF6Rc5CA95oXXws0baCgFk4tLQNfHD-Ci3lVJ9uB_htmu6FtR2gpfBhYvNc_vbaO6oVE34vXJnYn3IdUFPy2H6hilBTKeIU6WJ9DQv8HsRx8kdOTTrpYG7pMvpJCxkYIpwCrxBh23Kpf3uQcUNcGHbbnaI5avly6Wf7T0xNd5oHO-txwDZJPFI0IJ_04pehkZWYN8-fBebuGMKxdzguLMpHMIPucoIFgIaXUJ">
+<div class="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-white text-4xl">fullscreen</span></div>
+</div>
+<!-- Item 8 -->
+<div class="group relative aspect-square sm:aspect-[3/4] lg:col-span-2 lg:aspect-video overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan - Formatie Nunta Preturi 2026 - Live Show" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_ahB4HELW75Mqd-M9sHhbsX2ueonIYOq1-8fzHKUhiURMInrgQBKObdYaW97ZqOSAcxJ6FUAx1zyE5lYuLjgDyJWyHtq8TXiXT3pKnBKGTKBOhunvuk2C22pUktO4WSeBumHLON2oaMpCjRFBxsBOD-o-ZRz06X1ypRNhW8xxgaV8IhWAcedgYq4dZL73c8hS-LicAbpUUe-Ih1FXQRoqlEqXR5jbKen9KGjxBFMhmH56w2oZj4UF4pO5nZpSSJW5b3rWoV6fbCqX">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 md:p-8">
+<p class="font-label-md text-label-md text-primary">Spectacol Autentic</p>
+<h3 class="font-headline-md text-headline-md text-white">Eleganța Tradiției Live</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- YouTube Highlights (Responsive) -->
+<section class="bg-surface-container-low py-16 md:py-24">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-baseline mb-12 md:mb-16 gap-6">
+<h2 class="font-headline-md md:font-headline-lg text-headline-md md:text-headline-lg text-on-surface">Clipuri YouTube</h2>
+<div class="flex flex-wrap gap-4 md:gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-sm">circle</span>
+<span class="font-label-md text-[12px] md:text-label-md text-secondary">Ioana Balan Oficial</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm">circle</span>
+<span class="font-label-md text-[12px] md:text-label-md text-secondary">Grand Music Events</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
+<!-- Video 1 -->
+<div class="flex flex-col gap-4 md:gap-6">
+<div class="relative aspect-video bg-surface-container-lowest border border-outline-variant/15 group cursor-pointer overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-500 scale-100 group-hover:scale-105" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida/ADBb0ujvf1_pIG3wnMmGgz0a34Fg8ae1P4YPNShBruR5VgNmLmt9STdApnGIWXSHFoasRRoGTts_Rg6fcT19QifmoBViXH51uuPKiEjBCdMzMiVzwUz7eQ93jr5Q8hXkBnrJrdw4fRbZoVCdRqPE0X1zGVvDzOcZTG1X0y88VTazd88HmVojUE2utAV8C69oj0l3DUL7PLUcTQ37st6pb00MGi87RFGuU56qSyMgjzJc3wdHDuYS-11OXKcgJPOn&quot;);"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-tertiary-fixed-dim flex items-center justify-center bg-background/20 backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-3xl md:text-4xl ml-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
+<span class="font-label-md text-[10px] md:text-[12px] text-tertiary-fixed-dim uppercase tracking-widest">Grand Music Events</span>
+</div>
+</div>
+<div class="px-1 md:px-2">
+<h3 class="font-headline-md text-xl md:text-headline-md text-primary mb-2">Gala Orchestrală Live - Opera Națională</h3>
+<p class="font-body-md text-sm md:text-body-md text-secondary opacity-70">O colaborare impresionantă cu Grand Orchestra, interpretând capodopere regionale pentru un public de elită.</p>
+</div>
+</div>
+<!-- Video 2 -->
+<div class="flex flex-col gap-4 md:gap-6">
+<div class="relative aspect-video bg-surface-container-lowest border border-outline-variant/15 group cursor-pointer overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-500 scale-100 group-hover:scale-105" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida/ADBb0ujy_0XfVvjjuiwuFxJnXpFysKtm3ZsLxUlloGdONx4Zp-oCGQG6gVv_bP1lYyBmbL1KUEB8WuPPJgFCW_-qszt5cgawbaolWnwdJ7c7L7oB2VwOe50GwUKcSfaIr3ScJdCMpL1oqXQEMCCifLuP-O2Mwtx7hjGo5j4O8ScCCUwH3X8l2eKiZGCgbkq6WXM75XBHisKLLQMyFKtUrr-TbTRV3EWswWt7CGTcLncT2vLKC_P-5Lo07PMt19E&quot;);"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-tertiary-fixed-dim flex items-center justify-center bg-background/20 backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-3xl md:text-4xl ml-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
+<span class="font-label-md text-[10px] md:text-[12px] text-tertiary-fixed-dim uppercase tracking-widest">Ioana Balan Oficial</span>
+</div>
+</div>
+<div class="px-1 md:px-2">
+<h3 class="font-headline-md text-xl md:text-headline-md text-primary mb-2">Videoclip Oficial - Dor de Sat</h3>
+<p class="font-body-md text-sm md:text-body-md text-secondary opacity-70">Explorând rădăcinile adânci ale dorului și tradiției în această producție cinematografică filmată în inima României.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Contact Teaser (Responsive) -->
+<section class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-32 border-t border-outline-variant/10">
+<div class="grid md:grid-cols-2 gap-12 md:gap-gutter items-center">
+<div class="text-center md:text-left">
+<h2 class="font-display-lg text-3xl md:text-display-lg text-primary mb-4 md:mb-6 leading-tight">Esența Tradiției în Imagini.</h2>
+<p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-secondary opacity-80 mb-8 md:mb-10 px-4 md:px-0">Rămâneți la curent cu ultimele mele spectacole și călătorii culturale prin țară. Rezervați acum o experiență muzicală autentică.</p>
+<button class="w-full sm:w-auto bg-on-error px-10 py-4 font-label-md text-label-md text-secondary-fixed hover:opacity-90 transition-all uppercase tracking-widest active:scale-95 duration-200 ease-in-out">Contact Evenimente</button>
+</div>
+<div class="relative h-64 md:h-96 border border-outline-variant/15 overflow-hidden">
+<img alt="Ioana Balan - Portret Sesiune Foto Cal" class="w-full h-full object-cover grayscale opacity-50" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqEHEU0WTd0S9BJiCpBdU-M8qmWm5QHGWhU90bIofswjEqp7g3VnIh6TfnUL0KPyafJLPMqe-lbleXbkn9VSapDkI_kyq33Oy0gEXKqF6St8zDARVhG_lRMhcwxoKTTFaQlXYb245sd0AGT0L5xHGr92UPrd6pQKIO1Q4_hNdKRQM7YYFhYMQ6CFHKfWOti8NgtkpRzwNWwCcCtHXZXg7dRHRpDs6jpTkatylDczIe3O0j5kLgvxAb7r2XFLiHmPdvcfBYWnx5THJz">
+<div class="absolute inset-0 flex items-center justify-center backdrop-grayscale p-4">
+<div class="text-center p-6 md:p-8 bg-background/80 border border-outline-variant/20 max-w-xs">
+<p class="font-label-md text-label-md text-primary mb-2">IOANA BALAN</p>
+<p class="font-body-md text-body-md text-secondary text-sm">Autenticitate în fiecare notă.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Responsive) -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="max-w-[1200px] mx-auto py-12 md:py-margin-desktop px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center md:items-start gap-10 md:gap-gutter">
+<div class="flex flex-col items-center md:items-start gap-4 text-center md:text-left">
+<span class="font-headline-md text-headline-md text-on-surface">IOANA BALAN</span>
+<p class="font-body-md text-body-md text-secondary opacity-80">© 2010-2026 Ioana Balan. Toate drepturile rezervate.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8 w-full md:w-auto">
+<div class="flex flex-col items-center md:items-start gap-3">
+<p class="font-label-md text-label-md text-primary mb-1 uppercase tracking-widest">Social</p>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors duration-200 opacity-80 hover:opacity-100" href="https://www.facebook.com/ioanabalan" target="_blank">Facebook</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors duration-200 opacity-80 hover:opacity-100" href="https://tiktok.com/@ioanabalanmusic" target="_blank">TikTok</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors duration-200 opacity-80 hover:opacity-100" href="https://instagram.com/@iamioanabalan" target="_blank">Instagram</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors duration-200 opacity-80 hover:opacity-100" href="https://www.youtube.com/@BalanIoana" target="_blank">YouTube</a>
+</div>
+<div class="flex flex-col items-center md:items-start gap-3">
+<p class="font-label-md text-label-md text-primary mb-1 uppercase tracking-widest">Parteneri</p>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors duration-200 opacity-80 hover:opacity-100" href="https://grand-music.ro" target="_blank">Grand Music</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors duration-200 opacity-80 hover:opacity-100" href="https://oferta-nunta.ro" target="_blank">Oferta Nunta</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors duration-200 opacity-80 hover:opacity-100" href="https://muzica-nunta.ro" target="_blank">Muzica Nunta</a>
+</div>
+<div class="flex flex-col items-center md:items-start gap-3 md:text-left">
+<p class="font-label-md text-label-md text-primary mb-1 uppercase tracking-widest">Contact</p>
+<a class="text-secondary font-label-md text-label-md hover:text-on-surface transition-colors duration-200" href="mailto:ioanablanoficial@gmail.com">ioanablanoficial@gmail.com</a>
+<span class="text-secondary font-label-md text-label-md">0722 911 485</span>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors duration-200 opacity-80 mt-2" href="/termeni.html">Termeni și Condiții</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // Mobile menu toggle logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    menuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+
+    // Fixed header transparency on scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('bg-surface/98', 'shadow-xl');
+        } else {
+            header.classList.remove('bg-surface/98', 'shadow-xl');
+        }
+    });
+
+    // Lazy loading for all images is enabled via 'loading="lazy"' attribute
+</script>
+
+
+
+
+</body></html>

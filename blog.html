@@ -1,0 +1,339 @@
+<!-- Blog - Sfaturi și Inspirație - Ioana Balan -->
+<!DOCTYPE html><html class="dark" lang="ro" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Blog | Ioana Balan - Sfaturi și Inspirație pentru Evenimente Memorabile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-error": "#690005",
+                    "secondary": "#c6c6c6",
+                    "on-primary-fixed": "#1c1b1b",
+                    "inverse-surface": "#e5e2e1",
+                    "background": "#131313",
+                    "primary": "#c8c6c5",
+                    "inverse-on-surface": "#313030",
+                    "on-secondary-container": "#b8b8b8",
+                    "tertiary-container": "#2f0004",
+                    "surface-bright": "#393939",
+                    "surface-variant": "#353535",
+                    "surface": "#131313",
+                    "primary-container": "#121212",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "inverse-primary": "#5f5e5e",
+                    "surface-container-highest": "#353535",
+                    "on-tertiary-fixed": "#410007",
+                    "surface-dim": "#131313",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary-fixed-dim": "#ffb3b1",
+                    "on-secondary": "#2f3131",
+                    "error": "#ffb4ab",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e5e2e1",
+                    "tertiary": "#ffb3b1",
+                    "primary-fixed": "#e5e2e1",
+                    "on-primary-container": "#7e7d7d",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "outline-variant": "#444748",
+                    "secondary-container": "#484949",
+                    "on-tertiary-container": "#c95a5c",
+                    "secondary-fixed": "#e3e2e2",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-secondary-fixed-variant": "#464747",
+                    "surface-tint": "#c8c6c5",
+                    "on-tertiary": "#630d16",
+                    "on-primary": "#313030",
+                    "error-container": "#93000a",
+                    "on-surface-variant": "#c4c7c7",
+                    "on-tertiary-fixed-variant": "#82252a",
+                    "outline": "#8e9192",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-fixed": "#ffdad8",
+                    "surface-container": "#20201f",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-surface": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "unit": "8px",
+                    "max-width": "1200px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": ["EB Garamond"],
+                    "label-md": ["EB Garamond"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "headline-lg": ["EB Garamond"],
+                    "headline-md": ["EB Garamond"],
+                    "body-md": ["EB Garamond"],
+                    "body-lg": ["EB Garamond"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .ghost-border {
+            border: 1px solid rgba(227, 226, 222, 0.15);
+        }
+        .burgundy-btn {
+            background-color: #410007;
+            color: #c6c6c6;
+            transition: all 0.3s ease;
+        }
+        .burgundy-btn:hover {
+            background-color: #630d16;
+            transform: translateY(-1px);
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-tertiary-container selection:text-tertiary">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface border-b border-outline-variant/20 z-50">
+<nav class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-desktop h-20">
+<div class="flex items-center h-full py-4"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwWNAbQCfZG1NlEzFNNzW90rdz1ljqcyKBkpQZYt9iUqMn8fmohH2SXsXcWJR7dZG_ODLro3HT1CddD4XoK7F0wOQGJWbNEhuu7CZ0PP7uJ3RMzVAnQ0bI4ldqK_KRkh8y-JXxJutnrlZp0VMZ-AWTTk67-mU-goUy70SRM6490SmvHKBAxRfDew2Y5b1itMfRBXTOHD4jTk-03sTRgAAnuST7i8LjoqValRFFIKMN1zaA3UfDE4cP6WDM3eCVjWEaazwQMu17MaWn" alt="Ioana Balan Signature" class="h-full w-auto object-contain"></div>
+<div class="hidden md:flex items-center space-x-8"><a class="font-body-lg text-body-lg uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Acasă</a><a class="font-body-lg text-body-lg uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Galerie</a><a class="font-body-lg text-body-lg uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Discografie</a><a class="font-body-lg text-body-lg uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Servicii</a><a class="font-body-lg text-body-lg uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Oferte</a><a class="font-body-lg text-body-lg uppercase tracking-widest text-primary border-b-2 border-primary pb-1" href="#">Blog</a><a class="font-body-lg text-body-lg uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Contact</a></div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">language</span>
+<button class="md:hidden material-symbols-outlined text-on-surface">menu</button>
+</div>
+</nav>
+</header>
+<main class="max-w-[1200px] mx-auto px-margin-desktop py-16">
+<!-- Hero Section -->
+<section class="mb-20 text-center md:text-left">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+<div class="md:col-span-8">
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] text-tertiary mb-4 block">Articol &amp; Inspirație</span>
+<h1 class="font-display-lg text-[56px] leading-[1.1] text-on-surface mb-6">Sfaturi și Inspirație pentru Evenimente Memorabile</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Descoperă secretele unei petreceri reușite, de la alegerea repertoriului muzical până la planificarea logistică pentru nunți și botezuri de lux.</p>
+</div>
+<div class="hidden md:block md:col-span-4 text-right">
+<div class="inline-flex items-center gap-2 text-on-surface-variant border-b border-outline-variant/30 pb-2 cursor-pointer hover:text-on-surface transition-colors">
+<span class="font-label-md text-label-md uppercase">Caută în Arhivă</span>
+<span class="material-symbols-outlined">search</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Layout: Grid + Sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Blog Posts Grid (Main Content) -->
+<div class="lg:col-span-9 space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Post 1 -->
+<article class="flex flex-col bg-surface-container-low ghost-border overflow-hidden group">
+<div class="relative aspect-[1.5] overflow-hidden">
+<img alt="Blog cover" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoBfVxbpbLwd8oOS9fcbY3VG2xcMqEsILUyHRPZL2HGfmcRU2Iy_xt-0c2exF2cyM26pRA1vJCPZJNxX1yNSM0LdiHUeJcjqnquUhDq9D-yzVJ7g86qF5cyeJgmuIKcGDlR9C-DK0tZfsSifglCcE6kDU8nrqtZAy3LaaAOrkdnDwcSs3FwCqlrjlvueog_2q_DriR5hi0nGImVvtGFViSRQpvFQBkK6UXdnva0evj1YgQGfxcU-CLxRTC8rD9UVQAyZZKHb0kaP3T">
+<div class="absolute top-4 left-4 bg-tertiary-container px-3 py-1">
+<span class="font-label-md text-[10px] uppercase text-on-tertiary-container tracking-widest">Sfaturi Muzicale</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">Cum să alegi formația de nuntă perfectă în 2026</h2>
+<p class="font-body-md text-on-surface-variant mb-8 line-clamp-2">Planificarea unei nunți începe cu muzica. Află care sunt criteriile esențiale pentru a selecta o formatie nunta Bucuresti care să mențină ringul plin toată noaptea.</p>
+<div class="mt-auto">
+<a class="inline-block font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary/40 pb-1 hover:border-primary transition-all" href="{{DATA:DOCUMENT:DOCUMENT_7}}" data-stitch-orig-opacity="0">Citește Articolul Complet</a>
+</div>
+</div>
+</article>
+<!-- Post 2 -->
+<article class="flex flex-col bg-surface-container-low ghost-border overflow-hidden group">
+<div class="relative aspect-[1.5] overflow-hidden">
+<img alt="Blog cover" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzMGvKb7e2k18lnK_KbLffu6TPAxexJ2jYfc-xPIHKDEKe6mv5dcB-DUerJxvuhPH2tqzeRzH9GRfZgBWI8IHCNTzf9fIPDrKSrz9uIJxV_6Rd2beayKu26myDkfdwInPeddrkXytrbYGtyZu8410xFOBWUkI6g_GDLPGwtcpCIL5lnA8tK0AM9ZvxgVI8vjyfNg7grOS758Niyrtw8Hj93mk-IZF4D74kLctEGsTXo9GQOTZ0kL7MiV4eRkDfx-biTC69msfFVoNS">
+<div class="absolute top-4 left-4 bg-tertiary-container px-3 py-1">
+<span class="font-label-md text-[10px] uppercase text-on-tertiary-container tracking-widest">Botezuri</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">Muzica populară vs. Muzica ușoară la botez</h2>
+<p class="font-body-md text-on-surface-variant mb-8 line-clamp-2">Dilema oricărui părinte: tradiție sau modernism? Analizăm cum un solist muzica usoara poate completa perfect momentele de folclor autentic.</p>
+<div class="mt-auto">
+<a class="inline-block font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary/40 pb-1 hover:border-primary transition-all" href="{{DATA:DOCUMENT:DOCUMENT_7}}" data-stitch-orig-opacity="0">Citește Articolul Complet</a>
+</div>
+</div>
+</article>
+<!-- Post 3 -->
+<article class="flex flex-col bg-surface-container-low ghost-border overflow-hidden group">
+<div class="relative aspect-[1.5] overflow-hidden">
+<img alt="Blog cover" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZCcahK1qj04R-u8ATJxsrfqIwTleawah9K0-I_PexGQILNoO8wfrnu7pYce0FnJm177SP2OAOkC8BaslUvcLfaLLPVtTo-DOgKf2eVuySd6HCWYviwieQvfi2YugFDVJaBN9Kk6yz32EQ51FdC4oBEPMszU4YV0Ig168VruEsEm_ls-yfLJ9lQIyEhVGoc6FMzAG1z1X71qJLHWQ72wL5d-fQQWFkyYH7pvYiY648ReSpW8enOYvDpsy5sJAOURqRhiSrfjqofYxI">
+<div class="absolute top-4 left-4 bg-tertiary-container px-3 py-1">
+<span class="font-label-md text-[10px] uppercase text-on-tertiary-container tracking-widest">Nunți</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">Repertoriul de muzica populara nunta: Tendințe actuale</h2>
+<p class="font-body-md text-on-surface-variant mb-8 line-clamp-2">Folclorul rămâne inima petrecerilor românești. Descoperă piesele care nu trebuie să lipsească din programul artistic al serii tale speciale.</p>
+<div class="mt-auto">
+<a class="inline-block font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary/40 pb-1 hover:border-primary transition-all" href="{{DATA:DOCUMENT:DOCUMENT_7}}" data-stitch-orig-opacity="0">Citește Articolul Complet</a>
+</div>
+</div>
+</article>
+<!-- Post 4 -->
+<article class="flex flex-col bg-surface-container-low ghost-border overflow-hidden group">
+<div class="relative aspect-[1.5] overflow-hidden">
+<img alt="Blog cover" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIStF95eIBJaPWe_kngGgij2TNFaUA3BrSlSQV4hy4PU9mdZesdif7lTZDd0cHCxIIP3oKay9WvHURQh_Ko04k7uI9WSaJe8ulZVW3CReY2XDKb3pInXG31xCKdshgq2wI647GdLTj0sKNiVt6gNzajKM1Ck2qXDkvHlReXz2tV01RL5oD_F4XuRtKILGD7pYUgybtY0jOAwrAPhy9QwV6lVFjMcSZVgk3nEJb1unb50w2uNmdHk9FNvVElWyJ3j5jhxQ8wLPFaZMr">
+<div class="absolute top-4 left-4 bg-tertiary-container px-3 py-1">
+<span class="font-label-md text-[10px] uppercase text-on-tertiary-container tracking-widest">Evenimente Private</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">Cum transformi un eveniment privat într-un spectacol premium</h2>
+<p class="font-body-md text-on-surface-variant mb-8 line-clamp-2">De la sunet de înaltă fidelitate la prezență scenică impecabilă, micile detalii fac diferența între o petrecere obișnuită și una memorabilă.</p>
+<div class="mt-auto">
+<a class="inline-block font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary/40 pb-1 hover:border-primary transition-all" href="{{DATA:DOCUMENT:DOCUMENT_7}}" data-stitch-orig-opacity="0">Citește Articolul Complet</a>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center pt-12">
+<nav class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center ghost-border text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<span class="font-label-md text-label-md px-4 py-2 bg-primary text-on-primary">1</span>
+<a class="font-label-md text-label-md px-4 py-2 hover:bg-surface-container-high transition-colors" href="#">2</a>
+<a class="font-label-md text-label-md px-4 py-2 hover:bg-surface-container-high transition-colors" href="#">3</a>
+<button class="w-10 h-10 flex items-center justify-center ghost-border text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+<!-- Sidebar -->
+<aside class="lg:col-span-3 space-y-12">
+<!-- Categories -->
+<section>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant border-b border-outline-variant/30 pb-4 mb-6">Categorii</h3>
+<ul class="space-y-4">
+<li class="">
+<a class="flex justify-between items-center group" href="#">
+<span class="font-body-lg text-on-surface group-hover:text-primary transition-colors">Nunți</span>
+<span class="font-label-md text-on-surface-variant opacity-50 group-hover:opacity-100 transition-opacity">12</span>
+</a>
+</li>
+<li class="">
+<a class="flex justify-between items-center group" href="#">
+<span class="font-body-lg text-on-surface group-hover:text-primary transition-colors">Botezuri</span>
+<span class="font-label-md text-on-surface-variant opacity-50 group-hover:opacity-100 transition-opacity">08</span>
+</a>
+</li>
+<li class="">
+<a class="flex justify-between items-center group" href="#">
+<span class="font-body-lg text-on-surface group-hover:text-primary transition-colors">Evenimente Private</span>
+<span class="font-label-md text-on-surface-variant opacity-50 group-hover:opacity-100 transition-opacity">05</span>
+</a>
+</li>
+<li class="">
+<a class="flex justify-between items-center group" href="#">
+<span class="font-body-lg text-on-surface group-hover:text-primary transition-colors">Sfaturi Muzicale</span>
+<span class="font-label-md text-on-surface-variant opacity-50 group-hover:opacity-100 transition-opacity">14</span>
+</a>
+</li>
+</ul>
+</section>
+<!-- Newsletter / Call to Action -->
+<section class="bg-tertiary-container p-8">
+<h3 class="font-headline-md text-headline-md text-on-tertiary-container mb-4">Primește Noutăți</h3>
+<p class="font-body-md text-on-tertiary-container mb-6 opacity-80">Abonează-te pentru a primi ghiduri exclusive și oferte speciale direct în inbox.</p>
+<form class="space-y-4">
+<input class="w-full bg-transparent border-0 border-b border-on-tertiary-container/30 focus:ring-0 focus:border-on-tertiary-container py-2 text-on-tertiary-container placeholder:text-on-tertiary-container/50 font-body-md" placeholder="Email-ul tău" type="email">
+<button class="w-full burgundy-btn py-3 font-label-md text-label-md uppercase tracking-widest" type="submit">Abonează-te</button>
+</form>
+</section>
+<!-- Tags -->
+<section>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant border-b border-outline-variant/30 pb-4 mb-6">Tag-uri SEO</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 ghost-border font-label-md text-[11px] text-on-surface-variant hover:border-primary transition-colors cursor-pointer">formatie nunta Bucuresti</span>
+<span class="px-3 py-1 ghost-border font-label-md text-[11px] text-on-surface-variant hover:border-primary transition-colors cursor-pointer">muzica populara nunta</span>
+<span class="px-3 py-1 ghost-border font-label-md text-[11px] text-on-surface-variant hover:border-primary transition-colors cursor-pointer">solist muzica usoara</span>
+<span class="px-3 py-1 ghost-border font-label-md text-[11px] text-on-surface-variant hover:border-primary transition-colors cursor-pointer">repertoriu botez</span>
+<span class="px-3 py-1 ghost-border font-label-md text-[11px] text-on-surface-variant hover:border-primary transition-colors cursor-pointer">premium events</span>
+</div>
+</section>
+</aside>
+</div>
+</main>
+<!-- SideNavBar / Floating Concierge -->
+<div class="fixed bottom-8 right-8 z-50 flex items-center justify-center">
+<a class="fixed bottom-8 right-8 rounded-full p-4 bg-tertiary-container dark:bg-tertiary-container text-on-tertiary-container dark:text-on-tertiary-container shadow-xl hover:scale-110 hover:bg-tertiary transition-transform active:scale-90 duration-200 flex items-center gap-3" href="https://wa.me/407xxxxxxxx" target="_blank">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<div class="hidden lg:block text-left">
+<p class="font-label-md text-label-md leading-none">WhatsApp Assistant</p>
+<p class="text-[10px] opacity-70">Concierge Support</p>
+</div>
+</a>
+</div>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/10 mt-20">
+<div class="max-w-[1200px] mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="text-center md:text-left mb-8 md:mb-0">
+<div class="font-display-lg text-display-lg text-on-surface mb-2">Ioana Balan</div>
+<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim opacity-80">© 2024 Ioana Balan. High-End Event Artistry.</p>
+</div>
+<div class="flex gap-8 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Cookie Settings</a>
+</div>
+<div class="flex gap-6 mt-8 md:mt-0">
+<span class="material-symbols-outlined text-secondary hover:text-primary transition-colors cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-secondary hover:text-primary transition-colors cursor-pointer">video_library</span>
+<span class="material-symbols-outlined text-secondary hover:text-primary transition-colors cursor-pointer">music_note</span>
+</div>
+</div>
+</footer>
+<script>
+        // Optional micro-interactions
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'rgba(200, 198, 197, 0.4)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(227, 226, 222, 0.15)';
+            });
+        });
+    </script>
+
+
+</body></html>
