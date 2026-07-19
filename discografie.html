@@ -127,13 +127,6 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(142, 145, 146, 0.15);
         }
-        #mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        #mobile-menu.active {
-            transform: translateX(0);
-        }
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
@@ -157,35 +150,46 @@
 <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 font-label-md text-[12px] md:text-label-md uppercase whitespace-nowrap hidden sm:inline">Salut! Scrie-mi pe WhatsApp</span>
 </a>
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-outline-variant/20">
-<div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-margin-desktop flex justify-between items-center h-20">
-<a class="text-headline-md font-headline-md tracking-widest text-primary" href="index.html" title="Ioana Balan - Pagina Principală">IOANA BALAN</a>
-<!-- Desktop Nav -->
-<nav class="hidden md:flex items-center gap-10">
-<a class="text-secondary-fixed dark:text-secondary-fixed-dim font-label-md text-label-md hover:text-primary transition-colors duration-300" href="index.html">Acasă</a>
-<a class="text-secondary-fixed dark:text-secondary-fixed-dim font-label-md text-label-md hover:text-primary transition-colors duration-300" href="galerie.html">Galerie</a>
-<a class="text-primary font-bold border-b border-primary pb-1 font-label-md text-label-md" href="discografie.html">Discografie</a>
-<a class="text-secondary-fixed dark:text-secondary-fixed-dim font-label-md text-label-md hover:text-primary transition-colors duration-300" href="servicii.html">Servicii</a>
-<a class="text-secondary-fixed dark:text-secondary-fixed-dim font-label-md text-label-md hover:text-primary transition-colors duration-300" href="oferte.html">Oferte</a>
-<a class="text-secondary-fixed dark:text-secondary-fixed-dim font-label-md text-label-md hover:text-primary transition-colors duration-300" href="contact.html">Contact</a>
+<!-- TopNavBar (canonic) -->
+<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-outline-variant/20 h-16 md:h-20">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-full">
+<a aria-label="Ioana Balan Home" class="shrink-0" href="index.html">
+<img alt="Ioana Balan Signature Logo" class="h-8 md:h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P">
+</a>
+<nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="index.html">Acasă</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="galerie.html">Galerie</a>
+<a class="text-primary border-b border-primary pb-1 font-label-md text-label-md uppercase" href="discografie.html">Discografie</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="servicii.html">Servicii</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="oferte.html">Oferte</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="contact.html">Contact</a>
 </nav>
-<!-- Mobile Menu Toggle -->
-<button aria-label="Deschide meniul" class="md:hidden text-primary p-2" id="menu-toggle">
-<span class="material-symbols-outlined text-[32px]">menu</span>
+<div class="flex items-center gap-4">
+<a href="contact.html" class="hidden lg:block bg-primary text-on-primary px-6 py-2 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-all">Rezervă Acum</a>
+<button aria-label="Deschide Meniu" class="lg:hidden text-primary p-2" id="menu-toggle">
+<span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
+</div>
 </header>
-<!-- Mobile Navigation Overlay -->
-<div class="fixed inset-0 bg-background z-[60] md:hidden flex flex-col items-center justify-center gap-8" id="mobile-menu">
-<button class="absolute top-6 right-6 text-primary p-2" id="menu-close">
-<span class="material-symbols-outlined text-[36px]">close</span>
+<!-- Mobile Side Drawer (canonic) -->
+<div class="fixed inset-0 z-[60] bg-background translate-x-full transition-transform duration-300 lg:hidden" id="mobile-menu">
+<div class="flex flex-col h-full p-8">
+<div class="flex justify-between items-center mb-12">
+<img alt="Ioana Balan Signature Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P">
+<button aria-label="Închide Meniu" class="text-primary" id="menu-close">
+<span class="material-symbols-outlined text-4xl">close</span>
 </button>
-<a class="text-headline-md font-headline-md text-secondary-fixed" href="index.html" onclick="toggleMenu()">Acasă</a>
-<a class="text-headline-md font-headline-md text-secondary-fixed" href="galerie.html" onclick="toggleMenu()">Galerie</a>
-<a class="text-headline-md font-headline-md text-primary" href="discografie.html" onclick="toggleMenu()">Discografie</a>
-<a class="text-headline-md font-headline-md text-secondary-fixed" href="servicii.html" onclick="toggleMenu()">Servicii</a>
-<a class="text-headline-md font-headline-md text-secondary-fixed" href="oferte.html" onclick="toggleMenu()">Oferte</a>
-<a class="text-headline-md font-headline-md text-secondary-fixed" href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+<nav class="flex flex-col gap-6 text-center">
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="index.html">Acasă</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="galerie.html">Galerie</a>
+<a class="text-headline-md font-headline-md text-primary uppercase" href="discografie.html">Discografie</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="servicii.html">Servicii</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="oferte.html">Oferte</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase bg-primary text-on-primary py-4 mt-4" href="contact.html">Contact</a>
+</nav>
+</div>
 </div>
 <main class="pt-24 sm:pt-32 pb-24">
 <!-- Featured Album Hero -->
@@ -358,18 +362,23 @@
 </div>
 </footer>
 <script>
-    // Responsive Menu Logic
+    // Mobile Menu Logic (canonic)
     const menuToggle = document.getElementById('menu-toggle');
     const menuClose = document.getElementById('menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
-
-    function toggleMenu() {
-        mobileMenu.classList.toggle('active');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+    const toggleMenu = () => {
+        mobileMenu.classList.toggle('translate-x-full');
         document.body.classList.toggle('overflow-hidden');
-    }
-
+    };
     menuToggle.addEventListener('click', toggleMenu);
     menuClose.addEventListener('click', toggleMenu);
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.classList.remove('overflow-hidden');
+        });
+    });
 
     // Micro-interactions for album list hover
     document.querySelectorAll('li').forEach(item => {

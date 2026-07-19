@@ -155,13 +155,6 @@
         .whatsapp-float:hover {
             transform: scale(1.1);
         }
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%);
-        }
-        #mobile-menu.open {
-            transform: translateX(0);
-        }
     </style>
 <script type="application/ld+json">
     {
@@ -198,43 +191,45 @@
 <svg fill="currentColor" height="32" viewBox="0 0 24 24" width="32"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.412 2.503 1.112 3.485l-1.145 4.225 4.316-1.13c.928.528 1.996.828 3.135.828a5.75 5.75 0 0 0 5.768-5.765c0-3.181-2.587-5.769-5.818-5.769zm3.392 8.244c-.144.405-.837.778-1.148.822-.248.035-.576.062-1.423-.285-1.235-.506-2.008-1.74-2.07-1.821-.06-.083-.497-.661-.497-1.261 0-.599.313-.894.425-1.013.11-.12.242-.149.32-.149.078 0 .157.001.226.004.072.003.17-.027.266.204.098.238.336.818.365.878.03.06.049.129.01.208-.039.079-.059.129-.119.198-.06.069-.12.153-.172.205-.058.058-.118.121-.051.236.068.115.3.495.644.799.444.392.818.514.933.571.115.057.183.048.252-.03.068-.079.293-.341.371-.457.078-.115.157-.097.265-.057s.684.322.802.381c.117.058.196.088.225.138.03.05.03.287-.114.692zM12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1z"></path></svg>
 </a>
 <!-- TopNavBar -->
-<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-6 md:px-margin-desktop py-4 md:py-6 backdrop-blur-md bg-surface/90 border-b border-outline-variant/10">
-<a class="flex items-center" href="#">
-<img alt="Ioana Balan Logo" class="h-8 md:h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P">
+<!-- TopNavBar (canonic) -->
+<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-outline-variant/20 h-16 md:h-20">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-full">
+<a aria-label="Ioana Balan Home" class="shrink-0" href="index.html">
+<img alt="Ioana Balan Signature Logo" class="h-8 md:h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P">
 </a>
-<!-- Desktop Menu -->
-<div class="hidden lg:flex gap-8 items-center">
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="index.html">Acasă</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="galerie.html">Galerie</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="discografie.html">Discografie</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="servicii.html">Servicii</a>
-<a class="text-primary border-b border-primary font-label-md text-label-md" href="oferte.html">Oferte</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="contact.html">Contact</a>
-</div>
-<div class="flex items-center gap-4">
-<a href="contact.html" class="hidden sm:block bg-primary text-on-primary px-5 py-2 font-label-md text-label-md uppercase tracking-widest hover:bg-on-surface hover:text-background transition-all">Rezervă</a>
-<!-- Mobile Toggle -->
-<button aria-label="Menu" class="lg:hidden text-on-surface p-2" id="menu-toggle">
-<span class="material-symbols-outlined text-3xl" data-icon="menu">menu</span>
-</button>
-</div>
+<nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="index.html">Acasă</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="galerie.html">Galerie</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="discografie.html">Discografie</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="servicii.html">Servicii</a>
+<a class="text-primary border-b border-primary pb-1 font-label-md text-label-md uppercase" href="oferte.html">Oferte</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="contact.html">Contact</a>
 </nav>
-<!-- Mobile Menu Overlay -->
-<div class="fixed inset-0 z-[110] bg-surface-container flex flex-col p-8 lg:hidden" id="mobile-menu">
-<div class="flex justify-between items-center mb-12">
-<img alt="Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P">
-<button class="text-on-surface p-2" id="menu-close">
-<span class="material-symbols-outlined text-3xl" data-icon="close">close</span>
+<div class="flex items-center gap-4">
+<a href="contact.html" class="hidden lg:block bg-primary text-on-primary px-6 py-2 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-all">Rezervă Acum</a>
+<button aria-label="Deschide Meniu" class="lg:hidden text-primary p-2" id="menu-toggle">
+<span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
-<div class="flex flex-col gap-6 text-center">
-<a class="text-2xl font-display-lg" href="index.html">Acasă</a>
-<a class="text-2xl font-display-lg" href="galerie.html">Galerie</a>
-<a class="text-2xl font-display-lg" href="discografie.html">Discografie</a>
-<a class="text-2xl font-display-lg" href="servicii.html">Servicii</a>
-<a class="text-2xl font-display-lg text-primary" href="oferte.html">Oferte</a>
-<a class="text-2xl font-display-lg" href="contact.html">Contact</a>
-<a href="contact.html" class="mt-8 bg-primary text-on-primary py-4 font-label-md text-label-md uppercase tracking-widest">Rezervă Acum</a>
+</div>
+</header>
+<!-- Mobile Side Drawer (canonic) -->
+<div class="fixed inset-0 z-[60] bg-background translate-x-full transition-transform duration-300 lg:hidden" id="mobile-menu">
+<div class="flex flex-col h-full p-8">
+<div class="flex justify-between items-center mb-12">
+<img alt="Ioana Balan Signature Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P">
+<button aria-label="Închide Meniu" class="text-primary" id="menu-close">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-6 text-center">
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="index.html">Acasă</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="galerie.html">Galerie</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="discografie.html">Discografie</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="servicii.html">Servicii</a>
+<a class="text-headline-md font-headline-md text-primary uppercase" href="oferte.html">Oferte</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase bg-primary text-on-primary py-4 mt-4" href="contact.html">Contact</a>
+</nav>
 </div>
 </div>
 <main class="pt-20 lg:pt-32">
@@ -486,20 +481,23 @@
 </div>
 </footer>
 <script>
-        // Hamburger Menu Logic
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('open');
-            document.body.style.overflow = 'hidden';
+    // Mobile Menu Logic (canonic)
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+    const toggleMenu = () => {
+        mobileMenu.classList.toggle('translate-x-full');
+        document.body.classList.toggle('overflow-hidden');
+    };
+    menuToggle.addEventListener('click', toggleMenu);
+    menuClose.addEventListener('click', toggleMenu);
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.classList.remove('overflow-hidden');
         });
-
-        menuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-        });
+    });
 
         // Accordion Logic
         document.querySelectorAll('.accordion-item').forEach(item => {
@@ -521,13 +519,6 @@
             });
         });
 
-        // Close mobile menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        });
     </script>
 
 

@@ -135,10 +135,6 @@
                 right: 40px;
             }
         }
-        /* Mobile Menu State */
-        #mobile-menu.active {
-            transform: translateX(0);
-        }
     </style>
 </head>
 <body class="font-body-md text-body-md overflow-x-hidden">
@@ -150,31 +146,33 @@
 <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 font-label-md text-[12px] md:text-label-md uppercase whitespace-nowrap hidden sm:inline">Salut! Scrie-mi pe WhatsApp</span>
 </a>
 <!-- TopNavBar -->
+<!-- TopNavBar (canonic) -->
 <header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-outline-variant/20 h-16 md:h-20">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-full">
-<a aria-label="Ioana Balan Home" class="text-headline-md font-headline-md tracking-widest text-primary shrink-0" href="/">
-<img alt="Ioana Balan Signature Logo - Solistă Muzică de Petrecere" class="h-8 md:h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P">
+<a aria-label="Ioana Balan Home" class="shrink-0" href="index.html">
+<img alt="Ioana Balan Signature Logo" class="h-8 md:h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P">
 </a>
-<!-- Desktop Nav -->
 <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
 <a class="text-primary border-b border-primary pb-1 font-label-md text-label-md uppercase" href="index.html">Acasă</a>
 <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="galerie.html">Galerie</a>
 <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="discografie.html">Discografie</a>
 <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="servicii.html">Servicii</a>
 <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="oferte.html">Oferte</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase border border-outline px-6 py-2" href="contact.html">Contact</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="contact.html">Contact</a>
 </nav>
-<!-- Mobile Menu Toggle -->
+<div class="flex items-center gap-4">
+<a href="contact.html" class="hidden lg:block bg-primary text-on-primary px-6 py-2 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-all">Rezervă Acum</a>
 <button aria-label="Deschide Meniu" class="lg:hidden text-primary p-2" id="menu-toggle">
 <span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
+</div>
 </header>
-<!-- Mobile Side Drawer -->
+<!-- Mobile Side Drawer (canonic) -->
 <div class="fixed inset-0 z-[60] bg-background translate-x-full transition-transform duration-300 lg:hidden" id="mobile-menu">
 <div class="flex flex-col h-full p-8">
 <div class="flex justify-between items-center mb-12">
-<img alt="Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P">
+<img alt="Ioana Balan Signature Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P">
 <button aria-label="Închide Meniu" class="text-primary" id="menu-close">
 <span class="material-symbols-outlined text-4xl">close</span>
 </button>
@@ -405,20 +403,6 @@
 </div>
 </footer>
 <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 20) {
-                header.classList.add('bg-background');
-                header.classList.remove('bg-background/95');
-                header.classList.add('shadow-lg');
-            } else {
-                header.classList.remove('bg-background');
-                header.classList.add('bg-background/95');
-                header.classList.remove('shadow-lg');
-            }
-        });
-
         // Mobile Menu Logic
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
