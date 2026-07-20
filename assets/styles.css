@@ -57,13 +57,38 @@ body {
   background: linear-gradient(90deg, transparent, rgba(142, 145, 146, 0.2), transparent);
 }
 
+/* Broderia — ancora vizuală (CLAUDE.md §6) --------------------------------
+   Un singur asset (assets/motifs.svg) în trei roluri: separator de secțiune,
+   marcaj de listă, textură de fundal. Definit o singură dată, aici. */
+
+/* Separator de secțiune: bandă de motive repetate în locul liniei hairline */
+.motif-separator {
+  height: 16px;
+  background-image: url('motifs.svg');
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: 0.18;
+}
+
+/* Marcaj de listă: un motiv, aliniat la prima linie de text (fără poziționare absolută) */
+.motif-list > li {
+  padding-left: 26px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M8 2 L14 8 L8 14 L2 8 Z' stroke='%23800020' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 0.2em;
+  background-size: 14px 14px;
+}
+
+/* Textură de fundal: același motiv, foarte discret */
+.motif-texture {
+  background-image: url('motifs.svg');
+  background-repeat: repeat;
+  opacity: 0.04;
+}
+
 /* Efecte de fundal -------------------------------------------------------- */
 .cinematic-vignette {
   background: radial-gradient(circle, transparent 20%, rgba(19, 19, 19, 0.8) 100%);
-}
-.motif-overlay {
-  background-image: radial-gradient(circle at 2px 2px, rgba(200, 198, 197, 0.05) 1px, transparent 0);
-  background-size: 32px 32px;
 }
 
 /* Layout ------------------------------------------------------------------ */

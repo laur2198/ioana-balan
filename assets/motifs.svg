@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="16" viewBox="0 0 48 16" fill="none">
+  <!-- Motive de broderie românească — banda se repetă pe orizontală (background-repeat: repeat-x).
+       TODO client: de redesenat 1:1 după motivele din pozele reale în ie; formele de aici sunt
+       vocabularul geometric standard (romb, cruciuliță, linie frântă), nu o copie a broderiei ei.
+       Culoarea e bakeuită (#c6c6c6 = --on-surface-var) pentru că background-image nu moștenește
+       currentColor; intensitatea se reglează din opacity, în assets/styles.css. -->
+  <!-- Romb -->
+  <path d="M8 2 L14 8 L8 14 L2 8 Z" stroke="#c6c6c6" stroke-width="1"/>
+  <!-- Cruciuliță -->
+  <path d="M24 3 V13 M19 8 H29" stroke="#c6c6c6" stroke-width="1"/>
+  <!-- Linie frântă -->
+  <path d="M32 11 L36 6 L40 11 L44 6 L48 11" stroke="#c6c6c6" stroke-width="1"/>
+</svg>
