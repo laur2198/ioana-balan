@@ -62,11 +62,34 @@ body {
 
 /* Separator de secțiune: bandă de motive repetate în locul liniei hairline */
 .motif-separator {
-  height: 16px;
+  height: 24px;
   background-image: url('motifs.svg');
   background-repeat: repeat-x;
   background-position: center;
-  opacity: 0.18;
+  opacity: 0.22;
+}
+/* Separator lat, centrat — pentru anteturi de secțiune (romb bordo în mijloc) */
+.motif-rule {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: rgba(198, 198, 198, 0.28);
+}
+.motif-rule::before,
+.motif-rule::after {
+  content: "";
+  flex: 1;
+  height: 24px;
+  background-image: url('motifs.svg');
+  background-repeat: repeat-x;
+  background-position: center;
+}
+.motif-rule__gem {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  transform: rotate(45deg);
+  border: 1px solid #800020;
 }
 
 /* Marcaj de listă: un motiv, aliniat la prima linie de text (fără poziționare absolută) */
