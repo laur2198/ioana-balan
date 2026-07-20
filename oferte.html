@@ -20,146 +20,8 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "accent": "#800020",
-                    "accent-hover": "#600018",
-                    "on-tertiary-container": "#c95a5c",
-                    "on-primary": "#313030",
-                    "tertiary": "#ffb3b1",
-                    "on-tertiary": "#630d16",
-                    "tertiary-container": "#2f0004",
-                    "surface-tint": "#c8c6c5",
-                    "secondary-fixed": "#e3e2e2",
-                    "primary-fixed": "#e5e2e1",
-                    "inverse-surface": "#e5e2e1",
-                    "tertiary-fixed": "#ffdad8",
-                    "on-primary-container": "#7e7d7d",
-                    "secondary-container": "#484949",
-                    "surface": "#131313",
-                    "on-background": "#e5e2e1",
-                    "on-secondary": "#2f3131",
-                    "on-primary-fixed-variant": "#474646",
-                    "error-container": "#93000a",
-                    "on-tertiary-fixed-variant": "#82252a",
-                    "surface-container-high": "#2a2a2a",
-                    "on-error-container": "#ffdad6",
-                    "background": "#131313",
-                    "surface-container-low": "#1c1b1b",
-                    "surface-container-lowest": "#0e0e0e",
-                    "on-secondary-container": "#b8b8b8",
-                    "outline-variant": "#444748",
-                    "primary-container": "#121212",
-                    "on-secondary-fixed-variant": "#464747",
-                    "secondary-fixed-dim": "#c6c6c6",
-                    "secondary": "#c6c6c6",
-                    "on-surface": "#e5e2e1",
-                    "primary": "#c8c6c5",
-                    "on-tertiary-fixed": "#410007",
-                    "error": "#ffb4ab",
-                    "inverse-primary": "#5f5e5e",
-                    "surface-bright": "#393939",
-                    "on-primary-fixed": "#1c1b1b",
-                    "surface-container-highest": "#353535",
-                    "surface-container": "#20201f",
-                    "surface-dim": "#131313",
-                    "on-error": "#690005",
-                    "surface-variant": "#353535",
-                    "outline": "#8e9192",
-                    "primary-fixed-dim": "#c8c6c5",
-                    "tertiary-fixed-dim": "#ffb3b1",
-                    "inverse-on-surface": "#313030",
-                    "on-secondary-fixed": "#1a1c1c",
-                    "on-surface-variant": "#c4c7c7"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "unit": "8px",
-                    "margin-mobile": "16px",
-                    "margin-desktop": "64px",
-                    "gutter": "24px",
-                    "max-width": "1200px"
-            },
-            "fontFamily": {
-                    "headline-md": ["EB Garamond"],
-                    "body-lg": ["Inter"],
-                    "headline-lg-mobile": ["EB Garamond"],
-                    "headline-lg": ["EB Garamond"],
-                    "display-lg": ["EB Garamond"],
-                    "label-md": ["Inter"],
-                    "body-md": ["Inter"]
-            },
-            "fontSize": {
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "500"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
-                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body {
-            background-color: #131313;
-            color: #e5e2e1;
-            scroll-behavior: smooth;
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .glass-card {
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(142, 145, 146, 0.15);
-        }
-        .silver-border {
-            border: 1px solid rgba(198, 198, 198, 0.2);
-        }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 100;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50%;
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        @media (min-width: 768px) {
-            .whatsapp-float {
-                bottom: 30px;
-                right: 30px;
-                width: 60px;
-                height: 60px;
-            }
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-    </style>
+<script src="assets/tailwind.config.js"></script>
+<link rel="stylesheet" href="assets/styles.css">
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -176,22 +38,25 @@
           "name": "Standard Nuntă",
           "price": "5500",
           "priceCurrency": "EUR",
-          "availability": "https://schema.org/InStock"
+          "availability": "https://schema.org/InStock",
+          "areaServed": ["București", "Ploiești", "Brașov", "Craiova", "Pitești"]
         },
         {
           "@type": "Offer",
           "name": "Premium Nuntă",
           "price": "6500",
           "priceCurrency": "EUR",
-          "availability": "https://schema.org/InStock"
+          "availability": "https://schema.org/InStock",
+          "areaServed": ["București", "Ploiești", "Brașov", "Craiova", "Pitești"]
         }
       ]
     }
     </script>
 </head>
 <body class="bg-background text-on-background overflow-x-hidden">
+<a class="skip-link" href="#continut">Sari la conținut</a>
 <!-- WhatsApp Widget -->
-<a aria-label="Contact pe WhatsApp" class="whatsapp-float" href="https://wa.me/40722911485" target="_blank">
+<a aria-label="Contact Ioana Balan pe WhatsApp" class="whatsapp-float" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20mai%20multe%20informa%C8%9Bii." target="_blank" rel="noopener">
 <svg fill="currentColor" height="32" viewBox="0 0 24 24" width="32"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.412 2.503 1.112 3.485l-1.145 4.225 4.316-1.13c.928.528 1.996.828 3.135.828a5.75 5.75 0 0 0 5.768-5.765c0-3.181-2.587-5.769-5.818-5.769zm3.392 8.244c-.144.405-.837.778-1.148.822-.248.035-.576.062-1.423-.285-1.235-.506-2.008-1.74-2.07-1.821-.06-.083-.497-.661-.497-1.261 0-.599.313-.894.425-1.013.11-.12.242-.149.32-.149.078 0 .157.001.226.004.072.003.17-.027.266.204.098.238.336.818.365.878.03.06.049.129.01.208-.039.079-.059.129-.119.198-.06.069-.12.153-.172.205-.058.058-.118.121-.051.236.068.115.3.495.644.799.444.392.818.514.933.571.115.057.183.048.252-.03.068-.079.293-.341.371-.457.078-.115.157-.097.265-.057s.684.322.802.381c.117.058.196.088.225.138.03.05.03.287-.114.692zM12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1z"></path></svg>
 </a>
 <!-- TopNavBar -->
@@ -211,7 +76,7 @@
 </nav>
 <div class="flex items-center gap-4">
 <a href="contact.html" class="hidden lg:block whitespace-nowrap shrink-0 bg-accent text-white px-6 py-2 font-label-md text-label-md uppercase tracking-widest hover:bg-accent-hover transition-all">Rezervă Acum</a>
-<button aria-label="Deschide Meniu" class="lg:hidden text-primary p-2" id="menu-toggle">
+<button aria-label="Deschide Meniu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden text-primary p-2" id="menu-toggle">
 <span aria-hidden="true" class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
@@ -236,7 +101,7 @@
 </nav>
 </div>
 </div>
-<main class="pt-20 lg:pt-32">
+<main id="continut" tabindex="-1" class="pt-20 lg:pt-32">
 <!-- Hero Section -->
 <section class="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden mb-12 md:mb-24 px-6 md:px-margin-desktop">
 <div class="absolute inset-0 z-0">
@@ -247,6 +112,17 @@
 <h1 class="font-display-lg text-3xl md:text-display-lg mb-4 md:mb-6 leading-tight">Prețuri Formație Nuntă 2026-2027</h1>
 <p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-6 md:mb-8 max-w-2xl mx-auto">Excelență artistică și performanță live impecabilă pentru cele mai importante momente ale vieții dumneavoastră.</p>
 <div class="w-16 md:w-24 h-px bg-primary mx-auto"></div>
+<!-- Social proof: rating real Google (5,0 · 61 recenzii) — cifră autorizată în CLAUDE.md -->
+<div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+<div class="flex items-center gap-0.5 text-on-surface" aria-hidden="true">
+<svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant"><span class="font-headline-md text-[18px] md:text-[20px] text-on-surface align-middle">5,0</span> · 61 de recenzii pe Google</p>
+</div>
 </div>
 </section>
 <!-- SEO Content Intro -->
@@ -255,7 +131,8 @@
 <div class="order-2 lg:order-1">
 <h2 class="font-headline-lg text-2xl md:text-headline-lg mb-4 md:mb-6">Pasiune. Profesionalism. Perfecțiune.</h2>
 <p class="font-body-md text-on-surface-variant mb-4">Căutați o <strong class="text-on-surface">ofertă formație nuntă</strong> care să depășească așteptările? Ioana Balan și Grand Music Events oferă soluții complete pentru evenimente de elită.</p>
-<p class="font-body-md text-on-surface-variant">Suntem transparenți în privința <strong class="text-on-surface">prețuri formație nuntă 2026</strong>, oferind valoare reală prin echipamente de ultimă generație și artiști de top.</p>
+<p class="font-body-md text-on-surface-variant mb-4">Suntem transparenți în privința <strong class="text-on-surface">prețuri formație nuntă 2026</strong>, oferind valoare reală prin echipamente de ultimă generație și artiști de top.</p>
+<p class="font-body-md text-on-surface-variant">Cântăm în <strong class="text-on-surface">București, Ploiești, Brașov, Craiova și Pitești</strong> — și în restul țării, la cerere.</p>
 </div>
 <div class="order-1 lg:order-2 relative aspect-[4/3] md:aspect-video glass-card p-1">
 <img alt="Ioana Balan live show" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ59OxDIRwlysvzgv-Yn2RdjKUdaS9o2ZK6gO_9_4ZjUNehX4ggbnuV_YUIRg6BhsFFNcdLxOk0NxLcGzDCFip-NRITPnZw5KfB33pQDnSm_-M543bPdODzCIeCwU8vpaBgSWe8qpjyrGn1EHQuCN-hcfPC4F8khjqf5vKfu3CwCr4NjwY9UEP_3PhQDKIjCdty2b8J5PUS-P_ZL-t6TTwZJGmSv44lXPBgp7zCISgNeVgjurW9HomNLLFDnhgpTvFwdmYgfeuK02Z">
@@ -451,7 +328,7 @@
 <div class="flex flex-col gap-4">
 <a href="index.html"><img alt="Ioana Balan Signature Logo" class="h-8 md:h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTzaG-SAAZiikwO_lri__WcKOA897gtioT49gujpxfHc1MXHQqL8LiIgVcZBFIPpXt5Jy3TP7W4WxVKf7F48JLaEajRJD_M-DCsrprJ8BbjLhGDoqqXR9RTz5sDUmEj4WWBUH1h-qwk52Z8AH3pDrFWPGWIjdoIkNV7PMIyZj59n5vAr4ridWA--i8wl2rZ9NosEoA379kiSCp3bAuhdlhWPEKBY3aYsn8jmbEsc_knQn6tViO1jT22tz9OImhrROWwzT-LAizS8P"></a>
 <p class="font-body-md text-body-md text-on-surface-variant opacity-80 max-w-sm">Muzică pentru evenimente care rămân în suflet. Calitate corporate cu pasiune artistică și profesionalism garantat.</p>
-<p class="font-body-md text-[12px] text-secondary opacity-80 uppercase tracking-tighter">© 2010-2026 IOANA BALAN. TOATE DREPTURILE REZERVATE.</p>
+<p class="font-body-md text-[12px] text-secondary opacity-80">© 2010-2026 Ioana Balan. Toate drepturile rezervate.</p>
 </div>
 <div class="flex flex-col gap-4">
 <span class="font-label-md text-label-md text-primary uppercase tracking-widest">Social</span>
@@ -480,15 +357,17 @@
     const mobileMenu = document.getElementById('mobile-menu');
     const menuLinks = mobileMenu.querySelectorAll('a');
     const toggleMenu = () => {
-        mobileMenu.classList.toggle('translate-x-full');
-        document.body.classList.toggle('overflow-hidden');
-    };
+            const isClosed = mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+            menuToggle.setAttribute('aria-expanded', String(!isClosed));
+        };
     menuToggle.addEventListener('click', toggleMenu);
     menuClose.addEventListener('click', toggleMenu);
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('translate-x-full');
             document.body.classList.remove('overflow-hidden');
+                menuToggle.setAttribute('aria-expanded', 'false');
         });
     });
 
