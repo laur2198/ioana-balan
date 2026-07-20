@@ -121,20 +121,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-/* WhatsApp floating button ------------------------------------------------ */
+/* WhatsApp floating button (canonic) -------------------------------------- */
+/* width:auto + min-width = cerc în repaus, pastilă când eticheta se extinde  */
 .whatsapp-float {
   position: fixed;
   bottom: 24px;
   right: 24px;
   z-index: 50;
-  width: 56px;
+  width: auto;
+  min-width: 56px;
   height: 56px;
+  padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #25d366;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 9999px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   animation: whatsapp-pulse 2.5s infinite;
@@ -143,7 +146,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .whatsapp-float {
     bottom: 30px;
     right: 30px;
-    width: 60px;
+    min-width: 60px;
     height: 60px;
   }
 }
