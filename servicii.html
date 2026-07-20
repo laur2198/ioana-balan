@@ -88,12 +88,12 @@
 </div>
 <main id="continut" tabindex="-1" class="pt-20 md:pt-32">
 <!-- Hero Section -->
-<section class="relative min-h-[60vh] md:min-h-[70vh] flex items-center px-margin-mobile md:px-margin-desktop overflow-hidden border-b border-outline-variant/10">
+<section class="relative min-h-[32vh] md:min-h-[40vh] flex items-center px-margin-mobile md:px-margin-desktop overflow-hidden border-b border-outline-variant/10">
 <div class="absolute inset-0 z-0">
 <img alt="Ioana Balan interpretând muzică live" class="w-full h-full object-cover opacity-40 filter grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE_YMs9UDFcHc4KVJErm1XPxudrwg0XPP_BOZFXQkcIztjUfHVbCNcfj6TB4CQlTzTFob3T-Tcdw3ZnZdOQW9Yz5fE5PquTG0LnTsCGDEsTplntmuaIxQkFhodeBqLlS4ye_Tb9MRJVnUn4GKW3ngcF5lKAmZ1Ufm_a2K2deiSWpNlZpciZjwBxfiEJS5okmAWkjoNO5V1HonKt7Pb41hrOTHyiYHfuz6m2RYR4r3K8nczCxZ9OopseCSBxjhA1PyH4b9duQheWK8P">
 <div class="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-background via-background/90 md:via-background/80 to-transparent"></div>
 </div>
-<div class="relative z-10 max-w-3xl py-12">
+<div class="relative z-10 max-w-3xl py-10 md:py-12">
 <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase mb-4 block">Eleganță Sonoră în România</span>
 <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg mb-6 leading-tight">
                 Formație Nuntă București &amp; Muzică Evenimente Premium
@@ -124,9 +124,12 @@
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Servicii Muzicale Ioana Balan</h2>
 <div class="w-16 md:w-24 h-px bg-accent mt-4"></div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-gutter">
-<!-- Muzica Populara -->
-<div class="md:col-span-12 lg:col-span-8 glass-card p-6 md:p-10 flex flex-col justify-between min-h-[350px] md:min-h-[400px] transition-all duration-700 opacity-100">
+<!-- Ierarhie: 3 servicii core pe rândul principal, 2 servicii de sprijin pe rândul secundar.
+     Flexbox cu flex-wrap (fără col-span) — replicabil 1:1 în containere Elementor. -->
+<div class="flex flex-col gap-6 md:gap-gutter">
+<div class="flex flex-col lg:flex-row gap-6 md:gap-gutter">
+<!-- Muzica Populara (core) -->
+<div class="w-full lg:flex-[1.4] glass-card p-6 md:p-10 flex flex-col justify-between min-h-[350px] md:min-h-[400px]">
 <div>
 <span class="font-label-md text-label-md text-primary uppercase tracking-wider">Tradiție și Folclor</span>
 <h3 class="font-headline-md text-headline-md mt-4 mb-6">Muzică Populară de Petrecere &amp; Folclor Autentic</h3>
@@ -140,27 +143,18 @@
 <li class="bg-surface-container px-3 py-1 font-label-md text-[12px] md:text-label-md border border-outline-variant/30">Cântece de Păhărel</li>
 </ul>
 </div>
-<!-- Live 100% -->
-<div class="md:col-span-6 lg:col-span-4 bg-accent/10 border border-accent/20 p-6 md:p-10 flex flex-col items-start justify-center">
-<span aria-hidden="true" class="material-symbols-outlined text-4xl text-primary mb-6">videocam</span>
-<h3 class="font-headline-md text-headline-md mb-4">Muzică Live 100%</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">
-                    Transparență totală. Performanță vocală live documentată în format 4K. Vedeți cum cântăm înainte de a rezerva.
-                </p>
-<a class="font-label-md text-label-md text-primary border-b border-primary pb-1 hover:opacity-70" href="galerie.html">Video Live 4K</a>
-</div>
-<!-- Cover Band -->
-<div class="md:col-span-6 lg:col-span-4 glass-card p-6 md:p-10 transition-all duration-700 opacity-100">
+<!-- Cover Band (core) -->
+<div class="w-full lg:flex-1 glass-card p-6 md:p-10 flex flex-col">
 <h3 class="font-headline-md text-headline-md mb-4">Cover Band &amp; Muzică Ușoară</h3>
 <p class="font-body-md text-body-md text-on-surface-variant mb-8">
                     Repertoriu internațional vast: Pop, Jazz, Retro și hituri actuale. Eleganță și versatilitate.
                 </p>
-<div class="w-full aspect-video bg-surface-container-highest overflow-hidden">
-<img alt="Ioana Balan Cover Band" class="w-full h-full object-cover filter brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC05CzDGSG6mrVJQhznvKk62Qk7fzPyAjm_UThtOaNq8spekLLVwcUQCpU6E-ORESOOy36t3ck4fZOQabO9f4pKZNtQfK4kaUJcBf455hvg1-YU79r_TEds5XirfM4oUaZU7JbtZio1_caZDi2x1aRY3NYdP7zjnfa-fcCepUDzFy1P2vQQ_igvaTJF4gz8mc-kQl-5nSBihiKJ-WoRq2aXe-v2B2NMql83EqxM5LvvYiJMoiu_SKmNlrOb6_fZmWwO8afRzYdlWzyP">
+<div class="w-full aspect-video bg-surface-container-highest overflow-hidden mt-auto">
+<img alt="Formația Ioana Balan în program de cover-uri" class="w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC05CzDGSG6mrVJQhznvKk62Qk7fzPyAjm_UThtOaNq8spekLLVwcUQCpU6E-ORESOOy36t3ck4fZOQabO9f4pKZNtQfK4kaUJcBf455hvg1-YU79r_TEds5XirfM4oUaZU7JbtZio1_caZDi2x1aRY3NYdP7zjnfa-fcCepUDzFy1P2vQQ_igvaTJF4gz8mc-kQl-5nSBihiKJ-WoRq2aXe-v2B2NMql83EqxM5LvvYiJMoiu_SKmNlrOb6_fZmWwO8afRzYdlWzyP">
 </div>
 </div>
-<!-- DJ & MC -->
-<div class="md:col-span-6 lg:col-span-4 glass-card p-6 md:p-10 flex flex-col justify-between transition-all duration-700 opacity-100">
+<!-- DJ & MC (core) -->
+<div class="w-full lg:flex-1 glass-card p-6 md:p-10 flex flex-col justify-between">
 <div>
 <h3 class="font-headline-md text-headline-md mb-4">DJ Nuntă &amp; MC Profesionist</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">
@@ -173,12 +167,25 @@
 <span aria-hidden="true" class="material-symbols-outlined">equalizer</span>
 </div>
 </div>
-<!-- Consultanta -->
-<div class="md:col-span-6 lg:col-span-4 glass-card p-6 md:p-10 border-accent/30 bg-surface-container-low transition-all duration-700 opacity-100">
-<h3 class="font-headline-md text-headline-md mb-4">Consultant Evenimente</h3>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 md:gap-gutter">
+<!-- Live 100% (secundar) -->
+<div class="w-full sm:flex-1 bg-accent/10 border border-accent/20 p-6 md:p-8 flex flex-col items-start">
+<span aria-hidden="true" class="material-symbols-outlined text-3xl text-primary mb-4">videocam</span>
+<h3 class="font-headline-md text-lg md:text-headline-md mb-3">Muzică Live 100%</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                    Transparență totală. Performanță vocală live documentată în format 4K. Vedeți cum cântăm înainte de a rezerva.
+                </p>
+<a class="font-label-md text-label-md text-primary border-b border-primary pb-1 hover:opacity-70 mt-auto" href="galerie.html">Video Live 4K</a>
+</div>
+<!-- Consultanta (secundar) -->
+<div class="w-full sm:flex-1 glass-card p-6 md:p-8 border-accent/30 bg-surface-container-low flex flex-col items-start">
+<span aria-hidden="true" class="material-symbols-outlined text-3xl text-primary mb-4">event_note</span>
+<h3 class="font-headline-md text-lg md:text-headline-md mb-3">Consultant Evenimente</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">
                     Peste 15 ani de experiență. Vă ajutăm să structurați playlist-ul ideal pentru un eveniment premium reușit.
                 </p>
+</div>
 </div>
 </div>
 </section>

@@ -159,6 +159,40 @@
 </div>
 </div>
 </section>
+<!-- Oferte Section — preț și justificare în același ecran (CLAUDE.md §4) -->
+<!-- TODO client: afișarea prețului pe homepage e decizie deschisă (CLAUDE.md §9). Secțiunea e construită,
+     dar cifra se activează doar după confirmare. La confirmare, înlocuiește titlul cu:
+     <h2 class="font-display-lg text-[32px] md:text-display-lg mb-4">Pachete de la <span class="text-primary">4.800&nbsp;€</span></h2> -->
+<section class="py-16 md:py-24 bg-surface-container-highest border-y border-outline-variant/10">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col lg:flex-row lg:items-center gap-10 md:gap-16">
+<div class="w-full lg:flex-1">
+<span class="font-label-md text-[12px] md:text-label-md text-primary uppercase tracking-[0.3em] block mb-3">Oferte</span>
+<h2 class="font-display-lg text-[32px] md:text-display-lg mb-4 leading-tight">Pachete pentru 2026–2027</h2>
+<p class="font-body-lg text-[16px] md:text-body-lg text-secondary max-w-xl">Formație live, interpreți, DJ/MC și producție tehnică — un singur furnizor pentru toată seara, cu preț fix comunicat din start.</p>
+</div>
+<div class="w-full lg:w-auto lg:max-w-sm shrink-0 flex flex-col gap-6">
+<ul class="flex flex-col gap-3 border-t border-outline-variant/20 pt-6">
+<li class="flex items-center gap-3">
+<span class="flex items-center gap-0.5 text-on-surface shrink-0" aria-hidden="true">
+<svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+</span>
+<span class="font-body-md text-body-md text-secondary"><span class="font-headline-md text-[18px] text-on-surface align-middle">5,0</span> · 61 de recenzii pe Google</span>
+</li>
+<li class="flex items-center gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-primary shrink-0 text-[20px]">groups</span>
+<span class="font-body-md text-body-md text-secondary">Formație 6 instrumente + 3 interpreți</span>
+</li>
+<li class="flex items-center gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-primary shrink-0 text-[20px]">graphic_eq</span>
+<span class="font-body-md text-body-md text-secondary">DJ/MC, lumini și ecran LED în pachetul Premium</span>
+</li>
+</ul>
+<a class="bg-accent text-white px-8 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-accent-hover transition-all text-center" href="oferte.html">Vezi ofertele</a>
+</div>
+</div>
+</div>
+</section>
 <!-- About Section -->
 <section class="py-16 md:py-24 bg-background overflow-hidden">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-12 gap-10 md:gap-gutter items-center">
@@ -173,86 +207,25 @@
 <div class="space-y-4 md:space-y-6 text-secondary">
 <p class="font-body-md text-body-md leading-relaxed">Muzica nu este doar o profesie pentru mine, ci felul în care comunic cu lumea. Încă de mică, am simțit că fiecare doină sau cântec de petrecere poartă în el o poveste care merită împărtășită.</p>
 <p class="font-body-md text-body-md leading-relaxed">Pentru mine, cea mai mare răsplată este să văd emoția din ochii invitaților sau energia debordantă de pe ringul de dans. Repertoriul meu îmbină autenticitatea muzicii populare cu dinamismul melodiilor ușoare.</p>
-<ul class="space-y-4 pt-6 border-t border-outline-variant/20">
-<!-- TODO client: „peste 1000 de evenimente" și „discografie premiată" sunt cifre neconfirmate; până la confirmare afișăm doar fapte verificabile -->
-<li class="flex items-center gap-4"><span aria-hidden="true" class="material-symbols-outlined text-primary shrink-0" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="font-label-md text-[12px] md:text-label-md uppercase">Peste 15 ani de scenă</span></li>
-<li class="flex items-center gap-4"><span aria-hidden="true" class="material-symbols-outlined text-primary shrink-0" style="font-variation-settings: &quot;FILL&quot; 1;">album</span><span class="font-label-md text-[12px] md:text-label-md uppercase">3 albume proprii (2018, 2021, 2025)</span></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Oferte Section -->
-<section class="py-12 md:py-20 bg-surface-container-highest">
-<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 text-center lg:text-left">
-<div class="max-w-2xl">
-<h2 class="font-headline-lg text-[24px] md:text-headline-lg mb-3 text-on-surface">Pachete Formație Nuntă 2026-2027</h2>
-<p class="font-body-lg text-[16px] md:text-body-lg text-secondary">Planificați-vă evenimentul din timp și beneficiați de oferte personalizate pentru sezoanele viitoare.</p>
-</div>
-<a class="border border-outline text-on-surface bg-transparent px-8 md:px-12 py-4 md:py-5 font-label-md text-label-md uppercase tracking-[0.2em] hover:bg-white/5 transition-all w-full sm:w-auto text-center" href="oferte.html">Vezi Ofertele</a>
-</div>
-</section>
-<!-- Stats Section -->
-<section class="py-16 md:py-24 bg-surface-container-low">
-<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+<div class="flex flex-wrap gap-6 md:gap-10 pt-6 border-t border-outline-variant/20">
 <div>
-<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-4">Experiență Live</span>
-<h2 class="font-headline-lg text-[28px] md:text-headline-lg mb-6">Muzica care Unește Oamenii</h2>
-<p class="font-body-lg text-body-lg text-secondary mb-8">Calitatea sonoră premium și conexiunea autentică cu publicul transformă orice nuntă într-un spectacol memorabil.</p>
-<div class="grid grid-cols-2 gap-4 md:gap-6">
-<div class="p-6 md:p-8 bg-background border border-outline-variant/20 text-center">
-<span class="font-display-lg text-[32px] md:text-display-lg text-primary block mb-2 leading-none">5,0</span>
-<p class="font-label-md text-[10px] md:text-label-md uppercase text-secondary">61 de recenzii Google</p>
+<span class="font-display-lg text-[28px] md:text-[36px] text-primary block leading-none mb-1">15+</span>
+<span class="font-label-md text-[12px] md:text-label-md uppercase text-secondary">Ani pe scenă</span>
 </div>
-<!-- TODO client: „300+ piese în repertoriu" — cifră de confirmat înainte de afișare -->
-<div class="p-6 md:p-8 bg-background border border-outline-variant/20 text-center">
-<span class="font-display-lg text-[32px] md:text-display-lg text-primary block mb-2 leading-none">15+</span>
-<p class="font-label-md text-[10px] md:text-label-md uppercase text-secondary">Ani pe scenă</p>
-</div>
-</div>
-</div>
-<div class="relative aspect-[4/3] md:aspect-video lg:aspect-square overflow-hidden">
-<img alt="Atmosferă live Ioana Balan" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWz16CoU0cswP75pxwtPVuafzR1Jp7g6neDTK6hMOkWIjsR2bb3GhmjihPQduwiqp9-xklwle7m-gqopLkuViUwycB1-ZZsxiByS8_WHCYMJeZJpOeof_h_7234S7B_7UmzWTb7rY7sza16J4-ZFPJLfy_wZDIJIgDCIwkxDezC0wDDVPqfPp4xSwIwqGc_eqm8NDk34pqBlT_4mFZN6Q8FG-EylHgBXTvL1lSypc_HOg5Es9EcPjhyzcbwkGVbIJoErkypB6OsO9X">
-<div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
-</div>
-</div>
-</div>
-</section>
-<!-- Gallery Section -->
-<section class="py-16 md:py-24 bg-surface-container-lowest">
-<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 md:mb-16 gap-4">
 <div>
-<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-2">Momente</span>
-<h2 class="font-headline-lg text-[28px] md:text-headline-lg">Galerie Foto &amp; Video</h2>
+<span class="font-display-lg text-[28px] md:text-[36px] text-primary block leading-none mb-1">3</span>
+<span class="font-label-md text-[12px] md:text-label-md uppercase text-secondary">Albume proprii</span>
 </div>
-<a class="font-label-md text-label-md uppercase text-secondary hover:text-primary transition-colors flex items-center gap-2" href="galerie.html">
-                        Vezi Tot <span aria-hidden="true" class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</a>
+<div>
+<span class="font-display-lg text-[28px] md:text-[36px] text-primary block leading-none mb-1">5,0</span>
+<span class="font-label-md text-[12px] md:text-label-md uppercase text-secondary">61 de recenzii Google</span>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-<div class="md:col-span-2 group overflow-hidden relative border border-outline-variant/20 aspect-[4/3] md:h-[500px]">
-<img alt="Ioana Balan solistă" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD8YpdXuxTvw_8-i7jtPZfm9z9a4s4gJFcJ-nnJFE-VqHgjIeWLs5gz3gUF462tXoQglKZ53E7oBgLPMvhtEdZ6Cy3IigTpXMntR_2xUY6FCqkVmf_9-Ay0G4hKGWr4eO6n7zPC9wUw4Rq4HoEefXCjmbsC8L8udy6zEF1dKk4Lbvpfzh2b1m-cujI1wcJg30cpkj1yN445qWzT4ufxf8VMj1rywgeBvB-5u3aAA13rO05irSHpt1x7bYBkg1bddpY-y0Ahqc4qR7z">
-<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 md:p-8 flex flex-col justify-end">
-<p class="font-label-md text-label-md uppercase">Portret Artistic</p>
-</div>
-</div>
-<div class="flex flex-col gap-4 md:gap-6">
-<div class="h-48 md:h-1/2 group overflow-hidden border border-outline-variant/20 bg-surface-container relative">
-<div class="absolute inset-0 flex items-center justify-center p-6 text-center flex-col">
-<span aria-hidden="true" class="material-symbols-outlined text-primary text-3xl mb-3 block">music_note</span>
-<p class="font-body-md text-body-md">Descoperă atmosfera vibrantă live.</p>
-</div>
-</div>
-<div class="h-48 md:h-1/2 group overflow-hidden border border-outline-variant/20 relative">
-<img alt="Tradiție Ioana Balan" class="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHh9RP7pw8t8LI2I074OIzkTgvtQHG_FpqWGr--sBcLwD6-YoqhJMLYOcyKkeAZxpp07admmzf_oqtdqMsK1EfE70gtX3GJrkqv7vfkJ5Gs_GRkAqfMbTekWzTf2N3-3yIhbDgIZuP4C5ldwOgLslVtGtkkSRjUO1_QnxllqoXQENpIc0NJYkVqOR0ulAdqi366nbyI2vPPHYdmnRdM7NGHtjl8KJf0HIvnZJSUJACORBcFQaHW1Ci1raOWYVw2MZwsLfivLkVZq9R">
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Evenimente / Video teaser — „gustare"; varianta completă (bento) e pe galerie.html -->
+<!-- Eveniment / Galerie — o singură secțiune (1 clip + 2 foto), varianta completă e pe galerie.html -->
 <!-- TODO client: înlocuiește data-yt="TODO" cu ID-ul real YouTube (partea de după youtu.be/) -->
 <section class="py-16 md:py-24 bg-surface-container-low border-y border-outline-variant/10">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
@@ -261,10 +234,10 @@
 <span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-2">Evenimente</span>
 <h2 class="font-headline-lg text-[28px] md:text-headline-lg">Vezi cum arată un eveniment</h2>
 </div>
-<a class="font-label-md text-label-md uppercase tracking-widest text-secondary hover:text-primary transition-colors flex items-center gap-2 shrink-0" href="galerie.html">Vezi toate <span aria-hidden="true" class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-secondary hover:text-primary transition-colors flex items-center gap-2 shrink-0" href="galerie.html">Vezi toată galeria <span aria-hidden="true" class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-<div class="relative aspect-video overflow-hidden border border-outline-variant/15 bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row gap-4 md:gap-6">
+<div class="w-full md:flex-[2] relative aspect-video overflow-hidden border border-outline-variant/15 bg-surface-container-lowest">
 <button type="button" class="video-facade group absolute inset-0 w-full h-full text-left" data-yt="hPACrfwibFw" data-title="Hai să nu ne mai mințim">
 <img alt="" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXHgb54Q2C1w1pLhjBeoIdip-uTPHQ_fJVFjWo7D2ZQkHe5KOTah97-qpKOE_OVYgrSosIFp87frED0nhdoJsjla3w86scWKkAHyjIb0Oue708XL8Eq0Cu5F6PVC0TmBedxNGpiUqqHA8N7c6ErFO4xxH31cxpnEx3jSkSBsPd7f4ILbj9YhcfCY0GTVvd8X0r5XlP6P5bYwlT-WzXuRbZ1rwb8OC1VWM8SFSJhQgjOEFAGuvv6rfxgxX8kJmRTZW5JjnZPvxF9pHT">
 <span class="absolute inset-0 flex items-center justify-center">
@@ -278,19 +251,13 @@
 </span>
 </button>
 </div>
-<div class="relative aspect-video overflow-hidden border border-outline-variant/15 bg-surface-container-lowest">
-<button type="button" class="video-facade group absolute inset-0 w-full h-full text-left" data-yt="TODO" data-title="Moment live de la eveniment">
-<img alt="" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaV--gs_ernZqfSxwVTUUKQHY95ZkIgT9cksywcCoUJdubsZZihX0GZRPFsEVuDafnJPmEKfvAeGbGgKW4DuXdE2PiaC0HPWFsaZDcybG9n2bselY2ORQ5Jhbe8tU1SLd9VbOwx9ZWwdUJepZilH9XcK9TZZBFTxClU5itbYEsLO7VbRWXuCr4ANG20wmdZ-olCBLg4qiN7TqTTqZvlfrDhdMbo-9RmwqfWqWvz99mPzJyjy9Kn4PnWmiuJK4rZ6VK4pPwkVFil8qZ">
-<span class="absolute inset-0 flex items-center justify-center">
-<span class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-primary flex items-center justify-center bg-background/30 group-hover:scale-110 transition-transform duration-300">
-<span aria-hidden="true" class="material-symbols-outlined text-primary text-3xl md:text-4xl ml-1">play_arrow</span>
-</span>
-</span>
-<span class="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-background/90 to-transparent">
-<span class="block font-headline-md text-lg md:text-headline-md text-on-surface">Moment live de la eveniment</span>
-<span class="block font-body-md text-body-md text-secondary mt-1">Clip de adăugat</span>
-</span>
-</button>
+<div class="w-full md:flex-1 flex flex-row md:flex-col gap-4 md:gap-6">
+<div class="flex-1 relative aspect-square md:aspect-auto overflow-hidden border border-outline-variant/15">
+<img alt="Ioana Balan pe scenă, în ie" class="absolute inset-0 w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHh9RP7pw8t8LI2I074OIzkTgvtQHG_FpqWGr--sBcLwD6-YoqhJMLYOcyKkeAZxpp07admmzf_oqtdqMsK1EfE70gtX3GJrkqv7vfkJ5Gs_GRkAqfMbTekWzTf2N3-3yIhbDgIZuP4C5ldwOgLslVtGtkkSRjUO1_QnxllqoXQENpIc0NJYkVqOR0ulAdqi366nbyI2vPPHYdmnRdM7NGHtjl8KJf0HIvnZJSUJACORBcFQaHW1Ci1raOWYVw2MZwsLfivLkVZq9R">
+</div>
+<div class="flex-1 relative aspect-square md:aspect-auto overflow-hidden border border-outline-variant/15">
+<img alt="Atmosferă live la un eveniment" class="absolute inset-0 w-full h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWz16CoU0cswP75pxwtPVuafzR1Jp7g6neDTK6hMOkWIjsR2bb3GhmjihPQduwiqp9-xklwle7m-gqopLkuViUwycB1-ZZsxiByS8_WHCYMJeZJpOeof_h_7234S7B_7UmzWTb7rY7sza16J4-ZFPJLfy_wZDIJIgDCIwkxDezC0wDDVPqfPp4xSwIwqGc_eqm8NDk34pqBlT_4mFZN6Q8FG-EylHgBXTvL1lSypc_HOg5Es9EcPjhyzcbwkGVbIJoErkypB6OsO9X">
+</div>
 </div>
 </div>
 </div>
@@ -405,6 +372,55 @@
 <div itemprop="text" class="">
                                     Prețurile încep de la 5500€ pentru pachetul Standard. Oferim reduceri speciale pentru evenimentele de duminică sau extra-sezon.
                                 </div>
+</div>
+</details>
+</div>
+<!-- TODO client: validare răspunsuri FAQ 3–6 -->
+<!-- FAQ 3 -->
+<div class="border border-outline-variant/30 bg-surface-container-low" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<details class="group">
+<summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer list-none">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug" itemprop="name">Cât durează programul?</h3>
+<span aria-hidden="true" class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 shrink-0">expand_more</span>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div itemprop="text">Programul standard acoperă seara întreagă, de la primirea invitaților până la finalul petrecerii — în medie 8–10 ore. Orele suplimentare se stabilesc înainte de eveniment.</div>
+</div>
+</details>
+</div>
+<!-- FAQ 4 -->
+<div class="border border-outline-variant/30 bg-surface-container-low" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<details class="group">
+<summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer list-none">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug" itemprop="name">Ce se întâmplă în pauzele formației?</h3>
+<span aria-hidden="true" class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 shrink-0">expand_more</span>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div itemprop="text">DJ-ul preia fără pauză între momentele live, așa că ringul nu rămâne gol niciun minut. Pachetele includ DJ/MC, nu se plătește separat.</div>
+</div>
+</details>
+</div>
+<!-- FAQ 5 -->
+<div class="border border-outline-variant/30 bg-surface-container-low" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<details class="group">
+<summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer list-none">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug" itemprop="name">Cântați și în afara Bucureștiului?</h3>
+<span aria-hidden="true" class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 shrink-0">expand_more</span>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div itemprop="text">Da. Cântăm curent în București, Ploiești, Brașov, Craiova și Pitești, iar la cerere în toată țara. Deplasarea peste 100 km se tarifează separat.</div>
+</div>
+</details>
+</div>
+<!-- FAQ 6 -->
+<div class="border border-outline-variant/30 bg-surface-container-low" itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question">
+<details class="group">
+<summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer list-none">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug" itemprop="name">Cum rezerv data — avans și contract?</h3>
+<span aria-hidden="true" class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 shrink-0">expand_more</span>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md" itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer">
+<div itemprop="text">Data se blochează pe bază de contract și un avans. Scrieți-ne pe WhatsApp cu data și locația, iar în aceeași zi primiți confirmarea disponibilității și oferta.</div>
 </div>
 </details>
 </div>
