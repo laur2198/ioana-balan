@@ -22,21 +22,20 @@ body {
 }
 
 /* Suprafețe / carduri ----------------------------------------------------- */
+/* Fără backdrop-filter: cardurile stau peste fundal opac (nu peste imagine),
+   deci blur-ul nu se vedea și doar costa. Singurul backdrop-blur/pagină rămâne
+   header-ul (peste hero) — CLAUDE.md §8. Fundal opac pentru lizibilitate. */
 .glass-card {
-  background: rgba(28, 27, 27, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgb(28, 27, 27);
   border: 1px solid rgba(142, 145, 146, 0.15);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 .glass-card:hover {
   border-color: rgba(200, 198, 197, 0.4);
-  background: rgba(28, 27, 27, 0.6);
+  background: rgb(34, 33, 33);
 }
 .glass-panel {
-  background: rgba(28, 27, 27, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(28, 27, 27, 0.85);
   border: 1px solid rgba(142, 145, 146, 0.15);
 }
 .silver-border {
