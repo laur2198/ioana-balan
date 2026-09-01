@@ -7,6 +7,14 @@
    EB Garamond + Inter, motiv de broderie).
    ========================================================================== */
 
+/* Tokeni globali ---------------------------------------------------------- */
+/* Variabile CSS reale, nu doar fallback-uri: la migrarea în Elementor tokenii
+   se mapează pe variabile globale, iar unul care trăiește doar ca fallback
+   într-o regulă se pierde. */
+:root {
+  --accent-edge: #C41236;
+}
+
 /* Base -------------------------------------------------------------------- */
 body {
   background-color: #131313;
@@ -29,7 +37,7 @@ body {
    .bg-accent stă exclusiv pe <a>/<button>, deci regula nu prinde nimic
    decorativ (acela e pe .bg-accent-deep). */
 .bg-accent {
-  border: 1px solid var(--accent-edge, #C41236);
+  border: 1px solid var(--accent-edge);
 }
 
 /* Suprafețe / carduri ----------------------------------------------------- */
