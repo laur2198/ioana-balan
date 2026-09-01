@@ -351,12 +351,17 @@
 </div>
 </div>
 
-<!-- Date de firmă: legitimitate juridică pentru un site care încasează avans. -->
-<!-- TODO client: CUI și nr. Registrul Comerțului pentru Grand Music Events —
-     nu există în repo și nu se inventează. Green Pheonix Concept e furnizorul
-     site-ului, nu clientul; datele lui NU apar aici. -->
+<!-- TODO client — rând de date de firmă, OBLIGATORIU înainte de lansare.
+     Concurența afișează CUI + Reg. Com.; pentru un site care încasează avans,
+     legitimitatea juridică e argument de conversie.
+     Scos din DOM doar cât ține demo-ul: un placeholder vizibil citește ca
+     lucru neterminat, nu ca dependență de client. Se reactivează completând
+     cele două valori și ștergând comentariul din jurul rândului de mai jos.
+     ATENȚIE: datele Grand Music Events (clientul), NU Green Pheonix Concept
+     (furnizorul site-ului).
+<p class="font-body-md text-[12px] text-secondary opacity-80">Grand Music Events · CUI ... · Reg. Com. ...</p>
+-->
 <div class="flex flex-col gap-2 pt-8 border-t border-outline-variant/10">
-<p class="font-body-md text-[12px] text-secondary opacity-80">Grand Music Events · CUI [TODO client] · Reg. Com. [TODO client]</p>
 <p class="font-body-md text-[12px] text-secondary opacity-80">© 2010-2026 Ioana Balan. Toate drepturile rezervate.</p>
 </div>
 
