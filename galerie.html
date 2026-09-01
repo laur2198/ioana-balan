@@ -172,18 +172,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
 <div class="md:col-span-8 relative aspect-video overflow-hidden border border-outline-variant/15 bg-surface-container-lowest">
-<button type="button" class="video-facade group absolute inset-0 w-full h-full text-left" data-yt="hPACrfwibFw" data-title="Hai să nu ne mai mințim">
-<img alt="" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-500" src="assets/img/ioana-balan-formatie-nunta-bucuresti-live-per.jpg">
-<span class="absolute inset-0 flex items-center justify-center">
-<span class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-primary flex items-center justify-center bg-background/30 group-hover:scale-110 transition-transform duration-300">
-<span aria-hidden="true" class="material-symbols-outlined text-primary text-3xl md:text-4xl ml-1">play_arrow</span>
-</span>
-</span>
-<span class="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-background/90 to-transparent">
-<span class="block font-headline-md text-lg md:text-headline-md text-on-surface">Hai să nu ne mai mințim</span>
-<span class="block font-body-md text-body-md text-secondary mt-1">Single nou · 2025</span>
-</span>
-</button>
+<img alt="Ioana Balan și formația pe scenă, în timpul unui eveniment live în București" class="absolute inset-0 w-full h-full object-cover" src="assets/img/ioana-balan-formatie-nunta-bucuresti-live-per.jpg">
 </div>
 <div class="md:col-span-4 relative overflow-hidden border border-outline-variant/15 aspect-[4/3] md:aspect-auto">
 <img alt="Ioana Balan - Portret Artistic Tradițional" class="absolute inset-0 w-full h-full object-cover grayscale" src="assets/img/ioana-balan-portret-artistic-traditional.jpg">
@@ -264,25 +253,6 @@
             mobileMenu.classList.add('translate-x-full');
             document.body.classList.remove('overflow-hidden');
                 menuToggle.setAttribute('aria-expanded', 'false');
-        });
-    });
-
-    // Video facade: iframe-ul YouTube se încarcă abia la click (nu la load-ul paginii)
-    document.querySelectorAll('.video-facade').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const id = btn.dataset.yt;
-            if (!id || id === 'TODO') {
-                window.open('https://youtube.com/@BalanIoana', '_blank', 'noopener');
-                return;
-            }
-            const frame = document.createElement('iframe');
-            frame.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
-            frame.title = btn.dataset.title || 'Clip video Ioana Balan';
-            frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-            frame.allowFullscreen = true;
-            frame.className = 'absolute inset-0 w-full h-full';
-            btn.parentElement.appendChild(frame);
-            btn.remove();
         });
     });
 </script>
