@@ -2,15 +2,20 @@
    ioana-balan.ro — configurare Tailwind partajată (prototip)
    Sursă unică pentru tokenii de design. Se încarcă DUPĂ scriptul Tailwind Play
    CDN (cdn.tailwindcss.com), înlocuind config-ul inline duplicat pe fiecare pagină.
-   Vezi CLAUDE.md §5 pentru semantica tokenilor (accent bordo #800020 = singurul accent).
+   Vezi CLAUDE.md §5 pentru semantica tokenilor (bordo = singura familie de accent).
+   accent/#A01028 + accent-hover/#800020 = doar interactive (2,30:1 formă pe #131313,
+   față de 1,72:1 la #800020; text alb rămâne la 8,08:1). accent-deep/#800020 =
+   decorativ. accent-edge/#C41236 = bordura CTA-urilor.
    ========================================================================== */
 tailwind.config = {
   darkMode: "class",
   theme: {
     extend: {
       "colors": {
-        "accent": "#800020",
-        "accent-hover": "#600018",
+        "accent": "#A01028",
+        "accent-hover": "#800020",
+        "accent-deep": "#800020",
+        "accent-edge": "#C41236",
         "secondary": "#c6c6c6",
         "secondary-fixed": "#e3e2e2",
         "primary-fixed-dim": "#c8c6c5",
