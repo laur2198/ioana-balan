@@ -134,6 +134,37 @@ body {
   opacity: 0.04;
 }
 
+/* Prețuri neconfirmate (doar prototip) ------------------------------------
+   Cifrele de pe pagina de oferte sunt provizorii până le confirmă clientul.
+   Trebuie să fie imposibil de citit ca preț final într-un demo: contur
+   punctat, fundal contrastant și eticheta „DE CONFIRMAT". Se șterg marcajul
+   din HTML și acest bloc când valorile devin definitive. Doar tokeni
+   existenți — bordo (--accent-edge) și on-surface. */
+.price-tbc {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  padding: 6px 12px;
+  background-color: rgba(196, 18, 54, 0.18);
+  border: 2px dotted var(--accent-edge);
+  color: #e5e2e1;
+}
+.price-tbc__flag {
+  flex: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e5e2e1;
+}
+.price-tbc__value {
+  color: #e5e2e1;
+  line-height: 1.1;
+}
+
 /* Efecte de fundal -------------------------------------------------------- */
 .cinematic-vignette {
   background: radial-gradient(circle, transparent 20%, rgba(19, 19, 19, 0.8) 100%);
