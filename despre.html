@@ -228,9 +228,16 @@
 <p class="font-body-md text-[12px] text-secondary opacity-80">Grand Music Events · CUI ... · Reg. Com. ...</p>
 -->
 
-<!-- Banda 3: juridic. Benzile se separă prin spațiere, nu prin linie. -->
-<div class="flex flex-col gap-2">
-<p class="font-body-md text-[12px] text-secondary opacity-80">© 2010-2026 Ioana Balan. Toate drepturile rezervate.</p>
+<!-- Banda 3: juridic. Benzile se separă prin spațiere, nu prin linie.
+     Pe desktop cele trei elemente stau pe un rând, separate prin punct median
+     (separatorul deja folosit în proiect); pe mobil se stivuiesc, centrate.
+     „Pheonix" este ortografia juridică înregistrată a firmei — nu se corectează. -->
+<div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-center gap-x-2 gap-y-1 text-center">
+<p class="font-body-md text-[12px] text-secondary">© 2026 Ioana Balan. Toate drepturile rezervate.</p>
+<span aria-hidden="true" class="hidden sm:inline font-body-md text-[12px] text-secondary opacity-50">·</span>
+<p class="font-body-md text-[12px] text-secondary">Proiect dezvoltat de <a class="hover:text-primary transition-colors" href="https://grand-music.ro" target="_blank" rel="noopener">Grand Music Events</a></p>
+<span aria-hidden="true" class="hidden sm:inline font-body-md text-[12px] text-secondary opacity-50">·</span>
+<p class="font-body-md text-[12px] text-secondary">Site realizat de Green Pheonix Concept</p>
 </div>
 
 </div>
