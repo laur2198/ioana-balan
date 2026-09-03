@@ -24,9 +24,10 @@
 <script src="assets/tailwind.config.js"></script>
 <link rel="stylesheet" href="assets/styles.css">
 <!-- FAQPage doar aici: un singur bloc pe site, altfel entitățile concurează.
-     Conține EXCLUSIV răspunsurile confirmate (6 din 17).
-     Cele 11 marcate .answer-tbc sunt intenționat în afara schemei — ar
-     ajunge în Google ca informație fermă. Se adaugă aici pe măsură ce se confirmă. -->
+     Conține EXCLUSIV răspunsurile validate de client (2 din 17). Excluse:
+     11 marcate .answer-tbc (text provizoriu) și
+     4 care poartă TODO-ul de validare — vizibile pe pagină, dar
+     în afara schemei. Structured data e citită de Google ca informație fermă. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -45,10 +46,10 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Cum rezerv data — avans și contract?",
+      "name": "Prețul unei formații pentru 2026-2027?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Data se blochează pe bază de contract și un avans. Scrieți-ne pe WhatsApp cu data și locația, iar în aceeași zi primiți confirmarea disponibilității și oferta."
+        "text": "Prețul depinde de pachet, de tipul evenimentului și de ziua din weekend: la aceeași configurație, sâmbăta costă mai mult decât duminica. Toate cifrele sunt în grila de pachete de pe pagina de oferte."
       }
     },
     {
@@ -57,38 +58,6 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Oferim servicii muzicale complete pentru nunți, botezuri și evenimente corporate în București și în toată țara, prin Grand Music Events."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Cât durează programul?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Programul standard acoperă seara întreagă, de la primirea invitaților până la finalul petrecerii — în medie 8–10 ore. Orele suplimentare se stabilesc înainte de eveniment."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ce se întâmplă în pauzele formației?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "DJ-ul preia fără pauză între momentele live, așa că ringul nu rămâne gol niciun minut. Pachetele includ DJ/MC, nu se plătește separat."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Cântați și în afara Bucureștiului?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Da. Cântăm cel mai des în București, Ploiești, Brașov, Craiova și Pitești și ne deplasăm pe o rază de circa 300 km. Pentru evenimentele din afara localității se adaugă tariful de deplasare din condițiile comerciale de mai sus, calculat dus-întors."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Prețul unei formații pentru 2026-2027?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Prețul depinde de pachet, de tipul evenimentului și de ziua din weekend: la aceeași configurație, sâmbăta costă mai mult decât duminica. Toate cifrele sunt în grila de pachete de mai sus."
       }
     }
   ]
@@ -160,21 +129,39 @@
 
 <nav aria-label="Categorii de întrebări" class="mb-12 md:mb-16">
 <ul class="flex flex-wrap justify-center gap-2">
+<li><a class="inline-flex items-center min-h-[44px] px-4 border border-outline-variant/30 font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-white hover:border-primary/50 transition-colors" href="#pret">Preț</a></li>
 <li><a class="inline-flex items-center min-h-[44px] px-4 border border-outline-variant/30 font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-white hover:border-primary/50 transition-colors" href="#rezervare-si-contract">Rezervare și contract</a></li>
 <li><a class="inline-flex items-center min-h-[44px] px-4 border border-outline-variant/30 font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-white hover:border-primary/50 transition-colors" href="#prestatia">Prestația</a></li>
 <li><a class="inline-flex items-center min-h-[44px] px-4 border border-outline-variant/30 font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-white hover:border-primary/50 transition-colors" href="#tehnic-si-locatie">Tehnic și locație</a></li>
 <li><a class="inline-flex items-center min-h-[44px] px-4 border border-outline-variant/30 font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-white hover:border-primary/50 transition-colors" href="#deplasare">Deplasare</a></li>
-<li><a class="inline-flex items-center min-h-[44px] px-4 border border-outline-variant/30 font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-white hover:border-primary/50 transition-colors" href="#pret">Preț</a></li>
 </ul>
 </nav>
 
-<section id="rezervare-si-contract" class="mb-14 md:mb-20">
-<h2 class="font-headline-lg text-[24px] md:text-headline-lg text-on-surface leading-tight mb-4">Rezervare și contract</h2>
+<section id="pret" class="mb-14 md:mb-20">
+<h2 class="font-headline-lg text-[24px] md:text-headline-lg text-on-surface leading-tight mb-4">Preț</h2>
 <div class="motif-separator w-full mb-7 md:mb-8"></div>
 <div class="space-y-4">
 <div class="faq-item border border-outline-variant/30 bg-surface-container-low">
 <details class="group" open>
 <summary aria-expanded="true" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Prețul unei formații pentru 2026-2027?</h3>
+<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md">Prețul depinde de pachet, de tipul evenimentului și de ziua din weekend: la aceeași configurație, sâmbăta costă mai mult decât duminica. Toate cifrele sunt în grila de pachete de pe pagina de oferte.</div>
+</details>
+</div>
+</div>
+</section>
+<section id="rezervare-si-contract" class="mb-14 md:mb-20">
+<h2 class="font-headline-lg text-[24px] md:text-headline-lg text-on-surface leading-tight mb-4">Rezervare și contract</h2>
+<div class="motif-separator w-full mb-7 md:mb-8"></div>
+<div class="space-y-4">
+<!-- TODO client: validare răspunsuri FAQ 3–6 — până la confirmare, acest
+     răspuns este EXCLUS din schema FAQPage de pe faq.html (rămâne vizibil pe
+     pagină). Când clientul confirmă, se adaugă în VALIDATED și reintră în schema. -->
+<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
 <h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Cum rezerv data — avans și contract?</h3>
 <svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
 </summary>
@@ -215,14 +202,17 @@
 <div class="motif-separator w-full mb-7 md:mb-8"></div>
 <div class="space-y-4">
 <div class="faq-item border border-outline-variant/30 bg-surface-container-low">
-<details class="group" open>
-<summary aria-expanded="true" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
 <h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Ce tipuri de evenimente acoperă Ioana Balan?</h3>
 <svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
 </summary>
 <div class="px-5 md:px-6 pb-6 text-secondary font-body-md">Oferim servicii muzicale complete pentru nunți, botezuri și evenimente corporate în București și în toată țara, prin Grand Music Events.</div>
 </details>
 </div>
+<!-- TODO client: validare răspunsuri FAQ 3–6 — până la confirmare, acest
+     răspuns este EXCLUS din schema FAQPage de pe faq.html (rămâne vizibil pe
+     pagină). Când clientul confirmă, se adaugă în VALIDATED și reintră în schema. -->
 <div class="faq-item border border-outline-variant/30 bg-surface-container-low">
 <details class="group">
 <summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
@@ -250,6 +240,9 @@
 <div class="px-5 md:px-6 pb-6 font-body-md"><span class="answer-tbc"><span class="answer-tbc__flag">Răspuns de confirmat</span>Nucleul programului e muzica populară și de petrecere, dar acoperim și muzică ușoară românească și internațională, în funcție de public.</span></div>
 </details>
 </div>
+<!-- TODO client: validare răspunsuri FAQ 3–6 — până la confirmare, acest
+     răspuns este EXCLUS din schema FAQPage de pe faq.html (rămâne vizibil pe
+     pagină). Când clientul confirmă, se adaugă în VALIDATED și reintră în schema. -->
 <div class="faq-item border border-outline-variant/30 bg-surface-container-low">
 <details class="group">
 <summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
@@ -266,8 +259,8 @@
 <div class="motif-separator w-full mb-7 md:mb-8"></div>
 <div class="space-y-4">
 <div class="faq-item border border-outline-variant/30 bg-surface-container-low">
-<details class="group" open>
-<summary aria-expanded="true" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
 <h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Ce echipament aduceți și ce trebuie să asigure locația?</h3>
 <svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
 </summary>
@@ -307,13 +300,16 @@
 <h2 class="font-headline-lg text-[24px] md:text-headline-lg text-on-surface leading-tight mb-4">Deplasare</h2>
 <div class="motif-separator w-full mb-7 md:mb-8"></div>
 <div class="space-y-4">
+<!-- TODO client: validare răspunsuri FAQ 3–6 — până la confirmare, acest
+     răspuns este EXCLUS din schema FAQPage de pe faq.html (rămâne vizibil pe
+     pagină). Când clientul confirmă, se adaugă în VALIDATED și reintră în schema. -->
 <div class="faq-item border border-outline-variant/30 bg-surface-container-low">
-<details class="group" open>
-<summary aria-expanded="true" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
 <h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Cântați și în afara Bucureștiului?</h3>
 <svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
 </summary>
-<div class="px-5 md:px-6 pb-6 text-secondary font-body-md">Da. Cântăm cel mai des în București, Ploiești, Brașov, Craiova și Pitești și ne deplasăm pe o rază de circa 300 km. Pentru evenimentele din afara localității se adaugă tariful de deplasare din condițiile comerciale de mai sus, calculat dus-întors.</div>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md">Da. Cântăm cel mai des în București, Ploiești, Brașov, Craiova și Pitești și ne deplasăm pe o rază de circa 300 km. Pentru evenimentele din afara localității se adaugă tariful de deplasare din condițiile comerciale de pe pagina de oferte, calculat dus-întors.</div>
 </details>
 </div>
 <div class="faq-item border border-outline-variant/30 bg-surface-container-low">
@@ -336,21 +332,7 @@
 </div>
 </div>
 </section>
-<section id="pret" class="mb-14 md:mb-20">
-<h2 class="font-headline-lg text-[24px] md:text-headline-lg text-on-surface leading-tight mb-4">Preț</h2>
-<div class="motif-separator w-full mb-7 md:mb-8"></div>
-<div class="space-y-4">
-<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
-<details class="group" open>
-<summary aria-expanded="true" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
-<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Prețul unei formații pentru 2026-2027?</h3>
-<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-</summary>
-<div class="px-5 md:px-6 pb-6 text-secondary font-body-md">Prețul depinde de pachet, de tipul evenimentului și de ziua din weekend: la aceeași configurație, sâmbăta costă mai mult decât duminica. Toate cifrele sunt în grila de pachete de mai sus.</div>
-</details>
-</div>
-</div>
-</section>
+
 <!-- CTA final: WhatsApp primar (fill bordo), telefon secundar (contur) -->
 <section class="border-t border-outline-variant/15 pt-12 md:pt-16 text-center">
 <h2 class="font-display-lg text-[26px] md:text-display-lg mb-4 leading-tight">Nu ați găsit răspunsul?</h2>
