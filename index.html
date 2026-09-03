@@ -213,39 +213,37 @@
 </div>
 </div>
 </section>
-<!-- Eveniment / Galerie — o singură secțiune (1 clip + 2 foto), varianta completă e pe galerie.html -->
+<!-- Clipuri — secțiune proprie, aceleași carduri click-to-load ca pe galerie.html -->
 <section class="py-16 md:py-24 bg-surface-container-low border-y border-outline-variant/10">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 md:mb-14 gap-4">
-<div>
+<div class="mb-10 md:mb-14">
 <span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-2">Evenimente</span>
 <h2 class="font-headline-lg text-[28px] md:text-headline-lg">Vezi cum arată un eveniment</h2>
 </div>
-<a class="font-label-md text-label-md uppercase tracking-widest text-secondary hover:text-primary transition-colors flex items-center gap-2 shrink-0" href="galerie.html">Vezi toată galeria <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a>
-</div>
-<div class="flex flex-col md:flex-row gap-4 md:gap-6">
-<div class="w-full md:flex-[2] relative aspect-video overflow-hidden border border-outline-variant/15 bg-surface-container-lowest">
-<button type="button" class="video-facade group absolute inset-0 w-full h-full text-left" data-yt="hPACrfwibFw" data-title="Hai să nu ne mai mințim">
-<img alt="Ioana Balan și formația pe scenă — cadru din clipul „Hai să nu ne mai mințim”" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-500" src="assets/img/ioana-balan-formatie-nunta-bucuresti-live-per.jpg">
-<span class="absolute inset-0 flex items-center justify-center">
-<span class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-primary flex items-center justify-center bg-background/30 group-hover:scale-110 transition-transform duration-300">
-<svg aria-hidden="true" class="text-primary text-3xl md:text-4xl ml-1" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M340-238.39v-487.68l383.07 243.84L340-238.39Zm45.39-243.84Zm0 161 253.99-161-253.99-161v322Z"/></svg>
+<!-- Două carduri alăturate pe md+, stivuite pe mobil. Fără .gallery-grid:
+     aici nu e grilă mixtă, deci fiecare card ocupă o coloană întreagă. -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+<button type="button" class="video-card" data-yt="XFdALRgk7Fg" aria-label="Redă videoclipul: Formație de nuntă în București">
+<img class="video-card__thumb" src="assets/video-thumbs/XFdALRgk7Fg.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Formație live</span>
+<span class="video-card__title">Formație de nuntă în București</span>
 </span>
-</span>
-<span class="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-background/90 to-transparent">
-<span class="block font-headline-md text-lg md:text-headline-md text-on-surface">Hai să nu ne mai mințim</span>
-<span class="block font-body-md text-body-md text-secondary mt-1">Single nou · 2025</span>
+</button>
+<button type="button" class="video-card" data-yt="hzOdwacBNN0" aria-label="Redă videoclipul: Colaj de Moldova, live la nuntă">
+<img class="video-card__thumb" src="assets/video-thumbs/hzOdwacBNN0.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Muzică populară</span>
+<span class="video-card__title">Colaj de Moldova, live la nuntă</span>
 </span>
 </button>
 </div>
-<div class="w-full md:flex-1 flex flex-row md:flex-col gap-4 md:gap-6">
-<div class="flex-1 relative aspect-square md:aspect-auto overflow-hidden border border-outline-variant/15">
-<img alt="Ioana Balan pe scenă, în ie" class="absolute inset-0 w-full h-full object-cover" loading="lazy" src="assets/img/ioana-balan-solista-muzica-de-petrecere-si-po.jpg">
-</div>
-<div class="flex-1 relative aspect-square md:aspect-auto overflow-hidden border border-outline-variant/15">
-<img alt="Atmosferă live la un eveniment" class="absolute inset-0 w-full h-full object-cover" loading="lazy" src="assets/img/atmosfera-live-la-un-eveniment.jpg">
-</div>
-</div>
+<div class="mt-8 md:mt-10 flex justify-center">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="galerie.html#clipuri">Vezi toate videoclipurile <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a>
 </div>
 </div>
 </section>
@@ -510,29 +508,6 @@
             });
         });
 
-        // Canalul YouTube al artistei — forma canonică /channel/, aceeași ca în
-        // sameAs și în footer. Definit o singură dată: e fallback-ul pentru
-        // clipurile care încă nu au un ID video (data-yt="TODO").
-        const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ';
-
-        // Video facade: iframe-ul YouTube se încarcă abia la click (nu la load-ul paginii)
-        document.querySelectorAll('.video-facade').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.dataset.yt;
-                if (!id || id === 'TODO') {
-                    window.open(YOUTUBE_CHANNEL_URL, '_blank', 'noopener');
-                    return;
-                }
-                const frame = document.createElement('iframe');
-                frame.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
-                frame.title = btn.dataset.title || 'Clip video Ioana Balan';
-                frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                frame.allowFullscreen = true;
-                frame.className = 'absolute inset-0 w-full h-full';
-                btn.parentElement.appendChild(frame);
-                btn.remove();
-            });
-        });
     </script>
 
 <script>
@@ -544,6 +519,46 @@
         });
     });
     </script>
+<script>
+    // Video click-to-load: până la click pagina nu contactează niciun server
+    // Google. La click, <button class="video-card"> e ÎNLOCUIT în DOM cu un
+    // <div> care ține iframe-ul — un <iframe> interactiv într-un <button> e
+    // HTML invalid și face controalele playerului nesigure.
+    // Delegare pe document: funcționează pentru orice .video-card din pagină.
+    (function () {
+        'use strict';
+
+        function play(card) {
+            const id = card.dataset.yt;
+            if (!id) return;
+
+            const frame = document.createElement('iframe');
+            frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+                '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+            const label = card.querySelector('.video-card__title');
+            frame.title = label ? label.textContent.trim() : 'Clip video Ioana Balan';
+            frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            frame.referrerPolicy = 'strict-origin-when-cross-origin';
+            frame.allowFullscreen = true;
+
+            const holder = document.createElement('div');
+            // Aceleași clase ca butonul (inclusiv span-ul de grilă), plus starea.
+            holder.className = card.className + ' is-playing';
+            holder.tabIndex = -1;
+            holder.appendChild(frame);
+
+            card.replaceWith(holder);
+            holder.focus(); // focusul rămâne în locul cardului; Tab intră în player
+        }
+
+        document.addEventListener('click', function (e) {
+            const card = e.target.closest('.video-card:not(.is-playing)');
+            if (card) play(card);
+        });
+        // <button> răspunde nativ la Enter și Space, deci nu e nevoie de keydown.
+    })();
+    </script>
+
 <!-- WhatsApp Widget (canonic) -->
 <a aria-label="Contact Ioana Balan pe WhatsApp" class="whatsapp-float group" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20mai%20multe%20informa%C8%9Bii." target="_blank" rel="noopener">
 <svg class="shrink-0 md:w-8 md:h-8" fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

@@ -461,3 +461,168 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .faq-item summary::-webkit-details-marker {
   display: none;
 }
+
+/* Video click-to-load ------------------------------------------------------
+   Fațadă statică: miniatura e locală (assets/video-thumbs/), iframe-ul YouTube
+   se creează abia la click. Până atunci pagina nu atinge niciun server Google —
+   exact ce declară politica de cookie, §4 („numai după ce dați clic pe imaginea
+   de previzualizare"). Din același motiv nu există preconnect/dns-prefetch la
+   hover: ar fi o conexiune înainte de click, deci ar contrazice textul publicat.
+
+   Tokeni: hover-ul butonului de redare folosește accentul INTERACTIV (#A01028 +
+   bordura #C41236), nu #800020 (decorativ) — vezi antetul acestui fișier.
+   Fără backdrop-filter: CLAUDE.md §8 permite unul singur pe pagină, iar acela
+   e header-ul; aici ar fi fost 5 deodată. */
+
+.video-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0d0d0d;
+  border: 1px solid rgba(68, 71, 72, 0.2);
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+/* În grila mixtă (foto + video) cardul video ocupă două coloane din trei.
+   Pragul e `lg` (1024px), exact breakpoint-ul la care grila trece pe 3 coloane
+   (`lg:grid-cols-3`). Sub el grila are o singură coloană: span 2 ar genera o a
+   doua coloană implicită, deci rămâne span 1. Cele două valori trebuie
+   schimbate împreună — altfel apar celule goale la lățimile intermediare. */
+.gallery-grid .video-card {
+  grid-column: span 1;
+}
+@media (min-width: 1024px) {
+  .gallery-grid .video-card {
+    grid-column: span 2;
+  }
+}
+
+.video-card__thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.82);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+.video-card:hover .video-card__thumb,
+.video-card:focus-visible .video-card__thumb {
+  transform: scale(1.03);
+  filter: brightness(0.68);
+}
+
+.video-card__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.28) 42%,
+    rgba(0, 0, 0, 0.10) 100%
+  );
+  pointer-events: none;
+}
+
+.video-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: rgba(19, 19, 19, 0.55);
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+.video-card:hover .video-card__play,
+.video-card:focus-visible .video-card__play {
+  background: #A01028;
+  border-color: var(--accent-edge);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.video-card__play svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+  margin-left: 3px; /* centrare optică a triunghiului */
+}
+
+.video-card__meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.25rem 1.25rem 1.1rem;
+  pointer-events: none;
+}
+.video-card__eyebrow {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.625rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  /* 0,8 alpha, nu 0,62: peste voalul cel mai luminos măsurat pe carduri,
+     0,62 dă ~4,0:1 (sub pragul de 4,5:1 din quality floor). */
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.35rem;
+}
+.video-card__title {
+  display: block;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+/* Pe mobil cardul are ~200px înălțime; titlul la 22px ar mânca jumătate din el. */
+@media (min-width: 640px) {
+  .video-card__title {
+    font-size: 1.375rem;
+  }
+}
+
+/* Starea „în redare": butonul e înlocuit în DOM cu acest container, ca să nu
+   ajungem cu un <iframe> interactiv înăuntrul unui <button> (HTML invalid, iar
+   controalele playerului devin nesigure la click). */
+.video-card.is-playing {
+  cursor: default;
+}
+.video-card.is-playing:focus {
+  outline: none;
+}
+.video-card iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-card__thumb,
+  .video-card__play {
+    transition: none;
+  }
+  .video-card:hover .video-card__thumb,
+  .video-card:focus-visible .video-card__thumb {
+    transform: none;
+  }
+  .video-card:hover .video-card__play,
+  .video-card:focus-visible .video-card__play {
+    transform: translate(-50%, -50%);
+  }
+}

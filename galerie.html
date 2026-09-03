@@ -108,64 +108,32 @@
 <div class="motif-separator w-24 md:w-36"></div>
 </div>
 </div>
-<!-- Adaptive Grid: 1 col Mobile, 2 cols Tablet, 3-4 cols Desktop -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
-<!-- Item 1 -->
-<div class="group relative aspect-square sm:aspect-[3/4] lg:col-span-2 lg:aspect-video overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Formatie Nunta Bucuresti - Live Performance" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-formatie-nunta-bucuresti-live-per.jpg">
-<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 md:p-8">
-<p class="font-label-md text-label-md text-primary">Grand Music Events</p>
-<h3 class="font-headline-md text-headline-md text-white">Show Live Grand Music Events</h3>
+<!-- TODO client: biblioteca de imagini a prototipului are 25 de fișiere, dar
+     doar 10 fotografii distincte (restul sunt copii cu alt nume — placeholdere
+     Stitch, vezi CLAUDE.md §8). Ca să nu apară aceeași poză de două ori pe
+     pagină, galeria arată exact 10 sloturi: 4 aici, 5 în „Cum arată un
+     eveniment" și 1 în blocul de jos. Când clientul livrează originalele,
+     secțiunea asta se poate întinde la loc pe 8 sloturi.
+     Tot atunci se pun la loc etichetele de overlay — erau pe 5 din 8 poze și
+     spuneau „Moment live" / „Formație live", adică umplutură (CLAUDE.md §7).
+     Se reactivează pe TOATE odată, cu numele reale („Nuntă · București · sept. 2025"). -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan în portret artistic, în costum tradițional" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/img/ioana-balan-portret-artistic-traditional.jpg">
 </div>
+<div class="relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Portret al Ioanei Balan, artistă de muzică populară" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/img/ioana-balan-portrait-artist-muzica-populara-s.jpg">
 </div>
-<!-- Item 2 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Solista Muzica Populara Evenimente - Close-up" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-solista-muzica-populara-eveniment.jpg">
+<div class="relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan în ie, dintr-o sesiune foto tematică" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/img/ioana-balan-sesiune-foto-tematica-formatie-nu.jpg">
 </div>
-<!-- Item 3 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Portret Artistic Tradițional" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-portret-artistic-traditional.jpg">
-</div>
-<!-- Item 4 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Sesiune Foto Tematică - Formatie Nunta Preturi 2026" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-sesiune-foto-tematica-formatie-nu.jpg">
-<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
-<p class="font-label-md text-[10px] md:text-[12px] text-primary uppercase tracking-widest">Sesiune Foto Tematică</p>
-</div>
-</div>
-<!-- Item 5 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Spectacol Muzica Populara Live" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-spectacol-muzica-populara-live.jpg">
-<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
-<!-- TODO client: nume eveniment real, ex „Nuntă · București · sept 2025" -->
-<p class="font-label-md text-[10px] md:text-[12px] text-primary uppercase tracking-widest">Moment live</p>
-</div>
-</div>
-<!-- Item 6 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Orchestră Live Nuntă" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-orchestra-live-nunta.jpg">
-<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
-<!-- TODO client: nume eveniment real, ex „Nuntă · București · sept 2025" -->
-<p class="font-label-md text-[10px] md:text-[12px] text-primary uppercase tracking-widest">Formație live</p>
-</div>
-</div>
-<!-- Item 7 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Solista Muzica Populara Bucuresti" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-solista-muzica-populara-bucuresti.jpg">
-</div>
-<!-- Item 8 -->
-<div class="group relative aspect-square sm:aspect-[3/4] lg:col-span-2 lg:aspect-video overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Formatie Nunta Preturi 2026 - Live Show" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-formatie-nunta-preturi-2026-live.jpg">
-<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 md:p-8">
-<!-- TODO client: nume eveniment real, ex „Nuntă · București · sept 2025" -->
-<p class="font-label-md text-label-md text-primary">Eveniment live</p>
-<h3 class="font-headline-md text-headline-md text-white">Show cu formația</h3>
-</div>
+<div class="relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan într-un spectacol de muzică populară live" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/img/ioana-balan-spectacol-muzica-populara-live.jpg">
 </div>
 </div>
 </section>
-<!-- Evenimente live — bento: poze + clipuri (desktop mozaic / mobil stivă) -->
-<section class="bg-surface-container-low py-16 md:py-24">
+<!-- Evenimente live — grilă mixtă: clipuri (click-to-load) + fotografii -->
+<section class="bg-surface-container-low py-16 md:py-24" id="clipuri">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-14 gap-4">
 <div>
@@ -174,15 +142,82 @@
 </div>
 <a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 shrink-0" href="https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ" target="_blank" rel="noopener">Vezi canalul YouTube <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M241.62-258.69 210-290.31l413.92-414.31H241.31V-750h460v460h-45.39v-382.62l-414.3 413.93Z"/></svg></a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
-<div class="md:col-span-8 relative aspect-video overflow-hidden border border-outline-variant/15 bg-surface-container-lowest">
-<img alt="Ioana Balan și formația pe scenă, în timpul unui eveniment live în București" class="absolute inset-0 w-full h-full object-cover" src="assets/img/ioana-balan-formatie-nunta-bucuresti-live-per.jpg">
+<!-- Un clip + o fotografie pe rând. Pe lg grila are 3 coloane și clipul ocupă
+     două: [clip][foto]. Sub lg totul se stivuiește pe o coloană, deci nici acolo
+     nu ajung două clipuri alăturate. Fotografia are aspect-[4/3] doar ca
+     dimensiune 16:9 (aceeași ca a clipului) cât timp grila e pe o coloană —
+     stiva alternează clip/foto la aceeași înălțime; de la lg trece pe
+     `aspect-auto` și se întinde la înălțimea clipului (grid stretch), deci
+     rândurile rămân drepte. Fără `lg:aspect-auto`, aspect-ratio bate stretch-ul
+     și coloana de fotografii iese decalată față de coloana de clipuri.
+     Raportul e 1:1, nu 1 clip la 2-3 poze, din cauza numărului de fotografii
+     distincte disponibile (vezi TODO-ul din secțiunea de mai sus). La nivel de
+     pagină raportul rămâne 10 fotografii : 5 clipuri. -->
+<div class="gallery-grid grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Rând 1 -->
+<button type="button" class="video-card" data-yt="BcUXKbLqrsU" aria-label="Redă videoclipul: Atmosferă de petrecere la nuntă">
+<img class="video-card__thumb" src="assets/video-thumbs/BcUXKbLqrsU.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Muzică de petrecere</span>
+<span class="video-card__title">Atmosferă de petrecere la nuntă</span>
+</span>
+</button>
+<div class="relative aspect-video lg:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Ioana Balan și formația pe scenă, la un eveniment în București" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/img/ioana-balan-formatie-nunta-bucuresti-live-per.jpg">
 </div>
-<div class="md:col-span-4 relative overflow-hidden border border-outline-variant/15 aspect-[4/3] md:aspect-auto">
-<img alt="Ioana Balan - Portret Artistic Tradițional" class="absolute inset-0 w-full h-full object-cover grayscale" src="assets/img/ioana-balan-portret-artistic-traditional.jpg">
+<!-- Rând 2 -->
+<button type="button" class="video-card" data-yt="3uyEZ2vY6eE" aria-label="Redă videoclipul: „Un trandafir crește la firida mea”">
+<img class="video-card__thumb" src="assets/video-thumbs/3uyEZ2vY6eE.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Live la nuntă</span>
+<span class="video-card__title">„Un trandafir crește la firida mea”</span>
+</span>
+</button>
+<div class="relative aspect-video lg:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Invitații pe ringul de dans, la un eveniment live" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/img/atmosfera-eveniment-live-ioana-balan.jpg">
 </div>
-<div class="md:col-span-4 relative overflow-hidden border border-outline-variant/15 aspect-[4/3] md:aspect-auto">
-<img alt="Ioana Balan - Sesiune foto tematică" class="absolute inset-0 w-full h-full object-cover grayscale" src="assets/img/ioana-balan-sesiune-foto-tematica-formatie-nu.jpg">
+<!-- Rând 3 -->
+<button type="button" class="video-card" data-yt="Yqw4PZ0pU5o" aria-label="Redă videoclipul: „Am atins cerul cu mâna”">
+<img class="video-card__thumb" src="assets/video-thumbs/Yqw4PZ0pU5o.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Cover live · 2025</span>
+<span class="video-card__title">„Am atins cerul cu mâna”</span>
+</span>
+</button>
+<div class="relative aspect-video lg:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Orchestra care acompaniază live la nuntă" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/img/ioana-balan-orchestra-live-nunta.jpg">
+</div>
+<!-- Rând 4 -->
+<button type="button" class="video-card" data-yt="iIYF1xiX6sM" aria-label="Redă videoclipul: Muzică de petrecere live">
+<img class="video-card__thumb" src="assets/video-thumbs/iIYF1xiX6sM.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Nuntă · botez · corporate</span>
+<span class="video-card__title">Muzică de petrecere live</span>
+</span>
+</button>
+<div class="relative aspect-video lg:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Formația în timpul unui show live" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/img/ioana-balan-formatie-nunta-preturi-2026-live.jpg">
+</div>
+<!-- Rând 5 -->
+<button type="button" class="video-card" data-yt="Fj15ExZHAYs" aria-label="Redă videoclipul: „Ce naș, ce nașă” · „Jos pălăria”">
+<img class="video-card__thumb" src="assets/video-thumbs/Fj15ExZHAYs.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Colaj live · 2024</span>
+<span class="video-card__title">„Ce naș, ce nașă” · „Jos pălăria”</span>
+</span>
+</button>
+<div class="relative aspect-video lg:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<img alt="Scenă și sală pregătite înainte de un eveniment" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/img/scena-premium-evenimente.png">
 </div>
 </div>
 </div>
@@ -337,6 +372,46 @@
 </script>
 
 
+
+<script>
+    // Video click-to-load: până la click pagina nu contactează niciun server
+    // Google. La click, <button class="video-card"> e ÎNLOCUIT în DOM cu un
+    // <div> care ține iframe-ul — un <iframe> interactiv într-un <button> e
+    // HTML invalid și face controalele playerului nesigure.
+    // Delegare pe document: funcționează pentru orice .video-card din pagină.
+    (function () {
+        'use strict';
+
+        function play(card) {
+            const id = card.dataset.yt;
+            if (!id) return;
+
+            const frame = document.createElement('iframe');
+            frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+                '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+            const label = card.querySelector('.video-card__title');
+            frame.title = label ? label.textContent.trim() : 'Clip video Ioana Balan';
+            frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            frame.referrerPolicy = 'strict-origin-when-cross-origin';
+            frame.allowFullscreen = true;
+
+            const holder = document.createElement('div');
+            // Aceleași clase ca butonul (inclusiv span-ul de grilă), plus starea.
+            holder.className = card.className + ' is-playing';
+            holder.tabIndex = -1;
+            holder.appendChild(frame);
+
+            card.replaceWith(holder);
+            holder.focus(); // focusul rămâne în locul cardului; Tab intră în player
+        }
+
+        document.addEventListener('click', function (e) {
+            const card = e.target.closest('.video-card:not(.is-playing)');
+            if (card) play(card);
+        });
+        // <button> răspunde nativ la Enter și Space, deci nu e nevoie de keydown.
+    })();
+    </script>
 
 <!-- WhatsApp Widget (canonic) -->
 <a aria-label="Contact Ioana Balan pe WhatsApp" class="whatsapp-float group" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20mai%20multe%20informa%C8%9Bii." target="_blank" rel="noopener">
