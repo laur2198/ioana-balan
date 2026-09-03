@@ -222,8 +222,10 @@ pagină), tranziții grayscale→color pe imagini mari, parallax.
 `contact`, `blog`, `articol`.
 
 Fragmentele WordPress primite de la client (header/footer, styles.css,
-export Discografie) sunt păstrate în `_stitch-export/` ca referință pentru
-faza de implementare. Nu fac parte din site.
+export Discografie) au fost eliminate din repo: nu făceau parte din site și
+conțineau patru handle-uri sociale false plus `ioanablanoficial@gmail.com`,
+la un caracter distanță de adresa reală — risc de copy-paste la handoff.
+Rămân recuperabile din istoricul git, în commit-ul baseline `8026eb9`.
 
 **Făcut:** navigație unificată, contacte normalizate, CTA-uri funcționale,
 WhatsApp pe toate paginile, meta tags + Open Graph, header/footer canonice.

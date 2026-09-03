@@ -31,9 +31,10 @@ server). Nu este optimizat pentru producție și nu este destinat indexării/liv
 | `blog.html`        | Blog (listă articole)     |
 | `articol.html`     | Articol (pagină single)   |
 
-> `_stitch-export/` conține fragmente de export WordPress livrate de client
-> (header/footer HTML, `styles.css`, export pagină Discografie). Nu fac parte din
-> cele 8 pagini; sunt păstrate ca referință pentru viitoarea reimplementare WP.
+> Fragmentele de export WordPress livrate de client (fostul `_stitch-export/`:
+> header/footer HTML, `styles.css`, export pagină Discografie) au fost eliminate
+> din repo — nu făceau parte din cele 8 pagini și conțineau date de contact
+> greșite. Se pot recupera din istoricul git, în commit-ul baseline `8026eb9`.
 
 ## Cum se rulează
 

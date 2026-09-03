@@ -23,7 +23,7 @@
 |---|---------|-------|
 | ✅ D-domain-web | Domeniul web | **DECIS: `ioana-balan.ro`** (cu cratimă) |
 | ✅ D-grand-music | „Grand Music Events" | **DECIS: se păstrează** — e umbrela reală a formației |
-| ✅ D-design-dir | Direcția de design | **DECIS: live (EB Garamond/Inter + bordo)**. Aurul `#d4af37` din `_stitch-export/` = doar referință, NU se folosește |
+| ✅ D-design-dir | Direcția de design | **DECIS: live (EB Garamond/Inter + bordo)**. Aurul `#d4af37` din exportul Stitch (eliminat din repo, vezi commit-ul baseline `8026eb9`) = NU se folosește |
 | ✅ D-email | Adresa de email oficială | **DECIS: `ioanabalanoficial@gmail.com`** — adresa reală, confirmată (Facebook, YouTube, site-ul actual) |
 | 🟠 D-preturi | Dacă prețurile urcă pe homepage (poziționare, el e cel mai scump din piață) | **DESCHIS** — confirmă clientul |
 | 🟠 D-adresa | Adresa fizică publică în footer/contact | **DESCHIS** — confirmă clientul |
@@ -314,7 +314,8 @@
 - **Acceptare:** submit real cu notificare email.
 
 ### T-WP4 — Mapare slug-uri navigație (clean URLs)
-- **Medie (rebuild)** · Referință `_stitch-export/wordpress-header-footer.html`: `/galerie`,
+- **Medie (rebuild)** · Slug-urile din exportul WordPress al clientului (fișier eliminat
+  din repo, recuperabil din commit-ul baseline `8026eb9`): `/galerie`,
   `/discografie`, `/servicii-evenimente`, `/oferte-si-pachete`, `/contact`. Redirecturi 301 la migrare.
 - **Acceptare:** URL-uri curate + 301 documentate.
 
