@@ -424,3 +424,40 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-left: 6px solid var(--accent-edge);
   padding: 20px 24px;
 }
+
+/* Răspunsuri FAQ neconfirmate (doar prototip) -----------------------------
+   Aceeași familie de marcaj ca .price-tbc și .legal-tbc, dar la nivel de bloc:
+   un răspuns întreg, nu o valoare inline. Trebuie să fie imposibil de citit ca
+   text final — contur punctat bordo, fundal contrastant, etichetă explicită.
+   Se șterg marcajele din HTML și acest bloc când artista confirmă textele.
+   Răspunsurile marcate astfel NU intră în JSON-LD (vezi faq.html). */
+.answer-tbc {
+  display: block;
+  padding: 12px 14px;
+  background-color: rgba(196, 18, 54, 0.18);
+  border: 2px dotted var(--accent-edge);
+  color: #e5e2e1;
+}
+.answer-tbc__flag {
+  display: block;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e5e2e1;
+}
+
+/* Acordeon FAQ ------------------------------------------------------------
+   <details>/<summary> e nativ accesibil la tastatură (Enter/Space). Marcajul
+   implicit al lui summary se ascunde: chevronul e desenat în markup, ca să
+   poată fi rotit. aria-expanded se sincronizează din JS, pe evenimentul
+   `toggle` — atributul nu se actualizează singur. */
+.faq-item summary {
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
