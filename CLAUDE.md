@@ -231,8 +231,9 @@ Rămân recuperabile din istoricul git, în commit-ul baseline `8026eb9`.
 WhatsApp pe toate paginile, meta tags + Open Graph, header/footer canonice.
 
 **Probleme cunoscute:** imaginile sunt placeholdere temporare; formularele
-nu trimit; paginile legale lipsesc; logo-ul e încă banner-ul de YouTube
-(conține fotografie, trebuie înlocuit cu SVG).
+nu trimit; paginile legale lipsesc; logo-ul e semnătura curată (PNG cu fundal
+transparent, `assets/logo-alb-*.png`), nu încă SVG — vectorizarea rămâne de
+făcut înainte de migrarea în WordPress.
 
 ---
 

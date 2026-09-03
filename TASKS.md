@@ -32,12 +32,16 @@
 
 ## 🎨 Faza 1 — Sistem de design & identitate (PRIORITATE MAXIMĂ)
 
-### T-D1 — Logo vectorizat (SVG semnătură)
-- **Prioritate:** Critică · **Fișiere:** header + footer pe toate cele 8, favicon
-- Logo-ul actual e bannerul de YouTube (conține fotografie). Se înlocuiește cu **semnătura
-  scrisă de mână a artistei, vectorizată** — SVG alb pe transparent, fără casetă neagră.
-  Variante: orizontal (header), compact (favicon/social). Client furnizează sursa.
-- **Acceptare:** SVG semnătură în header/footer pe toate paginile; variantă compactă pentru favicon (leagă T-SEO1).
+### T-D1 — Logo semnătură — FĂCUT PARȚIAL (rămâne vectorizarea)
+- **Prioritate:** Critică · **Fișiere:** header + drawer + footer pe toate cele 11, favicon
+- **Rezolvat:** bannerul de YouTube (conținea fotografie) e înlocuit cu semnătura curată,
+  albă pe transparent, livrată de client: `assets/logo-ioana-balan-alb.png` (master 1750×600)
+  + `logo-alb-400w/600w/800w.png` pentru `srcset`, plus variantele `dark` (#131313) și
+  `bordo` (#800020), încă nefolosite — tot site-ul e pe fundal întunecat.
+- **Rămas:** varianta **SVG** (PNG-ul nu scalează pentru print și nu se recolorează din CSS)
+  și varianta **compactă, pătrată** pentru favicon — decuparea primei litere din semnătură
+  nu e lizibilă la 32px (literă îngustă, raport ~1:3, tușă subțire). Blochează T-SEO1.
+- **Acceptare:** semnătură în header/footer pe toate paginile ✅; SVG ⛔; variantă compactă ⛔.
 
 ### T-D2 — Motiv de broderie (ie) ca element structural
 - **Prioritate:** Înaltă · **Fișiere:** componente partajate (separatoare, liste, texturi)
@@ -189,6 +193,8 @@
 ### T-SEO1 — Favicon + apple-touch + manifest (lipsesc pe TOATE paginile)
 - **Prioritate:** Înaltă · **Fișiere:** `<head>` toate cele 8
 - Set complet de favicon din varianta compactă a logo-ului (T-D1), uniform pe toate paginile.
+- **Blocat:** T-D1 nu a produs încă o variantă compactă lizibilă la 32px. `og:image` e livrat
+  separat (`assets/og-ioana-balan.png`, 1200×630, pe toate paginile).
 - **Acceptare:** favicon în tab pe toate paginile; 16/32/apple-touch/manifest.
 
 ### ✅ T-SEO2 — Extindere JSON-LD la toate paginile — FĂCUT
@@ -340,7 +346,7 @@
 
 ## Ordine de lucru recomandată (prototip)
 
-1. **T-D1** — Logo vectorizat SVG *(deblochează T-SEO1 favicon)*
+1. **T-D1** — Logo: SVG + variantă compactă pătrată *(deblochează T-SEO1 favicon)*
 2. **T-D2** — Motiv broderie ie *(diferențiatorul de design)*
 3. **T-CRO1** — Social proof 5,0★/61 recenzii
 4. **T-CRO3** — WhatsApp/telefon 1-tap + mesaje pre-completate
