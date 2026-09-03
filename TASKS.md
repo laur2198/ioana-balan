@@ -317,7 +317,11 @@
 
 ### T-WP3 — Formulare cu backend real
 - **Înaltă (rebuild)** · Contact Form 7 / Fluent Forms + email pentru booking; serviciu newsletter. Anti-spam + validare.
-- **Acceptare:** submit real cu notificare email.
+- **Constrângeri juridice (obligatorii):** vezi CLAUDE.md §8, „Formularul de contact —
+  decizii pentru WordPress" — checkbox de consimțământ nebifat implicit cu text fix,
+  destinatarii datelor de completat în Termeni §12.3 (și §12.4 dacă e prelucrare în afara
+  SEE), câmpurile aliniate cu §12.2, ștergere la 12 luni configurată efectiv.
+- **Acceptare:** submit real cu notificare email; cele patru puncte de mai sus bifate.
 
 ### T-WP4 — Mapare slug-uri navigație (clean URLs)
 - **Medie (rebuild)** · Slug-urile din exportul WordPress al clientului (fișier eliminat

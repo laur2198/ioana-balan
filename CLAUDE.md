@@ -192,6 +192,69 @@ elaborată.
 Efecte scumpe de limitat: `backdrop-filter: blur` (maxim un element per
 pagină), tranziții grayscale→color pe imagini mari, parallax.
 
+### Formularul de contact — decizii pentru WordPress
+
+Prototipul nu are backend de formular și nu va avea. Implementarea reală
+se face în Faza 3, în Elementor. Deciziile de mai jos s-au luat în faza
+de prototip și trebuie să supraviețuiască migrării.
+
+**1. Consimțământul GDPR — obligatoriu**
+
+Checkbox obligatoriu, **nebifat implicit**, plasat între ultimul câmp și
+butonul de trimitere. Textul, exact:
+
+> Sunt de acord ca datele introduse să fie folosite pentru a mi se
+> răspunde la această solicitare. Detalii în Politica de
+> confidențialitate.
+
+„Politica de confidențialitate" e link către secțiunea 12 din Termeni și
+condiții (`termeni-si-conditii.html#sectiunea-12` în prototip), unde se
+află informarea art. 13 GDPR.
+
+Trei reguli care nu se negociază:
+
+- **Nebifat implicit.** Un checkbox pre-bifat nu e consimțământ valid
+  (CJUE, *Planet49*, C-673/17).
+- **Nu se grupează** cu acceptarea Termenilor și condițiilor. Sunt două
+  consimțăminte distincte, iar EDPB nu permite gruparea lor.
+- **Nu se refolosește formularea de pe site-urile vechi** („Accept
+  trimiterea datelor personale... și sunt de acord cu secțiunea Temeni
+  și Condiții") — grupează două acorduri și conține un typo.
+
+Un formular de contact nu e încheiere de contract: acordul cu T&C nu se
+cere aici.
+
+**2. Destinația datelor — determină conținutul politicii**
+
+Unde ajung datele decide ce scrie în Termeni, secțiunea 12.3, unde
+tabelul de destinatari are acum placeholderele `[FURNIZOR-HOSTING]` și
+`[FURNIZOR-EMAIL]`.
+
+| Implementare | Ce se declară |
+|---|---|
+| Trimitere prin SMTP-ul găzduirii | doar furnizorul de hosting |
+| Serviciu terț (plugin cu API extern, e-mail tranzacțional, CRM) | serviciul devine împuternicit și **trebuie** declarat în tabel, cu localizarea prelucrării |
+
+Dacă terțul prelucrează în afara SEE, se completează și secțiunea 12.4.
+Alegerea pluginului de formular e deci și o decizie juridică, nu doar
+tehnică.
+
+**3. Câmpurile**
+
+Câmpurile efective determină prima linie din tabelul de la 12.2, care
+listează acum: nume, telefon, e-mail, data și tipul evenimentului,
+mesaj. Dacă formularul final diferă, tabelul se actualizează.
+
+Principiul minimizării: nu se colectează câmpuri care nu sunt necesare
+pentru a răspunde solicitării.
+
+**4. Durata de stocare**
+
+Politica declară **12 luni de la ultima interacțiune**, dacă nu se
+încheie contract. Dacă pluginul stochează mesajele în baza de date
+WordPress, trebuie configurată ștergerea automată sau stabilită o
+procedură manuală — altfel afirmația din politică e falsă.
+
 ---
 
 ## 9. Ce e decis vs. ce e deschis
