@@ -462,12 +462,17 @@
             });
         });
 
+        // Canalul YouTube al artistei — forma canonică /channel/, aceeași ca în
+        // sameAs și în footer. Definit o singură dată: e fallback-ul pentru
+        // clipurile care încă nu au un ID video (data-yt="TODO").
+        const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ';
+
         // Video facade: iframe-ul YouTube se încarcă abia la click (nu la load-ul paginii)
         document.querySelectorAll('.video-facade').forEach(btn => {
             btn.addEventListener('click', () => {
                 const id = btn.dataset.yt;
                 if (!id || id === 'TODO') {
-                    window.open('https://youtube.com/@BalanIoana', '_blank', 'noopener');
+                    window.open(YOUTUBE_CHANNEL_URL, '_blank', 'noopener');
                     return;
                 }
                 const frame = document.createElement('iframe');
