@@ -111,10 +111,22 @@
 <a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 shrink-0" href="https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ" target="_blank" rel="noopener">Vezi canalul YouTube <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M241.62-258.69 210-290.31l413.92-414.31H241.31V-750h460v460h-45.39v-382.62l-414.3 413.93Z"/></svg></a>
 </div>
 <!-- Bento: 4 coloane pe desktop, 3 pe tabletă, 2 pe mobil.
-     Sloturile 2× (clipuri + cele trei peisaje) ocupă două coloane peste tot,
-     deci pe mobil devin lățime completă; portretul ocupă o coloană pe două
-     rânduri. Cele șase surse mici (480px și 694px) rămân 1×1 la orice lățime —
-     nu primesc niciodată slot mare, ca să nu fie mărite peste rezoluția lor.
+     Retragerea celor două fotografii din grupa C (identitate neconfirmată) a
+     lăsat 21 de celule, iar 21 nu se împarte nici la 4, nici la 2. Reducerea
+     desktopului la 3 coloane ar fi împărțit exact, dar ar fi înălțat rândul de
+     la 295px la 398px, iar `formatie-lumini-scena` (480×320, cea mai scundă
+     sursă) ar fi ajuns la 1,24× — exact mărirea pe care o eliminăm peste tot.
+     Așa că numărul de celule se reglează pe fiecare prag, prin span-uri:
+       mobil  (2 col): 22 celule — `formatie-lumini-scena` trece pe toată
+                       lățimea; la 343px, sursa de 480px rămâne la 0,71×
+       tabletă(3 col): 21 celule — span-urile implicite se împart exact
+       desktop(4 col): 24 celule — portretul urcă la 2×2, iar
+                       `rochie-alba-imprimeu` (694px) la 2×1
+     Zero goluri la toate trei, verificat pe algoritmul de plasare densă.
+     Sloturile 2× (clipuri + cele două peisaje) ocupă două coloane peste tot,
+     deci pe mobil devin lățime completă. Cele patru surse de 480px rămân 1×1
+     pe desktop — nu primesc niciodată slot mare, ca să nu fie mărite peste
+     rezoluția lor.
      `grid-flow-row-dense`: fără el, un slot de 2 coloane care nu mai încape pe
      rând lasă o celulă goală la 3 și la 2 coloane.
      Rândurile se dimensionează din elementele de 2 coloane (16:9); cele 1×1 sunt
@@ -138,16 +150,16 @@
 </picture>
 </div>
 <!-- Rândurile 2-3: portretul înalt ține coloana din stânga pe două rânduri -->
-<div class="relative row-span-2 overflow-hidden border border-outline-variant/20 bg-surface-container">
+<div class="relative row-span-2 lg:col-span-2 overflow-hidden border border-outline-variant/20 bg-surface-container">
 <picture>
-<source type="image/webp" srcset="assets/img/ioana-balan-portret-lumina-violet-800.webp 800w, assets/img/ioana-balan-portret-lumina-violet-1440.webp 1440w" sizes="(min-width: 1280px) 250px, (min-width: 1024px) 20vw, (min-width: 768px) 197px, 44vw">
-<img alt="Portret al Ioanei Balan în lumină violet, într-o bluză cu imprimeu colorat" class="absolute inset-0 w-full h-full object-cover" src="assets/img/ioana-balan-portret-lumina-violet-1440.jpg" srcset="assets/img/ioana-balan-portret-lumina-violet-800.jpg 800w, assets/img/ioana-balan-portret-lumina-violet-1440.jpg 1440w" sizes="(min-width: 1280px) 250px, (min-width: 1024px) 20vw, (min-width: 768px) 197px, 44vw" width="1440" height="1800" loading="lazy" decoding="async">
+<source type="image/webp" srcset="assets/img/ioana-balan-portret-lumina-violet-800.webp 800w, assets/img/ioana-balan-portret-lumina-violet-1440.webp 1440w" sizes="(min-width: 1280px) 524px, (min-width: 1024px) 42vw, (min-width: 768px) 197px, 44vw">
+<img alt="Portret al Ioanei Balan în lumină violet, într-o bluză cu imprimeu colorat" class="absolute inset-0 w-full h-full object-cover" src="assets/img/ioana-balan-portret-lumina-violet-1440.jpg" srcset="assets/img/ioana-balan-portret-lumina-violet-800.jpg 800w, assets/img/ioana-balan-portret-lumina-violet-1440.jpg 1440w" sizes="(min-width: 1280px) 524px, (min-width: 1024px) 42vw, (min-width: 768px) 197px, 44vw" width="1440" height="1800" loading="lazy" decoding="async">
 </picture>
 </div>
-<div class="relative aspect-square md:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<div class="relative aspect-square md:aspect-auto lg:col-span-2 overflow-hidden border border-outline-variant/20 bg-surface-container">
 <picture>
 <source type="image/webp" srcset="assets/img/ioana-balan-rochie-alba-imprimeu-694.webp">
-<img alt="Ioana Balan așezată, în rochie albă cu imprimeu, la un eveniment în aer liber" class="absolute inset-0 w-full h-full object-cover" src="assets/img/ioana-balan-rochie-alba-imprimeu-694.jpg" width="694" height="705" loading="lazy" decoding="async">
+<img alt="Ioana Balan așezată, în rochie albă cu imprimeu, la un eveniment în aer liber" class="absolute inset-0 w-full h-full object-cover object-[80%_5%]" src="assets/img/ioana-balan-rochie-alba-imprimeu-694.jpg" width="694" height="705" loading="lazy" decoding="async">
 </picture>
 </div>
 <button type="button" class="video-card" data-yt="3uyEZ2vY6eE" aria-label="Redă videoclipul: „Un trandafir crește la firida mea”">
@@ -194,12 +206,6 @@
 </picture>
 </div>
 <!-- Rândul 5 -->
-<div class="relative col-span-2 aspect-video overflow-hidden border border-outline-variant/20 bg-surface-container">
-<picture>
-<source type="image/webp" srcset="assets/img/formatia-in-alb-costum-popular-800.webp 800w, assets/img/formatia-in-alb-costum-popular-1440.webp 1440w" sizes="(min-width: 1280px) 524px, (min-width: 1024px) 42vw, (min-width: 768px) 418px, 92vw">
-<img alt="Formația în ținute albe — vioară, saxofon și acordeon — alături de Ioana Balan în costum popular" class="absolute inset-0 w-full h-full object-cover" src="assets/img/formatia-in-alb-costum-popular-1440.jpg" srcset="assets/img/formatia-in-alb-costum-popular-800.jpg 800w, assets/img/formatia-in-alb-costum-popular-1440.jpg 1440w" sizes="(min-width: 1280px) 524px, (min-width: 1024px) 42vw, (min-width: 768px) 418px, 92vw" width="1440" height="1196" loading="lazy" decoding="async">
-</picture>
-</div>
 <button type="button" class="video-card" data-yt="iIYF1xiX6sM" aria-label="Redă videoclipul: Muzică de petrecere live">
 <img class="video-card__thumb" src="assets/video-thumbs/iIYF1xiX6sM.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
 <span class="video-card__veil"></span>
@@ -209,14 +215,10 @@
 <span class="video-card__title">Muzică de petrecere live</span>
 </span>
 </button>
-<!-- Rândul 6: ultimele două fotografii, cele mai mici ca sursă -->
-<div class="relative aspect-square md:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
-<picture>
-<source type="image/webp" srcset="assets/img/ioana-balan-invitati-aplauze-480.webp">
-<img alt="Ioana Balan alături de doi invitați care aplaudă, într-o sală de evenimente" class="absolute inset-0 w-full h-full object-cover" src="assets/img/ioana-balan-invitati-aplauze-480.jpg" width="480" height="320" loading="lazy" decoding="async">
-</picture>
-</div>
-<div class="relative aspect-square md:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<!-- Rândul 6. Pe mobil acest slot e lățime completă, ca să ducă numărul de
+     celule de la 21 la 22 și să închidă ultimul rând; sursa (480×320, peisaj)
+     suportă cei 343px fără mărire — 0,71×. De la md redevine 1×1. -->
+<div class="relative col-span-2 aspect-video md:col-span-1 md:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
 <picture>
 <source type="image/webp" srcset="assets/img/formatie-lumini-scena-480.webp">
 <img alt="Formația pe ring, sub luminile de scenă verzi și mov" class="absolute inset-0 w-full h-full object-cover" src="assets/img/formatie-lumini-scena-480.jpg" width="480" height="320" loading="lazy" decoding="async">

@@ -315,7 +315,7 @@ Stitch de 512px. Lista se actualizează când clienta trimite material nou.
 | `ioana-balan-scena-costum-rosu` | 1440×1800 | cântând la microfon, ie cu broderie roșie, fustă roșie | despre, index |
 | `ioana-balan-portret-lumina-violet` | 1440×1800 | portret în lumină violet, cămașă cu imprimeu | galerie |
 | `ioana-balan-hora-mireasa` | 1440×954 | horă de nuntă, mireasa din spate, saxofonist în centru | galerie |
-| `formatia-in-alb-costum-popular` | 1440×1196 | formație de cinci în cămăși albe — vioară, sax, acordeon | galerie |
+| `formatia-in-alb-costum-popular` | 1440×1196 | formație de cinci în cămăși albe — vioară, sax, acordeon | — retrasă |
 | `formatie-instrumentala-tambal` | 1304×978 | șase instrumentiști pe scenă, țambal în centru | oferte |
 | `hora-nunta-invitati` | 1024×683 | cântând în horă, între miri și invitați | despre (hero), galerie |
 | `ioana-balan-rochie-alba-imprimeu` | 694×705 | așezată pe fotoliu de răchită, rochie lungă cu imprimeu | galerie |
@@ -323,7 +323,7 @@ Stitch de 512px. Lista se actualizează când clienta trimite material nou.
 | `ioana-balan-sala-eveniment` | 480×640 | rochie-palton brodată, ring de dans gol | galerie |
 | `formatie-ring-dans` | 480×478 | formație pe ring de marmură | galerie |
 | `formatie-lumini-scena` | 480×320 | formație în negru sub lumini verzi și violet | galerie |
-| `ioana-balan-invitati-aplauze` | 480×320 | trei invitați aplaudând în sală | galerie |
+| `invitati-aplauze` | 480×320 | trei invitați aplaudând în sală | — retrasă |
 
 **Ce lipsește din fototecă:** o fotografie **peisaj de minimum 1440px
 lățime**, cu subiectul în treimea orizontală centrală. Fără ea, banda de
@@ -351,12 +351,20 @@ scenă, subiect din spate sau prea departe):
 - `formatie-instrumentala-tambal` — nicio femeie în cadru; de confirmat
   separat că aceștia sunt instrumentiștii formației ei
 
-**C — aproape sigur altă persoană:**
+**C — aproape sigur altă persoană. Ambele au fost RETRASE din galerie**
+și nu se reintroduc pe nicio pagină fără confirmarea clientei. Fișierele
+rămân în `assets/img/`, doar nefolosite:
 
 - `formatia-in-alb-costum-popular` — păr șaten-roșcat ondulat, față mai
   rotundă, sprânceană mai subțire și mai arcuită decât în portrete
-- `ioana-balan-invitati-aplauze` — femeie blondă în roșu; contextual sunt
-  invitați care aplaudă, nu artista
+- `invitati-aplauze` — femeie blondă în roșu; contextual sunt invitați care
+  aplaudă, nu artista. Redenumită: purta prefixul `ioana-balan-` deși
+  subiectul nu e ea, iar numele de fișier ajunge în URL și în rezultatele
+  căutării de imagini
+
+Motivul retragerii nu e doar identitatea greșită: sunt persoane
+identificabile, fotografiate la evenimente, publicate într-o galerie care
+poartă numele artistei.
 
 Restul (`ie-broderie-aurie`, `ie-cosita-impletita`, `scena-costum-rosu`,
 `portret-lumina-violet`, `hora-nunta-invitati`, `rochie-alba-imprimeu`)
