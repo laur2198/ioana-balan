@@ -296,9 +296,19 @@ body {
   line-height: 1.1;
 }
 
-/* Efecte de fundal -------------------------------------------------------- */
-.cinematic-vignette {
-  background: radial-gradient(circle, transparent 20%, rgba(19, 19, 19, 0.8) 100%);
+/* Efecte de fundal --------------------------------------------------------
+   Fondu de contrast pentru fotografia din hero (index). Înlocuiește vechea
+   textură hexagonală: gradient simplu, fără model și fără zgomot, care stinge
+   marginea dinspre text. Sub 1024px fotografia stă sub text, deci se stinge
+   în jos; de la 1024px stă în coloana din dreapta, deci spre stânga.
+   Culoarea e tokenul de fundal (#131313). */
+.hero-photo-fade {
+  background-image: linear-gradient(to top, #131313 0%, rgba(19, 19, 19, 0) 42%);
+}
+@media (min-width: 1024px) {
+  .hero-photo-fade {
+    background-image: linear-gradient(to right, #131313 0%, rgba(19, 19, 19, 0) 40%);
+  }
 }
 
 /* Layout ------------------------------------------------------------------ */

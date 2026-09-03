@@ -27,7 +27,7 @@
 <link rel="preload" href="assets/fonts/eb-garamond-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Imaginea de hero e LCP-ul paginii: se preîncarcă varianta webp, cu același
      srcset/sizes ca <picture>, ca browserul să aleagă aceeași lățime. -->
-<link rel="preload" as="image" type="image/webp" href="assets/img/ioana-balan-ie-cosita-impletita-1440.webp" imagesrcset="assets/img/ioana-balan-ie-cosita-impletita-800.webp 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.webp 1440w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="assets/img/ioana-balan-ie-cosita-impletita-1440.webp" imagesrcset="assets/img/ioana-balan-ie-cosita-impletita-800.webp 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.webp 1440w" imagesizes="(min-width: 1280px) 440px, (min-width: 1024px) 40vw, 100vw" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -106,30 +106,37 @@
 </div>
 </div>
 <main id="continut" tabindex="-1">
-<!-- Hero Section -->
-<section class="relative min-h-[85vh] md:min-h-[92vh] flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<picture>
-<source type="image/webp" srcset="assets/img/ioana-balan-ie-cosita-impletita-800.webp 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.webp 1440w" sizes="100vw">
-<img alt="Ioana Balan în ie albă cu broderie aurie, cu cosița împletită în coroniță" class="w-full h-full object-cover object-[50%_8%] opacity-50 md:opacity-[0.45]" src="assets/img/ioana-balan-ie-cosita-impletita-1440.jpg" srcset="assets/img/ioana-balan-ie-cosita-impletita-800.jpg 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.jpg 1440w" sizes="100vw" width="1440" height="1800" loading="eager" fetchpriority="high" decoding="async">
-</picture>
-<div class="absolute inset-0 cinematic-vignette"></div>
-<!-- Textură de broderie — semnătura vizuală, foarte discretă (identitate, CLAUDE.md §6) -->
-<div class="absolute inset-0 motif-texture pointer-events-none"></div>
-<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-background to-transparent"></div>
-</div>
-<div class="relative z-10 max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop w-full pt-20 md:pt-32 pb-16">
-<div class="max-w-3xl">
+<!-- Hero Section
+     Compoziție pe două coloane, nu bandă full-bleed: singura fotografie
+     disponibilă e portret 4:5 (1440×1800), iar object-cover într-o bandă
+     lată o mărea până rămânea o fâșie la nivelul ochilor (1920px: se vedeau
+     doar 41% din înălțimea sursei). În coloană proprie portretul păstrează
+     raportul nativ și chipul intră întreg la toate lățimile.
+     Fototeca nu conține sursă peisaj ≥1440px — vezi CLAUDE.md §10. -->
+<section class="relative overflow-hidden">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16 pt-20 md:pt-28 lg:pt-32 pb-14 md:pb-20 lg:pb-24">
+<div class="w-full lg:w-[56%] lg:shrink-0">
 <span class="font-label-md text-[12px] md:text-label-md text-primary tracking-[0.3em] uppercase block mb-4">Eleganță &amp; Tradiție</span>
-<h1 class="font-display-lg text-[36px] md:text-[64px] leading-[1.05] tracking-[-0.01em] mb-6 md:mb-7">Formație Nuntă București Premium: Muzică de Petrecere Autentică</h1>
+<h1 class="font-display-lg text-[36px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.01em] mb-6 md:mb-7">Formație Nuntă București Premium: Muzică de Petrecere Autentică</h1>
 <!-- Accent de motiv: banda de broderie sub titlu, cu romb bordo -->
 <div class="motif-rule max-w-xs mb-7 md:mb-8"><span class="motif-rule__gem"></span></div>
 <p class="font-body-lg text-[16px] md:text-body-lg text-secondary mb-8 md:mb-10 max-w-xl">Formație de nuntă cu repertoriu variat și muzică populară autentică — Ioana Balan aduce folclorul viu pe scena petrecerii tale.</p>
-<div class="flex flex-col sm:flex-row gap-4 md:gap-6">
-<a href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener" class="bg-accent text-white px-8 md:px-10 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-accent-hover transition-all active:scale-95 w-full sm:w-auto text-center">Rezervă pe WhatsApp</a>
-<a href="oferte.html" class="border border-outline text-on-surface bg-transparent px-8 md:px-10 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-white/5 transition-all w-full sm:w-auto text-center">Vezi ofertele</a>
+<div class="flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6">
+<a href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener" class="bg-accent text-white px-8 md:px-10 lg:px-8 xl:px-10 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-accent-hover transition-all active:scale-95 w-full sm:w-auto text-center">Rezervă pe WhatsApp</a>
+<a href="oferte.html" class="border border-outline text-on-surface bg-transparent px-8 md:px-10 lg:px-8 xl:px-10 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-white/5 transition-all w-full sm:w-auto text-center">Vezi ofertele</a>
 </div>
-
+</div>
+<div class="w-full lg:flex-1 relative">
+<picture>
+<source type="image/webp" srcset="assets/img/ioana-balan-ie-cosita-impletita-800.webp 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.webp 1440w" sizes="(min-width: 1280px) 440px, (min-width: 1024px) 40vw, 100vw">
+<img alt="Ioana Balan în ie albă cu broderie aurie, cu cosița împletită în coroniță" class="w-full h-[300px] sm:h-[360px] md:h-[420px] lg:h-[520px] object-cover object-[50%_6%]" src="assets/img/ioana-balan-ie-cosita-impletita-1440.jpg" srcset="assets/img/ioana-balan-ie-cosita-impletita-800.jpg 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.jpg 1440w" sizes="(min-width: 1280px) 440px, (min-width: 1024px) 40vw, 100vw" width="1440" height="1800" loading="eager" fetchpriority="high" decoding="async">
+</picture>
+<!-- Gradient de contrast — înlocuiește textura hexagonală. Fără model, fără
+     zgomot: doar stinge marginea dinspre text, ca fotografia să nu fie o
+     casetă lipită pe fundal. -->
+<div class="hero-photo-fade absolute inset-0 pointer-events-none"></div>
+</div>
 </div>
 </div>
 </section>
