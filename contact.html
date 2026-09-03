@@ -20,10 +20,11 @@
 <meta name="twitter:title" content="Contact Ioana Balan | Rezervări Evenimente și Colaborări Muzicale">
 <meta name="twitter:description" content="Contactați-o pe Ioana Balan pentru rezervări nunți, evenimente corporate și spectacole live în București, Ploiești, Brașov, Craiova și Pitești. Consultanță muzicală gratuită.">
 <meta content="Contactați-o pe Ioana Balan pentru rezervări nunți, evenimente corporate și spectacole live în București, Ploiești, Brașov, Craiova și Pitești. Consultanță muzicală gratuită." name="description">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Fonturi locale (assets/fonts/) — zero cereri către Google.
+     Preload doar pentru fața cerută de H1-ul de deasupra pliului: EB Garamond 500, latin + latin-ext
+     (titlul conține ă/ș/ț, care stau în latin-ext — fără el titlul s-ar reașeza de două ori). -->
+<link rel="preload" href="assets/fonts/eb-garamond-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/eb-garamond-500-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="assets/tailwind.config.js"></script>
 <link rel="stylesheet" href="assets/styles.css">

@@ -21,11 +21,11 @@
 <meta name="twitter:image" content="https://ioana-balan.ro/assets/og-ioana-balan.png">
 <meta name="twitter:image:alt" content="Semnătura Ioana Balan, albă pe fundal negru">
 <meta content="Cum folosește site-ul ioana-balan.ro modulele cookie și tehnologiile similare de stocare locală: temeiul legal, conținutul încorporat de la terți și controlul setărilor din browser." name="description">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Fonturi locale (assets/fonts/) — zero cereri către Google.
+     Preload doar pentru fața cerută de H1-ul de deasupra pliului: EB Garamond 500, latin
+     (titlul nu conține caractere din latin-ext). -->
+<link rel="preload" href="assets/fonts/eb-garamond-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet">
 <script src="assets/tailwind.config.js"></script>
 <link rel="stylesheet" href="assets/styles.css">
 <!-- Fără JSON-LD: documentele de subsol nu se indexează. -->

@@ -21,10 +21,11 @@
 <meta name="twitter:description" content="Explorează discografia completă a artistei Ioana Balan. De la noul album 'Hai să nu ne mai mințim' la colecțiile de arhivă 'Glasul Inimii' și 'Rădăcini'.">
 <meta content="Explorează discografia completă a artistei Ioana Balan. De la noul album 'Hai să nu ne mai mințim' la colecțiile de arhivă 'Glasul Inimii' și 'Rădăcini'." name="description">
 <!-- Google Fonts: EB Garamond -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Fonturi locale (assets/fonts/) — zero cereri către Google.
+     Preload doar pentru fața cerută de H1-ul de deasupra pliului: EB Garamond 500, latin + latin-ext
+     (titlul conține ă/ș/ț, care stau în latin-ext — fără el titlul s-ar reașeza de două ori). -->
+<link rel="preload" href="assets/fonts/eb-garamond-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/eb-garamond-500-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
