@@ -272,3 +272,155 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     scroll-behavior: auto;
   }
 }
+
+/* Documente juridice de tip text lung ------------------------------------
+   Folosite doar de termeni-si-conditii.html și politica-cookie.html. O
+   singură coloană de citit (~68ch), line-height generos, contrast ridicat:
+   textul juridic se citește lung, nu se scanează. Regulile stau pe un
+   container (.legal-prose), nu pe fiecare element — la migrare, tot blocul
+   intră într-un singur widget de text în Elementor. */
+.legal-prose p,
+.legal-prose ul,
+.legal-prose ol {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #c4c7c7;
+  margin-bottom: 18px;
+}
+@media (min-width: 768px) {
+  .legal-prose p,
+  .legal-prose ul,
+  .legal-prose ol {
+    font-size: 17px;
+  }
+}
+.legal-prose li {
+  margin-bottom: 10px;
+}
+.legal-prose li:last-child {
+  margin-bottom: 0;
+}
+.legal-prose strong {
+  color: #e5e2e1;
+  font-weight: 600;
+}
+/* Linkurile din text se disting prin subliniere, nu doar prin culoare.
+   overflow-wrap: URL-urile scrise integral (lista de browsere) altfel
+   depășesc coloana la 360px. */
+.legal-prose a {
+  color: #e5e2e1;
+  text-decoration: underline;
+  text-decoration-color: rgba(196, 18, 54, 0.75);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.legal-prose a:hover {
+  color: #ffffff;
+  text-decoration-color: #C41236;
+}
+.legal-prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background-color: #20201f;
+  color: #e5e2e1;
+  padding: 2px 6px;
+}
+
+/* Notă încadrată în corpul documentului (blockquote din sursa markdown) */
+.legal-note {
+  border-left: 3px solid #800020;
+  background-color: #1c1b1b;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+}
+.legal-note p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tabele juridice: tabele reale, cu scroll orizontal pe ecrane mici.
+   min-width ține coloanele lizibile în loc să le strivească la 360px. */
+.legal-table {
+  min-width: 40rem;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.legal-table--wide {
+  min-width: 48rem;
+}
+.legal-table th,
+.legal-table td {
+  padding: 12px 16px;
+  border: 1px solid rgba(198, 198, 198, 0.18);
+  vertical-align: top;
+}
+.legal-table thead th {
+  background-color: #20201f;
+  color: #e5e2e1;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.legal-table tbody td {
+  background-color: #1c1b1b;
+  color: #c4c7c7;
+}
+.legal-table tbody tr:nth-child(even) td {
+  background-color: #161615;
+}
+
+/* Cuprins: colapsat implicit pe mobil, deschis de la md printr-un script de
+   două rânduri (atributul `open` nu se poate comuta din media query). */
+.toc summary {
+  cursor: pointer;
+  list-style: none;
+}
+.toc summary::-webkit-details-marker {
+  display: none;
+}
+.toc summary::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  margin-left: auto;
+  border-right: 2px solid #C41236;
+  border-bottom: 2px solid #C41236;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.2s ease;
+}
+.toc[open] summary::after {
+  transform: rotate(-135deg) translate(-2px, -2px);
+}
+
+/* Valori nedefinite din documentele juridice (doar prototip) --------------
+   Aceeași logică vizuală ca .price-tbc, adaptată pentru marcaj inline în
+   text lung: contur punctat bordo + fundal contrastant, imposibil de citit
+   ca text final. Tokenul original rămâne în HTML, ca să fie greppabil.
+   Se șterg marcajele din HTML și acest bloc când valorile se completează. */
+.legal-tbc {
+  /* position: relative — eticheta .sr-only din interior e position:absolute.
+     Fără un ancestor poziționat, blocul ei de referință devine viewport-ul,
+     iar în interiorul unui tabel cu scroll orizontal asta întindea aria de
+     scroll a documentului (overflow orizontal pe toată pagina). */
+  position: relative;
+  background-color: rgba(196, 18, 54, 0.18);
+  border: 2px dotted var(--accent-edge);
+  color: #e5e2e1;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  padding: 1px 6px;
+  overflow-wrap: anywhere;
+}
+
+/* Caseta „document în lucru" — temporară, se șterge odată cu .legal-tbc și
+   cu <meta name="robots" content="noindex, follow"> de pe cele două pagini. */
+.legal-draft-banner {
+  background-color: rgba(196, 18, 54, 0.14);
+  border: 1px solid var(--accent-edge);
+  border-left: 6px solid var(--accent-edge);
+  padding: 20px 24px;
+}
