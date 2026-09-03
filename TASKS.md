@@ -24,7 +24,7 @@
 | ✅ D-domain-web | Domeniul web | **DECIS: `ioana-balan.ro`** (cu cratimă) |
 | ✅ D-grand-music | „Grand Music Events" | **DECIS: se păstrează** — e umbrela reală a formației |
 | ✅ D-design-dir | Direcția de design | **DECIS: live (EB Garamond/Inter + bordo)**. Aurul `#d4af37` din `_stitch-export/` = doar referință, NU se folosește |
-| 🟠 D-email | Domeniul emailului oficial (`contact@ioanabalan.ro` e pe alt domeniu decât site-ul) | **DESCHIS** — confirmă clientul |
+| ✅ D-email | Adresa de email oficială | **DECIS: `ioanabalanoficial@gmail.com`** — adresa reală, confirmată (Facebook, YouTube, site-ul actual) |
 | 🟠 D-preturi | Dacă prețurile urcă pe homepage (poziționare, el e cel mai scump din piață) | **DESCHIS** — confirmă clientul |
 | 🟠 D-adresa | Adresa fizică publică în footer/contact | **DESCHIS** — confirmă clientul |
 
@@ -235,11 +235,11 @@
 
 ## 🧹 Curățare & consistență
 
-### T-C1 — Aliniere domeniu email 🟠 (blocat de D-email)
-- **Prioritate:** Medie · **Fișiere:** toate + `contact.html:913` (JSON-LD)
-- Emailul `contact@ioanabalan.ro` e pe alt domeniu decât site-ul (`ioana-balan.ro`). După
-  D-email, aliniază toate aparițiile la valoarea corectă.
-- **Acceptare:** un singur domeniu de email consistent, inclusiv în JSON-LD.
+### ✅ T-C1 — Aliniere adresă email — FĂCUT
+- **Fișiere:** toate paginile + JSON-LD din `contact.html`
+- `contact@ioanabalan.ro` și `contact@ioana-balan.ro` (ambele inexistente) au fost
+  înlocuite peste tot cu `ioanabalanoficial@gmail.com`.
+- **Acceptare:** o singură adresă de email în tot proiectul, inclusiv în JSON-LD. ✅
 
 ### ✅ T-C2 — Conectare bloc social secundar din contact — FĂCUT (rezolvat între timp)
 - **Prioritate:** Medie · **Fișiere:** `contact.html`

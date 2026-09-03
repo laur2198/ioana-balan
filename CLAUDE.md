@@ -204,13 +204,15 @@ pagină), tranziții grayscale→color pe imagini mari, parallax.
 - WhatsApp ca mecanism principal de conversie
 - SEO local pe 5 orașe: București, Ploiești, Brașov, Craiova, Pitești
 - Recenziile Google se afișează selectiv (6–8), cu cifra 5,0★/61 proeminentă
+- Emailul oficial: `ioanabalanoficial@gmail.com` — adresa reală, confirmată
+  (aceeași pe Facebook, YouTube și site-ul actual). `contact@ioanabalan.ro`
+  și `contact@ioana-balan.ro` nu există; nu se mai folosesc.
 
 **Deschis — nu implementa fără confirmarea clientului:**
 - Dacă prețurile urcă pe homepage (el e cel mai scump din piață —
   decizie de poziționare, nu de UX)
 - Wording-ul descrierii din footer
 - Adresa fizică publică (există în Google Business Profile)
-- Emailul oficial (`contact@ioanabalan.ro` e pe alt domeniu decât site-ul)
 
 ---
 
