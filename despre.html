@@ -99,7 +99,18 @@
 <!-- Antet de pagină -->
 <section class="relative min-h-[32vh] md:min-h-[36vh] flex items-end justify-center overflow-hidden mb-12 md:mb-16 px-6 md:px-margin-desktop py-10">
 <div class="absolute inset-0 z-0">
-<img alt="Ioana Balan în ie tradițională, călare pe un cal alb" class="w-full h-full object-cover object-[60%_top] opacity-30 md:opacity-40" src="assets/img/ioana-balan-portret-sesiune-foto-cal.jpg" width="512" height="511" decoding="async">
+<!-- PROVIZORIU — de înlocuit înainte de lansare.
+     Sursa are 1024px pe lățime, sub pragul de 1440px cerut de o bandă
+     full-bleed: la 1280px rulează la 1,25×. E acceptată doar pentru că
+     înjumătățește upscalingul plăcii vechi (2,50×) și pentru că subiectul
+     e corect — artista în costum popular, cântând, cu chipurile intacte la
+     toate lățimile. Se schimbă când clienta furnizează o fotografie
+     peisaj de minimum 1440px lățime, cu subiectul în treimea orizontală
+     centrală (singura compoziție care supraviețuiește unui decupaj 4:1). -->
+<picture class="block w-full h-full">
+<source type="image/webp" srcset="assets/img/hora-nunta-invitati-800.webp 800w, assets/img/hora-nunta-invitati-1024.webp 1024w" sizes="100vw">
+<img alt="Ioana Balan cântând la microfon într-o horă de nuntă, în ie și fustă de brocart, prinsă în horă între miri și invitați" class="w-full h-full object-cover object-[44%_28%] opacity-30 md:opacity-40" src="assets/img/hora-nunta-invitati-1024.jpg" srcset="assets/img/hora-nunta-invitati-800.jpg 800w, assets/img/hora-nunta-invitati-1024.jpg 1024w" sizes="100vw" width="1024" height="683" decoding="async">
+</picture>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30"></div>
 </div>
 <div class="relative z-10 text-center max-w-3xl px-4 py-8 md:py-10">
