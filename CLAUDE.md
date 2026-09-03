@@ -298,6 +298,70 @@ nu trimit; paginile legale lipsesc; logo-ul e semnătura curată (PNG cu fundal
 transparent, `assets/logo-alb-*.png`), nu încă SVG — vectorizarea rămâne de
 făcut înainte de migrarea în WordPress.
 
+### Fototeca clientei
+
+Cele 14 fotografii primite de la clientă, toate în `assets/img/`, fiecare
+cu derivate `<nume>-<lățime>.webp` (calitate 82) și `.jpg`. La lățimea
+nativă, `.jpg`-ul **este** fișierul original neatins, nu o recompresie.
+
+Se documentează aici pentru că patru portrete de 1440×1800 au stat
+neurmărite în rădăcina repo-ului cât timp paginile serveau placeholdere
+Stitch de 512px. Lista se actualizează când clienta trimite material nou.
+
+| Fișier (bază) | px | Conținut | Folosit pe |
+|---|---|---|---|
+| `ioana-balan-ie-broderie-aurie` | 1440×1800 | portret, ie albă cu broderie aurie, cercei-frunză | despre |
+| `ioana-balan-ie-cosita-impletita` | 1440×1800 | portret, cosiță împletită în coroniță, ie cu broderie bej | despre, index |
+| `ioana-balan-scena-costum-rosu` | 1440×1800 | cântând la microfon, ie cu broderie roșie, fustă roșie | despre, index |
+| `ioana-balan-portret-lumina-violet` | 1440×1800 | portret în lumină violet, cămașă cu imprimeu | galerie |
+| `ioana-balan-hora-mireasa` | 1440×954 | horă de nuntă, mireasa din spate, saxofonist în centru | galerie |
+| `formatia-in-alb-costum-popular` | 1440×1196 | formație de cinci în cămăși albe — vioară, sax, acordeon | galerie |
+| `formatie-instrumentala-tambal` | 1304×978 | șase instrumentiști pe scenă, țambal în centru | oferte |
+| `hora-nunta-invitati` | 1024×683 | cântând în horă, între miri și invitați | despre (hero), galerie |
+| `ioana-balan-rochie-alba-imprimeu` | 694×705 | așezată pe fotoliu de răchită, rochie lungă cu imprimeu | galerie |
+| `formatie-sacouri-albe` | 480×640 | formație în sacouri albe, exterior cu palmieri | galerie |
+| `ioana-balan-sala-eveniment` | 480×640 | rochie-palton brodată, ring de dans gol | galerie |
+| `formatie-ring-dans` | 480×478 | formație pe ring de marmură | galerie |
+| `formatie-lumini-scena` | 480×320 | formație în negru sub lumini verzi și violet | galerie |
+| `ioana-balan-invitati-aplauze` | 480×320 | trei invitați aplaudând în sală | galerie |
+
+**Ce lipsește din fototecă:** o fotografie **peisaj de minimum 1440px
+lățime**, cu subiectul în treimea orizontală centrală. Fără ea, banda de
+hero de pe `despre.html` rulează la 1,25× pe desktop, cu cea mai bună
+sursă disponibilă (`hora-nunta-invitati`, 1024px). Marcat ca provizoriu în
+markup.
+
+### Identitate neconfirmată în fotografii
+
+Comparate cu portretele în care artista e clar identificabilă, nu toate
+fotografiile arată aceeași persoană. **Grupele B și C de mai jos se
+confirmă cu clienta înainte de lansare** — o fotografie cu altcineva,
+publicată ca fiind ea, e o eroare pe care nici clienta, nici noi nu o
+vrem descoperită după lansare.
+
+**B — incert** (trăsăturile nu se pot verifica: rezoluție mică, lumină de
+scenă, subiect din spate sau prea departe):
+
+- `ioana-balan-hora-mireasa` — solista e fotografiată din spate, chipul nu
+  apare niciodată în cadru
+- `ioana-balan-sala-eveniment` — structura feței e plauzibilă, dar
+  sprâncenele citesc altfel decât în portretele de referință
+- `formatie-sacouri-albe`, `formatie-ring-dans`, `formatie-lumini-scena` —
+  480px, femeia e prea mică și prea contrastant luminată
+- `formatie-instrumentala-tambal` — nicio femeie în cadru; de confirmat
+  separat că aceștia sunt instrumentiștii formației ei
+
+**C — aproape sigur altă persoană:**
+
+- `formatia-in-alb-costum-popular` — păr șaten-roșcat ondulat, față mai
+  rotundă, sprânceană mai subțire și mai arcuită decât în portrete
+- `ioana-balan-invitati-aplauze` — femeie blondă în roșu; contextual sunt
+  invitați care aplaudă, nu artista
+
+Restul (`ie-broderie-aurie`, `ie-cosita-impletita`, `scena-costum-rosu`,
+`portret-lumina-violet`, `hora-nunta-invitati`, `rochie-alba-imprimeu`)
+se potrivesc între ele și nu ridică semne de întrebare.
+
 ---
 
 ## 11. Roadmap
