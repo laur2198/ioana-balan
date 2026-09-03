@@ -2,7 +2,7 @@
   <!-- „Râu" de broderie de pe ie — bandă care se repetă continuu pe orizontală
        (perioada = 40px; marginile se îmbină: linia și crucea cad exact pe seam).
        TODO client: de calibrat 1:1 după motivele din pozele reale în ie.
-       Culoare bakeuită (#c6c6c6 = --on-surface-var); intensitatea din opacity (styles.css). -->
+       Culoare bakeuită (#c6c6c6, tokenul on-surface-var); intensitatea din opacity (styles.css). -->
   <g stroke="#c6c6c6" stroke-width="1" stroke-linejoin="round" stroke-linecap="round">
     <!-- firul orizontal (râul) -->
     <path d="M0 12 H40"/>
