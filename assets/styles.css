@@ -620,18 +620,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   text-align: left;
 }
 
-/* În grila mixtă (foto + video) cardul video ocupă două coloane din trei.
-   Pragul e `lg` (1024px), exact breakpoint-ul la care grila trece pe 3 coloane
-   (`lg:grid-cols-3`). Sub el grila are o singură coloană: span 2 ar genera o a
-   doua coloană implicită, deci rămâne span 1. Cele două valori trebuie
-   schimbate împreună — altfel apar celule goale la lățimile intermediare. */
+/* În grila bento cardul video ocupă mereu două coloane. Grila are 2 coloane pe
+   mobil, 3 pe tabletă și 4 pe desktop, deci pe mobil „două coloane" înseamnă
+   lățime completă — exact comportamentul cerut pentru sloturile 2×. */
 .gallery-grid .video-card {
-  grid-column: span 1;
-}
-@media (min-width: 1024px) {
-  .gallery-grid .video-card {
-    grid-column: span 2;
-  }
+  grid-column: span 2;
 }
 
 .video-card__thumb {
