@@ -25,6 +25,9 @@
      (titlul conține ă/ș/ț, care stau în latin-ext — fără el titlul s-ar reașeza de două ori). -->
 <link rel="preload" href="assets/fonts/eb-garamond-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/eb-garamond-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Imaginea de hero e LCP-ul paginii: se preîncarcă varianta webp, cu același
+     srcset/sizes ca <picture>, ca browserul să aleagă aceeași lățime. -->
+<link rel="preload" as="image" type="image/webp" href="assets/img/ioana-balan-ie-cosita-impletita-1440.webp" imagesrcset="assets/img/ioana-balan-ie-cosita-impletita-800.webp 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.webp 1440w" imagesizes="100vw" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -106,7 +109,10 @@
 <!-- Hero Section -->
 <section class="relative min-h-[85vh] md:min-h-[92vh] flex items-center overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img alt="Ioana Balan - Solistă formație nuntă București" class="w-full h-full object-cover opacity-50 md:opacity-60" src="assets/img/ioana-balan-solista-formatie-nunta-bucuresti.jpg">
+<picture>
+<source type="image/webp" srcset="assets/img/ioana-balan-ie-cosita-impletita-800.webp 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.webp 1440w" sizes="100vw">
+<img alt="Ioana Balan în ie albă cu broderie aurie, cu cosița împletită în coroniță" class="w-full h-full object-cover object-[50%_8%] opacity-50 md:opacity-[0.45]" src="assets/img/ioana-balan-ie-cosita-impletita-1440.jpg" srcset="assets/img/ioana-balan-ie-cosita-impletita-800.jpg 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.jpg 1440w" sizes="100vw" width="1440" height="1800" loading="eager" fetchpriority="high" decoding="async">
+</picture>
 <div class="absolute inset-0 cinematic-vignette"></div>
 <!-- Textură de broderie — semnătura vizuală, foarte discretă (identitate, CLAUDE.md §6) -->
 <div class="absolute inset-0 motif-texture pointer-events-none"></div>
@@ -190,7 +196,10 @@
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-12 gap-10 md:gap-gutter items-center">
 <div class="md:col-span-5 relative order-2 md:order-1">
 <div class="border border-outline-variant/30 p-2 md:p-4">
-<img alt="Ioana Balan - Solistă muzică de petrecere și populară" class="w-full h-auto grayscale shadow-2xl object-cover aspect-[4/5]" src="assets/img/ioana-balan-solista-muzica-de-petrecere-si-po.jpg">
+<picture>
+<source type="image/webp" srcset="assets/img/ioana-balan-scena-costum-rosu-800.webp 800w, assets/img/ioana-balan-scena-costum-rosu-1440.webp 1440w" sizes="(min-width: 1200px) 460px, (min-width: 768px) 42vw, 100vw">
+<img alt="Ioana Balan cântând la microfon pe scenă, în ie cu broderie roșie și fustă roșie cu bordură neagră" class="w-full h-auto shadow-2xl object-cover aspect-[4/5]" src="assets/img/ioana-balan-scena-costum-rosu-1440.jpg" srcset="assets/img/ioana-balan-scena-costum-rosu-800.jpg 800w, assets/img/ioana-balan-scena-costum-rosu-1440.jpg 1440w" sizes="(min-width: 1200px) 460px, (min-width: 768px) 42vw, 100vw" width="1440" height="1800" loading="lazy" decoding="async">
+</picture>
 </div>
 <div class="absolute -bottom-6 -right-6 w-32 h-32 md:-bottom-8 md:-right-8 md:w-48 md:h-48 border border-primary/20 -z-10"></div>
 </div>
