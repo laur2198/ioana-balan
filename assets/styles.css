@@ -7,6 +7,137 @@
    EB Garamond + Inter, motiv de broderie).
    ========================================================================== */
 
+/* Fonturi self-hosted ------------------------------------------------------
+   Nicio cerere către fonts.googleapis.com / fonts.gstatic.com. Politica de
+   cookie (§4, „Fonturi și resurse grafice") afirmă că fonturile sunt găzduite
+   pe serverul propriu — de aici încolo e adevărat.
+
+   Fișierele sunt instanțe STATICE woff2 luate din Google Fonts, câte una per
+   greutate efectiv folosită în proiect (auditat pe cele 11 pagini, cu greutatea
+   calculată de browser, nu ghicită din markup):
+     Inter        400, 600, 400 italic
+     EB Garamond  400, 500, 500 italic
+   Inter 500 era cerut de vechiul <link> dar nu apare nicăieri în pagini.
+   Fișierele variabile (wght 100..900) ar fi acoperit toate greutățile dintr-un
+   singur fișier, dar costă ~45% mai mult per pagină la italice și mai mult și
+   la Inter upright; cu doar 2-3 greutăți fixe, staticele transferă mai puțin.
+
+   Împărțirea latin / latin-ext e cea a Google, cu unicode-range identic:
+   româna le folosește pe amândouă (â î sunt în latin, ă ș ț în latin-ext),
+   deci pe orice pagină se descarcă ambele subseturi ale unei familii.
+   Total în repo: 12 fișiere, 418 KiB.
+
+   Numele familiilor trebuie să rămână identice cu cele din
+   assets/tailwind.config.js ('Inter', 'EB Garamond'). */
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/eb-garamond-500-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/eb-garamond-500-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/eb-garamond-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/eb-garamond-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/eb-garamond-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/eb-garamond-500-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/inter-400-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/inter-400-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/inter-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/inter-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/inter-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/inter-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 /* Tokeni globali ---------------------------------------------------------- */
 /* Variabile CSS reale, nu doar fallback-uri: la migrarea în Elementor tokenii
    se mapează pe variabile globale, iar unul care trăiește doar ca fallback
@@ -134,9 +265,50 @@ body {
   opacity: 0.04;
 }
 
-/* Efecte de fundal -------------------------------------------------------- */
-.cinematic-vignette {
-  background: radial-gradient(circle, transparent 20%, rgba(19, 19, 19, 0.8) 100%);
+/* Prețuri neconfirmate (doar prototip) ------------------------------------
+   Cifrele de pe pagina de oferte sunt provizorii până le confirmă clientul.
+   Trebuie să fie imposibil de citit ca preț final într-un demo: contur
+   punctat, fundal contrastant și eticheta „DE CONFIRMAT". Se șterg marcajul
+   din HTML și acest bloc când valorile devin definitive. Doar tokeni
+   existenți — bordo (--accent-edge) și on-surface. */
+.price-tbc {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  padding: 6px 12px;
+  background-color: rgba(196, 18, 54, 0.18);
+  border: 2px dotted var(--accent-edge);
+  color: #e5e2e1;
+}
+.price-tbc__flag {
+  flex: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e5e2e1;
+}
+.price-tbc__value {
+  color: #e5e2e1;
+  line-height: 1.1;
+}
+
+/* Efecte de fundal --------------------------------------------------------
+   Fondu de contrast pentru fotografia din hero (index). Înlocuiește vechea
+   textură hexagonală: gradient simplu, fără model și fără zgomot, care stinge
+   marginea dinspre text. Sub 1024px fotografia stă sub text, deci se stinge
+   în jos; de la 1024px stă în coloana din dreapta, deci spre stânga.
+   Culoarea e tokenul de fundal (#131313). */
+.hero-photo-fade {
+  background-image: linear-gradient(to top, #131313 0%, rgba(19, 19, 19, 0) 42%);
+}
+@media (min-width: 1024px) {
+  .hero-photo-fade {
+    background-image: linear-gradient(to right, #131313 0%, rgba(19, 19, 19, 0) 40%);
+  }
 }
 
 /* Layout ------------------------------------------------------------------ */
@@ -239,5 +411,352 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* Documente juridice de tip text lung ------------------------------------
+   Folosite doar de termeni-si-conditii.html și politica-cookie.html. O
+   singură coloană de citit (~68ch), line-height generos, contrast ridicat:
+   textul juridic se citește lung, nu se scanează. Regulile stau pe un
+   container (.legal-prose), nu pe fiecare element — la migrare, tot blocul
+   intră într-un singur widget de text în Elementor. */
+.legal-prose p,
+.legal-prose ul,
+.legal-prose ol {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #c4c7c7;
+  margin-bottom: 18px;
+}
+@media (min-width: 768px) {
+  .legal-prose p,
+  .legal-prose ul,
+  .legal-prose ol {
+    font-size: 17px;
+  }
+}
+.legal-prose li {
+  margin-bottom: 10px;
+}
+.legal-prose li:last-child {
+  margin-bottom: 0;
+}
+.legal-prose strong {
+  color: #e5e2e1;
+  font-weight: 600;
+}
+/* Linkurile din text se disting prin subliniere, nu doar prin culoare.
+   overflow-wrap: URL-urile scrise integral (lista de browsere) altfel
+   depășesc coloana la 360px. */
+.legal-prose a {
+  color: #e5e2e1;
+  text-decoration: underline;
+  text-decoration-color: rgba(196, 18, 54, 0.75);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.legal-prose a:hover {
+  color: #ffffff;
+  text-decoration-color: #C41236;
+}
+.legal-prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background-color: #20201f;
+  color: #e5e2e1;
+  padding: 2px 6px;
+}
+
+/* Notă încadrată în corpul documentului (blockquote din sursa markdown) */
+.legal-note {
+  border-left: 3px solid #800020;
+  background-color: #1c1b1b;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+}
+.legal-note p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tabele juridice: tabele reale, cu scroll orizontal pe ecrane mici.
+   min-width ține coloanele lizibile în loc să le strivească la 360px. */
+.legal-table {
+  min-width: 40rem;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.legal-table--wide {
+  min-width: 48rem;
+}
+.legal-table th,
+.legal-table td {
+  padding: 12px 16px;
+  border: 1px solid rgba(198, 198, 198, 0.18);
+  vertical-align: top;
+}
+.legal-table thead th {
+  background-color: #20201f;
+  color: #e5e2e1;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.legal-table tbody td {
+  background-color: #1c1b1b;
+  color: #c4c7c7;
+}
+.legal-table tbody tr:nth-child(even) td {
+  background-color: #161615;
+}
+
+/* Cuprins: colapsat implicit pe mobil, deschis de la md printr-un script de
+   două rânduri (atributul `open` nu se poate comuta din media query). */
+.toc summary {
+  cursor: pointer;
+  list-style: none;
+}
+.toc summary::-webkit-details-marker {
+  display: none;
+}
+.toc summary::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  margin-left: auto;
+  border-right: 2px solid #C41236;
+  border-bottom: 2px solid #C41236;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.2s ease;
+}
+.toc[open] summary::after {
+  transform: rotate(-135deg) translate(-2px, -2px);
+}
+
+/* Valori nedefinite din documentele juridice (doar prototip) --------------
+   Aceeași logică vizuală ca .price-tbc, adaptată pentru marcaj inline în
+   text lung: contur punctat bordo + fundal contrastant, imposibil de citit
+   ca text final. Tokenul original rămâne în HTML, ca să fie greppabil.
+   Se șterg marcajele din HTML și acest bloc când valorile se completează. */
+.legal-tbc {
+  /* position: relative — eticheta .sr-only din interior e position:absolute.
+     Fără un ancestor poziționat, blocul ei de referință devine viewport-ul,
+     iar în interiorul unui tabel cu scroll orizontal asta întindea aria de
+     scroll a documentului (overflow orizontal pe toată pagina). */
+  position: relative;
+  background-color: rgba(196, 18, 54, 0.18);
+  border: 2px dotted var(--accent-edge);
+  color: #e5e2e1;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  padding: 1px 6px;
+  overflow-wrap: anywhere;
+}
+
+/* Caseta „document în lucru" — temporară, se șterge odată cu .legal-tbc și
+   cu <meta name="robots" content="noindex, follow"> de pe cele două pagini. */
+.legal-draft-banner {
+  background-color: rgba(196, 18, 54, 0.14);
+  border: 1px solid var(--accent-edge);
+  border-left: 6px solid var(--accent-edge);
+  padding: 20px 24px;
+}
+
+/* Răspunsuri FAQ neconfirmate (doar prototip) -----------------------------
+   Aceeași familie de marcaj ca .price-tbc și .legal-tbc, dar la nivel de bloc:
+   un răspuns întreg, nu o valoare inline. Trebuie să fie imposibil de citit ca
+   text final — contur punctat bordo, fundal contrastant, etichetă explicită.
+   Se șterg marcajele din HTML și acest bloc când artista confirmă textele.
+   Răspunsurile marcate astfel NU intră în JSON-LD (vezi faq.html). */
+.answer-tbc {
+  display: block;
+  padding: 12px 14px;
+  background-color: rgba(196, 18, 54, 0.18);
+  border: 2px dotted var(--accent-edge);
+  color: #e5e2e1;
+}
+.answer-tbc__flag {
+  display: block;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e5e2e1;
+}
+
+/* Acordeon FAQ ------------------------------------------------------------
+   <details>/<summary> e nativ accesibil la tastatură (Enter/Space). Marcajul
+   implicit al lui summary se ascunde: chevronul e desenat în markup, ca să
+   poată fi rotit. aria-expanded se sincronizează din JS, pe evenimentul
+   `toggle` — atributul nu se actualizează singur. */
+.faq-item summary {
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Video click-to-load ------------------------------------------------------
+   Fațadă statică: miniatura e locală (assets/video-thumbs/), iframe-ul YouTube
+   se creează abia la click. Până atunci pagina nu atinge niciun server Google —
+   exact ce declară politica de cookie, §4 („numai după ce dați clic pe imaginea
+   de previzualizare"). Din același motiv nu există preconnect/dns-prefetch la
+   hover: ar fi o conexiune înainte de click, deci ar contrazice textul publicat.
+
+   Tokeni: hover-ul butonului de redare folosește accentul INTERACTIV (#A01028 +
+   bordura #C41236), nu #800020 (decorativ) — vezi antetul acestui fișier.
+   Fără backdrop-filter: CLAUDE.md §8 permite unul singur pe pagină, iar acela
+   e header-ul; aici ar fi fost 5 deodată. */
+
+.video-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0d0d0d;
+  border: 1px solid rgba(68, 71, 72, 0.2);
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+/* În grila bento cardul video ocupă mereu două coloane. Grila are 2 coloane pe
+   mobil, 3 pe tabletă și 4 pe desktop, deci pe mobil „două coloane" înseamnă
+   lățime completă — exact comportamentul cerut pentru sloturile 2×. */
+.gallery-grid .video-card {
+  grid-column: span 2;
+}
+
+.video-card__thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.82);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+.video-card:hover .video-card__thumb,
+.video-card:focus-visible .video-card__thumb {
+  transform: scale(1.03);
+  filter: brightness(0.68);
+}
+
+.video-card__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.28) 42%,
+    rgba(0, 0, 0, 0.10) 100%
+  );
+  pointer-events: none;
+}
+
+.video-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: rgba(19, 19, 19, 0.55);
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+.video-card:hover .video-card__play,
+.video-card:focus-visible .video-card__play {
+  background: #A01028;
+  border-color: var(--accent-edge);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.video-card__play svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+  margin-left: 3px; /* centrare optică a triunghiului */
+}
+
+.video-card__meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.25rem 1.25rem 1.1rem;
+  pointer-events: none;
+}
+.video-card__eyebrow {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.625rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  /* 0,8 alpha, nu 0,62: peste voalul cel mai luminos măsurat pe carduri,
+     0,62 dă ~4,0:1 (sub pragul de 4,5:1 din quality floor). */
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.35rem;
+}
+.video-card__title {
+  display: block;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+/* Pe mobil cardul are ~200px înălțime; titlul la 22px ar mânca jumătate din el. */
+@media (min-width: 640px) {
+  .video-card__title {
+    font-size: 1.375rem;
+  }
+}
+
+/* Starea „în redare": butonul e înlocuit în DOM cu acest container, ca să nu
+   ajungem cu un <iframe> interactiv înăuntrul unui <button> (HTML invalid, iar
+   controalele playerului devin nesigure la click). */
+.video-card.is-playing {
+  cursor: default;
+}
+.video-card.is-playing:focus {
+  outline: none;
+}
+.video-card iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-card__thumb,
+  .video-card__play {
+    transition: none;
+  }
+  .video-card:hover .video-card__thumb,
+  .video-card:focus-visible .video-card__thumb {
+    transform: none;
+  }
+  .video-card:hover .video-card__play,
+  .video-card:focus-visible .video-card__play {
+    transform: translate(-50%, -50%);
   }
 }

@@ -122,7 +122,7 @@ Definește clasele o singură dată în `assets/styles.css`.
 - Șterge toate tranzițiile `grayscale hover:grayscale-0 duration-700/1000` de pe imagini mari (scumpe, inexistente pe mobil, greu de replicat în Elementor). Hover-ul pe carduri rămâne doar border/opacity.
 
 ### 3.3 Logo SVG
-`<!-- TODO client: semnătura vectorizată -->` — când sosește: `assets/logo.svg` (alb pe transparent), înlocuiește URL-ul googleusercontent din header/drawer/footer pe toate paginile. Până atunci nu schimba nimic.
+**Făcut parțial.** Clientul a livrat semnătura ca PNG cu fundal transparent (master 1750×600 + variantele 400/600/800w, plus `dark` și `bordo`). E în header, drawer și footer pe toate paginile, cu `srcset` 1x/2x. Rămâne de vectorizat în `assets/logo.svg` înainte de rebuild — PNG-ul nu scalează pentru print și nu se poate recolora din CSS.
 
 **Verificare Faza 3:** separatoarele cu motiv apar pe index + oferte + servicii; contrast păstrat ≥4.5:1; nicio tranziție grayscale pe imagini mari; `motifs.svg` sub 5KB.
 

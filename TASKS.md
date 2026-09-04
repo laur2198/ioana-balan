@@ -23,8 +23,8 @@
 |---|---------|-------|
 | ✅ D-domain-web | Domeniul web | **DECIS: `ioana-balan.ro`** (cu cratimă) |
 | ✅ D-grand-music | „Grand Music Events" | **DECIS: se păstrează** — e umbrela reală a formației |
-| ✅ D-design-dir | Direcția de design | **DECIS: live (EB Garamond/Inter + bordo)**. Aurul `#d4af37` din `_stitch-export/` = doar referință, NU se folosește |
-| 🟠 D-email | Domeniul emailului oficial (`contact@ioanabalan.ro` e pe alt domeniu decât site-ul) | **DESCHIS** — confirmă clientul |
+| ✅ D-design-dir | Direcția de design | **DECIS: live (EB Garamond/Inter + bordo)**. Aurul `#d4af37` din exportul Stitch (eliminat din repo, vezi commit-ul baseline `8026eb9`) = NU se folosește |
+| ✅ D-email | Adresa de email oficială | **DECIS: `ioanabalanoficial@gmail.com`** — adresa reală, confirmată (Facebook, YouTube, site-ul actual) |
 | 🟠 D-preturi | Dacă prețurile urcă pe homepage (poziționare, el e cel mai scump din piață) | **DESCHIS** — confirmă clientul |
 | 🟠 D-adresa | Adresa fizică publică în footer/contact | **DESCHIS** — confirmă clientul |
 
@@ -32,12 +32,16 @@
 
 ## 🎨 Faza 1 — Sistem de design & identitate (PRIORITATE MAXIMĂ)
 
-### T-D1 — Logo vectorizat (SVG semnătură)
-- **Prioritate:** Critică · **Fișiere:** header + footer pe toate cele 8, favicon
-- Logo-ul actual e bannerul de YouTube (conține fotografie). Se înlocuiește cu **semnătura
-  scrisă de mână a artistei, vectorizată** — SVG alb pe transparent, fără casetă neagră.
-  Variante: orizontal (header), compact (favicon/social). Client furnizează sursa.
-- **Acceptare:** SVG semnătură în header/footer pe toate paginile; variantă compactă pentru favicon (leagă T-SEO1).
+### T-D1 — Logo semnătură — FĂCUT PARȚIAL (rămâne vectorizarea)
+- **Prioritate:** Critică · **Fișiere:** header + drawer + footer pe toate cele 11, favicon
+- **Rezolvat:** bannerul de YouTube (conținea fotografie) e înlocuit cu semnătura curată,
+  albă pe transparent, livrată de client: `assets/logo-ioana-balan-alb.png` (master 1750×600)
+  + `logo-alb-400w/600w/800w.png` pentru `srcset`, plus variantele `dark` (#131313) și
+  `bordo` (#800020), încă nefolosite — tot site-ul e pe fundal întunecat.
+- **Rămas:** varianta **SVG** (PNG-ul nu scalează pentru print și nu se recolorează din CSS)
+  și varianta **compactă, pătrată** pentru favicon — decuparea primei litere din semnătură
+  nu e lizibilă la 32px (literă îngustă, raport ~1:3, tușă subțire). Blochează T-SEO1.
+- **Acceptare:** semnătură în header/footer pe toate paginile ✅; SVG ⛔; variantă compactă ⛔.
 
 ### T-D2 — Motiv de broderie (ie) ca element structural
 - **Prioritate:** Înaltă · **Fișiere:** componente partajate (separatoare, liste, texturi)
@@ -189,6 +193,8 @@
 ### T-SEO1 — Favicon + apple-touch + manifest (lipsesc pe TOATE paginile)
 - **Prioritate:** Înaltă · **Fișiere:** `<head>` toate cele 8
 - Set complet de favicon din varianta compactă a logo-ului (T-D1), uniform pe toate paginile.
+- **Blocat:** T-D1 nu a produs încă o variantă compactă lizibilă la 32px. `og:image` e livrat
+  separat (`assets/og-ioana-balan.png`, 1200×630, pe toate paginile).
 - **Acceptare:** favicon în tab pe toate paginile; 16/32/apple-touch/manifest.
 
 ### ✅ T-SEO2 — Extindere JSON-LD la toate paginile — FĂCUT
@@ -235,11 +241,11 @@
 
 ## 🧹 Curățare & consistență
 
-### T-C1 — Aliniere domeniu email 🟠 (blocat de D-email)
-- **Prioritate:** Medie · **Fișiere:** toate + `contact.html:913` (JSON-LD)
-- Emailul `contact@ioanabalan.ro` e pe alt domeniu decât site-ul (`ioana-balan.ro`). După
-  D-email, aliniază toate aparițiile la valoarea corectă.
-- **Acceptare:** un singur domeniu de email consistent, inclusiv în JSON-LD.
+### ✅ T-C1 — Aliniere adresă email — FĂCUT
+- **Fișiere:** toate paginile + JSON-LD din `contact.html`
+- `contact@ioanabalan.ro` și `contact@ioana-balan.ro` (ambele inexistente) au fost
+  înlocuite peste tot cu `ioanabalanoficial@gmail.com`.
+- **Acceptare:** o singură adresă de email în tot proiectul, inclusiv în JSON-LD. ✅
 
 ### ✅ T-C2 — Conectare bloc social secundar din contact — FĂCUT (rezolvat între timp)
 - **Prioritate:** Medie · **Fișiere:** `contact.html`
@@ -311,10 +317,15 @@
 
 ### T-WP3 — Formulare cu backend real
 - **Înaltă (rebuild)** · Contact Form 7 / Fluent Forms + email pentru booking; serviciu newsletter. Anti-spam + validare.
-- **Acceptare:** submit real cu notificare email.
+- **Constrângeri juridice (obligatorii):** vezi CLAUDE.md §8, „Formularul de contact —
+  decizii pentru WordPress" — checkbox de consimțământ nebifat implicit cu text fix,
+  destinatarii datelor de completat în Termeni §12.3 (și §12.4 dacă e prelucrare în afara
+  SEE), câmpurile aliniate cu §12.2, ștergere la 12 luni configurată efectiv.
+- **Acceptare:** submit real cu notificare email; cele patru puncte de mai sus bifate.
 
 ### T-WP4 — Mapare slug-uri navigație (clean URLs)
-- **Medie (rebuild)** · Referință `_stitch-export/wordpress-header-footer.html`: `/galerie`,
+- **Medie (rebuild)** · Slug-urile din exportul WordPress al clientului (fișier eliminat
+  din repo, recuperabil din commit-ul baseline `8026eb9`): `/galerie`,
   `/discografie`, `/servicii-evenimente`, `/oferte-si-pachete`, `/contact`. Redirecturi 301 la migrare.
 - **Acceptare:** URL-uri curate + 301 documentate.
 
@@ -339,7 +350,7 @@
 
 ## Ordine de lucru recomandată (prototip)
 
-1. **T-D1** — Logo vectorizat SVG *(deblochează T-SEO1 favicon)*
+1. **T-D1** — Logo: SVG + variantă compactă pătrată *(deblochează T-SEO1 favicon)*
 2. **T-D2** — Motiv broderie ie *(diferențiatorul de design)*
 3. **T-CRO1** — Social proof 5,0★/61 recenzii
 4. **T-CRO3** — WhatsApp/telefon 1-tap + mesaje pre-completate

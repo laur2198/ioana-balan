@@ -11,18 +11,19 @@
 <meta property="og:url" content="https://ioana-balan.ro/galerie.html">
 <meta property="og:title" content="Galerie | Ioana Balan — Formație Nuntă București">
 <meta property="og:description" content="Galerie foto și video Ioana Balan: momente live de la nunți și evenimente cu formația de muzică populară și de petrecere din București, Ploiești, Brașov, Craiova și Pitești.">
-<meta property="og:image" content="https://ioana-balan.ro/assets/img/ioana-balan-spectacol-muzica-populara-live.jpg">
-<meta property="og:image:width" content="512">
-<meta property="og:image:height" content="341">
-<meta property="og:image:alt" content="Ioana Balan în timpul unui spectacol de muzică populară">
-<meta name="twitter:image:alt" content="Ioana Balan în timpul unui spectacol de muzică populară">
+<meta property="og:image" content="https://ioana-balan.ro/assets/og-ioana-balan.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Semnătura Ioana Balan, albă pe fundal negru">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ioana-balan.ro/assets/og-ioana-balan.png">
+<meta name="twitter:image:alt" content="Semnătura Ioana Balan, albă pe fundal negru">
 <meta name="twitter:title" content="Galerie | Ioana Balan — Formație Nuntă București">
 <meta name="twitter:description" content="Galerie foto și video Ioana Balan: momente live de la nunți și evenimente cu formația de muzică populară și de petrecere din București, Ploiești, Brașov, Craiova și Pitești.">
-<meta name="twitter:image" content="https://ioana-balan.ro/assets/img/ioana-balan-spectacol-muzica-populara-live.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Fonturi locale (assets/fonts/) — zero cereri către Google.
+     Preload doar pentru fața cerută de H1-ul de deasupra pliului: EB Garamond 500, latin
+     (titlul nu conține caractere din latin-ext). -->
+<link rel="preload" href="assets/fonts/eb-garamond-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,31 +35,24 @@
 }
 </script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 <script src="assets/tailwind.config.js"></script>
 </head>
 <body class="flex flex-col min-h-screen text-on-background bg-background selection:bg-accent/30">
 <a class="skip-link" href="#continut">Sari la conținut</a>
-<!-- WhatsApp Widget (canonic) -->
-<a aria-label="Contact Ioana Balan pe WhatsApp" class="whatsapp-float group" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20mai%20multe%20informa%C8%9Bii." target="_blank" rel="noopener">
-<svg class="shrink-0 md:w-8 md:h-8" fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.607zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
-</svg>
-<span class="max-w-0 overflow-hidden group-hover:max-w-xs group-focus-visible:max-w-xs group-hover:ml-2 group-focus-visible:ml-2 transition-all duration-300 font-label-md text-[12px] md:text-label-md uppercase whitespace-nowrap hidden sm:inline">Salut! Scrie-mi pe WhatsApp</span>
-</a>
 <!-- TopNavBar (Updated & Responsive) -->
 <!-- TopNavBar (canonic) -->
 <header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-outline-variant/20 h-16 md:h-20">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center gap-4 xl:gap-8 h-full">
 <a aria-label="Ioana Balan Acasă" class="shrink-0 flex items-center min-h-[44px]" href="index.html">
-<img alt="Ioana Balan Signature Logo" class="h-8 md:h-12 w-auto object-contain" src="assets/img/logo-ioana-balan-crop.jpg">
+<img alt="Ioana Balan" class="h-8 md:h-12 w-auto" src="assets/logo-alb-400w.png" srcset="assets/logo-alb-400w.png 1x, assets/logo-alb-800w.png 2x" width="400" height="137" loading="eager" decoding="async">
 </a>
 <nav class="hidden lg:flex items-center gap-4 xl:gap-8">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="despre.html">Despre</a>
 <a class="text-primary border-b border-primary pb-1 font-label-md text-label-md uppercase" href="galerie.html">Galerie</a>
 <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="discografie.html">Discografie</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="servicii.html">Servicii</a>
 <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="oferte.html">Oferte</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="faq.html">FAQ</a>
 <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="blog.html">Blog</a>
 <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="contact.html">Contact</a>
 </nav>
@@ -79,17 +73,18 @@
 <div class="fixed inset-0 z-[60] bg-background translate-x-full transition-transform duration-300 lg:hidden" id="mobile-menu" inert>
 <div class="flex flex-col h-full p-8">
 <div class="flex justify-between items-center mb-12">
-<img alt="Ioana Balan Signature Logo" class="h-8 w-auto object-contain" src="assets/img/logo-ioana-balan-crop.jpg">
+<img alt="Ioana Balan" class="h-8 w-auto" src="assets/logo-alb-400w.png" srcset="assets/logo-alb-400w.png 1x, assets/logo-alb-800w.png 2x" width="400" height="137" loading="eager" decoding="async">
 <button aria-label="Închide Meniu" class="text-primary" id="menu-close">
 <svg aria-hidden="true" class="text-4xl" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
 </button>
 </div>
 <nav class="flex flex-col gap-6 text-center">
 <a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="index.html">Acasă</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="despre.html">Despre</a>
 <a class="text-headline-md font-headline-md text-primary uppercase" href="galerie.html">Galerie</a>
 <a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="discografie.html">Discografie</a>
-<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="servicii.html">Servicii</a>
 <a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="oferte.html">Oferte</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="faq.html">Întrebări frecvente</a>
 <a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="blog.html">Blog</a>
 <a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="contact.html">Contact</a>
 <a class="text-headline-md font-headline-md text-white uppercase bg-accent py-4 mt-4" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener">Rezervă pe WhatsApp</a>
@@ -105,90 +100,139 @@
             Descoperă cele mai frumoase imagini live de la nunți și momente de la fiecare spectacol de muzică populară susținut de Ioana Balan. O selecție curată de momente surprinse pe scenă.
         </p>
 </section>
-<!-- Fully Responsive Flexible Grid Layout -->
-<section class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop mb-24 md:mb-32">
-<div class="flex justify-between items-end mb-8 md:mb-12">
-<div>
-<h2 class="font-headline-md md:font-headline-lg text-headline-md md:text-headline-lg text-on-surface mb-2">Momente și Portrete</h2>
-<div class="motif-separator w-24 md:w-36"></div>
-</div>
-</div>
-<!-- Adaptive Grid: 1 col Mobile, 2 cols Tablet, 3-4 cols Desktop -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
-<!-- Item 1 -->
-<div class="group relative aspect-square sm:aspect-[3/4] lg:col-span-2 lg:aspect-video overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Formatie Nunta Bucuresti - Live Performance" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-formatie-nunta-bucuresti-live-per.jpg">
-<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 md:p-8">
-<p class="font-label-md text-label-md text-primary">Grand Music Events</p>
-<h3 class="font-headline-md text-headline-md text-white">Show Live Grand Music Events</h3>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Solista Muzica Populara Evenimente - Close-up" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-solista-muzica-populara-eveniment.jpg">
-</div>
-<!-- Item 3 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Portret Artistic Tradițional" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-portret-artistic-traditional.jpg">
-</div>
-<!-- Item 4 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Sesiune Foto Tematică - Formatie Nunta Preturi 2026" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-sesiune-foto-tematica-formatie-nu.jpg">
-<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
-<p class="font-label-md text-[10px] md:text-[12px] text-primary uppercase tracking-widest">Sesiune Foto Tematică</p>
-</div>
-</div>
-<!-- Item 5 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Spectacol Muzica Populara Live" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-spectacol-muzica-populara-live.jpg">
-<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
-<!-- TODO client: nume eveniment real, ex „Nuntă · București · sept 2025" -->
-<p class="font-label-md text-[10px] md:text-[12px] text-primary uppercase tracking-widest">Moment live</p>
-</div>
-</div>
-<!-- Item 6 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Orchestră Live Nuntă" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-orchestra-live-nunta.jpg">
-<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
-<!-- TODO client: nume eveniment real, ex „Nuntă · București · sept 2025" -->
-<p class="font-label-md text-[10px] md:text-[12px] text-primary uppercase tracking-widest">Formație live</p>
-</div>
-</div>
-<!-- Item 7 -->
-<div class="group relative aspect-square sm:aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Solista Muzica Populara Bucuresti" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-solista-muzica-populara-bucuresti.jpg">
-</div>
-<!-- Item 8 -->
-<div class="group relative aspect-square sm:aspect-[3/4] lg:col-span-2 lg:aspect-video overflow-hidden border border-outline-variant/20 bg-surface-container">
-<img alt="Ioana Balan - Formatie Nunta Preturi 2026 - Live Show" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="assets/img/ioana-balan-formatie-nunta-preturi-2026-live.jpg">
-<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 md:p-8">
-<!-- TODO client: nume eveniment real, ex „Nuntă · București · sept 2025" -->
-<p class="font-label-md text-label-md text-primary">Eveniment live</p>
-<h3 class="font-headline-md text-headline-md text-white">Show cu formația</h3>
-</div>
-</div>
-</div>
-</section>
-<!-- Evenimente live — bento: poze + clipuri (desktop mozaic / mobil stivă) -->
-<section class="bg-surface-container-low py-16 md:py-24">
+<!-- Evenimente live — grilă mixtă: clipuri (click-to-load) + fotografii -->
+<section class="bg-surface-container-low py-16 md:py-24" id="clipuri">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-14 gap-4">
 <div>
 <span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-3">Evenimente</span>
 <h2 class="font-headline-md md:font-headline-lg text-headline-md md:text-headline-lg text-on-surface">Cum arată un eveniment</h2>
 </div>
-<a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 shrink-0" href="https://youtube.com/@BalanIoana" target="_blank" rel="noopener">Vezi canalul YouTube <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M241.62-258.69 210-290.31l413.92-414.31H241.31V-750h460v460h-45.39v-382.62l-414.3 413.93Z"/></svg></a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 shrink-0" href="https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ" target="_blank" rel="noopener">Vezi canalul YouTube <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M241.62-258.69 210-290.31l413.92-414.31H241.31V-750h460v460h-45.39v-382.62l-414.3 413.93Z"/></svg></a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
-<div class="md:col-span-8 relative aspect-video overflow-hidden border border-outline-variant/15 bg-surface-container-lowest">
-<img alt="Ioana Balan și formația pe scenă, în timpul unui eveniment live în București" class="absolute inset-0 w-full h-full object-cover" src="assets/img/ioana-balan-formatie-nunta-bucuresti-live-per.jpg">
+<!-- Bento: 4 coloane pe desktop, 3 pe tabletă, 2 pe mobil.
+     Retragerea celor două fotografii din grupa C (identitate neconfirmată) a
+     lăsat 21 de celule, iar 21 nu se împarte nici la 4, nici la 2. Reducerea
+     desktopului la 3 coloane ar fi împărțit exact, dar ar fi înălțat rândul de
+     la 295px la 398px, iar `formatie-lumini-scena` (480×320, cea mai scundă
+     sursă) ar fi ajuns la 1,24× — exact mărirea pe care o eliminăm peste tot.
+     Așa că numărul de celule se reglează pe fiecare prag, prin span-uri:
+       mobil  (2 col): 22 celule — `formatie-lumini-scena` trece pe toată
+                       lățimea; la 343px, sursa de 480px rămâne la 0,71×
+       tabletă(3 col): 21 celule — span-urile implicite se împart exact
+       desktop(4 col): 24 celule — portretul urcă la 2×2, iar
+                       `rochie-alba-imprimeu` (694px) la 2×1
+     Zero goluri la toate trei, verificat pe algoritmul de plasare densă.
+     Sloturile 2× (clipuri + cele două peisaje) ocupă două coloane peste tot,
+     deci pe mobil devin lățime completă. Cele patru surse de 480px rămân 1×1
+     pe desktop — nu primesc niciodată slot mare, ca să nu fie mărite peste
+     rezoluția lor.
+     `grid-flow-row-dense`: fără el, un slot de 2 coloane care nu mai încape pe
+     rând lasă o celulă goală la 3 și la 2 coloane.
+     Rândurile se dimensionează din elementele de 2 coloane (16:9); cele 1×1 sunt
+     pătrate doar cât grila e îngustă, apoi se întind la înălțimea rândului.
+     Fotografiile nu sunt clicabile — galeria nu are lightbox. -->
+<div class="gallery-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-row-dense gap-4 md:gap-gutter">
+<!-- Rândul 1 -->
+<button type="button" class="video-card" data-yt="BcUXKbLqrsU" aria-label="Redă videoclipul: Atmosferă de petrecere la nuntă">
+<img class="video-card__thumb" src="assets/video-thumbs/BcUXKbLqrsU.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Muzică de petrecere</span>
+<span class="video-card__title">Atmosferă de petrecere la nuntă</span>
+</span>
+</button>
+<div class="relative col-span-2 aspect-video overflow-hidden border border-outline-variant/20 bg-surface-container">
+<picture>
+<source type="image/webp" srcset="assets/img/ioana-balan-hora-mireasa-800.webp 800w, assets/img/ioana-balan-hora-mireasa-1440.webp 1440w" sizes="(min-width: 1280px) 524px, (min-width: 1024px) 42vw, (min-width: 768px) 418px, 92vw">
+<img alt="Mireasa cu voalul ridicat în horă, alături de saxofonistul formației" class="absolute inset-0 w-full h-full object-cover" src="assets/img/ioana-balan-hora-mireasa-1440.jpg" srcset="assets/img/ioana-balan-hora-mireasa-800.jpg 800w, assets/img/ioana-balan-hora-mireasa-1440.jpg 1440w" sizes="(min-width: 1280px) 524px, (min-width: 1024px) 42vw, (min-width: 768px) 418px, 92vw" width="1440" height="954" loading="lazy" decoding="async">
+</picture>
 </div>
-<div class="md:col-span-4 relative overflow-hidden border border-outline-variant/15 aspect-[4/3] md:aspect-auto">
-<img alt="Ioana Balan - Portret Artistic Tradițional" class="absolute inset-0 w-full h-full object-cover grayscale" src="assets/img/ioana-balan-portret-artistic-traditional.jpg">
+<!-- Rândurile 2-3: portretul înalt ține coloana din stânga pe două rânduri -->
+<div class="relative row-span-2 lg:col-span-2 overflow-hidden border border-outline-variant/20 bg-surface-container">
+<picture>
+<source type="image/webp" srcset="assets/img/ioana-balan-portret-lumina-violet-800.webp 800w, assets/img/ioana-balan-portret-lumina-violet-1440.webp 1440w" sizes="(min-width: 1280px) 524px, (min-width: 1024px) 42vw, (min-width: 768px) 197px, 44vw">
+<img alt="Portret al Ioanei Balan în lumină violet, într-o bluză cu imprimeu colorat" class="absolute inset-0 w-full h-full object-cover" src="assets/img/ioana-balan-portret-lumina-violet-1440.jpg" srcset="assets/img/ioana-balan-portret-lumina-violet-800.jpg 800w, assets/img/ioana-balan-portret-lumina-violet-1440.jpg 1440w" sizes="(min-width: 1280px) 524px, (min-width: 1024px) 42vw, (min-width: 768px) 197px, 44vw" width="1440" height="1800" loading="lazy" decoding="async">
+</picture>
 </div>
-<div class="md:col-span-4 relative overflow-hidden border border-outline-variant/15 aspect-[4/3] md:aspect-auto">
-<img alt="Ioana Balan - Sesiune foto tematică" class="absolute inset-0 w-full h-full object-cover grayscale" src="assets/img/ioana-balan-sesiune-foto-tematica-formatie-nu.jpg">
+<div class="relative aspect-square md:aspect-auto lg:col-span-2 overflow-hidden border border-outline-variant/20 bg-surface-container">
+<picture>
+<source type="image/webp" srcset="assets/img/ioana-balan-rochie-alba-imprimeu-694.webp">
+<img alt="Ioana Balan așezată, în rochie albă cu imprimeu, la un eveniment în aer liber" class="absolute inset-0 w-full h-full object-cover object-[80%_5%]" src="assets/img/ioana-balan-rochie-alba-imprimeu-694.jpg" width="694" height="705" loading="lazy" decoding="async">
+</picture>
 </div>
+<button type="button" class="video-card" data-yt="3uyEZ2vY6eE" aria-label="Redă videoclipul: „Un trandafir crește la firida mea”">
+<img class="video-card__thumb" src="assets/video-thumbs/3uyEZ2vY6eE.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Live la nuntă</span>
+<span class="video-card__title">„Un trandafir crește la firida mea”</span>
+</span>
+</button>
+<div class="relative col-span-2 aspect-video overflow-hidden border border-outline-variant/20 bg-surface-container">
+<picture>
+<source type="image/webp" srcset="assets/img/hora-nunta-invitati-800.webp 800w, assets/img/hora-nunta-invitati-1024.webp 1024w" sizes="(min-width: 1280px) 524px, (min-width: 1024px) 42vw, (min-width: 768px) 418px, 92vw">
+<img alt="Ioana Balan cântând la microfon în mijlocul horei, cu invitații prinși de mâini" class="absolute inset-0 w-full h-full object-cover" src="assets/img/hora-nunta-invitati-1024.jpg" srcset="assets/img/hora-nunta-invitati-800.jpg 800w, assets/img/hora-nunta-invitati-1024.jpg 1024w" sizes="(min-width: 1280px) 524px, (min-width: 1024px) 42vw, (min-width: 768px) 418px, 92vw" width="1024" height="683" loading="lazy" decoding="async">
+</picture>
+</div>
+<div class="relative aspect-square md:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<picture>
+<source type="image/webp" srcset="assets/img/ioana-balan-sala-eveniment-480.webp">
+<img alt="Ioana Balan într-o sală de evenimente, înainte de începerea petrecerii" class="absolute inset-0 w-full h-full object-cover" src="assets/img/ioana-balan-sala-eveniment-480.jpg" width="480" height="640" loading="lazy" decoding="async">
+</picture>
+</div>
+<!-- Rândul 4 -->
+<button type="button" class="video-card" data-yt="Yqw4PZ0pU5o" aria-label="Redă videoclipul: „Am atins cerul cu mâna”">
+<img class="video-card__thumb" src="assets/video-thumbs/Yqw4PZ0pU5o.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Cover live · 2025</span>
+<span class="video-card__title">„Am atins cerul cu mâna”</span>
+</span>
+</button>
+<div class="relative aspect-square md:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<picture>
+<source type="image/webp" srcset="assets/img/formatie-ring-dans-480.webp">
+<img alt="Formația cântând pe ringul de dans: acordeon, saxofon și clape" class="absolute inset-0 w-full h-full object-cover" src="assets/img/formatie-ring-dans-480.jpg" width="480" height="478" loading="lazy" decoding="async">
+</picture>
+</div>
+<div class="relative aspect-square md:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<picture>
+<source type="image/webp" srcset="assets/img/formatie-sacouri-albe-480.webp">
+<img alt="Membrii formației în sacouri albe, alături de Ioana Balan, în aer liber" class="absolute inset-0 w-full h-full object-cover" src="assets/img/formatie-sacouri-albe-480.jpg" width="480" height="640" loading="lazy" decoding="async">
+</picture>
+</div>
+<!-- Rândul 5 -->
+<button type="button" class="video-card" data-yt="iIYF1xiX6sM" aria-label="Redă videoclipul: Muzică de petrecere live">
+<img class="video-card__thumb" src="assets/video-thumbs/iIYF1xiX6sM.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Nuntă · botez · corporate</span>
+<span class="video-card__title">Muzică de petrecere live</span>
+</span>
+</button>
+<!-- Rândul 6. Pe mobil acest slot e lățime completă, ca să ducă numărul de
+     celule de la 21 la 22 și să închidă ultimul rând; sursa (480×320, peisaj)
+     suportă cei 343px fără mărire — 0,71×. De la md redevine 1×1. -->
+<div class="relative col-span-2 aspect-video md:col-span-1 md:aspect-auto overflow-hidden border border-outline-variant/20 bg-surface-container">
+<picture>
+<source type="image/webp" srcset="assets/img/formatie-lumini-scena-480.webp">
+<img alt="Formația pe ring, sub luminile de scenă verzi și mov" class="absolute inset-0 w-full h-full object-cover" src="assets/img/formatie-lumini-scena-480.jpg" width="480" height="320" loading="lazy" decoding="async">
+</picture>
+</div>
+<button type="button" class="video-card" data-yt="Fj15ExZHAYs" aria-label="Redă videoclipul: „Ce naș, ce nașă” · „Jos pălăria”">
+<img class="video-card__thumb" src="assets/video-thumbs/Fj15ExZHAYs.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<span class="video-card__veil"></span>
+<span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+<span class="video-card__meta">
+<span class="video-card__eyebrow">Colaj live · 2024</span>
+<span class="video-card__title">„Ce naș, ce nașă” · „Jos pălăria”</span>
+</span>
+</button>
 </div>
 </div>
 </section>
@@ -200,19 +244,9 @@
 <p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-secondary opacity-80 mb-8 md:mb-10 px-4 md:px-0">Rămâneți la curent cu ultimele mele spectacole și călătorii culturale prin țară. Rezervați acum o experiență muzicală autentică.</p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
 <a href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener" class="w-full sm:w-auto bg-accent text-white px-10 py-4 font-label-md text-label-md hover:bg-accent-hover transition-all uppercase tracking-widest active:scale-95 duration-200 ease-in-out text-center">Rezervă pe WhatsApp</a>
-<a href="contact.html" class="w-full sm:w-auto border border-outline text-on-surface bg-transparent px-10 py-4 font-label-md text-label-md hover:bg-white/5 transition-all uppercase tracking-widest text-center">Cere ofertă</a>
+<a href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20Am%20v%C4%83zut%20galeria%20de%20pe%20site%20%C8%99i%20a%C8%99%20dori%20s%C4%83%20%C3%AEmi%20trimite%C8%9Bi%20o%20ofert%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener" class="w-full sm:w-auto border border-outline text-on-surface bg-transparent px-10 py-4 font-label-md text-label-md hover:bg-white/5 transition-all uppercase tracking-widest text-center">Cere ofertă</a>
 </div>
-<!-- Social proof: rating real Google (5,0 · 61 recenzii) — cifră autorizată în CLAUDE.md -->
-<a class="flex items-center justify-center md:justify-start gap-3 mt-8 hover:text-on-surface transition-colors" href="https://www.google.com/maps/place/?q=place_id:ChIJGxv0gfr-sUARlkjS2WERmRs" target="_blank" rel="noopener noreferrer">
-<div class="flex items-center gap-0.5 text-on-surface" aria-hidden="true">
-<svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
-<svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
-<svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
-<svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
-<svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
-</div>
-<p class="font-body-md text-body-md text-secondary"><span class="font-headline-md text-[18px] md:text-[20px] text-on-surface align-middle">5,0</span> · 61 de recenzii Google · Grand Music Events</p>
-</a>
+
 </div>
 <div class="relative h-64 md:h-96 border border-outline-variant/15 overflow-hidden">
 <img alt="Ioana Balan - Portret Sesiune Foto Cal" class="w-full h-full object-cover grayscale opacity-50" loading="lazy" src="assets/img/ioana-balan-portret-sesiune-foto-cal.jpg">
@@ -229,57 +263,62 @@
 <!-- Footer (Responsive) -->
 <!-- Footer (canonic) -->
 <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/10">
-<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16 flex flex-col gap-10">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 flex flex-col gap-8">
 
-<!-- Brand + dovadă socială + zona deservită -->
-<div class="flex flex-col gap-4 max-w-xl">
-<a class="inline-flex items-center min-h-[44px] self-start" href="index.html"><img alt="Ioana Balan Signature Logo" class="h-8 md:h-10 w-auto object-contain" src="assets/img/logo-ioana-balan-crop.jpg"></a>
+<!-- Banda 1: brand + social (iconuri, un singur rând și pe mobil) -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
+<div class="flex flex-col gap-3 max-w-md">
+<a aria-label="Ioana Balan Acasă" class="inline-flex items-center min-h-[44px] self-start" href="index.html"><img alt="Ioana Balan" class="h-8 md:h-10 w-auto" src="assets/logo-alb-400w.png" srcset="assets/logo-alb-400w.png 1x, assets/logo-alb-800w.png 2x" width="400" height="137" loading="lazy" decoding="async"></a>
 <p class="font-body-md text-body-md text-on-surface-variant opacity-80">Muzică pentru evenimente care rămân în suflet. Calitate corporate cu pasiune artistică și profesionalism garantat.</p>
-<!-- Social proof: rating real Google (5,0 · 61 recenzii) — cifră autorizată în CLAUDE.md -->
-<a class="font-body-md text-body-md text-secondary hover:text-on-surface transition-colors block py-3" href="https://www.google.com/maps/place/?q=place_id:ChIJGxv0gfr-sUARlkjS2WERmRs" target="_blank" rel="noopener noreferrer"><span class="font-headline-md text-[18px] text-on-surface align-middle">5,0</span> · 61 de recenzii Google · Grand Music Events</a>
+</div>
+<ul class="flex flex-row items-center gap-1 shrink-0">
+<li>
+<a aria-label="Facebook" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.facebook.com/ioanabalanoficial" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="Instagram" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/ioanabalanoficial/" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="YouTube" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="TikTok" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.tiktok.com/@ioanabalanmusic" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+</a>
+</li>
+</ul>
 </div>
 
-<!-- Navigație completă: header-ul avea 7 pagini, footer-ul niciuna. -->
-<div class="flex flex-col gap-2">
-<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Navigare</span>
-<nav class="flex flex-wrap gap-x-4">
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center min-h-[44px] min-w-[44px]" href="index.html">Acasă</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center min-h-[44px] min-w-[44px]" href="galerie.html">Galerie</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center min-h-[44px] min-w-[44px]" href="discografie.html">Discografie</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center min-h-[44px] min-w-[44px]" href="servicii.html">Servicii</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center min-h-[44px] min-w-[44px]" href="oferte.html">Oferte</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center min-h-[44px] min-w-[44px]" href="blog.html">Blog</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center min-h-[44px] min-w-[44px]" href="contact.html">Contact</a>
-</nav>
+<!-- Banda 2: contact (stânga) + informații legale (dreapta), fără titluri de coloană -->
+<div class="flex flex-col gap-4">
+<div class="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-8">
+<div class="flex flex-col">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="mailto:ioanabalanoficial@gmail.com">ioanabalanoficial@gmail.com</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="tel:+40722911485">+40 722 911 485</a>
 </div>
-
-<div class="flex flex-wrap gap-x-6 gap-y-8 md:gap-gutter">
-<div class="flex flex-col gap-2 basis-[45%] sm:basis-0 sm:grow">
-<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Social</span>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="https://facebook.com/ioanabalan" target="_blank">Facebook</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="https://instagram.com/iamioanabalan" target="_blank">Instagram</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="https://youtube.com/@BalanIoana" target="_blank">YouTube</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="https://tiktok.com/@ioanabalanmusic" target="_blank">TikTok</a>
-</div>
-<div class="flex flex-col gap-2 basis-[45%] sm:basis-0 sm:grow">
-<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Informații</span>
-<!-- TODO înainte de lansare: paginile legale (Termeni și Condiții, Politică de
-     Confidențialitate) sunt obligatorii — GDPR + ANPC — și nu sunt în scope-ul
-     prototipului. Până există, rămân etichete statice, nu linkuri: un href="#"
-     arată ca un link funcțional și duce în capul paginii. -->
-<span class="font-body-md text-on-surface-variant opacity-60 flex items-center min-h-[44px]">Termeni și Condiții</span>
-<span class="font-body-md text-on-surface-variant opacity-60 flex items-center min-h-[44px]">Politică de Confidențialitate</span>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="https://anpc.ro" target="_blank" rel="noopener noreferrer">ANPC</a>
+<div class="flex flex-row items-center gap-2 sm:justify-end">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="https://anpc.ro" target="_blank" rel="noopener noreferrer">ANPC</a>
+<span aria-hidden="true" class="font-body-md text-on-surface-variant opacity-50">·</span>
 <!-- TODO client/juridic: platforma europeană SOL/ODR (ec.europa.eu/consumers/odr)
      a fost desființată prin Regulamentul (UE) 2024/3228. Linkul echivalent în
      vigoare e SAL-ul ANPC; de confirmat cu juristul înainte de lansare. -->
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" aria-label="SAL — Soluționarea alternativă a litigiilor">SAL</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" aria-label="SAL — Soluționarea alternativă a litigiilor">SAL</a>
 </div>
-<div class="flex flex-col gap-2 basis-full sm:basis-0 sm:grow">
-<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Contact</span>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="mailto:contact@ioanabalan.ro">contact@ioanabalan.ro</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="tel:+40722911485">+40 722 911 485</a>
 </div>
+<!-- Documente de subsol: linkuri reale, în afara navigației din header.
+     Aceeași stilizare discretă ca înainte; min-h-[44px] pentru țintă de tap,
+     ca la rândul ANPC/SAL de deasupra. -->
+<p class="font-body-md text-[13px] text-secondary flex flex-row flex-wrap items-center gap-x-2">
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="termeni-si-conditii.html">Termeni și condiții</a>
+<span aria-hidden="true" class="opacity-50">·</span>
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="politica-cookie.html">Politica de cookie-uri</a>
+</p>
 </div>
 
 <!-- TODO client — rând de date de firmă, OBLIGATORIU înainte de lansare.
@@ -292,8 +331,17 @@
      (furnizorul site-ului).
 <p class="font-body-md text-[12px] text-secondary opacity-80">Grand Music Events · CUI ... · Reg. Com. ...</p>
 -->
-<div class="flex flex-col gap-2 pt-8 border-t border-outline-variant/10">
-<p class="font-body-md text-[12px] text-secondary opacity-80">© 2010-2026 Ioana Balan. Toate drepturile rezervate.</p>
+
+<!-- Banda 3: juridic. Benzile se separă prin spațiere, nu prin linie.
+     Pe desktop cele trei elemente stau pe un rând, separate prin punct median
+     (separatorul deja folosit în proiect); pe mobil se stivuiesc, centrate.
+     „Pheonix" este ortografia juridică înregistrată a firmei — nu se corectează. -->
+<div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-center gap-x-2 gap-y-1 text-center">
+<p class="font-body-md text-[12px] text-secondary">© 2026 Ioana Balan. Toate drepturile rezervate.</p>
+<span aria-hidden="true" class="hidden sm:inline font-body-md text-[12px] text-secondary opacity-50">·</span>
+<p class="font-body-md text-[12px] text-secondary">Proiect dezvoltat de <a class="hover:text-primary transition-colors" href="https://grand-music.ro" target="_blank" rel="noopener">Grand Music Events</a></p>
+<span aria-hidden="true" class="hidden sm:inline font-body-md text-[12px] text-secondary opacity-50">·</span>
+<p class="font-body-md text-[12px] text-secondary">Site realizat de Green Pheonix Concept</p>
 </div>
 
 </div>
@@ -339,5 +387,51 @@
 
 
 
+<script>
+    // Video click-to-load: până la click pagina nu contactează niciun server
+    // Google. La click, <button class="video-card"> e ÎNLOCUIT în DOM cu un
+    // <div> care ține iframe-ul — un <iframe> interactiv într-un <button> e
+    // HTML invalid și face controalele playerului nesigure.
+    // Delegare pe document: funcționează pentru orice .video-card din pagină.
+    (function () {
+        'use strict';
 
+        function play(card) {
+            const id = card.dataset.yt;
+            if (!id) return;
+
+            const frame = document.createElement('iframe');
+            frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+                '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+            const label = card.querySelector('.video-card__title');
+            frame.title = label ? label.textContent.trim() : 'Clip video Ioana Balan';
+            frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            frame.referrerPolicy = 'strict-origin-when-cross-origin';
+            frame.allowFullscreen = true;
+
+            const holder = document.createElement('div');
+            // Aceleași clase ca butonul (inclusiv span-ul de grilă), plus starea.
+            holder.className = card.className + ' is-playing';
+            holder.tabIndex = -1;
+            holder.appendChild(frame);
+
+            card.replaceWith(holder);
+            holder.focus(); // focusul rămâne în locul cardului; Tab intră în player
+        }
+
+        document.addEventListener('click', function (e) {
+            const card = e.target.closest('.video-card:not(.is-playing)');
+            if (card) play(card);
+        });
+        // <button> răspunde nativ la Enter și Space, deci nu e nevoie de keydown.
+    })();
+    </script>
+
+<!-- WhatsApp Widget (canonic) -->
+<a aria-label="Contact Ioana Balan pe WhatsApp" class="whatsapp-float group" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20mai%20multe%20informa%C8%9Bii." target="_blank" rel="noopener">
+<svg class="shrink-0 md:w-8 md:h-8" fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.607zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+</svg>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs group-focus-visible:max-w-xs group-hover:ml-2 group-focus-visible:ml-2 transition-all duration-300 font-label-md text-[12px] md:text-label-md uppercase whitespace-nowrap hidden sm:inline">Salut! Scrie-mi pe WhatsApp</span>
+</a>
 </body></html>

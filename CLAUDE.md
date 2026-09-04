@@ -192,6 +192,69 @@ elaborată.
 Efecte scumpe de limitat: `backdrop-filter: blur` (maxim un element per
 pagină), tranziții grayscale→color pe imagini mari, parallax.
 
+### Formularul de contact — decizii pentru WordPress
+
+Prototipul nu are backend de formular și nu va avea. Implementarea reală
+se face în Faza 3, în Elementor. Deciziile de mai jos s-au luat în faza
+de prototip și trebuie să supraviețuiască migrării.
+
+**1. Consimțământul GDPR — obligatoriu**
+
+Checkbox obligatoriu, **nebifat implicit**, plasat între ultimul câmp și
+butonul de trimitere. Textul, exact:
+
+> Sunt de acord ca datele introduse să fie folosite pentru a mi se
+> răspunde la această solicitare. Detalii în Politica de
+> confidențialitate.
+
+„Politica de confidențialitate" e link către secțiunea 12 din Termeni și
+condiții (`termeni-si-conditii.html#sectiunea-12` în prototip), unde se
+află informarea art. 13 GDPR.
+
+Trei reguli care nu se negociază:
+
+- **Nebifat implicit.** Un checkbox pre-bifat nu e consimțământ valid
+  (CJUE, *Planet49*, C-673/17).
+- **Nu se grupează** cu acceptarea Termenilor și condițiilor. Sunt două
+  consimțăminte distincte, iar EDPB nu permite gruparea lor.
+- **Nu se refolosește formularea de pe site-urile vechi** („Accept
+  trimiterea datelor personale... și sunt de acord cu secțiunea Temeni
+  și Condiții") — grupează două acorduri și conține un typo.
+
+Un formular de contact nu e încheiere de contract: acordul cu T&C nu se
+cere aici.
+
+**2. Destinația datelor — determină conținutul politicii**
+
+Unde ajung datele decide ce scrie în Termeni, secțiunea 12.3, unde
+tabelul de destinatari are acum placeholderele `[FURNIZOR-HOSTING]` și
+`[FURNIZOR-EMAIL]`.
+
+| Implementare | Ce se declară |
+|---|---|
+| Trimitere prin SMTP-ul găzduirii | doar furnizorul de hosting |
+| Serviciu terț (plugin cu API extern, e-mail tranzacțional, CRM) | serviciul devine împuternicit și **trebuie** declarat în tabel, cu localizarea prelucrării |
+
+Dacă terțul prelucrează în afara SEE, se completează și secțiunea 12.4.
+Alegerea pluginului de formular e deci și o decizie juridică, nu doar
+tehnică.
+
+**3. Câmpurile**
+
+Câmpurile efective determină prima linie din tabelul de la 12.2, care
+listează acum: nume, telefon, e-mail, data și tipul evenimentului,
+mesaj. Dacă formularul final diferă, tabelul se actualizează.
+
+Principiul minimizării: nu se colectează câmpuri care nu sunt necesare
+pentru a răspunde solicitării.
+
+**4. Durata de stocare**
+
+Politica declară **12 luni de la ultima interacțiune**, dacă nu se
+încheie contract. Dacă pluginul stochează mesajele în baza de date
+WordPress, trebuie configurată ștergerea automată sau stabilită o
+procedură manuală — altfel afirmația din politică e falsă.
+
 ---
 
 ## 9. Ce e decis vs. ce e deschis
@@ -204,13 +267,15 @@ pagină), tranziții grayscale→color pe imagini mari, parallax.
 - WhatsApp ca mecanism principal de conversie
 - SEO local pe 5 orașe: București, Ploiești, Brașov, Craiova, Pitești
 - Recenziile Google se afișează selectiv (6–8), cu cifra 5,0★/61 proeminentă
+- Emailul oficial: `ioanabalanoficial@gmail.com` — adresa reală, confirmată
+  (aceeași pe Facebook, YouTube și site-ul actual). `contact@ioanabalan.ro`
+  și `contact@ioana-balan.ro` nu există; nu se mai folosesc.
 
 **Deschis — nu implementa fără confirmarea clientului:**
 - Dacă prețurile urcă pe homepage (el e cel mai scump din piață —
   decizie de poziționare, nu de UX)
 - Wording-ul descrierii din footer
 - Adresa fizică publică (există în Google Business Profile)
-- Emailul oficial (`contact@ioanabalan.ro` e pe alt domeniu decât site-ul)
 
 ---
 
@@ -220,15 +285,90 @@ pagină), tranziții grayscale→color pe imagini mari, parallax.
 `contact`, `blog`, `articol`.
 
 Fragmentele WordPress primite de la client (header/footer, styles.css,
-export Discografie) sunt păstrate în `_stitch-export/` ca referință pentru
-faza de implementare. Nu fac parte din site.
+export Discografie) au fost eliminate din repo: nu făceau parte din site și
+conțineau patru handle-uri sociale false plus `ioanablanoficial@gmail.com`,
+la un caracter distanță de adresa reală — risc de copy-paste la handoff.
+Rămân recuperabile din istoricul git, în commit-ul baseline `8026eb9`.
 
 **Făcut:** navigație unificată, contacte normalizate, CTA-uri funcționale,
 WhatsApp pe toate paginile, meta tags + Open Graph, header/footer canonice.
 
 **Probleme cunoscute:** imaginile sunt placeholdere temporare; formularele
-nu trimit; paginile legale lipsesc; logo-ul e încă banner-ul de YouTube
-(conține fotografie, trebuie înlocuit cu SVG).
+nu trimit; paginile legale lipsesc; logo-ul e semnătura curată (PNG cu fundal
+transparent, `assets/logo-alb-*.png`), nu încă SVG — vectorizarea rămâne de
+făcut înainte de migrarea în WordPress.
+
+### Fototeca clientei
+
+Cele 14 fotografii primite de la clientă, toate în `assets/img/`, fiecare
+cu derivate `<nume>-<lățime>.webp` (calitate 82) și `.jpg`. La lățimea
+nativă, `.jpg`-ul **este** fișierul original neatins, nu o recompresie.
+
+Se documentează aici pentru că patru portrete de 1440×1800 au stat
+neurmărite în rădăcina repo-ului cât timp paginile serveau placeholdere
+Stitch de 512px. Lista se actualizează când clienta trimite material nou.
+
+| Fișier (bază) | px | Conținut | Folosit pe |
+|---|---|---|---|
+| `ioana-balan-ie-broderie-aurie` | 1440×1800 | portret, ie albă cu broderie aurie, cercei-frunză | despre |
+| `ioana-balan-ie-cosita-impletita` | 1440×1800 | portret, cosiță împletită în coroniță, ie cu broderie bej | despre, index |
+| `ioana-balan-scena-costum-rosu` | 1440×1800 | cântând la microfon, ie cu broderie roșie, fustă roșie | despre, index |
+| `ioana-balan-portret-lumina-violet` | 1440×1800 | portret în lumină violet, cămașă cu imprimeu | galerie |
+| `ioana-balan-hora-mireasa` | 1440×954 | horă de nuntă, mireasa din spate, saxofonist în centru | galerie |
+| `formatia-in-alb-costum-popular` | 1440×1196 | formație de cinci în cămăși albe — vioară, sax, acordeon | — retrasă |
+| `formatie-instrumentala-tambal` | 1304×978 | șase instrumentiști pe scenă, țambal în centru | oferte |
+| `hora-nunta-invitati` | 1024×683 | cântând în horă, între miri și invitați | despre (hero), galerie |
+| `ioana-balan-rochie-alba-imprimeu` | 694×705 | așezată pe fotoliu de răchită, rochie lungă cu imprimeu | galerie |
+| `formatie-sacouri-albe` | 480×640 | formație în sacouri albe, exterior cu palmieri | galerie |
+| `ioana-balan-sala-eveniment` | 480×640 | rochie-palton brodată, ring de dans gol | galerie |
+| `formatie-ring-dans` | 480×478 | formație pe ring de marmură | galerie |
+| `formatie-lumini-scena` | 480×320 | formație în negru sub lumini verzi și violet | galerie |
+| `invitati-aplauze` | 480×320 | trei invitați aplaudând în sală | — retrasă |
+
+**Ce lipsește din fototecă:** o fotografie **peisaj de minimum 1440px
+lățime**, cu subiectul în treimea orizontală centrală. Fără ea, banda de
+hero de pe `despre.html` rulează la 1,25× pe desktop, cu cea mai bună
+sursă disponibilă (`hora-nunta-invitati`, 1024px). Marcat ca provizoriu în
+markup.
+
+### Identitate neconfirmată în fotografii
+
+Comparate cu portretele în care artista e clar identificabilă, nu toate
+fotografiile arată aceeași persoană. **Grupele B și C de mai jos se
+confirmă cu clienta înainte de lansare** — o fotografie cu altcineva,
+publicată ca fiind ea, e o eroare pe care nici clienta, nici noi nu o
+vrem descoperită după lansare.
+
+**B — incert** (trăsăturile nu se pot verifica: rezoluție mică, lumină de
+scenă, subiect din spate sau prea departe):
+
+- `ioana-balan-hora-mireasa` — solista e fotografiată din spate, chipul nu
+  apare niciodată în cadru
+- `ioana-balan-sala-eveniment` — structura feței e plauzibilă, dar
+  sprâncenele citesc altfel decât în portretele de referință
+- `formatie-sacouri-albe`, `formatie-ring-dans`, `formatie-lumini-scena` —
+  480px, femeia e prea mică și prea contrastant luminată
+- `formatie-instrumentala-tambal` — nicio femeie în cadru; de confirmat
+  separat că aceștia sunt instrumentiștii formației ei
+
+**C — aproape sigur altă persoană. Ambele au fost RETRASE din galerie**
+și nu se reintroduc pe nicio pagină fără confirmarea clientei. Fișierele
+rămân în `assets/img/`, doar nefolosite:
+
+- `formatia-in-alb-costum-popular` — păr șaten-roșcat ondulat, față mai
+  rotundă, sprânceană mai subțire și mai arcuită decât în portrete
+- `invitati-aplauze` — femeie blondă în roșu; contextual sunt invitați care
+  aplaudă, nu artista. Redenumită: purta prefixul `ioana-balan-` deși
+  subiectul nu e ea, iar numele de fișier ajunge în URL și în rezultatele
+  căutării de imagini
+
+Motivul retragerii nu e doar identitatea greșită: sunt persoane
+identificabile, fotografiate la evenimente, publicate într-o galerie care
+poartă numele artistei.
+
+Restul (`ie-broderie-aurie`, `ie-cosita-impletita`, `scena-costum-rosu`,
+`portret-lumina-violet`, `hora-nunta-invitati`, `rochie-alba-imprimeu`)
+se potrivesc între ele și nu ridică semne de întrebare.
 
 ---
 
