@@ -1,0 +1,301 @@
+/* ==========================================================================
+   Componente de pagina, portate din prototip (assets/styles.css).
+   Culorile trec prin variabilele globale Elementor.
+   ========================================================================== */
+
+/* Sistem CTA ---------------------------------------------------------------
+   Bordo pe fundal inchis da un contur de forma slab (2,30:1), deci butonul
+   primar citeste ca text alb plutind. O bordura cu un ton mai deschis ii da
+   margine fara sa atinga culoarea de fond. */
+.elementor-button.ib-cta-primary {
+  border: 1px solid var(--e-global-color-500ff34, #C41236);
+}
+
+/* Video click-to-load ------------------------------------------------------
+   Fatada statica: miniatura e locala, iframe-ul YouTube se creeaza abia la
+   click. Pana atunci pagina nu atinge niciun server Google - exact ce declara
+   politica de cookie. Din acelasi motiv nu exista preconnect la hover. */
+.video-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--e-global-color-hairline, #0E0E0E);
+  border: 1px solid color-mix(in srgb, var(--e-global-color-white) 20%, transparent);
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+.video-card__thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.82);
+  transition: transform .5s ease, filter .5s ease;
+}
+.video-card:hover .video-card__thumb,
+.video-card:focus-visible .video-card__thumb {
+  transform: scale(1.03);
+  filter: brightness(.68);
+}
+.video-card__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.28) 42%, rgba(0,0,0,.10) 100%);
+  pointer-events: none;
+}
+.video-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(255,255,255,.85);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--e-global-color-surface) 55%, transparent);
+  transition: background-color .3s ease, border-color .3s ease, transform .3s ease;
+  pointer-events: none;
+}
+.video-card:hover .video-card__play,
+.video-card:focus-visible .video-card__play {
+  background: var(--e-global-color-accent, #A01028);
+  border-color: var(--e-global-color-500ff34, #C41236);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.video-card__play svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+  margin-left: 3px;
+}
+.video-card__meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.25rem 1.25rem 1.1rem;
+  pointer-events: none;
+}
+.video-card__eyebrow {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: .625rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.8);
+  margin-bottom: .35rem;
+}
+.video-card__title {
+  display: block;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .video-card__title { font-size: 1.375rem; }
+}
+.video-card.is-playing { cursor: default; }
+.video-card.is-playing:focus { outline: none; }
+.video-card iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .video-card__thumb, .video-card__play { transition: none; }
+  .video-card:hover .video-card__thumb,
+  .video-card:focus-visible .video-card__thumb { transform: none; }
+  .video-card:hover .video-card__play,
+  .video-card:focus-visible .video-card__play { transform: translate(-50%, -50%); }
+}
+
+/* Grila bento --------------------------------------------------------------
+   Cardul video ocupa mereu doua coloane. */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+.gallery-grid .video-card { grid-column: span 2; }
+
+/* Hero: fondu de contrast pentru fotografie -------------------------------
+   Sub 1024px fotografia sta sub text, deci se stinge in jos; de la 1024px
+   sta in coloana din dreapta, deci spre stanga. */
+.hero-photo-fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to top, var(--e-global-color-surface, #131313) 0%, rgba(19,19,19,0) 42%);
+}
+@media (min-width: 1024px) {
+  .hero-photo-fade {
+    background-image: linear-gradient(to right, var(--e-global-color-surface, #131313) 0%, rgba(19,19,19,0) 40%);
+  }
+}
+
+/* Acordeon FAQ -------------------------------------------------------------
+   details/summary e nativ accesibil la tastatura. Marcajul implicit se
+   ascunde: chevronul e desenat in markup, ca sa poata fi rotit. */
+.faq-item summary { list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item {
+  border: 1px solid color-mix(in srgb, var(--e-global-color-bordodark) 30%, transparent);
+  background: var(--e-global-color-surfacealt, #1C1B1B);
+}
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  cursor: pointer;
+}
+@media (min-width: 768px) { .faq-item summary { padding: 24px; } }
+.faq-item summary svg { transition: transform .3s ease; flex: none; }
+.faq-item details[open] summary svg { transform: rotate(180deg); }
+.faq-item__answer {
+  padding: 0 20px 24px;
+  color: var(--e-global-color-secondary, #C6C6C6);
+}
+@media (min-width: 768px) { .faq-item__answer { padding: 0 24px 24px; } }
+
+/* Documente juridice de tip text lung -------------------------------------
+   O singura coloana de citit, line-height generos: textul juridic se
+   citeste lung, nu se scaneaza. */
+.legal-prose p,
+.legal-prose ul,
+.legal-prose ol {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--e-global-color-secondary, #C6C6C6);
+  margin-bottom: 18px;
+}
+@media (min-width: 768px) {
+  .legal-prose p, .legal-prose ul, .legal-prose ol { font-size: 17px; }
+}
+.legal-prose li { margin-bottom: 10px; }
+.legal-prose li:last-child { margin-bottom: 0; }
+.legal-prose strong { color: var(--e-global-color-primary, #E5E2E1); font-weight: 600; }
+.legal-prose a {
+  color: var(--e-global-color-primary, #E5E2E1);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--e-global-color-500ff34) 75%, transparent);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  transition: color .2s ease, text-decoration-color .2s ease;
+}
+.legal-prose a:hover {
+  color: #fff;
+  text-decoration-color: var(--e-global-color-500ff34, #C41236);
+}
+.legal-prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .92em;
+  background-color: #20201f;
+  color: var(--e-global-color-primary, #E5E2E1);
+  padding: 2px 6px;
+}
+.legal-note {
+  border-left: 3px solid var(--e-global-color-muted, #800020);
+  background-color: var(--e-global-color-surfacealt, #1C1B1B);
+  padding: 16px 20px;
+  margin-bottom: 18px;
+}
+.legal-note p:last-child { margin-bottom: 0; }
+
+/* Tabele juridice: reale, cu scroll orizontal pe ecrane mici -------------- */
+.legal-table-wrap { overflow-x: auto; }
+.legal-table {
+  min-width: 40rem;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.legal-table--wide { min-width: 48rem; }
+.legal-table th,
+.legal-table td {
+  padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--e-global-color-secondary) 18%, transparent);
+  vertical-align: top;
+}
+.legal-table thead th {
+  background-color: #20201f;
+  color: var(--e-global-color-primary, #E5E2E1);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.legal-table tbody td {
+  background-color: var(--e-global-color-surfacealt, #1C1B1B);
+  color: var(--e-global-color-secondary, #C6C6C6);
+}
+.legal-table tbody tr:nth-child(even) td { background-color: #161615; }
+
+/* Cuprins: colapsat pe mobil, deschis de la md prin JS -------------------- */
+.toc summary { cursor: pointer; list-style: none; display: flex; align-items: center; }
+.toc summary::-webkit-details-marker { display: none; }
+.toc summary::after {
+  content: '';
+  width: 9px;
+  height: 9px;
+  margin-left: auto;
+  border-right: 2px solid var(--e-global-color-500ff34, #C41236);
+  border-bottom: 2px solid var(--e-global-color-500ff34, #C41236);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform .2s ease;
+}
+.toc[open] summary::after { transform: rotate(-135deg) translate(-2px, -2px); }
+
+/* Preturi neconfirmate (temporar, se sterge la confirmare) ---------------- */
+.price-tbc {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  padding: 6px 12px;
+  background-color: color-mix(in srgb, var(--e-global-color-500ff34) 18%, transparent);
+  border: 2px dotted var(--e-global-color-500ff34, #C41236);
+  color: var(--e-global-color-primary, #E5E2E1);
+}
+.price-tbc__flag {
+  flex: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.price-tbc__value { line-height: 1.1; }
+
+/* Utilitare --------------------------------------------------------------- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}

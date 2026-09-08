@@ -1,0 +1,148 @@
+/* ==========================================================================
+   ioana-balan.ro — CSS portat din prototip (assets/styles.css)
+   Culorile trec prin variabilele globale Elementor, nu prin hex hardcodat.
+   ========================================================================== */
+
+/* Header fix: fara scroll-padding, ancorele aterizeaza sub el */
+html { scroll-padding-top: 64px; scroll-behavior: smooth; }
+@media (min-width: 768px) { html { scroll-padding-top: 80px; } }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Focus vizibil la tastatura, nu la click de mouse */
+:focus-visible {
+  outline: 2px solid var(--e-global-color-secondary, #C6C6C6);
+  outline-offset: 2px;
+}
+main[tabindex='-1']:focus { outline: none; }
+
+/* Skip link --------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background-color: var(--e-global-color-accent, #A01028);
+  color: #fff;
+  padding: 12px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+/* Suprafete / carduri ------------------------------------------------------ */
+.glass-card {
+  background: var(--e-global-color-surfacealt, #1C1B1B);
+  border: 1px solid color-mix(in srgb, var(--e-global-color-bordodark) 15%, transparent);
+  transition: border-color .3s ease, background-color .3s ease;
+}
+.glass-card:hover {
+  border-color: color-mix(in srgb, var(--e-global-color-secondary) 40%, transparent);
+  background: #221f1f;
+}
+.glass-panel {
+  background: color-mix(in srgb, var(--e-global-color-surfacealt) 85%, transparent);
+  border: 1px solid color-mix(in srgb, var(--e-global-color-bordodark) 15%, transparent);
+}
+
+/* Broderia — un singur asset, trei roluri (CLAUDE.md 6) -------------------- */
+.motif-separator {
+  height: 24px;
+  background-image: url('motifs.svg');
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: .22;
+}
+.motif-rule {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: color-mix(in srgb, var(--e-global-color-secondary) 28%, transparent);
+}
+.motif-rule::before,
+.motif-rule::after {
+  content: '';
+  flex: 1;
+  height: 24px;
+  background-image: url('motifs.svg');
+  background-repeat: repeat-x;
+  background-position: center;
+}
+.motif-rule__gem {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  transform: rotate(45deg);
+  border: 1px solid var(--e-global-color-muted, #800020);
+}
+.motif-texture {
+  background-image: url('motifs.svg');
+  background-repeat: repeat;
+  opacity: .04;
+}
+
+/* Separator hairline ------------------------------------------------------- */
+.luxury-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--e-global-color-bordodark) 30%, transparent), transparent);
+}
+
+/* WhatsApp float ----------------------------------------------------------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  width: auto;
+  min-width: 56px;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+  transition: transform .3s cubic-bezier(.4,0,.2,1);
+  animation: whatsapp-pulse 2.5s infinite;
+  text-decoration: none;
+}
+@media (min-width: 768px) {
+  .whatsapp-float { bottom: 30px; right: 30px; min-width: 60px; height: 60px; }
+}
+.whatsapp-float:hover { transform: scale(1.1); color: #fff; }
+.whatsapp-float__label {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width .3s ease, margin-left .3s ease;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.whatsapp-float:hover .whatsapp-float__label,
+.whatsapp-float:focus-visible .whatsapp-float__label {
+  max-width: 16rem;
+  margin-left: 8px;
+}
+@media (max-width: 639px) {
+  .whatsapp-float__label { display: none; }
+}
+@keyframes whatsapp-pulse {
+  0%   { box-shadow: 0 4px 12px rgba(0,0,0,.3), 0 0 0 0 rgba(37,211,102,.45); }
+  70%  { box-shadow: 0 4px 12px rgba(0,0,0,.3), 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 4px 12px rgba(0,0,0,.3), 0 0 0 0 rgba(37,211,102,0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float { animation: none; }
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none">
+  <!-- „Râu" de broderie de pe ie — bandă care se repetă continuu pe orizontală
+       (perioada = 40px; marginile se îmbină: linia și crucea cad exact pe seam).
+       TODO client: de calibrat 1:1 după motivele din pozele reale în ie.
+       Culoare bakeuită (#c6c6c6, tokenul on-surface-var); intensitatea din opacity (styles.css). -->
+  <g stroke="#c6c6c6" stroke-width="1" stroke-linejoin="round" stroke-linecap="round">
+    <!-- firul orizontal (râul) -->
+    <path d="M0 12 H40"/>
+    <!-- rombul central cu cârlige -->
+    <path d="M20 4 L31 12 L20 20 L9 12 Z"/>
+    <path d="M20 4 l0 -3 M20 20 l0 3"/>
+    <!-- cruciuliță la îmbinare (se completează cu tile-ul vecin) -->
+    <path d="M0 7 V17 M40 7 V17"/>
+    <!-- puncte de legătură -->
+    <path d="M6 12 l-2 0 M34 12 l2 0"/>
+  </g>
+</svg>

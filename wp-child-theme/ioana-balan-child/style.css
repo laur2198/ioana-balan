@@ -115,3 +115,37 @@ Text Domain: ioana-balan-child
   src: url('assets/fonts/inter-600-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+
+
+/* ------------------------------------------------------------------
+   MONTSERRAT ALIAS - TEMPORAR
+
+   Paginile mostenite (importate din kituri Envato in 2022) cer Montserrat
+   hardcodat in fiecare widget. Montserrat venea de la Google Fonts, pe care
+   tema il blocheaza. Fara aceste reguli, textele cad pe sans-serif de sistem.
+
+   Aliasam familia catre fisierele Inter deja incarcate: niciun request in
+   plus, niciun font nou. Greutatile 100-500 primesc Inter 400, 600-900
+   primesc Inter 600.
+
+   DE STERS dupa ce toate paginile sunt reconstruite cu token-uri globale.
+   ------------------------------------------------------------------ */
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:100;font-display:swap;src:url('assets/fonts/inter-400-latin.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:100;font-display:swap;src:url('assets/fonts/inter-400-latin-ext.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:200;font-display:swap;src:url('assets/fonts/inter-400-latin.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:200;font-display:swap;src:url('assets/fonts/inter-400-latin-ext.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:300;font-display:swap;src:url('assets/fonts/inter-400-latin.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:300;font-display:swap;src:url('assets/fonts/inter-400-latin-ext.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/inter-400-latin.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/inter-400-latin-ext.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/inter-400-latin.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/inter-400-latin-ext.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/inter-600-latin.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/inter-600-latin-ext.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/inter-600-latin.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/inter-600-latin-ext.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/inter-600-latin.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/inter-600-latin-ext.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:900;font-display:swap;src:url('assets/fonts/inter-600-latin.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:900;font-display:swap;src:url('assets/fonts/inter-600-latin-ext.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:italic;font-weight:400;font-display:swap;src:url('assets/fonts/inter-400-italic-latin.woff2') format('woff2');}
