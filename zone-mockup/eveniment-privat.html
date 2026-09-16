@@ -1,0 +1,698 @@
+<!-- Eveniment privat (MOCKUP). Pagină de serviciu, nu pagină de zonă și nu pagină de
+     cluster: nu are layout A/B/C, nu are localități, nu are logistică de zonă
+     și nu are rând de preț. Trăiește în /zone-mockup/ cât timp e material de
+     validare: toate căile către assets și către paginile existente urcă un
+     nivel (../).
+
+     Rol: aniversări, cumetrii, petreceri de familie, onomastici.
+     Configurație redusă, program flexibil. Nu există pachet publicat pentru
+     tipul ăsta de eveniment: configurația și tariful rămân marcaj.
+
+     REGULA PAGINII DE SERVICIU: descrie cum se desfășoară evenimentul și ce
+     decizii se iau când — nu ce conține oferta. Pachete și prețuri stau pe
+     ../oferte.html, repertoriul pe repertoriu.html, componența și producția pe
+     formatia.html, deplasarea pe zone.html. Pagina trimite acolo, nu copiază.
+     INTERDICȚIE: nicio afirmație de experiență — fără evenimente trecute,
+     clienți sau reacții descrise ca trăite.
+     SURSA DATELOR: grila de pe ../oferte.html ca reper (pachetele de botez sunt
+     cele mai mici publicate), fără a afirma că se aplică identic. Cumetria ca
+     denumire regională a mesei de botez e fapt de folclor, pe lista de
+     validare.
+
+     Blocul de stiluri, header, drawer, footer, legenda de placeholder,
+     scripturile și widgetul WhatsApp sunt IDENTICE cu zona-brasov.html.
+     Zero `.ph-zone`. -->
+<!DOCTYPE html><html class="dark" lang="ro"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- noindex cât timp pagina conține marcaje [de confirmat]. Se scoate odată cu
+     ultimul .ph, împreună cu mutarea fișierului din /zone-mockup/ în rădăcină. -->
+<meta name="robots" content="noindex, follow">
+<title>Muzică pentru aniversări, cumetrii și onomastici | Ioana Balan</title>
+<meta content="Cum se organizează muzica la o aniversare, o cumetrie sau o onomastică: configurație redusă, program flexibil și repertoriu ales după invitați și după local." name="description">
+<!-- Canonical necompletat intenționat: slug-ul final se decide la migrare.
+     Constrângere fermă — slug-ul NU poate conține sintagma rezervată altui
+     domeniu al clientului (cea cu „formație” + „nuntă” + oraș); nu o scriem
+     nici în comentariu, ca să nu ajungă în sursa paginii. Regula se verifică
+     bag-of-words: după plierea diacriticelor și eliminarea prepozițiilor
+     („in”, „din”, „la”, „pentru”, „de”, „si”), cei trei tokeni nu au voie să
+     apară SIMULTAN, indiferent de distanța dintre ei. Pagina nu poartă niciunul dintre
+     cele trei tokenuri în câmpurile de meta. Slug propus: /eveniment-privat.
+<link rel="canonical" href="https://ioana-balan.ro/______.html"> -->
+<link rel="preload" href="../assets/fonts/eb-garamond-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/eb-garamond-500-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../assets/tailwind.config.js"></script>
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  /* Accentul de zonă -------------------------------------------------------
+     CONSTANT pe toate zonele. Nu se schimbă per județ.
+
+     Motivul e aritmetic: paleta are trei valori de bordo, toate din aceeași
+     familie — accent-edge #C41236, accent #A01028, accent-deep #800020. Trei
+     valori vecine pe același ton nu produc patru accente perceptibil diferite
+     pentru Ardeal / Muntenia / Oltenia / Dobrogea; ar produce patru nuanțe pe
+     care nimeni nu le citește ca sistem, plus riscul ca o zonă să primească
+     #800020 (1,72:1 pe #131313, adică o bordură invizibilă). Varianta aleasă
+     e accent-edge, singura din familie care trece pragul de 3:1 pentru UI
+     non-text (3,93:1).
+
+     Variabila rămâne totuși variabilă, ca punct de extensie: dacă paleta se
+     extinde cu o familie de accente de zonă reale, se schimbă o linie pe
+     pagină, nu fiecare regulă.
+
+     Diferențierea vizuală între zone vine din altă parte: din compoziția de
+     layout (trei variante, A/B/C) și din imaginea de hero specifică zonei.
+     Acolo se investește, nu în culoare.
+
+     Rolurile INTERZISE, ca să nu se dilueze sistemul din CLAUDE.md §5:
+     butonul primar rămâne bg-accent (#A01028) + text alb, iar textul de body
+     rămâne on-surface / on-surface-variant. Accentul de zonă nu atinge niciunul. */
+  :root {
+    --accent-zona: var(--accent-edge);
+  }
+
+  /* Marcaje de placeholder -------------------------------------------------
+     Două marcaje, cu intenții diferite, deci cu tratamente diferite.
+
+     .ph — marcaj INLINE, neutru. Sunt 32 pe pagină, împrăștiate în text, în
+     carduri și în răspunsurile de FAQ. În bordo, pagina citea ca 32 de erori:
+     roșul e culoarea de eroare în orice interfață, iar densitatea îl
+     transformă din marcaj în alarmă. Aici marcajul trebuie să spună „lipsește
+     o dată”, nu „ceva e greșit”, deci merge pe familia neutră: contur
+     `outline` (#8e9192) la 40%, fond `surface-container` (#20201f), text
+     `outline`. Corpul mono rămâne — el face distincția față de textul redactat.
+
+     .ph-zone — SLOT DE MEDIA, în accentul de zonă. Sunt 4: trei sloturi de
+     fotografie de locație și unul de video. Acolo bordo-ul e justificat: sunt
+     suprafețe mari și puține, nu valori inline, iar conturul colorat le
+     citește ca goluri de umplut deliberate, nu ca greșeli. Patru accente pe
+     toată pagina se citesc ca sistem; treizeci și patru, nu.
+
+     Rămân în aceeași familie ca .price-tbc / .legal-tbc / .answer-tbc din
+     assets/styles.css (contur + corp distinct); la migrare, toate se unifică.
+     overflow-wrap: la 360px etichetele lungi trebuie să rupă, nu să iasă. */
+  .ph {
+    display: inline-block;
+    max-width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+    padding: 2px 7px;
+    color: #8e9192;
+    background-color: #20201f;
+    border: 1px dashed rgba(142, 145, 146, 0.4);
+    overflow-wrap: anywhere;
+  }
+  /* Slot de media: zonă de imagine sau de embed, nu valoare inline. */
+  .ph-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    padding: 24px 16px;
+    /* Fondul e tokenul `background` (#131313), mai închis decât cardul
+       (.glass-card = rgb(28,27,27)): slotul gol se citește ca gol, iar
+       valoarea rămâne un token, nu o nuanță nouă de bordo. */
+    background-color: #131313;
+    border: 1px dashed var(--accent-zona);
+  }
+
+  /* Separator de secțiune, în accentul de zonă ----------------------------
+     Reia banda de broderie din .motif-separator (assets/motifs.svg) și îi
+     adaugă o muchie în culoarea zonei. Un singur element, fără poziționare
+     absolută — exprimabil ca divider în Elementor. */
+  .zona-divider {
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(90deg, transparent, var(--accent-zona), transparent);
+    opacity: 0.55;
+  }
+  /* Rombul din mijlocul lui .motif-rule, recolorat pe zonă. */
+  .zona-gem {
+    border-color: var(--accent-zona);
+  }
+
+  /* Badge de zonă: contur în accentul zonei, fond de suprafață, text argintiu.
+     NU fond bordo — fondul plin e rezervat CTA-ului primar.
+     Se pune numai pe badge-uri cu VALOARE REALĂ (pe pagină: eyebrow-ul de zonă
+     din hero). Un badge care conține doar un marcaj de placeholder rămâne
+     marcaj simplu: altfel bordo-ul ajunge să însemne „gol", nu „accent". */
+  .zona-badge {
+    border: 1px solid var(--accent-zona);
+    background-color: #20201f;
+  }
+
+  /* Buton secundar de zonă: singura diferență față de `border-outline` din
+     paginile existente e culoarea conturului. Restul (padding, uppercase,
+     tracking, hover pe white/5) rămâne identic. */
+  .btn-secundar-zona {
+    border: 1px solid var(--accent-zona);
+  }
+</style>
+<!-- Service pe tipul de eveniment, cu provider MusicGroup (același @id ca pe
+     paginile de zonă și de cluster). Fără `areaServed`: pagina nu are
+     logistică de zonă. Fără `aggregateRating` (politica Google privind
+     recenziile auto-servite) și fără `offers`/`price`: prețurile stau numai pe
+     oferte.html, iar grila de acolo e neconfirmată. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Muzică live pentru evenimente private",
+  "serviceType": "Muzică live pentru aniversări, cumetrii, onomastici și petreceri de familie",
+  "description": "Organizarea muzicii la evenimente private — aniversări, cumetrii, onomastici, petreceri de familie —, cu configurație redusă, program flexibil și repertoriu ales după invitați.",
+  "provider": {
+    "@type": "MusicGroup",
+    "@id": "https://ioana-balan.ro/#artist",
+    "name": "Ioana Balan",
+    "url": "https://ioana-balan.ro/",
+    "genre": [
+      "Muzică populară",
+      "Muzică de petrecere",
+      "Folclor"
+    ],
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "București, România"
+    },
+    "telephone": "+40722911485",
+    "email": "ioanabalanoficial@gmail.com",
+    "sameAs": [
+      "https://www.facebook.com/ioanabalanoficial",
+      "https://www.instagram.com/ioanabalanoficial/",
+      "https://www.tiktok.com/@ioanabalanmusic",
+      "https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ",
+      "https://ro.pinterest.com/ioanabalanoficial/"
+    ]
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": {
+      "@type": "ContactPoint",
+      "telephone": "+40722911485",
+      "contactType": "rezervări"
+    },
+    "serviceUrl": "https://wa.me/40722911485"
+  }
+}
+</script>
+</head>
+<body class="bg-background text-on-background overflow-x-hidden">
+<a class="skip-link" href="#continut">Sari la conținut</a>
+<!-- TopNavBar -->
+<!-- ABATERE DOCUMENTATĂ de la regula „header verbatim" — singura din pagină.
+     În header-ul canonic, „Oferte" purta starea de activ (text-primary +
+     border-b). Pe o pagină de zonă asta ar minți: nu ești pe Oferte. Starea
+     de activ a fost scoasă în AMBELE locuri (nav desktop și drawer mobil),
+     iar „Oferte" a primit exact clasele celorlalte linkuri. Nimic altceva nu
+     e modificat față de oferte.html.
+
+     Pe paginile de zonă nicio intrare de nav nu e activă, pentru că nav-ul NU
+     primește o intrare „Zone": auditul anterior a măsurat CTA-ul WhatsApp
+     ieșind din viewport cu 229px la 1024, motiv pentru care „Acasă" a fost
+     eliminat din nav ca să se recupereze spațiu. O a opta intrare rupe din nou
+     header-ul. Hub-ul de zone intră în FOOTER, banda 2.
+     Vezi CLAUDE.md §10 (header/footer canonice). -->
+<!-- TopNavBar (canonic) -->
+<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-outline-variant/20 h-16 md:h-20">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center gap-4 xl:gap-8 h-full">
+<a aria-label="Ioana Balan Acasă" class="shrink-0 flex items-center min-h-[44px]" href="../index.html">
+<img alt="Ioana Balan" class="h-8 md:h-12 w-auto" src="../assets/logo-alb-400w.png" srcset="../assets/logo-alb-400w.png 1x, ../assets/logo-alb-800w.png 2x" width="400" height="137" loading="eager" decoding="async">
+</a>
+<nav class="hidden lg:flex items-center gap-4 xl:gap-8">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../despre.html">Despre</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../galerie.html">Galerie</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../discografie.html">Discografie</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../oferte.html">Oferte</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../faq.html">FAQ</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../blog.html">Blog</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener" class="hidden lg:block whitespace-nowrap shrink-0 bg-accent text-white px-4 xl:px-6 py-2 font-label-md text-label-md uppercase tracking-widest hover:bg-accent-hover transition-all">Rezervă pe WhatsApp</a>
+<!-- Contact la 1 tap pe mobil: sub lg butonul WhatsApp e ascuns, iar telefonul
+     era doar în footer. Părinții/nașii sună, nu scriu pe WhatsApp. -->
+<a aria-label="Sună acum" class="lg:hidden flex items-center justify-center w-11 h-11 -mr-1 text-primary hover:text-white transition-colors" href="tel:+40722911485">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M775.38-140Q669-140 556-193.69q-113-53.7-210.81-151.7-97.8-98-151.5-210.8Q140-669 140-775.38q0-19.12 12.64-31.87T184.23-820h114.13q15.64 0 26.41 10.19 10.77 10.2 15.15 26.35l23.85 107.18q2.08 15.13-1 27.2-3.08 12.08-11.69 20.31l-94.39 91.92q26.77 45.93 56.54 85.08t64.39 73.54q37.38 38.38 79.53 70.08 42.16 31.69 90.24 57.61l90.76-93.38q10-11 22.39-14.81 12.39-3.81 25.84-1.81l97.08 21.39q16.15 3.61 26.35 16.26Q820-310.24 820-294.23v110q0 18.95-12.75 31.59T775.38-140ZM234-578l82.54-80.08q1.54-1.53 2.11-4.23.58-2.69.2-5L297-768.46q-.38-3.08-2.5-4.62-2.11-1.53-5.19-1.53h-98.54q-2.31 0-3.85 1.53-1.53 1.54-1.53 3.85.84 41.62 12.92 88.69Q210.39-633.46 234-578Zm356.31 349.15q41 20.16 89.77 31.39 48.77 11.23 89.15 12.46 2.31 0 3.85-1.54 1.53-1.54 1.53-3.85v-98.15q0-3.08-1.53-5.19-1.54-2.12-4.62-2.5l-90.69-18.69q-2.31-.39-4.04.19-1.73.58-3.65 2.11l-79.77 83.77ZM234-578Zm356.31 349.15Z"/></svg>
+</a>
+<button aria-label="Deschide Meniu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden text-primary p-2" id="menu-toggle">
+<svg aria-hidden="true" class="text-3xl" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Side Drawer (canonic) -->
+<div class="fixed inset-0 z-[60] bg-background translate-x-full transition-transform duration-300 lg:hidden" id="mobile-menu" inert>
+<div class="flex flex-col h-full p-8">
+<div class="flex justify-between items-center mb-12">
+<img alt="Ioana Balan" class="h-8 w-auto" src="../assets/logo-alb-400w.png" srcset="../assets/logo-alb-400w.png 1x, ../assets/logo-alb-800w.png 2x" width="400" height="137" loading="eager" decoding="async">
+<button aria-label="Închide Meniu" class="text-primary" id="menu-close">
+<svg aria-hidden="true" class="text-4xl" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+</button>
+</div>
+<nav class="flex flex-col gap-6 text-center">
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../index.html">Acasă</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../despre.html">Despre</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../galerie.html">Galerie</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../discografie.html">Discografie</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../oferte.html">Oferte</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../faq.html">Întrebări frecvente</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../blog.html">Blog</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../contact.html">Contact</a>
+<a class="text-headline-md font-headline-md text-white uppercase bg-accent py-4 mt-4" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener">Rezervă pe WhatsApp</a>
+</nav>
+</div>
+</div>
+<main id="continut" tabindex="-1" class="pt-16 md:pt-20">
+
+<!-- Legenda de placeholder: primul lucru de sub header, ca reviewerul să știe
+     din start ce citește. Discretă (suprafață joasă, text secundar), dar cu
+     muchia de zonă la stânga ca să nu se confunde cu o notă de conținut. -->
+<div class="bg-surface-container-lowest border-b border-outline-variant/20">
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-3 flex items-start gap-3">
+<svg aria-hidden="true" class="shrink-0 mt-0.5 text-on-surface-variant" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M453.85-280h52.3v-240h-52.3v240ZM480-588.46q11.85 0 19.92-7.89 8.08-7.88 8.08-19.73 0-11.84-8.08-20.11-8.07-8.27-19.92-8.27-11.85 0-19.92 8.27-8.08 8.27-8.08 20.11 0 11.85 8.08 19.73 8.07 7.89 19.92 7.89Zm.07 488.46q-78.84 0-148.28-29.92t-122.68-83.21q-53.24-53.29-83.17-122.66Q96-405.1 96-484.05q0-78.84 29.92-148.28t83.21-122.68q53.29-53.24 122.66-83.17Q561.1-868 480.05-868q78.84 0 148.28 29.92t122.68 83.21q53.24 53.29 83.17 122.66Q864-562.9 864-483.95q0 78.84-29.92 148.28t-83.21 122.68q-53.29 53.24-122.66 83.17Q558.9-100 480.07-100Zm-.07-52.31q138.46 0 235.08-96.61Q811.69-345.54 811.69-484q0-138.46-96.61-235.08Q618.46-815.69 480-815.69q-138.46 0-235.08 96.61Q148.31-622.46 148.31-484q0 138.46 96.61 235.08Q341.54-152.31 480-152.31ZM480-484Z"/></svg>
+<p class="font-body-md text-[13px] text-on-surface-variant">Zonele marcate se completează cu date reale de la client.</p>
+</div>
+</div>
+
+<!-- ======================================================================
+     1. HERO — H1 + intro + CTA, fără rând de preț
+     Fotografia e PROVIZORIE — placeholder Stitch de 512 px (CLAUDE.md §10).
+     ====================================================================== -->
+<section class="relative overflow-hidden border-b border-outline-variant/10" aria-labelledby="hero-titlu">
+<div class="absolute inset-0 z-0">
+<img alt="Ioana Balan pe scenă, alături de formație" class="w-full h-full object-cover opacity-30 md:opacity-40" src="../assets/img/ioana-balan-live-show.jpg" loading="eager" decoding="async">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30"></div>
+</div>
+<div class="relative z-10 max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20">
+<div class="max-w-3xl">
+<p class="font-label-md text-label-md uppercase tracking-[0.2em] mb-4">
+<span class="zona-badge inline-block px-3 py-1.5 text-secondary">Eveniment privat</span>
+</p>
+<h1 class="font-display-lg text-2xl sm:text-3xl md:text-display-lg leading-tight mb-5" id="hero-titlu">Aniversări, cumetrii, onomastici: muzica pentru o petrecere de familie</h1>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-8 max-w-2xl">La o petrecere de familie nu există un program pe care să-l știe toată lumea dinainte. O aniversare rotundă, o cumetrie sau o zi onomastică poate fi o cină cu muzică de ascultare, o petrecere până dimineața sau amândouă, pe rând. Seara o hotărăște gazda, iar muzica se potrivește pe ce a hotărât ea.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="inline-block text-center whitespace-nowrap bg-accent text-white px-8 md:px-10 py-4 uppercase font-label-md text-label-md tracking-widest hover:bg-accent-hover transition-colors w-full sm:w-auto" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20Organizez%20o%20petrecere%20de%20familie%20%C8%99i%20a%C8%99%20dori%20s%C4%83%20discut%C4%83m%20muzica." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+<a class="btn-secundar-zona inline-block text-center whitespace-nowrap text-on-surface bg-transparent px-8 md:px-10 py-4 uppercase font-label-md text-label-md tracking-widest hover:bg-white/5 transition-colors w-full sm:w-auto" href="tel:+40722911485">+40 722 911 485</a>
+</div>
+<!-- PARITATE cu paginile de cluster: nota de imagine stă ultima în bloc,
+     după butoane, înaintea motivului de închidere. -->
+<p class="mt-6"><span class="ph">Imagine provizorie — se înlocuiește cu fotografie de scenă într-un salon mic sau la o petrecere restrânsă (peisaj, min. 1440&nbsp;px lățime)</span></p>
+<div class="motif-separator w-24 md:w-36 mt-10"></div>
+</div>
+</div>
+</section>
+
+<!-- ======================================================================
+     2. CUM SE DESFĂȘOARĂ — gazda decide forma serii
+     Configurația și tariful NU sunt în grila de pe oferte.html: un singur
+     marcaj, aici, nu repetat în FAQ.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="proces-titlu">
+<div class="max-w-3xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Proces</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-6" id="proces-titlu">Gazda decide forma serii</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">O nuntă și un botez au momente fixe, cunoscute de toți invitații. O aniversare are, de regulă, unul singur — tortul — și, uneori, un toast. Restul serii e al gazdei. De aici pornește orice discuție despre muzica unui eveniment privat: cât din seară e masă, cât e ring și în ce ordine.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mt-6">Configurația urmează răspunsul. Pentru o seară în care muzica stă mai mult în fundal ajunge o formație mică, sprijinită de DJ; pentru o petrecere lungă, cu jocuri, contează ca programul live să fie împărțit pe toată durata ei, nu concentrat la început. Pachetele publicate sunt pentru nuntă și botez, deci pentru un eveniment privat componența și tariful se stabilesc pe fiecare caz: <span class="ph">[CONFIGURAȚIE ȘI TARIF PENTRU EVENIMENT PRIVAT — de confirmat]</span>.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mt-6">Cumetria e un caz aparte. În unele regiuni așa se numește masa de după botez, deci are tipicul botezului, cu nașii în rolul principal; pentru ea, pagina de botez e ghidul potrivit. Onomastica și aniversarea sunt mai libere și se construiesc aproape în întregime pe preferințele sărbătoritului.</p>
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     3. MOMENTELE — puține fixe, restul la alegere
+     Formulate ca repere, nu ca program obligatoriu.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="momente-titlu">
+<div class="max-w-3xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Repere</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-6" id="momente-titlu">Momentele care revin la cele mai multe petreceri de familie</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-10">Nu sunt obligatorii și nu vin neapărat în ordinea asta. Sunt reperele pe care se sprijină programul, iar gazda păstrează ce i se potrivește.</p>
+<ol class="flex flex-col gap-8 md:gap-10">
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">01</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Sosirea</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Muzică de fundal cât se strâng invitații. La un eveniment restrâns, primele minute stabilesc tonul: o seară de salon începe altfel decât o petrecere.</p>
+</div>
+</li>
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">02</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Toastul sau discursul</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Muzica se oprește de tot, nu doar coboară. Cine vorbește are nevoie de un microfon și de liniște, iar reluarea programului se face după ultimul cuvânt, nu la mijlocul lui.</p>
+</div>
+</li>
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">03</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Masa</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Muzică de ascultare: cântec ușor, romanțe, melodii de masă din folclor. Când în sală sunt mulți invitați din generația sărbătoritului, e partea serii la care repertoriul merită gândit cu cea mai mare grijă.</p>
+</div>
+</li>
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">04</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Piesa sărbătoritului</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">O melodie aleasă de familie pentru sărbătorit, cântată live dacă există aranjament sau pusă de DJ. Se hotărăște dinainte, ca să nu fie improvizată pe loc.</p>
+</div>
+</li>
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">05</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Tortul</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Singurul moment fix al unei aniversări sau al unei onomastici. Ora lui se stabilește cu localul, iar muzica se aliniază la ea.</p>
+</div>
+</li>
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">06</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Petrecerea</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Dacă gazda o vrea: hore, sârbe, muzică de petrecere — cu manele, dacă le cere, așezate cum explică pagina despre <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="folclor-si-manele.html">folclor și manele</a> —, apoi DJ. Durata ei e greu de prevăzut, motiv pentru care programul flexibil contează mai mult aici decât la orice alt tip de eveniment.</p>
+</div>
+</li>
+</ol>
+
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     4. CE SE DECIDE ÎNAINTE — orchestrare, nu duplicare
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="decizii-titlu">
+<div class="max-w-3xl mb-8 md:mb-12">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Decizii</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-4" id="decizii-titlu">Ce stabiliți înainte de petrecere</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Patru hotărâri, fiecare cu pagina ei. La un eveniment privat, prima dintre ele le schimbă pe toate celelalte.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-gutter max-w-5xl">
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Înainte de orice</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Cât buget pentru muzică</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Grila de pe site acoperă doar nunțile și botezurile. Pentru o petrecere de familie pachetele de acolo sunt un reper de configurație și de ordin de mărime, util înainte de prima discuție, nu oferta finală.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="../oferte.html">Vezi grila de pachete <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">După lista de invitați</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Ce generații sunt în sală</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">O aniversare de 60 de ani și una de 30 nu se cântă la fel. Din ce zonă e familia și ce vârste predomină decid proporția dintre folclor și muzica ușoară; pagina de repertoriu descrie jocurile fiecărei regiuni.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="repertoriu.html">Alege repertoriul pe zone <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Cu localul ales</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Cât de mare poate fi formația</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Un salon privat, o terasă sau o curte nu primesc aceeași scenă. Spațiul disponibil și accesul la curent spun câți muzicieni încap; rolul fiecărui instrument e pe pagina formației.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="formatia.html">Vezi componența și producția <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Dacă petrecerea e în afara orașului</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Ce adaugă drumul</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Unele petreceri de familie se țin la o pensiune sau la casa de la țară. Drumul până acolo intră în preț, iar de la o anumită distanță intră și nopțile de cazare ale echipei; calculul, pe județe, e pe pagina de zone.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zone.html">Vezi zonele deservite <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     5. CE E DIFERIT FAȚĂ DE O NUNTĂ — rânduri flex (titlu + text)
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="diferente-titlu">
+<div class="max-w-4xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Comparație</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-4" id="diferente-titlu">Unde se desparte o petrecere de familie de o nuntă</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 md:mb-10 max-w-3xl">Cele mai multe decizii de la o nuntă au la o petrecere de familie un răspuns mai simplu — sau niciunul. Diferențele care contează:</p>
+<div class="flex flex-col border-b border-outline-variant/20">
+<div class="flex flex-col md:flex-row gap-2 md:gap-8 py-5 md:py-6 border-t border-outline-variant/20">
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug md:w-1/3 shrink-0">Programul</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Nu există o ordine știută de toți. Gazda o scrie, iar ea se poate schimba în timpul serii fără să strice nimic.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-2 md:gap-8 py-5 md:py-6 border-t border-outline-variant/20">
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug md:w-1/3 shrink-0">Configurația</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Mai mică, potrivită unui salon sau unei terase. O nuntă umple o sală; o aniversare umple de obicei o masă lungă.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-2 md:gap-8 py-5 md:py-6 border-t border-outline-variant/20">
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug md:w-1/3 shrink-0">Durata</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Negociabilă. Seara poate fi scurtă și liniștită sau lungă și dansată, iar asta se hotărăște la organizare, nu se moștenește din tipic.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-2 md:gap-8 py-5 md:py-6 border-t border-outline-variant/20">
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug md:w-1/3 shrink-0">Locul</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Local, pensiune, curte sau casă. Fiecare are alte condiții de spațiu, de curent și de liniște față de vecini.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-2 md:gap-8 py-5 md:py-6 border-t border-outline-variant/20">
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug md:w-1/3 shrink-0">Protagoniștii</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Un sărbătorit, nu doi miri, doi nași și două familii. Momentele de protocol sunt puține, iar repertoriul se construiește pe gusturile unui singur om.</p>
+</div>
+</div>
+<p class="mt-8"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="nunta.html">Cum se organizează o nuntă <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     6. FAQ — patru întrebări specifice evenimentului privat
+     [PUTERE ELECTRICĂ — de confirmat] are exact formularea de pe
+     formatia.html, ca să se completeze o singură dată la migrare.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="faq-titlu">
+<div class="max-w-3xl mb-8 md:mb-12">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Întrebări</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight" id="faq-titlu">Întrebări despre muzica la o petrecere de familie</h2>
+</div>
+<div class="max-w-3xl space-y-4">
+
+<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
+<details class="group" open>
+<summary aria-expanded="true" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Poate fi seara doar cu muzică de ascultare, fără petrecere?</h3>
+<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md space-y-3">
+<p>Da, e o formă de program la fel de legitimă ca petrecerea. Se construiește pe cântec ușor, romanțe și melodii de masă, la un volum de conversație, iar configurația se alege pe măsura ei.</p>
+</div>
+</details>
+</div>
+
+<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Cât durează programul la o aniversare?</h3>
+<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md space-y-3">
+<p>Nu există o durată standard, ca la nuntă. Se stabilește pornind de la ora de început și de la cât din seară e petrecere. Durata minimă pentru care se face deplasarea: <span class="ph">[DURATĂ MINIMĂ LA EVENIMENT PRIVAT — de confirmat]</span>.</p>
+</div>
+</details>
+</div>
+
+<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Se poate organiza petrecerea acasă sau în curte?</h3>
+<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md space-y-3">
+<p>Condițiile țin de spațiu și de echipament: un loc plan și acoperit pentru formație, ferit de ploaie, și acces la curent: <span class="ph">[PUTERE ELECTRICĂ — de confirmat]</span>.</p>
+<p>Într-o zonă rezidențială contează și regulile locale privind liniștea publică. Ora de final se fixează ținând cont de ele, nu doar de cheful invitaților.</p>
+</div>
+</details>
+</div>
+
+<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Cu cât timp înainte se rezervă un eveniment privat?</h3>
+<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md space-y-3">
+<p>Depinde mai mult de zi decât de tipul evenimentului. O aniversare într-o sâmbătă din sezonul nunților concurează pentru aceeași dată cu o nuntă, deci merită rezervată la fel de devreme; o seară în timpul săptămânii sau în extrasezon se prinde, de regulă, mai ușor.</p>
+</div>
+</details>
+</div>
+
+</div>
+<div class="mt-10 md:mt-12">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="../faq.html">Vezi toate întrebările frecvente <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a>
+</div>
+</section>
+
+
+<!-- 7. CTA final: WhatsApp primar (fond bordo), contact secundar (contur de zonă).
+     Un singur primar în secțiune, ca în restul site-ului.
+     „Întreabă”, nu „Rezervă”: la un eveniment privat prima discuție e despre
+     forma serii și configurație, nu doar despre dată. -->
+<section class="py-16 md:py-24 bg-surface-container-low border-t border-outline-variant/10 text-center">
+<div class="max-w-2xl mx-auto px-6 md:px-margin-desktop">
+<h2 class="font-display-lg text-2xl sm:text-3xl md:text-display-lg mb-5 leading-tight">Spuneți-ne cum vreți să arate seara</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-10">Spuneți-ne ce sărbătoriți, când, unde și cam câți oameni vin. Pornind de la ele vă propunem o configurație și verificăm dacă data e liberă.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a class="inline-block whitespace-nowrap bg-accent text-white px-8 md:px-10 py-4 md:py-5 uppercase font-label-md text-label-md tracking-widest hover:bg-accent-hover transition-colors w-full sm:w-auto" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20Organizez%20o%20petrecere%20de%20familie%20%C8%99i%20a%C8%99%20dori%20o%20propunere%20de%20configura%C8%9Bie." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+<a class="btn-secundar-zona inline-block whitespace-nowrap text-center text-on-surface bg-transparent px-8 md:px-10 py-4 md:py-5 uppercase font-label-md text-label-md tracking-widest hover:bg-white/5 transition-colors w-full sm:w-auto" href="../contact.html">Formular de contact</a>
+</div>
+</div>
+</section>
+
+</main>
+<!-- Footer -->
+<!-- Footer (canonic) -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 flex flex-col gap-8">
+
+<!-- Banda 1: brand + social (iconuri, un singur rând și pe mobil) -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
+<div class="flex flex-col gap-3 max-w-md">
+<a aria-label="Ioana Balan Acasă" class="inline-flex items-center min-h-[44px] self-start" href="../index.html"><img alt="Ioana Balan" class="h-8 md:h-10 w-auto" src="../assets/logo-alb-400w.png" srcset="../assets/logo-alb-400w.png 1x, ../assets/logo-alb-800w.png 2x" width="400" height="137" loading="lazy" decoding="async"></a>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80">Muzică pentru evenimente care rămân în suflet. Calitate corporate cu pasiune artistică și profesionalism garantat.</p>
+</div>
+<ul class="flex flex-row items-center gap-1 shrink-0">
+<li>
+<a aria-label="Facebook" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.facebook.com/ioanabalanoficial" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="Instagram" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/ioanabalanoficial/" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="YouTube" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="TikTok" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.tiktok.com/@ioanabalanmusic" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+</a>
+</li>
+</ul>
+</div>
+
+<!-- Banda 2: contact (stânga) + informații legale (dreapta), fără titluri de coloană -->
+<div class="flex flex-col gap-4">
+<div class="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-8">
+<div class="flex flex-col">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="mailto:ioanabalanoficial@gmail.com">ioanabalanoficial@gmail.com</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="tel:+40722911485">+40 722 911 485</a>
+</div>
+<div class="flex flex-row items-center gap-2 sm:justify-end">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="https://anpc.ro" target="_blank" rel="noopener noreferrer">ANPC</a>
+<span aria-hidden="true" class="font-body-md text-on-surface-variant opacity-50">·</span>
+<!-- TODO client/juridic: platforma europeană SOL/ODR (ec.europa.eu/consumers/odr)
+     a fost desființată prin Regulamentul (UE) 2024/3228. Linkul echivalent în
+     vigoare e SAL-ul ANPC; de confirmat cu juristul înainte de lansare. -->
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" aria-label="SAL — Soluționarea alternativă a litigiilor">SAL</a>
+</div>
+</div>
+<!-- Documente de subsol: linkuri reale, în afara navigației din header.
+     Aceeași stilizare discretă ca înainte; min-h-[44px] pentru țintă de tap,
+     ca la rândul ANPC/SAL de deasupra. -->
+<p class="font-body-md text-[13px] text-secondary flex flex-row flex-wrap items-center gap-x-2">
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="../termeni-si-conditii.html">Termeni și condiții</a>
+<span aria-hidden="true" class="opacity-50">·</span>
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="../politica-cookie.html">Politica de cookie-uri</a>
+<span aria-hidden="true" class="opacity-50">·</span>
+<!-- Hub-ul de zone: intră în footer, nu în nav-ul desktop (vezi comentariul
+     de deasupra header-ului — a opta intrare de nav rupe header-ul la 1024).
+     Pagina NU EXISTĂ încă; href="#" până e creată, slug propus: /zone.
+     Când apare, linkul se adaugă identic în footerul canonic al tuturor
+     paginilor, nu doar aici. -->
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="#">Zone deservite</a>
+</p>
+</div>
+
+<!-- TODO client — rând de date de firmă, OBLIGATORIU înainte de lansare.
+     Concurența afișează CUI + Reg. Com.; pentru un site care încasează avans,
+     legitimitatea juridică e argument de conversie.
+     Scos din DOM doar cât ține demo-ul: un placeholder vizibil citește ca
+     lucru neterminat, nu ca dependență de client. Se reactivează completând
+     cele două valori și ștergând comentariul din jurul rândului de mai jos.
+     ATENȚIE: datele Grand Music Events (clientul), NU Green Pheonix Concept
+     (furnizorul site-ului).
+<p class="font-body-md text-[12px] text-secondary opacity-80">Grand Music Events · CUI ... · Reg. Com. ...</p>
+-->
+
+<!-- Banda 3: juridic. Benzile se separă prin spațiere, nu prin linie.
+     Pe desktop cele trei elemente stau pe un rând, separate prin punct median
+     (separatorul deja folosit în proiect); pe mobil se stivuiesc, centrate.
+     „Pheonix" este ortografia juridică înregistrată a firmei — nu se corectează. -->
+<div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-center gap-x-2 gap-y-1 text-center">
+<p class="font-body-md text-[12px] text-secondary">© 2026 Ioana Balan. Toate drepturile rezervate.</p>
+<span aria-hidden="true" class="hidden sm:inline font-body-md text-[12px] text-secondary opacity-50">·</span>
+<p class="font-body-md text-[12px] text-secondary">Proiect dezvoltat de <a class="hover:text-primary transition-colors" href="https://grand-music.ro" target="_blank" rel="noopener">Grand Music Events</a></p>
+<span aria-hidden="true" class="hidden sm:inline font-body-md text-[12px] text-secondary opacity-50">·</span>
+<p class="font-body-md text-[12px] text-secondary">Site realizat de Green Pheonix Concept</p>
+</div>
+
+</div>
+</footer>
+<script>
+    // Mobile Menu Logic (canonic)
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    // Meniul închis e doar translatat în afara ecranului, deci ar rămâne în
+    // tab order. `inert` îl scoate din tab order ȘI din arborele de
+    // accesibilitate cât timp e ascuns.
+    const setMenu = (open) => {
+        mobileMenu.classList.toggle('translate-x-full', !open);
+        document.body.classList.toggle('overflow-hidden', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        mobileMenu.inert = !open;
+    };
+
+    const closeMenu = ({ refocus = false } = {}) => {
+        setMenu(false);
+        if (refocus) menuToggle.focus();
+    };
+
+    menuToggle.addEventListener('click', () => {
+        setMenu(mobileMenu.classList.contains('translate-x-full'));
+    });
+    menuClose.addEventListener('click', () => closeMenu({ refocus: true }));
+
+    // Escape închide meniul și readuce focusul pe butonul care l-a deschis.
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+            closeMenu({ refocus: true });
+        }
+    });
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => closeMenu());
+    });
+
+    </script>
+<script>
+    // aria-expanded nu se actualizează singur pe <summary>; îl sincronizăm din
+    // evenimentul `toggle`, care se declanșează și la tastatură (Enter/Space).
+    document.querySelectorAll('.faq-item details').forEach(d => {
+        d.addEventListener('toggle', () => {
+            d.querySelector('summary').setAttribute('aria-expanded', String(d.open));
+        });
+    });
+    </script>
+<!-- WhatsApp Widget (canonic) -->
+<a aria-label="Contact Ioana Balan pe WhatsApp" class="whatsapp-float group" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20mai%20multe%20informa%C8%9Bii." target="_blank" rel="noopener">
+<svg class="shrink-0 md:w-8 md:h-8" fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.607zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+</svg>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs group-focus-visible:max-w-xs group-hover:ml-2 group-focus-visible:ml-2 transition-all duration-300 font-label-md text-[12px] md:text-label-md uppercase whitespace-nowrap hidden sm:inline">Salut! Scrie-mi pe WhatsApp</span>
+</a>
+</body></html>

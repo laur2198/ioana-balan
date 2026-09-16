@@ -1,0 +1,490 @@
+# Decizii care așteaptă răspunsul clientului
+
+**Răspunsurile care deblochează publicarea sunt extrase în `DECIZII-CLIENT-URGENT.md`.**
+Documentul de aici e referința completă, la care se răspunde când e timp.
+
+Tot ce e scris pe cele 20 de pagini noi și nu poate rămâne așa fără confirmare, adunat
+într-un singur loc. Textele sunt **extrase din pagini**, nu reconstituite din memorie:
+marcajele din secțiunea A sunt generate direct din elementele `.ph` și `.ph-zone`, iar
+afirmațiile din B și C sunt citate din textul paginilor.
+
+Data: 2026-09-16.
+
+| Secțiune | Cui i se adresează | Ce conține |
+|---|---|---|
+| **A** | client | valori operaționale lipsă: tarife, cazare, montaj, formule, material |
+| **B** | client | afirmații despre cum lucrează echipa, scrise fără date de la client |
+| **C** | artistă | afirmații de folclor și repertoriu, pe zone etnografice (anexă, neblocant) |
+| **D** | client + noi | decizii pe paginile existente și pe scope |
+
+**Nivel.** **Blocant** = fără răspuns, pagina nu se publică: marcajul rămâne vizibil sau
+angajamentul nu poate rămâne neconfirmat. **Neblocant** = pagina se publică fără răspuns,
+iar coloana „Dacă nu vine răspunsul” spune ce se face cu textul. În B, blocante sunt doar
+afirmațiile care promit o acțiune a echipei într-un moment anume, pe care un client o
+compară cu ce se întâmplă la propriul eveniment. Descrierile generale de organizare sunt
+neblocante. Secțiunea C e neblocantă în întregime.
+
+**Cum se completează.** În A se scrie valoarea în coloana „Răspuns”. În B și C se bifează
+**da** (rămâne), **nu** (se scoate sau se rescrie) ori **parțial** (se corectează, cu o
+notă). Un „nu” sau un „parțial” pe o afirmație care apare pe mai multe pagini se
+corectează peste tot unde apare.
+
+---
+
+## A. Valori operaționale
+
+Fiecare valoare apare **o singură dată**, chiar dacă marcajul e pe mai multe pagini (de
+exemplu `[TARIF RON/KM — de confirmat]` e pe 13). Coloana „Pagini” arată unde se
+completează. Marcajele formulate diferit rămân pe rânduri separate, chiar dacă întreabă
+același lucru (A2: cine suportă cazarea, în cinci formulări), ca să se vadă exact ce text
+se înlocuiește. Răspunsul se poate da o dată, pentru tot grupul.
+
+<!-- generat din pagini: 91 valori distincte, 151 apariții -->
+
+### A1. Prețuri și tarife
+
+| # | Marcaj, text exact | Pagini | Nivel | Dacă nu vine răspunsul | Răspuns |
+|---|---|---|---|---|---|
+| A1 | [INTERVAL PREȚ ARGEȘ — de confirmat] | `zona-arges` | **blocant** | fără răspuns, pagina nu se publică | |
+| A2 | [TARIF RON/KM — de confirmat] | `zona-arges`, `zona-brasov`, `zona-buzau`, `zona-calarasi`, `zona-constanta`, `zona-dambovita`, `zona-dolj`, `zona-giurgiu`, `zona-ialomita`, `zona-ilfov`, `zona-prahova`, `zona-teleorman`, `zone` | **blocant** | fără răspuns, pagina nu se publică | |
+| A3 | [INTERVAL PREȚ BRAȘOV — de confirmat] | `zona-brasov` | **blocant** | fără răspuns, pagina nu se publică | |
+| A4 | [INTERVAL PREȚ BUZĂU — de confirmat] | `zona-buzau` | **blocant** | fără răspuns, pagina nu se publică | |
+| A5 | [INTERVAL PREȚ CĂLĂRAȘI — de confirmat] | `zona-calarasi` | **blocant** | fără răspuns, pagina nu se publică | |
+| A6 | [INTERVAL PREȚ CONSTANȚA — de confirmat] | `zona-constanta` | **blocant** | fără răspuns, pagina nu se publică | |
+| A7 | [INTERVAL PREȚ DÂMBOVIȚA — de confirmat] | `zona-dambovita` | **blocant** | fără răspuns, pagina nu se publică | |
+| A8 | [INTERVAL PREȚ DOLJ — de confirmat] | `zona-dolj` | **blocant** | fără răspuns, pagina nu se publică | |
+| A9 | [INTERVAL PREȚ GIURGIU — de confirmat] | `zona-giurgiu` | **blocant** | fără răspuns, pagina nu se publică | |
+| A10 | [INTERVAL PREȚ IALOMIȚA — de confirmat] | `zona-ialomita` | **blocant** | fără răspuns, pagina nu se publică | |
+| A11 | [INTERVAL PREȚ ILFOV — de confirmat] | `zona-ilfov` | **blocant** | fără răspuns, pagina nu se publică | |
+| A12 | [INTERVAL PREȚ PRAHOVA — de confirmat] | `zona-prahova` | **blocant** | fără răspuns, pagina nu se publică | |
+| A13 | [TARIF ORĂ SUPLIMENTARĂ — de confirmat] | `zona-prahova` | neblocant | Se scoate marcajul; rămâne „Orele suplimentare de program se tarifează separat.” | |
+| A14 | [INTERVAL PREȚ TELEORMAN — de confirmat] | `zona-teleorman` | **blocant** | fără răspuns, pagina nu se publică | |
+| A15 | [TARIF ÎN ZI LUCRĂTOARE — de confirmat] | `zona-teleorman` | neblocant | Se scoate „iar tariful poate diferi: […]”; fraza se oprește la „e mai ușor de prins”. | |
+| A16 | [CONFIGURAȚIE ȘI TARIF PENTRU EVENIMENT PRIVAT — de confirmat] | `eveniment-privat` | neblocant | Se scoate marcajul; rămâne „componența și tariful se stabilesc pe fiecare caz.” | |
+
+### A2. Cazarea echipei
+
+| # | Marcaj, text exact | Pagini | Nivel | Dacă nu vine răspunsul | Răspuns |
+|---|---|---|---|---|---|
+| A17 | [CINE SUPORTĂ CAZAREA, CÂND E NECESARĂ — de confirmat] | `zona-arges`, `zona-buzau`, `zona-calarasi`, `zona-ialomita`, `zona-teleorman` | **blocant** | fără răspuns, pagina nu se publică | |
+| A18 | [CINE SUPORTĂ CAZAREA — de confirmat: inclus în preț sau facturat separat] | `zona-brasov` | **blocant** | fără răspuns, pagina nu se publică | |
+| A19 | [CAZARE — de confirmat: inclusă în preț, facturată separat, sau asigurată de miri] | `zona-brasov` | **blocant** | fără răspuns, pagina nu se publică | |
+| A20 | [CAZARE — de confirmat] | `zona-calarasi`, `zona-constanta`, `zona-teleorman` | **blocant** | fără răspuns, pagina nu se publică | |
+| A21 | [CINE SUPORTĂ CAZAREA — de confirmat] | `zona-constanta`, `zona-dolj` | **blocant** | fără răspuns, pagina nu se publică | |
+
+### A3. Montaj, drum și curent
+
+| # | Marcaj, text exact | Pagini | Nivel | Dacă nu vine răspunsul | Răspuns |
+|---|---|---|---|---|---|
+| A22 | [MARJĂ DE PLECARE — de confirmat] | `zona-arges` | neblocant | Se scoate fraza „Marja exactă se stabilește…”; răspunsul spune deja că echipa pleacă cu marjă. | |
+| A23 | [PROBĂ DE SUNET SEPARATĂ — de confirmat] | `zona-arges` | neblocant | Se scoate marcajul; fraza se încheie cu „o discutăm.” | |
+| A24 | [MARJĂ MONTAJ — de confirmat: nr. ore înainte de primul moment muzical] | `zona-brasov` | **blocant** | fără răspuns, pagina nu se publică | |
+| A25 | [PUTERE ELECTRICĂ NECESARĂ — de confirmat] | `zona-brasov` | **blocant** | fără răspuns, pagina nu se publică | |
+| A26 | [DURATĂ MONTAJ — de confirmat] | `zona-brasov`, `zona-buzau`, `zona-dolj`, `zona-giurgiu`, `zona-ialomita`, `zona-ilfov`, `formatia` | **blocant** | fără răspuns, pagina nu se publică | |
+| A27 | [PUTERE ELECTRICĂ — de confirmat] | `zona-calarasi`, `zona-constanta`, `zona-dambovita`, `zona-giurgiu`, `zona-prahova`, `zona-teleorman`, `formatia`, `eveniment-privat` | **blocant** | fără răspuns, pagina nu se publică | |
+
+### A4. Formule, opțiuni și termene
+
+| # | Marcaj, text exact | Pagini | Nivel | Dacă nu vine răspunsul | Răspuns |
+|---|---|---|---|---|---|
+| A28 | [COSTUM DE ZONĂ — de confirmat] | `zona-arges` | neblocant | Se scoate întrebarea din FAQ: fără răspuns, serviciul nu se promite. | |
+| A29 | [REZERVARE FĂRĂ LOCAȚIE — de confirmat] | `zona-arges` | neblocant | Se scoate fraza despre condiții; rămâne oferta în două variante. | |
+| A30 | [CONFIGURAȚIE REDUSĂ — de confirmat] | `zona-calarasi` | neblocant | Se scoate întrebarea din FAQ: fără răspuns, serviciul nu se promite. | |
+| A31 | [FORMULĂ PENTRU LUATUL MIRESEI — de confirmat] | `zona-dambovita` | neblocant | Se scoate întrebarea din FAQ: fără răspuns, serviciul nu se promite. | |
+| A32 | [COORDONARE CU ANSAMBLUL — de confirmat] | `zona-dolj` | neblocant | Se scoate fraza „Ce putem face e să coordonăm…”; rămâne că ansamblul se rezervă separat. | |
+| A33 | [PROGRAM A DOUA ZI — de confirmat] | `zona-dolj` | neblocant | Se scoate întrebarea din FAQ: fără răspuns, serviciul nu se promite. | |
+| A34 | [MOMENT ACUSTIC LA MESE — de confirmat] | `zona-ialomita` | neblocant | Se scoate întrebarea din FAQ: fără răspuns, serviciul nu se promite. | |
+| A35 | [FORMULĂ REDUSĂ PENTRU CUNUNIE — de confirmat] | `zona-ilfov` | neblocant | Se scoate întrebarea din FAQ: fără răspuns, serviciul nu se promite. | |
+| A36 | [MANELE: LIVE, DJ SAU AMBELE — de confirmat] | `folclor-si-manele` | neblocant | Se scoate întrebarea din FAQ: fără răspuns, serviciul nu se promite. | |
+| A37 | [TERMEN DE REZERVARE PENTRU NUNTĂ — de confirmat] | `nunta` | neblocant | Se scoate fraza „Termenul recomandat: […]”. | |
+| A38 | [MC LA BOTEZ — de confirmat: disponibil ca opțiune și în ce condiții] | `botez` | neblocant | Se scoate fraza „Dacă vreți totuși un MC la botez: […]”. | |
+| A39 | [SET LIVE SUPLIMENTAR LA BOTEZ — de confirmat] | `botez` | neblocant | Se scoate marcajul; rămâne „cereți-l explicit în ofertă.” | |
+| A40 | [EVENIMENT DE ZI — de confirmat] | `botez` | neblocant | Se scoate fraza „Disponibilitatea pentru un eveniment de zi…”. | |
+| A41 | [DURATĂ MINIMĂ LA EVENIMENT PRIVAT — de confirmat] | `eveniment-privat` | neblocant | Se scoate fraza „Durata minimă pentru care se face deplasarea: […]”. | |
+
+### A5. Evenimente de firmă
+
+| # | Marcaj, text exact | Pagini | Nivel | Dacă nu vine răspunsul | Răspuns |
+|---|---|---|---|---|---|
+| A42 | [FACTURARE PE FIRMĂ — de confirmat] | `corporate` | neblocant | Se scoate marcajul; „Contractul și factura se emit pe firmă.” rămâne doar dacă D8 e „da”. | |
+| A43 | [PROGRAM FIX — durată de confirmat] | `corporate` | neblocant | Se scoate marcajul; rămâne „Durata prestației se trece în contract.” | |
+| A44 | [COLINDE ÎN REPERTORIU — de confirmat] | `corporate` | neblocant | Se scoate fraza despre colinde. | |
+| A45 | [CONTRACTARE PRIN AGENȚIE — de confirmat] | `corporate` | neblocant | Se scoate fraza „Cine semnează contractul…”; răspunsul rămâne cu prima frază. | |
+| A46 | [PREZENTARE ÎN LIMBI STRĂINE — de confirmat] | `corporate` | neblocant | Se scoate fraza „Limbile în care se poate face…”; rămâne textul pregătit pentru prezentator. | |
+| A47 | [TERMEN OFERTĂ PENTRU DECEMBRIE — de confirmat] | `corporate` | neblocant | Se scoate fraza „Termenul recomandat: […]”. | |
+| A48 | [SET SCURT CORPORATE — de confirmat] | `corporate` | neblocant | Se scoate întrebarea din FAQ: fără răspuns, serviciul nu se promite. | |
+
+### A6. Repertoriu și formație (pentru artistă)
+
+| # | Marcaj, text exact | Pagini | Nivel | Dacă nu vine răspunsul | Răspuns |
+|---|---|---|---|---|---|
+| A49 | [LISTĂ REPERTORIU OLTENESC — de confirmat] | `zona-dolj` | neblocant | Se scoate fraza „Lista de piese oltenești… se trimite la cerere”. | |
+| A50 | [PIESE MUNTENIA — listă de confirmat cu artista] | `repertoriu` | neblocant | Se scoate marcajul; blocul descrie zona fără titluri de piese. | |
+| A51 | [PIESE ARDEAL — listă de confirmat cu artista] | `repertoriu` | neblocant | Se scoate marcajul; blocul descrie zona fără titluri de piese. | |
+| A52 | [PIESE OLTENIA — listă de confirmat cu artista] | `repertoriu` | neblocant | Se scoate marcajul; blocul descrie zona fără titluri de piese. | |
+| A53 | [PIESE DOBROGEA — listă de confirmat cu artista] | `repertoriu` | neblocant | Se scoate marcajul; blocul descrie zona fără titluri de piese. | |
+| A54 | [PIESE MOLDOVA — listă de confirmat cu artista] | `repertoriu` | neblocant | Se scoate marcajul; blocul descrie zona fără titluri de piese. | |
+| A55 | [NUME INSTRUMENTIȘTI — de confirmat dacă se publică] | `formatia` | neblocant | Se scoate marcajul; numele nu se publică (decizie deja luată). | |
+| A56 | [PIESE BLOC DE PETRECERE — listă de confirmat cu artista] | `folclor-si-manele` | neblocant | Se scoate marcajul; blocul descrie zona fără titluri de piese. | |
+
+### A7. Material de la evenimente (Brașov, Constanța)
+
+**Excepție de la deduplicare.** Aici textul marcajului e același pe cele două pagini, dar
+valoarea nu e: `[NUME LOCAȚIE 1 — de confirmat]` e o sală din județul Brașov pe `zona-brasov`
+și una din județul Constanța pe `zona-constanta`. `×3` înseamnă trei carduri pe aceeași pagină,
+fiecare cu valoarea lui. Răspunsul se dă pe pagină și pe card.
+
+| # | Marcaj, text exact | Pagini | Nivel | Dacă nu vine răspunsul | Răspuns |
+|---|---|---|---|---|---|
+| A57 | [FOTO LOCAȚIE 1 — de furnizat] | `zona-brasov`, `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A58 | [TIP — de confirmat] | `zona-brasov` ×3, `zona-constanta` ×3 | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A59 | [AN] | `zona-brasov` ×3, `zona-constanta` ×3 | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A60 | [NUME LOCAȚIE 1 — de confirmat] | `zona-brasov`, `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A61 | [LOCALITATE — de confirmat] | `zona-brasov` ×3, `zona-constanta` ×3 | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A62 | [NOTĂ SCURTĂ — o frază despre sală: capacitate, acustică, restricții de sonor sau de program] | `zona-brasov`, `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A63 | [RECENZIE LOCAȚIE 1 — text de preluat din Google, verbatim, cu acordul autorului pentru afișare] | `zona-brasov`, `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A64 | [NUME] | `zona-brasov`, `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A65 | [SURSĂ] | `zona-brasov`, `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A66 | [FOTO LOCAȚIE 2 — de furnizat] | `zona-brasov`, `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A67 | [NUME LOCAȚIE 2 — de confirmat] | `zona-brasov`, `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A68 | [NOTĂ SCURTĂ — o frază despre sală] | `zona-brasov` ×2, `zona-constanta` ×2 | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A69 | [FOTO LOCAȚIE 3 — de furnizat] | `zona-brasov`, `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A70 | [NUME LOCAȚIE 3 — de confirmat] | `zona-brasov`, `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A71 | [VIDEO BRAȘOV — link YouTube + miniatură locală] | `zona-brasov` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+| A72 | [VIDEO CONSTANȚA — link YouTube + miniatură locală] | `zona-constanta` | neblocant | Secțiunea „Locații și video” se elimină, iar pagina trece pe structura fără module de dovadă, ca Ilfov. Recenzia se tratează separat (D5). | |
+
+### A8. Fotografii de înlocuit
+
+| # | Marcaj, text exact | Pagini | Nivel | Dacă nu vine răspunsul | Răspuns |
+|---|---|---|---|---|---|
+| A73 | Imagine provizorie — se înlocuiește cu fotografie din județul Argeș (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-arges` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A74 | Imagine provizorie — se înlocuiește cu fotografie din zona Brașovului (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-brasov` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A75 | Imagine provizorie — se înlocuiește cu fotografie din județul Buzău (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-buzau` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A76 | Imagine provizorie — se înlocuiește cu fotografie din județul Călărași (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-calarasi` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A77 | Imagine provizorie — se înlocuiește cu fotografie din județul Constanța (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-constanta` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A78 | Imagine provizorie — se înlocuiește cu fotografie din județul Dâmbovița (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-dambovita` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A79 | Imagine provizorie — se înlocuiește cu fotografie din județul Dolj (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-dolj` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A80 | Imagine provizorie — se înlocuiește cu fotografie din județul Giurgiu (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-giurgiu` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A81 | Imagine provizorie — se înlocuiește cu fotografie din județul Ialomița (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-ialomita` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A82 | Imagine provizorie — se înlocuiește cu fotografie din județul Ilfov (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-ilfov` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A83 | Imagine provizorie — se înlocuiește cu fotografie din județul Prahova (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-prahova` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A84 | Imagine provizorie — se înlocuiește cu fotografie din județul Teleorman (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zona-teleorman` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A85 | Imagine provizorie — se înlocuiește cu fotografie de scenă sau de eveniment (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `zone` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A86 | Imagine provizorie — se înlocuiește cu fotografie de scenă, de preferat în costum popular (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `repertoriu` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A87 | Imagine provizorie — se înlocuiește cu fotografie a formației complete pe scenă, cu instrumentiștii confirmați (peisaj, min. 1440 px lățime, subiect în treimea centrală) | `formatia` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A88 | Imagine provizorie — se înlocuiește cu fotografie de scenă din partea de petrecere a serii, cu ringul plin (peisaj, min. 1440 px lățime) | `folclor-si-manele` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A89 | Imagine provizorie — se înlocuiește cu fotografie de la un botez, cu acordul părinților pentru copiii din cadru (peisaj, min. 1440 px lățime) | `botez` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A90 | Imagine provizorie — se înlocuiește cu fotografie de scenă într-un salon mic sau la o petrecere restrânsă (peisaj, min. 1440 px lățime) | `eveniment-privat` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+| A91 | Imagine provizorie — se înlocuiește cu fotografie de scenă într-o sală de gală sau de conferință (peisaj, min. 1440 px lățime) | `corporate` | neblocant | Nota se scoate; la migrare, imaginea se înlocuiește cu o fotografie din fototeca existentă (CLAUDE.md §10), fără legendă care s-o lege de județ sau de eveniment. | |
+
+---
+
+## B. Afirmații despre modul de lucru
+
+**De ce sunt cele mai riscante din tot setul.** Descriu cum lucrează echipa la un nivel de
+detaliu pe care nu l-am primit de la nimeni: ce transport pleacă primul, când rămâne
+echipa peste noapte, ce se face cu boxele într-o curte. Un cuplu le compară cu ce se
+întâmplă la propria nuntă. O afirmație greșită aici nu e o imprecizie de stil, ci o
+promisiune pe care echipa nu o respectă.
+
+**Ce nu intră aici:** conținutul pachetelor care apare deja pe `oferte.html` (programele
+de 2 × 45 de minute, DJ și MC, fumul greu, gheața carbonică, vulcanii CO2, capetele
+mobile, cabina foto, momentul de virtuozitate, consultanța, diferența sâmbătă–duminică,
+răspunsul în aceeași zi). Sunt deja publicate de client.
+
+### B0. Transversale: aceeași afirmație pe mai multe pagini
+
+| # | Afirmație | Pagini | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|---|
+| B1 | Două transporturi: sonorizarea, luminile și schela pleacă primele, cu echipa tehnică; interpreții și instrumentiștii vin după terminarea montajului, „cu instrumentele proprii”. | `zona-brasov`, `zona-constanta`, `zona-giurgiu`, `zona-dolj`, `zona-prahova`, `zona-ilfov`, `zona-teleorman`, `zona-ialomita`, `zona-buzau`, `zona-arges`, `zona-dambovita`, `formatia` | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B2 | Regula de cazare pe județe: **niciodată** pentru Ilfov, Giurgiu, Prahova (inclusiv Sinaia) și Dâmbovița (inclusiv Pucioasa și Moroeni); **de discutat** pentru nordul Argeșului, valea Buzăului, estul Călărașiului și al Ialomiței, localitățile de pe Dunăre din Teleorman; **obligatorie** la Brașov (eveniment de seară), Constanța și Dolj. | hub + toate cele 12 zone | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B3 | Criteriul cazării: „dacă echipa apucă să demonteze și să ajungă înapoi până dimineață, pe deviz nu apare nicio cameră; dacă nu apucă, se rezervă odată cu data, nu ulterior”. | `zone` | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B4 | Unde e cazare, echipa „rămâne peste noapte și demontează dimineață”, iar numărul de camere se stabilește după configurația pachetului. Camerele se caută „în aceeași locație sau în apropiere” (Brașov), „lângă locație, nu în Craiova” pentru localitățile de pe Dunăre (Dolj). | `zona-brasov`, `zona-dolj`, `zona-constanta` | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B5 | Deplasarea între localitățile listate pe pagina unui județ nu se facturează separat. | `zone`, `zona-brasov`, `zona-constanta`, `zona-giurgiu` | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B6 | Un eveniment la Brașov sau pe litoral „blochează ziua întreagă”, deci în aceeași zi nu se ia alt eveniment. Invers, la Giurgiu „rămân mai multe ferestre deschise târziu în calendar”. | `zona-brasov`, `zona-constanta`, `zona-giurgiu` | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B7 | Ordinea momentelor și proporția repertoriului se stabilesc înainte, la discuția de organizare, pornind de la zonele din care vin familiile. Pe `zona-brasov`: „nu se improvizează după cum răspunde ringul”. | `zona-brasov`, `zona-constanta`, `zona-dolj`, `zona-prahova`, `zona-ilfov`, `zona-buzau`, `repertoriu`, `nunta`, `folclor-si-manele` | neblocant | ☐ da ☐ nu ☐ parțial | **Tensiune între pagini:** pe `nunta`, „între aceste repere, programul se conduce după cum răspunde ringul”; pe `folclor-si-manele`, alternanța registrelor vine „după cum răspunde ringul”. De ales una dintre formulări. |
+| B8 | Pentru invitații din alte regiuni se pregătesc seturi scurte dedicate: moldovenesc, ardelenesc, oltenesc, dobrogean, muntenesc. Implicit: echipa cântă repertoriu din toate cele cinci zone. | `zona-ilfov`, `zona-buzau`, `zona-ialomita`, `zona-teleorman`, `zona-calarasi`, `zona-dolj`, `zona-giurgiu`, `repertoriu` | neblocant | ☐ da ☐ nu ☐ parțial | Legat de secțiunea C |
+| B9 | Oferta pleacă în aceeași zi **cu prețul final**, transportul și cazarea deja calculate: „pentru un preț ferm, nu pentru o estimare” (Giurgiu), pachet, drum și cazare pe rânduri separate (Dolj). | `zona-giurgiu`, `zona-dolj`, `zona-constanta`, `zona-brasov`, `zona-ilfov` | **blocant** | ☐ da ☐ nu ☐ parțial | Pe `oferte.html` apare doar răspunsul în aceeași zi, nu și prețul ferm cu transport inclus. |
+| B10 | Piesele cerute de familie care nu fac parte din repertoriul curent „se pregătesc înainte, nu se improvizează în seara nunții”. | `zona-prahova` | **blocant** | ☐ da ☐ nu ☐ parțial | |
+
+### B11–B50. Pe paginile de zonă
+
+**`zona-arges`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B11 | Dacă A1 e blocată, varianta de rezervă e DN7, iar „echipa tehnică pleacă din București cu o marjă care acoperă și acest scenariu”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B12 | O probă de sunet separată e rar necesară: „de cele mai multe ori proba din ziua evenimentului, făcută după montaj și înainte de sosirea invitaților, e suficientă”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B13 | Cât sala nu e aleasă, oferta se trimite în două variante, una pe oraș. La fel pe `zona-buzau`. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B14 | Pentru un botez la prânz, „programul de zi se construiește mai scurt și mai așezat decât unul de seară”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`zona-brasov`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B15 | Iarna, transportul de echipament pleacă separat și mai devreme, cu marjă pentru Comarnic–Predeal. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B16 | Sonorizarea e proprie: „Nu depindem de ce are locația”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B17 | Seara cea mai lungă e la nuntă; botezul, cumetria și vizita unei delegații străine au programe proprii. | neblocant | ☐ da ☐ nu ☐ parțial | Adăugată în runda asta, în rândul către paginile de serviciu |
+
+**`zona-buzau`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B18 | Cântecele la masă țin „de obicei” până la felul principal; într-o sală amestecată, partea asta se scurtează. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B19 | Pe DN2, plecarea echipei tehnice „se calculează pe viteza reală a traseului, nu pe kilometri”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B20 | Horele și sârbele moldovenești „intră ca set propriu, în momentul în care familia mirelui e la ring”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`zona-calarasi`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B21 | Momentele importante se așază înaintea ultimei curse de bac, pentru invitații din Dobrogea. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B22 | Lângă apă, echipamentul se acoperă chiar și pe vreme bună. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B23 | La ceață, decizia ca echipa să rămână se ia „cu câteva zile înainte, pe prognoză”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B24 | Pentru familiile dobrogene din sală „un moment scurt pentru ele se pregătește ușor, dacă aflăm de la început”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`zona-constanta`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B25 | „Solista răspunde și pentru formație, pentru DJ și pentru tehnica de sunet”: un singur interlocutor pentru hotel. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B26 | Cu oră-limită de sonor, momentele cu volum mare intră devreme, iar finalul se acoperă „cu o formulă redusă sau acustică”. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B27 | Pe plajă se cer, la rezervare, sursa de curent, acoperirea pentru echipament și o suprafață stabilă pentru schelă. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`zona-dambovita`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B28 | La luatul miresei vine o formulă redusă, doar câțiva instrumentiști, iar echipa tehnică montează sala de seară în paralel. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B29 | Pentru o firmă se poate face un recital de folclor: „cântece de ascultare, doine și piese lente, cu publicul așezat”. | neblocant | ☐ da ☐ nu ☐ parțial | Depinde și de D8 |
+| B30 | Pentru o sală mică „există soluții de montaj compact”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B31 | O nuntă la Moroeni, sub Bucegi, se face tot fără cazare, cu întoarcere în aceeași noapte. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`zona-dolj`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B32 | Călușarii nu fac parte din echipă; „se rezervă separat, de obicei de la un ansamblu local”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B33 | Primele jocuri oltenești ale serii „se aleg mai domoale”, iar între ele intră „un set muntenesc scurt” pentru invitații din București. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`zona-giurgiu`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B34 | Echipa „pleacă în ziua evenimentului, nu în ajun” și se întoarce după demontare. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B35 | „O cerere făcută cu câteva săptămâni înainte are aici șanse reale.” | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B36 | Pentru un grup dintr-o altă regiune „se adaugă câteva piese dedicate lor, nu un capitol întreg de program”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`zona-ialomita`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B37 | Sub cort, pe teren deschis, „boxele înalte și schela de lumini se ancorează”, iar scena stă pe latura ferită de vânt. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B38 | Dacă sala e liberă prea târziu pentru montaj, se poate porni „cu o configurație mai mică, completată pe parcurs”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B39 | Pentru familiile de mocani se cântă un set ardelenesc scurt, „cu învârtita la loc de cinste”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`zona-ilfov`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B40 | Echipa tehnică pleacă înaintea orelor de vârf de pe centură. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B41 | Un moment scurt la cununie și petrecerea de seară încap în aceeași zi, cu o formulă redusă pentru cununie. | neblocant | ☐ da ☐ nu ☐ parțial | Formula are marcaj separat, în A |
+| B42 | Într-o curte, „boxele se orientează dinspre case spre grădină”, iar volumul se calibrează pe curte. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B43 | Cu salon vecin despărțit de un panou mobil, „cerem programul evenimentului vecin” și ajustăm nivelul. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+
+**`zona-prahova`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B44 | Între sală și terasă: fie două puncte de curent și o pauză pentru mutare, fie o scenă la granița dintre ele. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B45 | În zi lucrătoare, echipa tehnică pleacă din București înainte de orele de vârf de seară. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B46 | Când invitații pleacă spre București după miezul nopții, tortul, dansul mirilor și buchetul se mută mai devreme. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+
+**`zona-teleorman`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B47 | La un final la 5 dimineața, cazarea „nu [devine obligatorie] automat”: se discută pe programul real. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B48 | Vara, în curte: „Cerem un spațiu umbrit sau acoperit pentru scenă”, iar blocul de joc intens începe după apus. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B49 | La căminul cultural, volumul se reglează mai jos, iar boxele se așază altfel. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B50 | Se cântă și la nunți în timpul săptămânii. | neblocant | ☐ da ☐ nu ☐ parțial | Tariful are marcaj separat, în A |
+
+### B51–B70. Pe cluster și pe paginile de serviciu
+
+**`repertoriu`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B51 | Un program are cel mult trei straturi: „Peste trei, fiecare strat ajunge prea subțire.” | neblocant | ☐ da ☐ nu ☐ parțial | Vezi D6 |
+| B52 | Dacă ringul se golește, „golul se acoperă cu o altă piesă din stratul care rulează, nu cu o schimbare de direcție”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B53 | Când familiile vin din regiuni diferite, blocul regional se împarte în două seturi consecutive, „legate printr-o horă pe care o joacă ambele părți”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`formatia`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B54 | Rolurile instrumentelor: vioara conduce în jocuri și în cântecele lente, saxofonul o dublează și trece în față în petrecere și balcanic, acordeonul umple armonia și preia melodia în horele iuți; în configurațiile mici, clapa ține singură basul, acordurile și pulsul. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B55 | MC-ul coordonează momentele „cu sala și cu fotograful”; DJ-ul acoperă pauzele dintre programele live. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B56 | Lăutarul e „din formație”, opțional, cu cost separat. | neblocant | ☐ da ☐ nu ☐ parțial | Vezi D4 |
+
+**`folclor-si-manele`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B57 | Manelele se cântă doar la cerere: „ce nu s-a cerut la discuția de organizare nu apare nici în seara evenimentului”. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B58 | Manelele „nu deschid și nu închid blocul”: la început vine petrecerea românească, la final setul DJ. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B59 | Momentul lăutăresc stă la mese, după felul principal, sau face puntea dintre hora mare și petrecere. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`nunta`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B60 | Programul final ajunge la MC, care „îl verifică cu sala la începutul serii”. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B61 | Dacă sala se decalează, „setul care rulează se lungește sau DJ-ul preia până la momentul următor”. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B62 | Opționalele „se hotărăsc la contract, nu în ultima lună”. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+**`botez`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B63 | Primul set live vine după ce a început masa, al doilea spre final, „înainte ca familiile cu copii mici să plece”. Momentul de virtuozitate stă între ele. | neblocant | ☐ da ☐ nu ☐ parțial | |
+| B64 | La ruptul turtei, „muzica se oprește pe durata lui și repornește după”. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B65 | Boxele se orientează în direcția opusă locului unde stă copilul. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+
+**`eveniment-privat`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B66 | La toast, „muzica se oprește de tot, nu doar coboară”. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B67 | Pentru o seară cu muzică de fundal „ajunge o formație mică, sprijinită de DJ”. | neblocant | ☐ da ☐ nu ☐ parțial | Configurația are marcaj separat, în A |
+
+**`corporate`**
+
+| # | Afirmație | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| B68 | Coordonarea se face „cu o singură persoană de contact”; formația cere ordinea vorbitorilor și semnalul pentru intrarea de după discursuri. | **blocant** | ☐ da ☐ nu ☐ parțial | Toată pagina depinde de D8 |
+| B69 | La cină, volumul „coboară la fiecare fel servit”. | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B70 | Ținuta de scenă (costum popular sau ținută de seară) se stabilește cu organizatorul; prezentarea setului românesc se pregătește ca text pentru prezentator. | neblocant | ☐ da ☐ nu ☐ parțial | |
+
+### B71–B75. Mutate din C și completări
+
+B71–B73 veneau din secțiunea C: descriu și practica formației, nu doar folclorul. B74 și
+B75 lipseau din prima extracție, deși sunt pe pagini.
+
+| # | Afirmație | Pagini | Nivel | da / nu / parțial | Notă |
+|---|---|---|---|---|---|
+| B71 | Într-o formație fără contră, contratimpul trece „de regulă” pe clapă sau pe acordeon. | `repertoriu` | neblocant | ☐ da ☐ nu ☐ parțial | Fost C19 |
+| B72 | În Dolj, registrul oltenesc e „coloana serii, nu un moment dedicat”, iar „o sală din Oltenia nu se lasă păcălită de o sârbă muntenească grăbită”. | `zona-dolj` | neblocant | ☐ da ☐ nu ☐ parțial | Fost C26 |
+| B73 | Hora mare e „singurul moment al serii construit pe ce au în comun toate regiunile”. | `repertoriu` | neblocant | ☐ da ☐ nu ☐ parțial | Fost C36 |
+| B74 | Dansul mirilor cântat live: „Varianta live înseamnă un aranjament, deci piesa se trimite din timp”; în seară se cântă în aranjamentul convenit. | `nunta`, `repertoriu` | **blocant** | ☐ da ☐ nu ☐ parțial | |
+| B75 | Lista de piese pe care gazdele nu vor să le audă se respectă în seara evenimentului („ce nu vreți să auziți”; „Piesele care nu se cântă deloc”). | `nunta`, `folclor-si-manele` | **blocant** | ☐ da ☐ nu ☐ parțial | Legat de B57 |
+
+---
+
+## C. Afirmații de folclor și repertoriu — pentru artistă
+
+**Nivel: neblocant — anexă.** Toată secțiunea. O eroare de folclor se corectează după
+publicare, fără să afecteze un client. Trei rânduri care descriau și ce face formația
+(contratimpul pe clapă sau acordeon, registrul oltenesc ca „coloana serii”, hora mare ca
+moment comun) au fost mutate în B, ca B71–B73. Au fost scoase două afirmații pe care nu le
+poate confirma nimeni: superlativul despre jocul rapid din Teleorman și afirmația despre
+rudele familiilor din vestul Ialomiței.
+
+Paginile nu spun nicăieri că artista a cântat într-o anumită zonă. Descriu **muzica
+zonelor**. Tocmai de aceea, o afirmație greșită e verificabilă de oricine e din zona
+respectivă. Titlurile de piese nu apar în text: au marcaje separate, în A6.
+
+### C1. Muntenia
+
+| # | Afirmație | Pagini | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| C1 | Jocurile muntenești sunt jocuri de grup, în cerc sau în șir, pe măsură binară de doi pe patru, cu figuri puține care revin des. | `repertoriu`, `zona-giurgiu`, `zona-ialomita`, `zona-ilfov`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C2 | Hora are tempoul cel mai așezat și cercul cel mai larg; sârba e mai iute, cu pași mărunți și deplasări laterale; brâul are figuri, bătăi din talpă și schimbări de direcție comandate de capul șirului, adesea prin strigături. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C3 | La câmpie (Bărăgan, Vlașca, lunca Dunării) domină cântecul de joc, cu tempouri ridicate; pe dealurile de sub munte, din nordul Buzăului până în Muscel, rămân mai multe melodii lente, cu brâuri și hore proprii fiecărei văi. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C4 | Giurgiu: „sudul Munteniei și Bucureștiul ascultă în mare parte același lucru”, deci nu e nevoie de un bloc regional separat. | `zona-giurgiu`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C5 | Prahova: spre Câmpina și Breaza, influențe subcarpatice, cu jocuri de pe văile Prahovei și Doftanei; „Ca la Breaza” își ia numele de la localitate; piesele de Valea Prahovei au intrat în repertoriul de petrecere. | `zona-prahova`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C6 | Dâmbovița: satele de deal de pe văile Ialomiței și Dâmboviței țin de un cântec legat de Muscel și de Argeș, cu brâuri și jocuri de deal. | `zona-dambovita`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C7 | Teleorman: satele de pe cele două maluri ale Oltului au fost „dintotdeauna în legătură, prin târguri, căsătorii și drumuri comune”. | `zona-teleorman` | ☐ da ☐ nu ☐ parțial | |
+| C8 | Călărași: hora și sârba de Bărăgan se joacă „în cercuri mari”, iar fondul e comun cu al Ialomiței. | `zona-calarasi`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C9 | Ialomița: Bărăganul a fost vreme de secole pășunea de iarnă a ciobanilor ardeleni, iar o parte dintre ei s-au așezat în satele de câmpie; „muzica de Săcele nu e aceeași cu cea din Mărginimea Sibiului”. | `zona-ialomita` | ☐ da ☐ nu ☐ parțial | |
+| C10 | Buzău: cântece de deal „mai lungi la masă”; spre Râmnicu Sărat se cer și hore moldovenești, cu inflexiuni „de dincolo de Milcov”; pe valea spre Nehoiu, cântec de munte; „amestecul e mai firesc decât oriunde altundeva în Muntenia”. | `zona-buzau`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C11 | Argeș: Muscelul are identitate proprie (brâul, jocurile de Muscel, cântecul de deal cu melodică largă), iar portul muscelean e printre cele mai cunoscute din țară. | `zona-arges`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C12 | Argeș: spre Curtea de Argeș și Vâlcea, sârbele prind un tempo mai iute și o melodică apropiată de cea oltenească. | `zona-arges`, `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+
+### C2. Ardeal
+
+| # | Afirmație | Pagini | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| C13 | La nunțile din Țara Bârsei, prima parte a petrecerii merge pe învârtită, joc de doi și bărbunc, iar hora vine mai târziu, pentru invitații din alte zone. | `zona-brasov`, `repertoriu`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C14 | Învârtita se joacă în pereche, pe o măsură care nu se împarte egal, „pe zece timpi în multe variante din Ardeal”, cu tempo ținut fix; pașii se învață în familie. | `repertoriu`, `zona-constanta` | ☐ da ☐ nu ☐ parțial | „Zece timpi” e cel mai specific detaliu tehnic din pagină |
+| C15 | La jocul de doi, băiatul conduce, fata se rotește pe sub braț, iar fiecare pereche își alege momentul figurilor. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C16 | Bărbuncul vine din recrutările militare din secolul al XVIII-lea și a rămas jocul bărbaților, cu palme pe carâmbul cizmei și strigături. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C17 | Contra e o violă cu trei coarde și căluș drept, care trage acorduri pe timpii slabi; contrabasul marchează timpii tari; în nordul Ardealului vioara se numește ceteră. | `repertoriu`, `zona-brasov`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C18 | În zona Branului și a Moieciului repertoriul „e deja amestecat, fiind la granița cu Muntenia”. | `zona-brasov` | ☐ da ☐ nu ☐ parțial | |
+
+### C3. Oltenia
+
+| # | Afirmație | Pagini | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| C19 | Dintre regiunile de câmpie, Oltenia are pasul cel mai rapid: horele pornesc de la tempouri pe care Muntenia le atinge abia la sârbă. | `repertoriu`, `zona-dolj`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C20 | Horele oltenești se joacă prinși de mână, în cerc strâns; sârbele și brâulețele sunt mărunte și bătute, cu figuri de virtuozitate pentru bărbați (sărituri, pinteni, lovituri din călcâi). | `repertoriu`, `zona-dolj` | ☐ da ☐ nu ☐ parțial | |
+| C21 | Cântecul oltenesc e mai ornamentat, „cu înflorituri pe care vocea și vioara și le pasează una alteia”; lăutarii din zonă au format o școală în care melodia se variază la fiecare repetare. | `zona-dolj`, `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C22 | Țambalul e „acasă” în Oltenia: taraful clasic se sprijină pe el pentru armonie și pentru ritm. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C23 | Călușul e ritual de Rusalii, jucat de o ceată de bărbați condusă de un vătaf, cu bețe, clopoței și pălării cu panglici, înscris de UNESCO în patrimoniul imaterial; muzica de căluș trăiește și separat, ca repertoriu instrumental. | `repertoriu`, `zona-dolj` | ☐ da ☐ nu ☐ parțial | |
+
+### C4. Dobrogea
+
+| # | Afirmație | Pagini | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| C24 | Dobrogea are comunități mixte (români, aromâni, turci, tătari, greci, lipoveni), iar la o nuntă din Constanța repertoriul cerut „trece des dincolo de folclorul românesc”: machedonesc, grecesc, balcanic. | `zona-constanta` | ☐ da ☐ nu ☐ parțial | |
+| C25 | Ritmurile balcanice sunt în măsuri asimetrice de șapte sau nouă timpi, grupate de pildă 2+2+3 sau 2+2+2+3. | `repertoriu`, `zona-constanta`, `zone` | ☐ da ☐ nu ☐ parțial | |
+| C26 | Geamparaua are nume venit din turcă, e adoptată de satele românești și se joacă iute, „pe un ritm șchiopătat”. | `repertoriu`, `zona-calarasi` | ☐ da ☐ nu ☐ parțial | |
+| C27 | Aromânilor „localnicii le spun adesea machedoni”; muzica lor aduce jocuri în șir și cântec de grup pe mai multe voci. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C28 | Repertoriul grecesc „a venit odată cu comunitățile din porturi”. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C29 | În Dobrogea ringul se umple pe horă și sârbă, „la care se prinde oricine”, spre deosebire de Ardeal, unde se joacă în pereche. | `zona-constanta` | ☐ da ☐ nu ☐ parțial | |
+
+### C5. Moldova
+
+| # | Afirmație | Pagini | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| C30 | Muzica moldovenească se cere la evenimente din Buzău, Ialomița, Brașov și din jurul Bucureștiului. | `repertoriu`, `zona-buzau`, `zona-ilfov`, `zona-brasov` | ☐ da ☐ nu ☐ parțial | Textul de pe `repertoriu`, corectat: „În Buzău o aduce vecinătatea cu Vrancea, iar în Ialomița drumul: DN2 trece prin Buzău spre Moldova. La Brașov și în jurul Bucureștiului o aduc familiile care s-au mutat acolo din Moldova.” Rutele (vecinătatea Buzău–Vrancea, DN2 prin Buzău) sunt geografie verificabilă și nu se confirmă; se confirmă doar dacă repertoriul moldovenesc chiar e cerut în aceste zone. |
+| C31 | Hora moldovenească se joacă în cerc, prinși de mână, pe tempo potrivit și cu melodie „mai cântată și mai legată”; bătuta are pași apăsați în podea și strigături care țin ritmul. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C32 | Melodica moldovenească are frazare largă și ornamentație mai reținută decât cea oltenească, apropiată de doină. În centru și în sud cântă taraful (vioară, cobză sau țambal, acordeon), iar în nord fanfarele de alămuri. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+
+### C6. Transversale: program și registre
+
+| # | Afirmație | Pagini | da / nu / parțial | Notă |
+|---|---|---|---|---|
+| C33 | Muzica lăutărească vine din tradiția tarafurilor de profesie: cântece de pahar, romanțe, hore și sârbe ornamentate liber. | `folclor-si-manele`, `formatia` | ☐ da ☐ nu ☐ parțial | |
+| C34 | Manelele sunt un registru „construit pe refren și pe dedicație”, cu piese cerute pe nume. | `folclor-si-manele` | ☐ da ☐ nu ☐ parțial | |
+| C35 | Registrul balcanic e muzică „de sorginte sârbească, grecească și aromână”, pe măsuri adesea inegale. | `folclor-si-manele`, `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C36 | Cumetria e, în unele regiuni, masa de după botez, cu nașii în rolul principal. | `eveniment-privat` | ☐ da ☐ nu ☐ parțial | |
+| C37 | La unele botezuri, nașii rup turta deasupra capului copilului. | `botez` | ☐ da ☐ nu ☐ parțial | |
+
+---
+
+## D. Decizii pe paginile existente și pe scope
+
+**Contractul de bază** = cele 11 pagini existente (`index`, `oferte`, `despre`, `galerie`,
+`discografie`, `contact`, `blog`, `articol`, `faq`, `termeni-si-conditii`,
+`politica-cookie`). Punctele marcate **DA** cer modificări pe ele, deci **confirmare
+scrisă înainte de execuție**. Până atunci nu se atinge nimic, nici măcar `description`
+din JSON-LD.
+
+| # | Decizie | Ce propunem | Modifică o pagină din contractul de bază? |
+|---|---|---|---|
+| D1 | **„formatie nunta” e targetat de 4 pagini:** `index` (title, H1, meta, JSON-LD), `galerie` (title), `blog` și `articol` (meta, JSON-LD). Toate au și „București”. Canibalizarea exista dinainte de paginile noi. | `index` păstrează termenul. `galerie`, `blog` și `articol` îl scot din title și meta (și din `description` în JSON-LD, unde apare). | **DA** — `galerie`, `blog`, `articol` |
+| D2 | **FAQ duplicat:** 5 perechi întrebare–răspuns identice între `oferte` și `faq`, dintre care 2 („Prețul unei formații pentru 2026-2027?”, „Cum rezerv data — avans și contract?”) apar și pe `index`. | Răspunsul complet rămâne pe `faq` (singura pagină cu schema FAQPage). Pe `oferte` și `index` se scurtează, cu trimitere la `faq`. | **DA** — `oferte`, `index` |
+| D3 | **„oferta formatie nunta” nu e targetat de nicio pagină**, nici de `oferte`: „ofertă” lipsește din title, H1 și headinguri. E cel mai ușor câștig din audit. | Termenul intră în title și H1 pe `oferte`. Condiție: D1 rezolvat înainte, ca `index` și `oferte` să nu țintească același „formatie nunta”. | **DA** — `oferte` |
+| D4 | **Lăutarul:** `formatia.html` și `folclor-si-manele.html` îl oferă ca opțional, tarifat separat, dar în grila de pachete de pe `oferte.html` nu apare. Țambalul și interpretul balcanic, celelalte opționale, apar în grilă. | Clientul confirmă că oferă lăutar. Dacă da, se adaugă în grilă ca „(opțional)”, ca țambalul. Dacă nu, se scoate de pe cele două pagini noi (și B56, B59). | **DA**, dacă răspunsul e „da” (`oferte`). Nu, dacă răspunsul e „nu” (se modifică doar pagini noi) |
+| D5 | **Recenzia cu Silvia, pe `zona-constanta`:** citatul numește o „Silvia” cu „o voce foarte frumoasă”, alături de Ioana și Ionuț. Pe o pagină de județ, sugerează un eveniment acolo și o altă solistă. Nota de sub citat spune deja că recenzia nu e din Constanța. | **Amânat la final.** De confirmat cine e Silvia și dacă există o recenzie de la un eveniment din județ. | Nu — `zona-constanta` e pagină nouă (recenzia apare și pe `index`, dar acolo nu se schimbă nimic) |
+| D6 | **Modelul de straturi e definit diferit.** `repertoriu`: (1) stratul regional, (2) stratul comun, cu muzică de petrecere **și** cântec ușor, (3) un al treilea strat, doar când mirii sunt din regiuni diferite, cu jocurile celeilalte familii. `folclor-si-manele`: (1) blocul regional, (2) stratul de petrecere, (3) **muzica ușoară**, deși „muzică ușoară de ring” e și unul dintre cele patru registre ale blocului de petrecere. | Se alege un singur model, iar cealaltă pagină se rescrie pe el. Ține și de B51. | Nu — ambele pagini sunt noi |
+| D7 | **H2-urile de locații pe Brașov și Constanța** numesc tipuri de locații („Pensiuni la Bran și Moieciu, săli în oraș”; „Hoteluri pe litoral, terase pe faleză”). | De confirmat cu agenda reală, la completarea cardurilor de locație (A7). Dacă locațiile sunt altele, se schimbă heading-ul. | Nu |
+| D8 | **Corporate:** se fac evenimente de firmă? Dacă da, cum se contractează? Pe `corporate.html` sunt 7 marcaje de text: 5 sunt condiții comerciale și contractuale neluate (facturare, contractare prin agenție, durată fixă, set scurt, termen pentru decembrie), 2 sunt de capacitate (prezentare în limbi străine, colinde). Al 8-lea marcaj e fotografia. | Răspunsul decide dacă pagina rămâne. **Dacă nu:** se scoate `corporate.html`, linkul din footer (NAV-FOOTER-MIGRARE §2), linkurile contextuale adăugate în runda asta (12 zone și hub) și cele existente de pe `repertoriu`, `formatia`, `nunta`, `botez` și `eveniment-privat`. | Nu — doar pagini noi. Volumul de modificări e însă mare dacă răspunsul e „nu” |
+| D9 | **Specificația de 700 €:** ce conținea și dacă paginile de serviciu (`nunta`, `botez`, `eveniment-privat`, `corporate`) erau printre cele 7 slug-uri din Faza 3. **Documentul nu e în repo.** | De clarificat din contract sau din corespondență. Răspunsul decide dacă paginile de serviciu intră în prețul convenit sau sunt scope suplimentar, și ce slug-uri primesc. | Nu modifică pagini, dar stabilește scope-ul |
+| D10 | **Mutarea „Blog” din nav în footer.** Pentru ca „Zone” să intre în navigație fără să rupă header-ul (măsurat: CTA-ul ar ieși din fereastră cu 21,73 px la 1024), o intrare existentă trebuie să iasă. | Propunem „Blog”, pentru că paginile de zonă au intenție comercială directă, iar blogul are un singur articol. Linkul rămâne în footer (NAV-FOOTER-MIGRARE §1.1, §2). | **DA** — header-ul canonic, deci toate paginile |
+
+D4, D8, D9 și D10 blochează scope-ul sau template-ul și sunt și în `DECIZII-CLIENT-URGENT.md`.
+
+**Sursa pentru D1–D3:** `AUDIT-KEYWORDS.md` (secțiunile A și B, plus „Decizii de luat cu
+clientul”). `faq.html` e singura pagină cu `"@type": "FAQPage"`, verificat pe 2026-09-16.

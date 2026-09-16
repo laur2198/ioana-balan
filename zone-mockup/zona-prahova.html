@@ -1,0 +1,671 @@
+<!-- Zonă geografică — Prahova (MOCKUP). Layout C, derivat din zona-giurgiu.html.
+     Pagină nouă, nu înlocuiește nimic din repo. Trăiește în /zone-mockup/ cât
+     timp e material de validare: toate căile urcă un nivel (../).
+     Blocul de stiluri, header, drawer, footer, legenda de placeholder,
+     scripturile și widgetul WhatsApp sunt IDENTICE cu zona-giurgiu.html.
+     Diferă tot corpul de text.
+
+     LAYOUT C = ZONA FĂRĂ MATERIAL DE DOVADĂ: fără locații, fără video, fără
+     recenzie locală, zero `.ph-zone`. Vezi comentariul de conversie de
+     deasupra secțiunii de repertoriu.
+
+     Argumentul paginii: drum bun pe DN1 până la Ploiești (~60 km) și
+     un județ cu două fețe: podgoriile din Dealu Mare spre est și Valea
+     Prahovei spre nord. Muntenia de sub munte. Fără cazare. -->
+<!DOCTYPE html><html class="dark" lang="ro"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- noindex cât timp pagina conține marcaje [de confirmat]. Se scoate odată cu
+     ultimul .ph, împreună cu mutarea fișierului din /zone-mockup/ în rădăcină. -->
+<meta name="robots" content="noindex, follow">
+<title>Folclor de Sub Munte și Muzică de Petrecere în Ploiești și Prahova | Nunți, Botezuri | Ioana Balan</title>
+<meta content="Folclor de sub munte și muzică de petrecere live la nunți și botezuri în Ploiești, în podgoriile Dealu Mare și pe Valea Prahovei, la o oră pe DN1, fără cazare." name="description">
+<!-- Canonical necompletat intenționat: slug-ul final se decide la migrare.
+     Constrângere fermă — slug-ul NU poate conține sintagma rezervată altui
+     domeniu al clientului (cea cu „formație” + „nuntă” + oraș); nu o scriem
+     nici în comentariu, ca să nu ajungă în sursa paginii. Regula se aplică
+     după plierea diacriticelor ȘI după eliminarea prepozițiilor („in”, „din”,
+     „la”, „pentru”, „de”, „si”): sunt stop words, iar Google normalizează la
+     aceeași interogare. Variante propuse: /muzica-petrecere-prahova sau
+     /zone/prahova.
+<link rel="canonical" href="https://ioana-balan.ro/______.html"> -->
+<link rel="preload" href="../assets/fonts/eb-garamond-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/eb-garamond-500-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../assets/tailwind.config.js"></script>
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  /* Accentul de zonă -------------------------------------------------------
+     CONSTANT pe toate zonele. Nu se schimbă per județ.
+
+     Motivul e aritmetic: paleta are trei valori de bordo, toate din aceeași
+     familie — accent-edge #C41236, accent #A01028, accent-deep #800020. Trei
+     valori vecine pe același ton nu produc patru accente perceptibil diferite
+     pentru Ardeal / Muntenia / Oltenia / Dobrogea; ar produce patru nuanțe pe
+     care nimeni nu le citește ca sistem, plus riscul ca o zonă să primească
+     #800020 (1,72:1 pe #131313, adică o bordură invizibilă). Varianta aleasă
+     e accent-edge, singura din familie care trece pragul de 3:1 pentru UI
+     non-text (3,93:1).
+
+     Variabila rămâne totuși variabilă, ca punct de extensie: dacă paleta se
+     extinde cu o familie de accente de zonă reale, se schimbă o linie pe
+     pagină, nu fiecare regulă.
+
+     Diferențierea vizuală între zone vine din altă parte: din compoziția de
+     layout (trei variante, A/B/C) și din imaginea de hero specifică zonei.
+     Acolo se investește, nu în culoare.
+
+     Rolurile INTERZISE, ca să nu se dilueze sistemul din CLAUDE.md §5:
+     butonul primar rămâne bg-accent (#A01028) + text alb, iar textul de body
+     rămâne on-surface / on-surface-variant. Accentul de zonă nu atinge niciunul. */
+  :root {
+    --accent-zona: var(--accent-edge);
+  }
+
+  /* Marcaje de placeholder -------------------------------------------------
+     Două marcaje, cu intenții diferite, deci cu tratamente diferite.
+
+     .ph — marcaj INLINE, neutru. Sunt 32 pe pagină, împrăștiate în text, în
+     carduri și în răspunsurile de FAQ. În bordo, pagina citea ca 32 de erori:
+     roșul e culoarea de eroare în orice interfață, iar densitatea îl
+     transformă din marcaj în alarmă. Aici marcajul trebuie să spună „lipsește
+     o dată”, nu „ceva e greșit”, deci merge pe familia neutră: contur
+     `outline` (#8e9192) la 40%, fond `surface-container` (#20201f), text
+     `outline`. Corpul mono rămâne — el face distincția față de textul redactat.
+
+     .ph-zone — SLOT DE MEDIA, în accentul de zonă. Sunt 4: trei sloturi de
+     fotografie de locație și unul de video. Acolo bordo-ul e justificat: sunt
+     suprafețe mari și puține, nu valori inline, iar conturul colorat le
+     citește ca goluri de umplut deliberate, nu ca greșeli. Patru accente pe
+     toată pagina se citesc ca sistem; treizeci și patru, nu.
+
+     Rămân în aceeași familie ca .price-tbc / .legal-tbc / .answer-tbc din
+     assets/styles.css (contur + corp distinct); la migrare, toate se unifică.
+     overflow-wrap: la 360px etichetele lungi trebuie să rupă, nu să iasă. */
+  .ph {
+    display: inline-block;
+    max-width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+    padding: 2px 7px;
+    color: #8e9192;
+    background-color: #20201f;
+    border: 1px dashed rgba(142, 145, 146, 0.4);
+    overflow-wrap: anywhere;
+  }
+  /* Slot de media: zonă de imagine sau de embed, nu valoare inline. */
+  .ph-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    padding: 24px 16px;
+    /* Fondul e tokenul `background` (#131313), mai închis decât cardul
+       (.glass-card = rgb(28,27,27)): slotul gol se citește ca gol, iar
+       valoarea rămâne un token, nu o nuanță nouă de bordo. */
+    background-color: #131313;
+    border: 1px dashed var(--accent-zona);
+  }
+
+  /* Separator de secțiune, în accentul de zonă ----------------------------
+     Reia banda de broderie din .motif-separator (assets/motifs.svg) și îi
+     adaugă o muchie în culoarea zonei. Un singur element, fără poziționare
+     absolută — exprimabil ca divider în Elementor. */
+  .zona-divider {
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(90deg, transparent, var(--accent-zona), transparent);
+    opacity: 0.55;
+  }
+  /* Rombul din mijlocul lui .motif-rule, recolorat pe zonă. */
+  .zona-gem {
+    border-color: var(--accent-zona);
+  }
+
+  /* Badge de zonă: contur în accentul zonei, fond de suprafață, text argintiu.
+     NU fond bordo — fondul plin e rezervat CTA-ului primar.
+     Se pune numai pe badge-uri cu VALOARE REALĂ (pe pagină: eyebrow-ul de zonă
+     din hero). Un badge care conține doar un marcaj de placeholder rămâne
+     marcaj simplu: altfel bordo-ul ajunge să însemne „gol", nu „accent". */
+  .zona-badge {
+    border: 1px solid var(--accent-zona);
+    background-color: #20201f;
+  }
+
+  /* Buton secundar de zonă: singura diferență față de `border-outline` din
+     paginile existente e culoarea conturului. Restul (padding, uppercase,
+     tracking, hover pe white/5) rămâne identic. */
+  .btn-secundar-zona {
+    border: 1px solid var(--accent-zona);
+  }
+</style>
+<!-- Service + provider MusicGroup. Fără `aggregateRating`: scos deliberat din
+     tot proiectul (politica Google privind recenziile auto-servite) — verificat,
+     nu apare în nicio pagină existentă. Fără `offers`/`price`: cifrele de preț
+     din pagină sunt încă placeholdere, iar un preț provizoriu în date
+     structurate ajunge în SERP ca preț ferm (aceeași decizie ca pe oferte.html). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Folclor de sub munte și muzică de petrecere live pentru evenimente în Ploiești și județul Prahova",
+  "serviceType": "Muzică live pentru nuntă, botez și eveniment corporate",
+  "description": "Folclor de sub munte și muzică de petrecere live pentru nunți, botezuri și evenimente corporate în Ploiești, în podgoriile din Dealu Mare și pe Valea Prahovei, cu sonorizare proprie și fără cazare adăugată.",
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Ploiești"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Județul Prahova"
+    }
+  ],
+  "provider": {
+    "@type": "MusicGroup",
+    "@id": "https://ioana-balan.ro/#artist",
+    "name": "Ioana Balan",
+    "url": "https://ioana-balan.ro/",
+    "genre": ["Muzică populară", "Muzică de petrecere", "Folclor"],
+    "foundingLocation": { "@type": "Place", "name": "București, România" },
+    "telephone": "+40722911485",
+    "email": "ioanabalanoficial@gmail.com",
+    "sameAs": [
+      "https://www.facebook.com/ioanabalanoficial",
+      "https://www.instagram.com/ioanabalanoficial/",
+      "https://www.tiktok.com/@ioanabalanmusic",
+      "https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ",
+      "https://ro.pinterest.com/ioanabalanoficial/"
+    ]
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": { "@type": "ContactPoint", "telephone": "+40722911485", "contactType": "rezervări" },
+    "serviceUrl": "https://wa.me/40722911485"
+  }
+}
+</script>
+</head>
+<body class="bg-background text-on-background overflow-x-hidden">
+<a class="skip-link" href="#continut">Sari la conținut</a>
+<!-- TopNavBar -->
+<!-- ABATERE DOCUMENTATĂ de la regula „header verbatim" — singura din pagină.
+     În header-ul canonic, „Oferte" purta starea de activ (text-primary +
+     border-b). Pe o pagină de zonă asta ar minți: nu ești pe Oferte. Starea
+     de activ a fost scoasă în AMBELE locuri (nav desktop și drawer mobil),
+     iar „Oferte" a primit exact clasele celorlalte linkuri. Nimic altceva nu
+     e modificat față de oferte.html.
+
+     Pe paginile de zonă nicio intrare de nav nu e activă, pentru că nav-ul NU
+     primește o intrare „Zone": auditul anterior a măsurat CTA-ul WhatsApp
+     ieșind din viewport cu 229px la 1024, motiv pentru care „Acasă" a fost
+     eliminat din nav ca să se recupereze spațiu. O a opta intrare rupe din nou
+     header-ul. Hub-ul de zone intră în FOOTER, banda 2.
+     Vezi CLAUDE.md §10 (header/footer canonice). -->
+<!-- TopNavBar (canonic) -->
+<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-outline-variant/20 h-16 md:h-20">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center gap-4 xl:gap-8 h-full">
+<a aria-label="Ioana Balan Acasă" class="shrink-0 flex items-center min-h-[44px]" href="../index.html">
+<img alt="Ioana Balan" class="h-8 md:h-12 w-auto" src="../assets/logo-alb-400w.png" srcset="../assets/logo-alb-400w.png 1x, ../assets/logo-alb-800w.png 2x" width="400" height="137" loading="eager" decoding="async">
+</a>
+<nav class="hidden lg:flex items-center gap-4 xl:gap-8">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../despre.html">Despre</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../galerie.html">Galerie</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../discografie.html">Discografie</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../oferte.html">Oferte</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../faq.html">FAQ</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../blog.html">Blog</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener" class="hidden lg:block whitespace-nowrap shrink-0 bg-accent text-white px-4 xl:px-6 py-2 font-label-md text-label-md uppercase tracking-widest hover:bg-accent-hover transition-all">Rezervă pe WhatsApp</a>
+<!-- Contact la 1 tap pe mobil: sub lg butonul WhatsApp e ascuns, iar telefonul
+     era doar în footer. Părinții/nașii sună, nu scriu pe WhatsApp. -->
+<a aria-label="Sună acum" class="lg:hidden flex items-center justify-center w-11 h-11 -mr-1 text-primary hover:text-white transition-colors" href="tel:+40722911485">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M775.38-140Q669-140 556-193.69q-113-53.7-210.81-151.7-97.8-98-151.5-210.8Q140-669 140-775.38q0-19.12 12.64-31.87T184.23-820h114.13q15.64 0 26.41 10.19 10.77 10.2 15.15 26.35l23.85 107.18q2.08 15.13-1 27.2-3.08 12.08-11.69 20.31l-94.39 91.92q26.77 45.93 56.54 85.08t64.39 73.54q37.38 38.38 79.53 70.08 42.16 31.69 90.24 57.61l90.76-93.38q10-11 22.39-14.81 12.39-3.81 25.84-1.81l97.08 21.39q16.15 3.61 26.35 16.26Q820-310.24 820-294.23v110q0 18.95-12.75 31.59T775.38-140ZM234-578l82.54-80.08q1.54-1.53 2.11-4.23.58-2.69.2-5L297-768.46q-.38-3.08-2.5-4.62-2.11-1.53-5.19-1.53h-98.54q-2.31 0-3.85 1.53-1.53 1.54-1.53 3.85.84 41.62 12.92 88.69Q210.39-633.46 234-578Zm356.31 349.15q41 20.16 89.77 31.39 48.77 11.23 89.15 12.46 2.31 0 3.85-1.54 1.53-1.54 1.53-3.85v-98.15q0-3.08-1.53-5.19-1.54-2.12-4.62-2.5l-90.69-18.69q-2.31-.39-4.04.19-1.73.58-3.65 2.11l-79.77 83.77ZM234-578Zm356.31 349.15Z"/></svg>
+</a>
+<button aria-label="Deschide Meniu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden text-primary p-2" id="menu-toggle">
+<svg aria-hidden="true" class="text-3xl" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Side Drawer (canonic) -->
+<div class="fixed inset-0 z-[60] bg-background translate-x-full transition-transform duration-300 lg:hidden" id="mobile-menu" inert>
+<div class="flex flex-col h-full p-8">
+<div class="flex justify-between items-center mb-12">
+<img alt="Ioana Balan" class="h-8 w-auto" src="../assets/logo-alb-400w.png" srcset="../assets/logo-alb-400w.png 1x, ../assets/logo-alb-800w.png 2x" width="400" height="137" loading="eager" decoding="async">
+<button aria-label="Închide Meniu" class="text-primary" id="menu-close">
+<svg aria-hidden="true" class="text-4xl" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+</button>
+</div>
+<nav class="flex flex-col gap-6 text-center">
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../index.html">Acasă</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../despre.html">Despre</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../galerie.html">Galerie</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../discografie.html">Discografie</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../oferte.html">Oferte</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../faq.html">Întrebări frecvente</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../blog.html">Blog</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../contact.html">Contact</a>
+<a class="text-headline-md font-headline-md text-white uppercase bg-accent py-4 mt-4" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener">Rezervă pe WhatsApp</a>
+</nav>
+</div>
+</div>
+<main id="continut" tabindex="-1" class="pt-16 md:pt-20">
+
+<!-- Legenda de placeholder: primul lucru de sub header, ca reviewerul să știe
+     din start ce citește. Discretă (suprafață joasă, text secundar), dar cu
+     muchia de zonă la stânga ca să nu se confunde cu o notă de conținut. -->
+<div class="bg-surface-container-lowest border-b border-outline-variant/20">
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-3 flex items-start gap-3">
+<svg aria-hidden="true" class="shrink-0 mt-0.5 text-on-surface-variant" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M453.85-280h52.3v-240h-52.3v240ZM480-588.46q11.85 0 19.92-7.89 8.08-7.88 8.08-19.73 0-11.84-8.08-20.11-8.07-8.27-19.92-8.27-11.85 0-19.92 8.27-8.08 8.27-8.08 20.11 0 11.85 8.08 19.73 8.07 7.89 19.92 7.89Zm.07 488.46q-78.84 0-148.28-29.92t-122.68-83.21q-53.24-53.29-83.17-122.66Q96-405.1 96-484.05q0-78.84 29.92-148.28t83.21-122.68q53.29-53.24 122.66-83.17Q561.1-868 480.05-868q78.84 0 148.28 29.92t122.68 83.21q53.24 53.29 83.17 122.66Q864-562.9 864-483.95q0 78.84-29.92 148.28t-83.21 122.68q-53.29 53.24-122.66 83.17Q558.9-100 480.07-100Zm-.07-52.31q138.46 0 235.08-96.61Q811.69-345.54 811.69-484q0-138.46-96.61-235.08Q618.46-815.69 480-815.69q-138.46 0-235.08 96.61Q148.31-622.46 148.31-484q0 138.46 96.61 235.08Q341.54-152.31 480-152.31ZM480-484Z"/></svg>
+<p class="font-body-md text-[13px] text-on-surface-variant">Zonele marcate se completează cu date reale de la client.</p>
+</div>
+</div>
+
+
+<!-- ======================================================================
+     1. HERO — argumentul: o oră pe DN1 și un județ care urcă de la podgorii
+     la munte, cu muzica urcând odată cu el. Fotografia e PROVIZORIE.
+     ====================================================================== -->
+<section class="relative overflow-hidden border-b border-outline-variant/10" aria-labelledby="hero-titlu">
+<div class="absolute inset-0 z-0">
+<img alt="Ioana Balan pe scenă, alături de formație" class="w-full h-full object-cover opacity-30 md:opacity-40" src="../assets/img/ioana-balan-live-show.jpg" loading="eager" decoding="async">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30"></div>
+</div>
+<div class="relative z-10 max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20">
+<div class="max-w-3xl">
+<p class="font-label-md text-label-md uppercase tracking-[0.2em] mb-4">
+<span class="zona-badge inline-block px-3 py-1.5 text-secondary">Muntenia · Județul Prahova</span>
+</p>
+<h1 class="font-display-lg text-2xl sm:text-3xl md:text-display-lg leading-tight mb-5" id="hero-titlu">Folclor de sub munte și muzică de petrecere: nunți și botezuri în Ploiești și Prahova</h1>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-4 max-w-2xl">Ploieștiul e la o oră de București, pe un drum cu două benzi pe sens, așa că ajungem odihniți și montăm fără grabă. Restul județului urcă de la podgoriile din Dealu Mare până la Valea Prahovei, iar programul urcă odată cu el: de la jocurile de câmpie din sud la cântecul de sub munte din nord. Voce, formație, DJ și sonorizare, contractate o singură dată.</p>
+<div class="flex flex-col gap-2 mb-8">
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] text-on-surface-variant">Pachete pentru Prahova, de la</span>
+<span><span class="ph">[INTERVAL PREȚ PRAHOVA — de confirmat]</span></span>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="inline-block text-center whitespace-nowrap bg-accent text-white px-8 md:px-10 py-4 uppercase font-label-md text-label-md tracking-widest hover:bg-accent-hover transition-colors w-full sm:w-auto" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20Organizez%20un%20eveniment%20%C3%AEn%20jude%C8%9Bul%20Prahova%20%C8%99i%20a%C8%99%20dori%20s%C4%83%20verific%20disponibilitatea." target="_blank" rel="noopener">Verifică data pe WhatsApp</a>
+<a class="btn-secundar-zona inline-block text-center whitespace-nowrap text-on-surface bg-transparent px-8 md:px-10 py-4 uppercase font-label-md text-label-md tracking-widest hover:bg-white/5 transition-colors w-full sm:w-auto" href="tel:+40722911485">+40 722 911 485</a>
+</div>
+<!-- Nota de imagine: aceeași poziție ca pe A, B, C și hub — ultima din bloc,
+     după butoane, înaintea motivului de închidere. -->
+<p class="mt-6"><span class="ph">Imagine provizorie — se înlocuiește cu fotografie din județul Prahova (peisaj, min. 1440&nbsp;px lățime, subiect în treimea centrală)</span></p>
+<div class="motif-separator w-24 md:w-36 mt-10"></div>
+</div>
+</div>
+</section>
+
+<!-- ======================================================================
+     2. LOCALITĂȚI DESERVITE — trei grupuri: Ploiești și localitățile lipite
+     de el, podgoriile spre est, Valea Prahovei spre nord.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="localitati-titlu">
+<div class="max-w-3xl mb-8 md:mb-12">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Acoperire</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-4" id="localitati-titlu">De la Ploiești la Sinaia, trei grupuri de localități</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Ploieștiul și localitățile din jurul lui — Blejoi, Bucov, Păulești, Băicoi — sunt la aproximativ o oră de București, pe DN1 sau pe A3. Spre est, Valea Călugărească, Urlați și Mizil țin de podgoriile din Dealu Mare, în direcția Buzăului. Câmpina, Breaza și Sinaia urcă pe Valea Prahovei, unde traficul de weekend spre munte schimbă ora de plecare, nu și planul zilei.</p>
+</div>
+<div class="glass-card silver-border p-6 md:p-10 max-w-4xl">
+<ul class="motif-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+<li class="font-body-lg text-base md:text-body-lg">Ploiești</li>
+<li class="font-body-lg text-base md:text-body-lg">Câmpina</li>
+<li class="font-body-lg text-base md:text-body-lg">Băicoi</li>
+<li class="font-body-lg text-base md:text-body-lg">Bucov</li>
+<li class="font-body-lg text-base md:text-body-lg">Blejoi</li>
+<li class="font-body-lg text-base md:text-body-lg">Păulești</li>
+<li class="font-body-lg text-base md:text-body-lg">Valea Călugărească</li>
+<li class="font-body-lg text-base md:text-body-lg">Urlați</li>
+<li class="font-body-lg text-base md:text-body-lg">Mizil</li>
+<li class="font-body-lg text-base md:text-body-lg">Sinaia</li>
+<li class="font-body-lg text-base md:text-body-lg">Breaza</li>
+</ul>
+<div class="motif-rule max-w-[180px] w-full mt-8"><span class="motif-rule__gem zona-gem"></span></div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-6">Dacă localitatea dumneavoastră din Prahova nu e aici, spuneți-ne cum se numește și vă spunem în care dintre cele trei grupuri cade; din asta rezultă și ora de plecare, și dozajul de repertoriu.</p>
+</div>
+<!-- Zone vecine: fiecare link pornește de la o legătură reală între județe (drum, râu, istorie administrativă). -->
+<p class="font-body-md text-body-md text-on-surface-variant mt-8 max-w-3xl">Podgoria Dealu Mare nu se oprește la granița județului: după Mizil, dealurile cu vie continuă în <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="zona-buzau.html">Buzău</a>, unde Merei e unul dintre centrele ei. Spre vest, DN72 leagă Ploieștiul de Târgoviște, în <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="zona-dambovita.html">Dâmbovița</a>, pe la Filipeștii de Târg. Invitații care aterizează la Otopeni, în <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="zona-ilfov.html">Ilfov</a>, sunt deja pe DN1, la mai puțin de o oră de Ploiești.</p>
+<p class="mt-8"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex flex-wrap items-center gap-2 min-h-[44px]" href="zone.html">Toate zonele deservite</a></p>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     3. REPERTORIU — Muntenia de sub munte: câmpie în sud, influențe
+     subcarpatice în nord. „Ca la Breaza” e joc cunoscut național, cu numele
+     de la una dintre localitățile listate. Fără afirmații despre prestații.
+     ====================================================================== -->
+<!-- LAYOUT C — fără module de dovadă, pentru că nu există încă material
+     localizat pentru acest județ.
+     CONVERSIE LA A SAU B dacă clientul trimite evenimente din județ:
+     1. se inserează secțiunea de locații (3 carduri foto + 1 card video) după
+        repertoriu, cu .ph-zone ca pe zona-brasov.html
+     2. se inserează secțiunea de recenzie după locații
+     3. ordinea devine A (repertoriu pe 2, logistică pe 4) pentru județele
+        apropiate, sau B (logistică pe 2) pentru cele care cer cazare
+     4. intro-ul din hero se întărește de la poziționare la experiență locală
+     Până atunci, niciuna dintre cele patru nu se scrie. -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="repertoriu-titlu">
+<div class="max-w-3xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Repertoriu</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-6" id="repertoriu-titlu">Între câmpie și munte, în același județ</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Prahova ține de zona subcarpatică a Munteniei. Sudul județului joacă muntenește, pe horă, sârbă și brâu, ca toată câmpia din jurul Capitalei. Spre Câmpina și Breaza, repertoriul primește influențele zonei subcarpatice: melodii de deal, cântec mai așezat la masă, jocuri venite din satele de pe văile Prahovei și Doftanei. Unul dintre jocurile cunoscute în toată țara, „Ca la Breaza”, își poartă numele chiar de la o localitate din listă.</p>
+
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mt-9 mb-4">Cum se împart cele două registre într-o seară</h3>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">La o nuntă în Ploiești sau în podgorii, programul stă pe fondul de câmpie, iar piesele de sub munte intră ca moment dedicat. Dacă gazdele sunt de pe Valea Prahovei, proporția se inversează: jocurile văii devin coloana serii, iar sârbele de câmpie rămân blocul de petrecere pentru toată sala. Proporția nu se ghicește — o stabilim cu mirii, după ce aflăm de unde sunt familiile.</p>
+<!-- Link intern către repertoriu.html, pagina de cluster: acolo e explicația
+     extinsă a repertoriului, aici afirmația scurtă. La migrare: /repertoriu. -->
+<p class="mt-8"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex flex-wrap items-center gap-2 min-h-[44px]" href="repertoriu.html">Vezi repertoriul complet</a></p>
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     4. LOGISTICĂ — cardul care vinde e „fără cazare”, pe argumentul de
+     Prahova: drumul de noapte spre București e liber, chiar și de la
+     Sinaia. Marcajul de tarif stă în intro.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="logistica-titlu">
+<div class="max-w-3xl mb-8 md:mb-12">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Logistică</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-4" id="logistica-titlu">O oră pe DN1, plus marja văii</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Pentru cea mai mare parte a localităților din listă, deplasarea e o simplă ieșire din București spre nord. Doar Valea Prahovei cere o atenție în plus, și aceea privește ora de plecare. Suplimentul de transport se socotește dus-întors, la un tarif pe kilometru care așteaptă confirmarea: <span class="ph">[TARIF RON/KM — de confirmat]</span>.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-gutter max-w-4xl">
+
+<div class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Distanță</span>
+<p class="font-display-lg text-3xl md:text-4xl text-on-surface">~60 km</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Până la Ploiești, pe DN1 sau pe A3, amândouă cu două benzi pe sens. Breaza și Sinaia sunt mai departe, pe DN1 spre munte, și cer o plecare mai devreme în weekendurile de sezon.</p>
+</div>
+
+<div class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Deplasare</span>
+<p class="font-headline-md text-xl md:text-headline-md text-on-surface">Plecare calculată pe traficul spre munte</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Sonorizarea pleacă prima, cu echipa tehnică, iar interpreții vin după terminarea montajului. Pentru Ploiești și podgorii ora de plecare e cea obișnuită; pentru Sinaia și Breaza se ține cont că vineri seara și sâmbăta dimineața traficul spre munte se îngroașă pe Valea Prahovei.</p>
+</div>
+
+<div class="glass-card silver-border p-6 md:p-8 md:col-span-2 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Cazare</span>
+<p class="font-headline-md text-xl md:text-headline-md text-on-surface">Întoarcerea se face în aceeași noapte</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Aglomerația care încarcă DN1 circulă ziua, spre munte. Noaptea, după demontare, drumul înapoi spre București e liber, așa că nici pentru Sinaia, cea mai îndepărtată localitate din listă, oferta nu include cazare.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">E diferența concretă față de Brașov, aflat cu încă o oră mai departe pe același DN1: acolo, după Predeal, noaptea de hotel devine inevitabilă. În Prahova, pe deviz rămâne doar transportul.</p>
+</div>
+
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     5. PACHETE — fără cifră; intervalul stă în hero.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="pachete-titlu">
+<div class="max-w-3xl mx-auto glass-card silver-border p-6 md:p-12 text-center flex flex-col items-center gap-5">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em]">Pachete</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight" id="pachete-titlu">Un singur supliment, oriunde pe DN1</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Pentru Prahova oferta se compune din pachetul ales și din suplimentul de transport. Nu contează dacă locația e în Ploiești, într-o cramă din Dealu Mare sau pe Valea Prahovei: nicio noapte de hotel nu se adaugă, iar diferența dintre ele se reduce la kilometri.</p>
+<!-- Tipuri de eveniment: link contextual către paginile de serviciu. -->
+<p class="font-body-md text-body-md text-on-surface-variant">O <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="nunta.html">nuntă</a> într-o cramă din Dealu Mare și un <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="corporate.html">eveniment corporate</a> într-un hotel din Sinaia au același calcul de transport. La fel un <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="botez.html">botez</a> la un restaurant din Ploiești sau o <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="eveniment-privat.html">petrecere în familie</a> la Câmpina, chiar dacă programul fiecăruia arată altfel.</p>
+<div class="motif-rule max-w-[180px] w-full"><span class="motif-rule__gem zona-gem"></span></div>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<a class="inline-block text-center whitespace-nowrap bg-accent text-white px-8 md:px-10 py-4 uppercase font-label-md text-label-md tracking-widest hover:bg-accent-hover transition-colors w-full sm:w-auto" href="../oferte.html">Vezi toate pachetele</a>
+<a class="btn-secundar-zona inline-block text-center whitespace-nowrap text-on-surface bg-transparent px-8 md:px-10 py-4 uppercase font-label-md text-label-md tracking-widest hover:bg-white/5 transition-colors w-full sm:w-auto" href="../contact.html">Cere ofertă</a>
+</div>
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     6. FAQ — cinci întrebări: crama din deal, invitații cazați la Sinaia,
+     evenimentul de firmă în zi lucrătoare, jocurile de pe vale, invitații
+     care conduc înapoi spre București.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="faq-titlu">
+<div class="max-w-3xl mb-8 md:mb-12">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Întrebări</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight" id="faq-titlu">De la podgorii până la Sinaia</h2>
+</div>
+<div class="max-w-3xl space-y-4">
+
+<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
+<details class="group" open>
+<summary aria-expanded="true" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Evenimentul e la o cramă din Dealu Mare, iar o parte din seară vrem s-o petrecem pe terasă. Ce verificăm?</h3>
+<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md space-y-3">
+<p>Întâi accesul: drumurile de podgorie urcă, iar mașina cu echipament trebuie să ajungă cât mai aproape de punctul de montaj, nu la capătul unei alei pietruite. Apoi, dacă muzica se mută între interior și terasă, ne trebuie două puncte de curent și o pauză de program pentru mutare.</p>
+<p>Varianta mai simplă e o singură scenă, așezată la granița dintre sală și terasă, care se aude în ambele. Pentru ea ne trebuie <span class="ph">[PUTERE ELECTRICĂ — de confirmat]</span> într-un singur loc.</p>
+</div>
+</details>
+</div>
+
+<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Nunta e la Sinaia, iar invitații rămân cazați la hotel. Se poate prelungi petrecerea?</h3>
+<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md space-y-3">
+<p>Da. Când invitații nu mai au drum de făcut, seara poate merge mai târziu decât la o nuntă din care oamenii pleacă acasă cu mașina. Pentru noi ora de final nu schimbă logistica: drumul de noapte spre București e liber, oricât de târziu pornim.</p>
+<p>Orele suplimentare de program se tarifează separat: <span class="ph">[TARIF ORĂ SUPLIMENTARĂ — de confirmat]</span>.</p>
+</div>
+</details>
+</div>
+
+<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Organizăm la Ploiești o petrecere de firmă, într-o zi lucrătoare. Ajungeți la timp, cu traficul de după program?</h3>
+<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md space-y-3">
+<p>Da, pentru că plecarea se calculează invers față de weekend. În zilele lucrătoare, pe DN1 și pe A3 se circulă greu seara, în ambele sensuri, iar echipa tehnică pleacă din București înainte de orele acelea, nu în mijlocul lor.</p>
+<p>Spuneți-ne ora la care începe evenimentul și de la ce oră e liberă sala; din cele două stabilim ora de plecare.</p>
+</div>
+</details>
+</div>
+
+<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Suntem din Câmpina, iar invitații știu jocurile de pe vale. Cum aflați ce se joacă la noi?</h3>
+<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md space-y-3">
+<p>Întrebându-vă. Cereți-le părinților și nașilor cinci-șase piese sau jocuri fără de care nu e nuntă la dumneavoastră, cu numele sub care le știu. Dacă există o înregistrare, chiar și de pe telefon, de la o nuntă din familie, cu atât mai bine.</p>
+<p>Lista se discută la organizare, iar piesele care nu fac parte din repertoriul curent se pregătesc înainte, nu se improvizează în seara nunții.</p>
+</div>
+</details>
+</div>
+
+<div class="faq-item border border-outline-variant/30 bg-surface-container-low">
+<details class="group">
+<summary aria-expanded="false" class="flex justify-between items-center gap-4 p-5 md:p-6 cursor-pointer">
+<h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Mulți invitați conduc înapoi spre București după petrecere. Cum ținem momentele importante înainte să plece?</h3>
+<svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+</summary>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md space-y-3">
+<p>Așezând tortul, dansul mirilor și aruncatul buchetului mai devreme decât la o nuntă în care toată lumea stă până dimineață. O oră de drum pe DN1, după miezul nopții, face ca mulți să plece spre unu; momentele pentru care au venit trebuie să fie înainte.</p>
+<p>După plecarea lor, programul continuă pe petrecere pentru cei care rămân, fără goluri.</p>
+</div>
+</details>
+</div>
+
+</div>
+<div class="mt-10 md:mt-12">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="../faq.html">Vezi toate întrebările frecvente <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a>
+</div>
+</section>
+
+<!-- 7. CTA final: WhatsApp primar (fond bordo), contact secundar (contur de zonă).
+     Un singur primar în secțiune; whitespace-nowrap + px-8 md:px-10, ca pe C. -->
+<section class="py-16 md:py-24 bg-surface-container-low border-t border-outline-variant/10 text-center">
+<div class="max-w-2xl mx-auto px-6 md:px-margin-desktop">
+<h2 class="font-display-lg text-2xl sm:text-3xl md:text-display-lg mb-5 leading-tight">Ploiești, podgorii sau Valea Prahovei?</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-10">Localitatea ne spune la ce oră plecăm și ce registru pregătim, data ne spune dacă suntem liberi. Scrieți-ne pe WhatsApp, iar răspunsul le acoperă pe amândouă.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a class="inline-block whitespace-nowrap bg-accent text-white px-8 md:px-10 py-4 md:py-5 uppercase font-label-md text-label-md tracking-widest hover:bg-accent-hover transition-colors w-full sm:w-auto" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20Organizez%20un%20eveniment%20%C3%AEn%20jude%C8%9Bul%20Prahova%20%C8%99i%20a%C8%99%20dori%20disponibilitatea%20%C8%99i%20pre%C8%9Bul%20final." target="_blank" rel="noopener">Rezervă pe WhatsApp</a>
+<a class="btn-secundar-zona inline-block whitespace-nowrap text-center text-on-surface bg-transparent px-8 md:px-10 py-4 md:py-5 uppercase font-label-md text-label-md tracking-widest hover:bg-white/5 transition-colors w-full sm:w-auto" href="../contact.html">Formular de contact</a>
+</div>
+</div>
+</section>
+
+</main>
+<!-- Footer -->
+<!-- Footer (canonic) -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 flex flex-col gap-8">
+
+<!-- Banda 1: brand + social (iconuri, un singur rând și pe mobil) -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
+<div class="flex flex-col gap-3 max-w-md">
+<a aria-label="Ioana Balan Acasă" class="inline-flex items-center min-h-[44px] self-start" href="../index.html"><img alt="Ioana Balan" class="h-8 md:h-10 w-auto" src="../assets/logo-alb-400w.png" srcset="../assets/logo-alb-400w.png 1x, ../assets/logo-alb-800w.png 2x" width="400" height="137" loading="lazy" decoding="async"></a>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80">Muzică pentru evenimente care rămân în suflet. Calitate corporate cu pasiune artistică și profesionalism garantat.</p>
+</div>
+<ul class="flex flex-row items-center gap-1 shrink-0">
+<li>
+<a aria-label="Facebook" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.facebook.com/ioanabalanoficial" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="Instagram" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/ioanabalanoficial/" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="YouTube" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="TikTok" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.tiktok.com/@ioanabalanmusic" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+</a>
+</li>
+</ul>
+</div>
+
+<!-- Banda 2: contact (stânga) + informații legale (dreapta), fără titluri de coloană -->
+<div class="flex flex-col gap-4">
+<div class="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-8">
+<div class="flex flex-col">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="mailto:ioanabalanoficial@gmail.com">ioanabalanoficial@gmail.com</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="tel:+40722911485">+40 722 911 485</a>
+</div>
+<div class="flex flex-row items-center gap-2 sm:justify-end">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="https://anpc.ro" target="_blank" rel="noopener noreferrer">ANPC</a>
+<span aria-hidden="true" class="font-body-md text-on-surface-variant opacity-50">·</span>
+<!-- TODO client/juridic: platforma europeană SOL/ODR (ec.europa.eu/consumers/odr)
+     a fost desființată prin Regulamentul (UE) 2024/3228. Linkul echivalent în
+     vigoare e SAL-ul ANPC; de confirmat cu juristul înainte de lansare. -->
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" aria-label="SAL — Soluționarea alternativă a litigiilor">SAL</a>
+</div>
+</div>
+<!-- Documente de subsol: linkuri reale, în afara navigației din header.
+     Aceeași stilizare discretă ca înainte; min-h-[44px] pentru țintă de tap,
+     ca la rândul ANPC/SAL de deasupra. -->
+<p class="font-body-md text-[13px] text-secondary flex flex-row flex-wrap items-center gap-x-2">
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="../termeni-si-conditii.html">Termeni și condiții</a>
+<span aria-hidden="true" class="opacity-50">·</span>
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="../politica-cookie.html">Politica de cookie-uri</a>
+<span aria-hidden="true" class="opacity-50">·</span>
+<!-- Hub-ul de zone: intră în footer, nu în nav-ul desktop (vezi comentariul
+     de deasupra header-ului — a opta intrare de nav rupe header-ul la 1024).
+     Pagina NU EXISTĂ încă; href="#" până e creată, slug propus: /zone.
+     Când apare, linkul se adaugă identic în footerul canonic al tuturor
+     paginilor, nu doar aici. -->
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="#">Zone deservite</a>
+</p>
+</div>
+
+<!-- TODO client — rând de date de firmă, OBLIGATORIU înainte de lansare.
+     Concurența afișează CUI + Reg. Com.; pentru un site care încasează avans,
+     legitimitatea juridică e argument de conversie.
+     Scos din DOM doar cât ține demo-ul: un placeholder vizibil citește ca
+     lucru neterminat, nu ca dependență de client. Se reactivează completând
+     cele două valori și ștergând comentariul din jurul rândului de mai jos.
+     ATENȚIE: datele Grand Music Events (clientul), NU Green Pheonix Concept
+     (furnizorul site-ului).
+<p class="font-body-md text-[12px] text-secondary opacity-80">Grand Music Events · CUI ... · Reg. Com. ...</p>
+-->
+
+<!-- Banda 3: juridic. Benzile se separă prin spațiere, nu prin linie.
+     Pe desktop cele trei elemente stau pe un rând, separate prin punct median
+     (separatorul deja folosit în proiect); pe mobil se stivuiesc, centrate.
+     „Pheonix" este ortografia juridică înregistrată a firmei — nu se corectează. -->
+<div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-center gap-x-2 gap-y-1 text-center">
+<p class="font-body-md text-[12px] text-secondary">© 2026 Ioana Balan. Toate drepturile rezervate.</p>
+<span aria-hidden="true" class="hidden sm:inline font-body-md text-[12px] text-secondary opacity-50">·</span>
+<p class="font-body-md text-[12px] text-secondary">Proiect dezvoltat de <a class="hover:text-primary transition-colors" href="https://grand-music.ro" target="_blank" rel="noopener">Grand Music Events</a></p>
+<span aria-hidden="true" class="hidden sm:inline font-body-md text-[12px] text-secondary opacity-50">·</span>
+<p class="font-body-md text-[12px] text-secondary">Site realizat de Green Pheonix Concept</p>
+</div>
+
+</div>
+</footer>
+<script>
+    // Mobile Menu Logic (canonic)
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    // Meniul închis e doar translatat în afara ecranului, deci ar rămâne în
+    // tab order. `inert` îl scoate din tab order ȘI din arborele de
+    // accesibilitate cât timp e ascuns.
+    const setMenu = (open) => {
+        mobileMenu.classList.toggle('translate-x-full', !open);
+        document.body.classList.toggle('overflow-hidden', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        mobileMenu.inert = !open;
+    };
+
+    const closeMenu = ({ refocus = false } = {}) => {
+        setMenu(false);
+        if (refocus) menuToggle.focus();
+    };
+
+    menuToggle.addEventListener('click', () => {
+        setMenu(mobileMenu.classList.contains('translate-x-full'));
+    });
+    menuClose.addEventListener('click', () => closeMenu({ refocus: true }));
+
+    // Escape închide meniul și readuce focusul pe butonul care l-a deschis.
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+            closeMenu({ refocus: true });
+        }
+    });
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => closeMenu());
+    });
+
+    </script>
+<script>
+    // aria-expanded nu se actualizează singur pe <summary>; îl sincronizăm din
+    // evenimentul `toggle`, care se declanșează și la tastatură (Enter/Space).
+    document.querySelectorAll('.faq-item details').forEach(d => {
+        d.addEventListener('toggle', () => {
+            d.querySelector('summary').setAttribute('aria-expanded', String(d.open));
+        });
+    });
+    </script>
+<!-- WhatsApp Widget (canonic) -->
+<a aria-label="Contact Ioana Balan pe WhatsApp" class="whatsapp-float group" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20mai%20multe%20informa%C8%9Bii." target="_blank" rel="noopener">
+<svg class="shrink-0 md:w-8 md:h-8" fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.607zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+</svg>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs group-focus-visible:max-w-xs group-hover:ml-2 group-focus-visible:ml-2 transition-all duration-300 font-label-md text-[12px] md:text-label-md uppercase whitespace-nowrap hidden sm:inline">Salut! Scrie-mi pe WhatsApp</span>
+</a>
+</body></html>

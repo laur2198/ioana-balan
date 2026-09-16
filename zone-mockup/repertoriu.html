@@ -1,0 +1,698 @@
+<!-- Repertoriu (MOCKUP). Pagină de cluster tematic, nu pagină de zonă: nu are
+     layout A/B/C, nu are listă de localități, nu are logistică și nu are rând
+     de preț. Trăiește în /zone-mockup/ cât timp e material de validare: toate
+     căile către assets și către paginile existente urcă un nivel (../).
+
+     Rol: centrul clusterului folcloric. Cele 12 pagini de zonă spun pe scurt
+     ce se cere într-un județ și trimit aici prin „Vezi repertoriul complet";
+     pagina asta spune ce se cântă, în detaliu, pe toate zonele. Conținutul
+     tehnic de folclor (măsuri, instrumente, tradiții) stă aici, nu pe paginile
+     de conversie, unde era prea greu.
+
+     REGULĂ DE REDACTARE: nicio frază reciclată de pe paginile de zonă. Acolo
+     e afirmația scurtă, aici e explicația extinsă, cu mecanismul. Singura
+     excepție, deliberată, e primul paragraf din blocul Ardeal — recuperat
+     integral din comentariul MUTAT LA /repertoriu de pe zona-brasov.html.
+
+     Blocul de stiluri, header, drawer, footer, legenda de placeholder,
+     scripturile și widgetul WhatsApp sunt IDENTICE cu zona-brasov.html.
+     Zero `.ph-zone`: pagina se ține pe text, ca layout C. -->
+<!DOCTYPE html><html class="dark" lang="ro"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- noindex cât timp pagina conține marcaje [de confirmat]. Se scoate odată cu
+     ultimul .ph, împreună cu mutarea fișierului din /zone-mockup/ în rădăcină. -->
+<meta name="robots" content="noindex, follow">
+<title>Repertoriu de Folclor pe Zone Etnografice | Ioana Balan</title>
+<meta content="Ce se cântă în Muntenia, Ardeal, Oltenia, Dobrogea și Moldova: jocuri, măsuri și instrumente pe zone etnografice, plus ordinea momentelor dintr-o seară." name="description">
+<!-- Canonical necompletat intenționat: slug-ul final se decide la migrare.
+     Constrângere fermă — slug-ul NU poate conține sintagma rezervată altui
+     domeniu al clientului (cea cu „formație” + „nuntă” + oraș); nu o scriem
+     nici în comentariu, ca să nu ajungă în sursa paginii. Regula se verifică
+     bag-of-words: după plierea diacriticelor și eliminarea prepozițiilor
+     („in”, „din”, „la”, „pentru”, „de”, „si”), cei trei tokeni nu au voie să
+     apară SIMULTAN, indiferent de distanța dintre ei. Pagina numește cinci
+     regiuni în câmpurile de meta, deci celelalte două tokenuri lipsesc din
+     toate. Slug propus: /repertoriu.
+<link rel="canonical" href="https://ioana-balan.ro/______.html"> -->
+<link rel="preload" href="../assets/fonts/eb-garamond-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/eb-garamond-500-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../assets/tailwind.config.js"></script>
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  /* Accentul de zonă -------------------------------------------------------
+     CONSTANT pe toate zonele. Nu se schimbă per județ.
+
+     Motivul e aritmetic: paleta are trei valori de bordo, toate din aceeași
+     familie — accent-edge #C41236, accent #A01028, accent-deep #800020. Trei
+     valori vecine pe același ton nu produc patru accente perceptibil diferite
+     pentru Ardeal / Muntenia / Oltenia / Dobrogea; ar produce patru nuanțe pe
+     care nimeni nu le citește ca sistem, plus riscul ca o zonă să primească
+     #800020 (1,72:1 pe #131313, adică o bordură invizibilă). Varianta aleasă
+     e accent-edge, singura din familie care trece pragul de 3:1 pentru UI
+     non-text (3,93:1).
+
+     Variabila rămâne totuși variabilă, ca punct de extensie: dacă paleta se
+     extinde cu o familie de accente de zonă reale, se schimbă o linie pe
+     pagină, nu fiecare regulă.
+
+     Diferențierea vizuală între zone vine din altă parte: din compoziția de
+     layout (trei variante, A/B/C) și din imaginea de hero specifică zonei.
+     Acolo se investește, nu în culoare.
+
+     Rolurile INTERZISE, ca să nu se dilueze sistemul din CLAUDE.md §5:
+     butonul primar rămâne bg-accent (#A01028) + text alb, iar textul de body
+     rămâne on-surface / on-surface-variant. Accentul de zonă nu atinge niciunul. */
+  :root {
+    --accent-zona: var(--accent-edge);
+  }
+
+  /* Marcaje de placeholder -------------------------------------------------
+     Două marcaje, cu intenții diferite, deci cu tratamente diferite.
+
+     .ph — marcaj INLINE, neutru. Sunt 32 pe pagină, împrăștiate în text, în
+     carduri și în răspunsurile de FAQ. În bordo, pagina citea ca 32 de erori:
+     roșul e culoarea de eroare în orice interfață, iar densitatea îl
+     transformă din marcaj în alarmă. Aici marcajul trebuie să spună „lipsește
+     o dată”, nu „ceva e greșit”, deci merge pe familia neutră: contur
+     `outline` (#8e9192) la 40%, fond `surface-container` (#20201f), text
+     `outline`. Corpul mono rămâne — el face distincția față de textul redactat.
+
+     .ph-zone — SLOT DE MEDIA, în accentul de zonă. Sunt 4: trei sloturi de
+     fotografie de locație și unul de video. Acolo bordo-ul e justificat: sunt
+     suprafețe mari și puține, nu valori inline, iar conturul colorat le
+     citește ca goluri de umplut deliberate, nu ca greșeli. Patru accente pe
+     toată pagina se citesc ca sistem; treizeci și patru, nu.
+
+     Rămân în aceeași familie ca .price-tbc / .legal-tbc / .answer-tbc din
+     assets/styles.css (contur + corp distinct); la migrare, toate se unifică.
+     overflow-wrap: la 360px etichetele lungi trebuie să rupă, nu să iasă. */
+  .ph {
+    display: inline-block;
+    max-width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+    padding: 2px 7px;
+    color: #8e9192;
+    background-color: #20201f;
+    border: 1px dashed rgba(142, 145, 146, 0.4);
+    overflow-wrap: anywhere;
+  }
+  /* Slot de media: zonă de imagine sau de embed, nu valoare inline. */
+  .ph-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    padding: 24px 16px;
+    /* Fondul e tokenul `background` (#131313), mai închis decât cardul
+       (.glass-card = rgb(28,27,27)): slotul gol se citește ca gol, iar
+       valoarea rămâne un token, nu o nuanță nouă de bordo. */
+    background-color: #131313;
+    border: 1px dashed var(--accent-zona);
+  }
+
+  /* Separator de secțiune, în accentul de zonă ----------------------------
+     Reia banda de broderie din .motif-separator (assets/motifs.svg) și îi
+     adaugă o muchie în culoarea zonei. Un singur element, fără poziționare
+     absolută — exprimabil ca divider în Elementor. */
+  .zona-divider {
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(90deg, transparent, var(--accent-zona), transparent);
+    opacity: 0.55;
+  }
+  /* Rombul din mijlocul lui .motif-rule, recolorat pe zonă. */
+  .zona-gem {
+    border-color: var(--accent-zona);
+  }
+
+  /* Badge de zonă: contur în accentul zonei, fond de suprafață, text argintiu.
+     NU fond bordo — fondul plin e rezervat CTA-ului primar.
+     Se pune numai pe badge-uri cu VALOARE REALĂ (pe pagină: eyebrow-ul de zonă
+     din hero). Un badge care conține doar un marcaj de placeholder rămâne
+     marcaj simplu: altfel bordo-ul ajunge să însemne „gol", nu „accent". */
+  .zona-badge {
+    border: 1px solid var(--accent-zona);
+    background-color: #20201f;
+  }
+
+  /* Buton secundar de zonă: singura diferență față de `border-outline` din
+     paginile existente e culoarea conturului. Restul (padding, uppercase,
+     tracking, hover pe white/5) rămâne identic. */
+  .btn-secundar-zona {
+    border: 1px solid var(--accent-zona);
+  }
+</style>
+<!-- Service + provider MusicGroup, cu `serviceType` pe repertoriu. Fără
+     `areaServed`: pagina e tematică, nu geografică — acoperirea se declară pe
+     paginile de zonă și, integral, pe hub. Fără `aggregateRating`: scos
+     deliberat din tot proiectul (politica Google privind recenziile
+     auto-servite). Fără `offers`/`price`: pagina nu afișează prețuri, iar
+     grila de pe oferte.html e încă neconfirmată. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Repertoriu de muzică populară și de petrecere, pe zone etnografice",
+  "serviceType": "Repertoriu de folclor pe zone etnografice: Muntenia, Ardeal, Oltenia, Dobrogea, Moldova",
+  "description": "Repertoriu de muzică populară și de petrecere organizat pe cinci zone etnografice — Muntenia, Ardeal, Oltenia, Dobrogea, Moldova —, cu jocurile, măsurile și instrumentele fiecăreia și cu locul lor într-un program de eveniment.",
+  "provider": {
+    "@type": "MusicGroup",
+    "@id": "https://ioana-balan.ro/#artist",
+    "name": "Ioana Balan",
+    "url": "https://ioana-balan.ro/",
+    "genre": ["Muzică populară", "Muzică de petrecere", "Folclor"],
+    "foundingLocation": { "@type": "Place", "name": "București, România" },
+    "telephone": "+40722911485",
+    "email": "ioanabalanoficial@gmail.com",
+    "sameAs": [
+      "https://www.facebook.com/ioanabalanoficial",
+      "https://www.instagram.com/ioanabalanoficial/",
+      "https://www.tiktok.com/@ioanabalanmusic",
+      "https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ",
+      "https://ro.pinterest.com/ioanabalanoficial/"
+    ]
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": { "@type": "ContactPoint", "telephone": "+40722911485", "contactType": "rezervări" },
+    "serviceUrl": "https://wa.me/40722911485"
+  }
+}
+</script>
+</head>
+<body class="bg-background text-on-background overflow-x-hidden">
+<a class="skip-link" href="#continut">Sari la conținut</a>
+<!-- TopNavBar -->
+<!-- ABATERE DOCUMENTATĂ de la regula „header verbatim" — singura din pagină.
+     În header-ul canonic, „Oferte" purta starea de activ (text-primary +
+     border-b). Pe o pagină de zonă asta ar minți: nu ești pe Oferte. Starea
+     de activ a fost scoasă în AMBELE locuri (nav desktop și drawer mobil),
+     iar „Oferte" a primit exact clasele celorlalte linkuri. Nimic altceva nu
+     e modificat față de oferte.html.
+
+     Pe paginile de zonă nicio intrare de nav nu e activă, pentru că nav-ul NU
+     primește o intrare „Zone": auditul anterior a măsurat CTA-ul WhatsApp
+     ieșind din viewport cu 229px la 1024, motiv pentru care „Acasă" a fost
+     eliminat din nav ca să se recupereze spațiu. O a opta intrare rupe din nou
+     header-ul. Hub-ul de zone intră în FOOTER, banda 2.
+     Vezi CLAUDE.md §10 (header/footer canonice). -->
+<!-- TopNavBar (canonic) -->
+<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-outline-variant/20 h-16 md:h-20">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center gap-4 xl:gap-8 h-full">
+<a aria-label="Ioana Balan Acasă" class="shrink-0 flex items-center min-h-[44px]" href="../index.html">
+<img alt="Ioana Balan" class="h-8 md:h-12 w-auto" src="../assets/logo-alb-400w.png" srcset="../assets/logo-alb-400w.png 1x, ../assets/logo-alb-800w.png 2x" width="400" height="137" loading="eager" decoding="async">
+</a>
+<nav class="hidden lg:flex items-center gap-4 xl:gap-8">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../despre.html">Despre</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../galerie.html">Galerie</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../discografie.html">Discografie</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../oferte.html">Oferte</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../faq.html">FAQ</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../blog.html">Blog</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300 uppercase" href="../contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener" class="hidden lg:block whitespace-nowrap shrink-0 bg-accent text-white px-4 xl:px-6 py-2 font-label-md text-label-md uppercase tracking-widest hover:bg-accent-hover transition-all">Rezervă pe WhatsApp</a>
+<!-- Contact la 1 tap pe mobil: sub lg butonul WhatsApp e ascuns, iar telefonul
+     era doar în footer. Părinții/nașii sună, nu scriu pe WhatsApp. -->
+<a aria-label="Sună acum" class="lg:hidden flex items-center justify-center w-11 h-11 -mr-1 text-primary hover:text-white transition-colors" href="tel:+40722911485">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M775.38-140Q669-140 556-193.69q-113-53.7-210.81-151.7-97.8-98-151.5-210.8Q140-669 140-775.38q0-19.12 12.64-31.87T184.23-820h114.13q15.64 0 26.41 10.19 10.77 10.2 15.15 26.35l23.85 107.18q2.08 15.13-1 27.2-3.08 12.08-11.69 20.31l-94.39 91.92q26.77 45.93 56.54 85.08t64.39 73.54q37.38 38.38 79.53 70.08 42.16 31.69 90.24 57.61l90.76-93.38q10-11 22.39-14.81 12.39-3.81 25.84-1.81l97.08 21.39q16.15 3.61 26.35 16.26Q820-310.24 820-294.23v110q0 18.95-12.75 31.59T775.38-140ZM234-578l82.54-80.08q1.54-1.53 2.11-4.23.58-2.69.2-5L297-768.46q-.38-3.08-2.5-4.62-2.11-1.53-5.19-1.53h-98.54q-2.31 0-3.85 1.53-1.53 1.54-1.53 3.85.84 41.62 12.92 88.69Q210.39-633.46 234-578Zm356.31 349.15q41 20.16 89.77 31.39 48.77 11.23 89.15 12.46 2.31 0 3.85-1.54 1.53-1.54 1.53-3.85v-98.15q0-3.08-1.53-5.19-1.54-2.12-4.62-2.5l-90.69-18.69q-2.31-.39-4.04.19-1.73.58-3.65 2.11l-79.77 83.77ZM234-578Zm356.31 349.15Z"/></svg>
+</a>
+<button aria-label="Deschide Meniu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden text-primary p-2" id="menu-toggle">
+<svg aria-hidden="true" class="text-3xl" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Side Drawer (canonic) -->
+<div class="fixed inset-0 z-[60] bg-background translate-x-full transition-transform duration-300 lg:hidden" id="mobile-menu" inert>
+<div class="flex flex-col h-full p-8">
+<div class="flex justify-between items-center mb-12">
+<img alt="Ioana Balan" class="h-8 w-auto" src="../assets/logo-alb-400w.png" srcset="../assets/logo-alb-400w.png 1x, ../assets/logo-alb-800w.png 2x" width="400" height="137" loading="eager" decoding="async">
+<button aria-label="Închide Meniu" class="text-primary" id="menu-close">
+<svg aria-hidden="true" class="text-4xl" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+</button>
+</div>
+<nav class="flex flex-col gap-6 text-center">
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../index.html">Acasă</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../despre.html">Despre</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../galerie.html">Galerie</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../discografie.html">Discografie</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../oferte.html">Oferte</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../faq.html">Întrebări frecvente</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../blog.html">Blog</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant uppercase" href="../contact.html">Contact</a>
+<a class="text-headline-md font-headline-md text-white uppercase bg-accent py-4 mt-4" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener">Rezervă pe WhatsApp</a>
+</nav>
+</div>
+</div>
+<main id="continut" tabindex="-1" class="pt-16 md:pt-20">
+
+<!-- Legenda de placeholder: primul lucru de sub header, ca reviewerul să știe
+     din start ce citește. Discretă (suprafață joasă, text secundar), dar cu
+     muchia de zonă la stânga ca să nu se confunde cu o notă de conținut. -->
+<div class="bg-surface-container-lowest border-b border-outline-variant/20">
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-3 flex items-start gap-3">
+<svg aria-hidden="true" class="shrink-0 mt-0.5 text-on-surface-variant" width="18" height="18" viewBox="0 -960 960 960" fill="currentColor"><path d="M453.85-280h52.3v-240h-52.3v240ZM480-588.46q11.85 0 19.92-7.89 8.08-7.88 8.08-19.73 0-11.84-8.08-20.11-8.07-8.27-19.92-8.27-11.85 0-19.92 8.27-8.08 8.27-8.08 20.11 0 11.85 8.08 19.73 8.07 7.89 19.92 7.89Zm.07 488.46q-78.84 0-148.28-29.92t-122.68-83.21q-53.24-53.29-83.17-122.66Q96-405.1 96-484.05q0-78.84 29.92-148.28t83.21-122.68q53.29-53.24 122.66-83.17Q561.1-868 480.05-868q78.84 0 148.28 29.92t122.68 83.21q53.24 53.29 83.17 122.66Q864-562.9 864-483.95q0 78.84-29.92 148.28t-83.21 122.68q-53.29 53.24-122.66 83.17Q558.9-100 480.07-100Zm-.07-52.31q138.46 0 235.08-96.61Q811.69-345.54 811.69-484q0-138.46-96.61-235.08Q618.46-815.69 480-815.69q-138.46 0-235.08 96.61Q148.31-622.46 148.31-484q0 138.46 96.61 235.08Q341.54-152.31 480-152.31ZM480-484Z"/></svg>
+<p class="font-body-md text-[13px] text-on-surface-variant">Zonele marcate se completează cu date reale de la client.</p>
+</div>
+</div>
+
+<!-- ======================================================================
+     1. HERO — H1 + intro + CTA
+     Fără rând de preț: pagina nu e de zonă și nu are un interval propriu,
+     iar repertoriul nu se vinde separat de pachete. Aceeași structură ca
+     hero-ul hub-ului. Fotografia e PROVIZORIE — `ioana-balan-live-show.jpg`
+     e un placeholder Stitch de 512px (CLAUDE.md §10). Cererea rămâne ca notă
+     sub blocul de CTA.
+     ====================================================================== -->
+<section class="relative overflow-hidden border-b border-outline-variant/10" aria-labelledby="hero-titlu">
+<div class="absolute inset-0 z-0">
+<img alt="Ioana Balan pe scenă, alături de formație" class="w-full h-full object-cover opacity-30 md:opacity-40" src="../assets/img/ioana-balan-live-show.jpg" loading="eager" decoding="async">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30"></div>
+</div>
+<div class="relative z-10 max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20">
+<div class="max-w-3xl">
+<p class="font-label-md text-label-md uppercase tracking-[0.2em] mb-4">
+<span class="zona-badge inline-block px-3 py-1.5 text-secondary">Repertoriu</span>
+</p>
+<h1 class="font-display-lg text-2xl sm:text-3xl md:text-display-lg leading-tight mb-5" id="hero-titlu">Repertoriu de folclor, pe cinci zone etnografice</h1>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-8 max-w-2xl">Paginile de zonă spun, pe scurt, ce se cere într-un județ. Aici e explicația întreagă: ce se joacă în Muntenia, în Ardeal, în Oltenia, în Dobrogea și în Moldova, pe ce măsuri și cu ce instrumente, cum se așază jocurile pe parcursul serii și ce loc au lângă folclor muzica de petrecere, cea ușoară și cea balcanică.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="inline-block text-center whitespace-nowrap bg-accent text-white px-8 md:px-10 py-4 uppercase font-label-md text-label-md tracking-widest hover:bg-accent-hover transition-colors w-full sm:w-auto" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20discut%C4%83m%20repertoriul%20pentru%20evenimentul%20meu." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+<a class="btn-secundar-zona inline-block text-center whitespace-nowrap text-on-surface bg-transparent px-8 md:px-10 py-4 uppercase font-label-md text-label-md tracking-widest hover:bg-white/5 transition-colors w-full sm:w-auto" href="tel:+40722911485">+40 722 911 485</a>
+</div>
+<!-- PARITATE cu hub-ul și cu cele trei layouturi de zonă: nota de imagine
+     stă ultima în bloc, după butoane, înaintea motivului de închidere. -->
+<p class="mt-6"><span class="ph">Imagine provizorie — se înlocuiește cu fotografie de scenă, de preferat în costum popular (peisaj, min. 1440&nbsp;px lățime, subiect în treimea centrală)</span></p>
+<div class="motif-separator w-24 md:w-36 mt-10"></div>
+</div>
+</div>
+</section>
+
+<!-- ======================================================================
+     2. CUM SE CONSTRUIEȘTE UN PROGRAM — conținut real
+     Ideea apare pe toate paginile de zonă ca afirmație de o frază („programul
+     se construiește pe două-trei registre, stabilite înainte"). Aici se
+     explică o singură dată, cu mecanismul: ce e un strat, cine e publicul
+     fiecăruia, de ce proporția se decide înainte și ce se întâmplă când
+     ringul se golește. Formulare verificată față de toate cele 12 zone.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="program-titlu">
+<div class="max-w-3xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Program</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-6" id="program-titlu">Cum se construiește un program</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Un program de seară nu e o listă lungă de piese cântate la rând, ci o succesiune de straturi, fiecare cu publicul lui. Primul strat e cel regional: jocurile locului din care vin gazdele, recunoscute de părinți, de nași și de rudele mai în vârstă — oamenii care au învățat pașii acasă, la horele din sat și la nunțile din familie. Al doilea e stratul comun, făcut din muzică de petrecere și din cântec ușor românesc, pe care îl poate urma oricine, indiferent de unde vine. Când mirii sunt din regiuni diferite, se adaugă un al treilea strat, mai scurt, pentru jocurile celeilalte familii. Peste trei, fiecare strat ajunge prea subțire ca să mai ridice pe cineva de la masă.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mt-6">Proporția dintre straturi și ordinea lor se hotărăsc înaintea evenimentului, pornind de la trei date: de unde sunt cele două familii, ce vârste predomină în sală și cum e împărțită seara între intrare, masa principală și tort. Motivul ține de meserie, nu de protocol. Fiecare zonă vine cu alte măsuri, alte tempouri și alte aranjamente, iar trecerea de la o horă în doi timpi la o învârtită sau la un joc balcanic se pregătește ca aranjament, nu se inventează pe scenă. Dacă ringul se golește câteva minute, golul se acoperă cu o altă piesă din stratul care rulează, nu cu o schimbare de direcție făcută din reflex.</p>
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     3. ZONELE ETNOGRAFICE — cinci blocuri, conținut real
+     Afirmațiile sunt despre MUZICA regiunilor (fapte de folclor, de validat
+     cu artista), nu despre prestațiile artistei: nicăieri nu se spune că a
+     cântat într-o zonă anume.
+     Fiecare bloc: H3, paragrafe, marcajul de piese nominalizate și linkurile
+     către paginile de zonă. Titlurile de piese NU se inventează — un titlu
+     greșit e o afirmație verificabilă despre repertoriul ei.
+     Moldova e singurul bloc fără link: nu are pagină de zonă.
+     Blocurile sunt <article> simple, stivuite în coloana de text, separate
+     prin .motif-rule — exprimabil ca listă de containere în Elementor.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="zone-titlu">
+<div class="max-w-3xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Zone etnografice</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-6" id="zone-titlu">Cinci zone, cinci feluri de a juca</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Blocurile de mai jos descriu muzica fiecărei regiuni, nu evenimente anume. Paginile de zonă leagă aceste repertorii de județele în care se cer; Moldova e singura regiune fără pagină proprie.</p>
+<p class="mt-4"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zone.html">Toate zonele deservite <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+
+<!-- Muntenia — extinde ce e pe Giurgiu (horă, sârbă, brâu, doi timpi) cu
+     diferența dintre forme și cu opoziția câmpie / arc subcarpatic. -->
+<article class="mt-12 md:mt-16" aria-labelledby="muntenia-titlu">
+<div class="motif-rule max-w-[180px] w-full mb-8"><span class="motif-rule__gem zona-gem"></span></div>
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant block mb-3">Nouă pagini de zonă</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface leading-snug mb-4" id="muntenia-titlu">Muntenia: horă, sârbă, brâu</h3>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Jocurile muntenești sunt jocuri de grup, în cerc sau în șir, cu mâinile prinse ori cu brațele pe umerii vecinilor. Măsura e binară, de doi pe patru, cu pasul așezat pe fiecare bătaie, iar figurile sunt puține și revin des, așa că un invitat care n-a mai jucat niciodată se uită la omul de lângă el și e în ritm după câteva măsuri. Cele trei forme de bază se deosebesc prin tempo și prin cât cer de la picioare. Hora are tempoul cel mai așezat și cercul cel mai larg. Sârba e mai iute, cu pași mărunți și deplasări în lateral. Brâul e jocul cu figuri: bătăi din talpă și schimbări de direcție pe care le comandă cel din capătul șirului, adesea prin strigături.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mt-6">Muntenia nu sună la fel peste tot. La câmpie — Bărăganul, Vlașca, lunca Dunării — cântecul de joc domină, cu tempouri ridicate și pas apăsat, iar cântecul de ascultare ocupă puțin loc. Pe arcul de dealuri de sub munte, din nordul Buzăului până în Muscel, raportul se inversează: rămân mai multe melodii lente, cu frază lungă, potrivite pentru orele de la masă, iar printre jocuri apar brâuri și hore proprii fiecărei văi. Marginile regiunii împrumută de la vecini — Buzăul dinspre Moldova, vestul Argeșului și al Teleormanului dinspre Oltenia. Pentru o sală din sud, prima informație utilă nu e deci județul locației, ci satul din care vin gazdele.</p>
+<p class="mt-6"><span class="ph">[PIESE MUNTENIA — listă de confirmat cu artista]</span></p>
+<div class="mt-6 flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-1">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant shrink-0">Pagini de zonă</span>
+<ul class="flex flex-wrap gap-x-5">
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-ilfov.html">Ilfov</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-giurgiu.html">Giurgiu</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-prahova.html">Prahova</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-dambovita.html">Dâmbovița</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-teleorman.html">Teleorman</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-calarasi.html">Călărași</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-ialomita.html">Ialomița</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-buzau.html">Buzău</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-arges.html">Argeș</a></li>
+</ul>
+</div>
+</article>
+
+<!-- Ardeal — PRIMUL PARAGRAF E RECUPERAT INTEGRAL, verbatim, din comentariul
+     MUTAT LA /repertoriu de pe zona-brasov.html (scos de acolo tocmai ca să
+     ajungă aici). Nu se rescrie: e textul deja validat intern.
+     Paragrafele 2 și 3 sunt noi: jocul de doi, bărbuncul, taraful de coarde.
+     Pagina de Brașov are o frază despre vioară + contră; aici e explicația
+     instrumentului, formulată separat. -->
+<article class="mt-12 md:mt-16" aria-labelledby="ardeal-titlu">
+<div class="motif-rule max-w-[180px] w-full mb-8"><span class="motif-rule__gem zona-gem"></span></div>
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant block mb-3">O pagină de zonă</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface leading-snug mb-4" id="ardeal-titlu">Ardeal: învârtită, joc de doi, bărbunc</h3>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">La o nuntă din zona Brașovului, ringul se umple pe învârtită și pe joc de doi, nu pe horă. Învârtita ardelenească se joacă în pereche, pe o măsură care nu se împarte egal — se numără pe zece timpi în multe variante din Ardeal — și cere din partea formației un tempo ținut fix de la primul până la ultimul rând melodic. Pașii se învață în familie, nu pe ring: dacă tempoul fluctuează, perechile se opresc. Hora vine mai târziu în seară, ca numitor comun pentru invitații veniți din alte zone ale țării.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mt-6">Învârtita nu stă singură. Jocul de doi e tot un joc de pereche, dar cu figuri mai libere: băiatul conduce, fata se rotește pe sub braț, iar fiecare pereche își alege momentul figurilor. Bărbuncul vine din altă tradiție, cea a recrutărilor militare din secolul al XVIII-lea, și a rămas jocul bărbaților — jucat individual sau în grup, cu palme pocnite pe carâmbul cizmei și cu strigături. E mai degrabă un moment de etalare, urmărit de sală, decât un joc la care intră toată lumea.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mt-6">Culoarea sonoră a Ardealului vine din taraful de coarde. Vioara, căreia în nordul regiunii i se spune ceteră, duce melodia. Contra e o violă cu trei coarde și cu călușul drept, pe care arcușul trage acorduri pe toate coardele odată, pe timpii slabi, iar contrabasul marchează timpii tari. Pulsul acesta decalat e semnătura jocului ardelenesc. Într-o formație de scenă fără contră, același contratimp trece de regulă pe clapă sau pe acordeon; contează să rămână accentul, nu instrumentul care îl produce.</p>
+<p class="mt-6"><span class="ph">[PIESE ARDEAL — listă de confirmat cu artista]</span></p>
+<div class="mt-6 flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-1">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant shrink-0">Pagină de zonă</span>
+<ul class="flex flex-wrap gap-x-5">
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-brasov.html">Brașov</a></li>
+</ul>
+</div>
+</article>
+
+<!-- Oltenia — tempo, hore de mână, caracter melodic, țambal; călușul ca
+     tradiție, fără să se afirme că echipa îl aduce (vezi FAQ-ul de pe Dolj). -->
+<article class="mt-12 md:mt-16" aria-labelledby="oltenia-titlu">
+<div class="motif-rule max-w-[180px] w-full mb-8"><span class="motif-rule__gem zona-gem"></span></div>
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant block mb-3">O pagină de zonă</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface leading-snug mb-4" id="oltenia-titlu">Oltenia: hore iuți și căluș</h3>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Dintre regiunile de câmpie, Oltenia are pasul cel mai rapid. Horele se joacă prinși de mână, în cerc strâns, și pornesc de la tempouri pe care în Muntenia le atinge abia sârba; sârbele și brâulețele oltenești sunt mărunte și bătute, cu figuri de virtuozitate pentru bărbați — sărituri, pinteni, lovituri din călcâi. Melodia de joc e densă, cu multe note de trecere, iar lăutarii din zonă au format o școală recunoscută în toată țara, în care instrumentistul variază melodia la fiecare repetare în loc s-o cânte identic. Țambalul e aici acasă: taraful oltenesc clasic se sprijină pe el atât pentru armonie, cât și pentru ritm.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mt-6">Călușul e cea mai cunoscută tradiție a regiunii. E un ritual de Rusalii, jucat de o ceată de bărbați condusă de un vătaf, cu bețe, cu clopoței prinși la picioare și cu pălării împodobite cu panglici, iar jocul lui are figuri de mare dificultate tehnică. Ritualul a fost înscris de UNESCO pe lista patrimoniului cultural imaterial al umanității. Muzica de căluș trăiește și separat de ritual, ca repertoriu instrumental de spectacol; jocul propriu-zis, în schimb, rămâne al unei cete pregătite special pentru el.</p>
+<p class="mt-6"><span class="ph">[PIESE OLTENIA — listă de confirmat cu artista]</span></p>
+<div class="mt-6 flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-1">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant shrink-0">Pagină de zonă</span>
+<ul class="flex flex-wrap gap-x-5">
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-dolj.html">Dolj</a></li>
+</ul>
+</div>
+</article>
+
+<!-- Dobrogea — comunitățile ca straturi de repertoriu (geamparale,
+     aromâni, grecesc) și mecanismul măsurilor asimetrice. Constanța are
+     afirmația („șapte sau nouă timpi"); aici e gruparea timpilor. -->
+<article class="mt-12 md:mt-16" aria-labelledby="dobrogea-titlu">
+<div class="motif-rule max-w-[180px] w-full mb-8"><span class="motif-rule__gem zona-gem"></span></div>
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant block mb-3">O pagină de zonă</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface leading-snug mb-4" id="dobrogea-titlu">Dobrogea: horă, sârbă și ritmuri balcanice</h3>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">În Dobrogea, repertoriul românesc stă alături de repertoriile altor comunități, nu doar de variante din alte regiuni. Fondul de joc rămâne cel de câmpie, hora și sârba, dar peste el se așază straturi pe care nu le are nicio altă zonă din pagină. Geamparaua, joc cu nume venit din turcă și adoptat de satele românești, se joacă iute, pe un ritm șchiopătat. Muzica aromânilor, cărora localnicii le spun adesea machedoni, aduce jocuri în șir și cântec de grup pe mai multe voci. Repertoriul grecesc a venit odată cu comunitățile din porturi și a rămas în programele de petrecere.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mt-6">Ce leagă aceste straturi e ritmul asimetric. Într-o măsură de șapte sau de nouă, bătăile nu sunt egale: se grupează în lungi și scurte, de pildă doi plus doi plus trei, ori doi plus doi plus doi plus trei. Pentru cine joacă, asta înseamnă un pas care cade mereu în același loc șchiopătat; pentru cine cântă, înseamnă că grupările nu au voie să se lungească sau să se scurteze de la o frază la alta, pentru că dansatorii își pierd imediat locul în șir. E aceeași exigență ca la învârtită, atinsă pe altă cale: acolo timpii inegali stau în pasul perechii, aici în interiorul măsurii.</p>
+<p class="mt-6"><span class="ph">[PIESE DOBROGEA — listă de confirmat cu artista]</span></p>
+<div class="mt-6 flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-1">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant shrink-0">Pagină de zonă</span>
+<ul class="flex flex-wrap gap-x-5">
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="zona-constanta.html">Constanța</a></li>
+</ul>
+</div>
+</article>
+
+<!-- Moldova — singura zonă fără pagină, scrisă pe aceeași greutate ca
+     celelalte. Apare pe Buzău prin vecinătatea cu Vrancea, pe Ialomița prin DN2
+     (care trece prin Buzău; Ialomița nu se învecinează cu Vrancea) și pe
+     Brașov / Ilfov prin familiile mutate. Fără link. -->
+<article class="mt-12 md:mt-16" aria-labelledby="moldova-titlu">
+<div class="motif-rule max-w-[180px] w-full mb-8"><span class="motif-rule__gem zona-gem"></span></div>
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant block mb-3">Fără pagină de zonă</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface leading-snug mb-4" id="moldova-titlu">Moldova: hore moldovenești și bătute</h3>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Moldova nu are pagină de zonă, dar muzica ei ajunge des în sud. În Buzău o aduce vecinătatea cu Vrancea, iar în Ialomița drumul: DN2 trece prin Buzău spre Moldova. La Brașov și în jurul Bucureștiului o aduc familiile care s-au mutat acolo din Moldova. Repertoriul se recunoaște repede. Hora moldovenească se joacă în cerc, prinși de mână, pe un tempo potrivit, cu o melodie mai cântată și mai legată decât a jocurilor de câmpie. Bătuta e jocul de energie al regiunii: în cerc sau în șir, cu pași apăsați în podea, cu bătăi din picior în care tot șirul lovește deodată și cu strigături care țin ritmul, nu doar voia bună.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mt-6">Melodica moldovenească are frazare largă și o ornamentație mai reținută decât cea oltenească, iar în cântecul de ascultare se simte apropierea de doină. Instrumental, regiunea are două fețe. În centru și în sud, jocul îl duce taraful, cu vioară, cobză sau țambal și acordeon; în multe sate din nord, fanfarele de alămuri au intrat în repertoriul de petrecere și dau horelor un sunet de suflători pe care nu îl are niciuna dintre celelalte patru zone. Într-un program din sud, blocul moldovenesc rămâne compact — câteva hore și o bătută, destul cât familia venită din Moldova să-și găsească jocurile.</p>
+<p class="mt-6"><span class="ph">[PIESE MOLDOVA — listă de confirmat cu artista]</span></p>
+</article>
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     4. MOMENTELE EVENIMENTULUI — conținut real
+     Structura unei nunți e cunoscută, nu e afirmație de experiență. Zero
+     marcaje: nicio valoare operațională nu e strict necesară aici (orele
+     exacte depind de sală, nu de formație). Fără marcaje de ofertă — trimite
+     la oferte.html pentru configurații și prețuri.
+     Listă ordonată de containere flex (număr + text), fără grilă.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="momente-titlu">
+<div class="max-w-3xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Desfășurare</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-6" id="momente-titlu">Ce se cântă în fiecare moment al serii</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-10">Ordinea urmează o nuntă obișnuită, de la sosirea invitaților până după miezul nopții. Orele exacte se potrivesc cu programul sălii, al fotografului și al bucătăriei; succesiunea rămâne aceeași.</p>
+<ol class="flex flex-col gap-8 md:gap-10">
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">01</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Primirea invitaților</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Cât sosesc invitații și se servesc aperitivele, muzica stă în fundal: instrumental, cântec ușor, piese lente, la un volum la care se poate vorbi fără să ridici vocea. E un registru de cafenea, nu de petrecere. Din folclor intră doar partea de ascultare — o doină, o melodie de masă —, iar ringul rămâne intenționat liber, ca oamenii să se salute și să se așeze.</p>
+</div>
+</li>
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">02</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Momentul mirilor</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Intrarea mirilor și primul lor dans au melodiile alese de ei, cântate live în aranjamentul convenit sau puse de DJ, dacă piesa există doar ca înregistrare. Imediat după dans vine prima horă a serii, cu mirii în cerc. E punctul în care protocolul se transformă în petrecere, iar sala primește semnalul că ringul s-a deschis.</p>
+</div>
+</li>
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">03</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Blocul regional</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Primul set lung de joc aparține zonei gazdelor. Se pune devreme, cât invitații sunt odihniți și cei mai în vârstă sunt încă în sală, pentru că ei sunt publicul jocurilor care cer pași învățați: învârtita, bătuta, brâul cu figuri, sârbele oltenești. Când familiile vin din regiuni diferite, blocul se împarte în două seturi consecutive, legate printr-o horă pe care o joacă ambele părți.</p>
+</div>
+</li>
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">04</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Hora mare</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Momentul în care intră în joc toată sala, de la bunici la copii, cu mirii și nașii în centru. Muzical e un lanț de hore și sârbe legate fără pauză, cu tempoul urcat treptat de la o piesă la alta, pe jocuri pe care le știe oricine a mai fost la o nuntă românească. Aici zona nu mai contează: e singurul moment al serii construit pe ce au în comun toate regiunile.</p>
+</div>
+</li>
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">05</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Tortul</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Tortul oprește jocul. Muzica coboară, piesa aleasă pentru intrarea lui mută atenția sălii de pe ring pe miri, iar după tăiere programul repornește cu un set scurt și energic, gândit să-i readucă pe invitați în picioare după pauza de la masă. Efectele de scenă care pot însoți momentul sunt descrise pe pagina <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="formatia.html">formației</a>.</p>
+</div>
+</li>
+<li class="flex gap-5 md:gap-8">
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface-variant leading-none shrink-0 w-10 md:w-12" aria-hidden="true">06</span>
+<div>
+<h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mb-3">Petrecerea târzie</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">După miezul nopții în sală rămân cei care au venit să danseze. Programul trece pe muzică de petrecere și pe cântec ușor, alternate cu setul DJ, cu întoarceri scurte la sârbă de câte ori le cere ringul. Tot aici își găsește locul registrul balcanic, dacă e prevăzut: ritmurile lui iuți au nevoie de un ring deja încălzit.</p>
+</div>
+</li>
+</ol>
+<p class="font-body-md text-body-md text-on-surface-variant mt-10">Componența pentru nuntă și pentru botez, cu prețurile fiecărei configurații, e pe pagina de oferte.</p>
+<p class="mt-4"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="../oferte.html">Vezi pachetele și prețurile <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+<!-- Rebranșare către paginile de serviciu: ordinea de mai sus e a unei nunți;
+     celelalte tipuri de eveniment au momentele lor, pe pagini proprii.
+     Același rând etichetă + listă ca „Pagini de zonă” din blocurile regionale. -->
+<div class="mt-8 flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-1">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant shrink-0">Momentele, pe tip de eveniment</span>
+<ul class="flex flex-wrap gap-x-5">
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="nunta.html">Nuntă</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="botez.html">Botez</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="eveniment-privat.html">Eveniment privat</a></li>
+<li><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center min-h-[44px]" href="corporate.html">Corporate</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     5. DINCOLO DE FOLCLOR — un paragraf + două trimiteri
+     Petrecere, manele, ușoară românească, internațional, balcanic: rolul lor
+     și de ce nu concurează cu blocul folcloric. Manelele apar ca parte a
+     stratului de petrecere, la cererea gazdelor — registru la cerere, nu
+     declarat; aplicarea pe acest strat stă pe folclor-si-manele.html, singura
+     pagină care o detaliază, linkuită de aici.
+     Fără divider după secțiune: CTA-ul final are border-t propriu.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="dincolo-titlu">
+<div class="max-w-3xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Petrecere</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-6" id="dincolo-titlu">Dincolo de folclor</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Folclorul nu ține singur o seară întreagă și nici nu are nevoie să o facă. Muzica de petrecere — cântece de voie bună și hore în aranjamente actuale, pe care le fredonează toată sala — leagă blocul regional de restul programului. În același strat intră și manelele, dacă gazdele le cer; nu se pun din oficiu, iar momentul lor se hotărăște la organizare, ca pentru orice altă parte a serii. Muzica ușoară românească aduce piesele pe care le știu deopotrivă părinții și mirii, iar repertoriul internațional și setul DJ îi acoperă pe invitații care n-au crescut cu hora. Registrul balcanic, cu jocuri grecești, sârbești și machedonești, e opțional și are un interpret dedicat. Niciunul nu concurează cu folclorul, pentru că nu se adresează aceluiași public și nu ocupă aceleași ore: jocurile regionale se pun devreme, pentru cei care știu pașii, iar restul se întinde spre final, pentru cei care vor doar să danseze.</p>
+<p class="mt-8"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="folclor-si-manele.html">Cum se construiește blocul de petrecere <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+<p class="mt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="formatia.html">Vezi componența formației <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</div>
+</section>
+
+
+<!-- 6. CTA final: WhatsApp primar (fond bordo), contact secundar (contur de zonă).
+     Un singur primar în secțiune, ca în restul site-ului.
+     „Întreabă", nu „Rezervă": acțiunea de pe pagina asta e o discuție despre
+     program, ca pe hub — nu verificarea unei date într-o zonă anume.
+     `whitespace-nowrap` + px-10, ca pe paginile de zonă. -->
+<section class="py-16 md:py-24 bg-surface-container-low border-t border-outline-variant/10 text-center">
+<div class="max-w-2xl mx-auto px-6 md:px-margin-desktop">
+<h2 class="font-display-lg text-2xl sm:text-3xl md:text-display-lg mb-5 leading-tight">De unde sunt cele două familii?</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-10">Spuneți-ne data evenimentului și regiunile din care vin mirii. Pornind de la ele propunem structura programului și verificăm dacă data e liberă, cu răspuns în aceeași zi.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a class="inline-block whitespace-nowrap bg-accent text-white px-8 md:px-10 py-4 md:py-5 uppercase font-label-md text-label-md tracking-widest hover:bg-accent-hover transition-colors w-full sm:w-auto" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20discut%C4%83m%20repertoriul%20pentru%20evenimentul%20meu.%20Familiile%20sunt%20din%20zonele%3A" target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+<a class="btn-secundar-zona inline-block whitespace-nowrap text-center text-on-surface bg-transparent px-8 md:px-10 py-4 md:py-5 uppercase font-label-md text-label-md tracking-widest hover:bg-white/5 transition-colors w-full sm:w-auto" href="../contact.html">Formular de contact</a>
+</div>
+</div>
+</section>
+
+</main>
+<!-- Footer -->
+<!-- Footer (canonic) -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 flex flex-col gap-8">
+
+<!-- Banda 1: brand + social (iconuri, un singur rând și pe mobil) -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
+<div class="flex flex-col gap-3 max-w-md">
+<a aria-label="Ioana Balan Acasă" class="inline-flex items-center min-h-[44px] self-start" href="../index.html"><img alt="Ioana Balan" class="h-8 md:h-10 w-auto" src="../assets/logo-alb-400w.png" srcset="../assets/logo-alb-400w.png 1x, ../assets/logo-alb-800w.png 2x" width="400" height="137" loading="lazy" decoding="async"></a>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80">Muzică pentru evenimente care rămân în suflet. Calitate corporate cu pasiune artistică și profesionalism garantat.</p>
+</div>
+<ul class="flex flex-row items-center gap-1 shrink-0">
+<li>
+<a aria-label="Facebook" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.facebook.com/ioanabalanoficial" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="Instagram" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/ioanabalanoficial/" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="YouTube" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.youtube.com/channel/UCNTWODu5imMryMhkbbw6vEQ" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+</a>
+</li>
+<li>
+<a aria-label="TikTok" class="flex items-center justify-center w-11 h-11 text-on-surface-variant hover:text-primary transition-colors" href="https://www.tiktok.com/@ioanabalanmusic" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+</a>
+</li>
+</ul>
+</div>
+
+<!-- Banda 2: contact (stânga) + informații legale (dreapta), fără titluri de coloană -->
+<div class="flex flex-col gap-4">
+<div class="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-8">
+<div class="flex flex-col">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="mailto:ioanabalanoficial@gmail.com">ioanabalanoficial@gmail.com</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="tel:+40722911485">+40 722 911 485</a>
+</div>
+<div class="flex flex-row items-center gap-2 sm:justify-end">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="https://anpc.ro" target="_blank" rel="noopener noreferrer">ANPC</a>
+<span aria-hidden="true" class="font-body-md text-on-surface-variant opacity-50">·</span>
+<!-- TODO client/juridic: platforma europeană SOL/ODR (ec.europa.eu/consumers/odr)
+     a fost desființată prin Regulamentul (UE) 2024/3228. Linkul echivalent în
+     vigoare e SAL-ul ANPC; de confirmat cu juristul înainte de lansare. -->
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" aria-label="SAL — Soluționarea alternativă a litigiilor">SAL</a>
+</div>
+</div>
+<!-- Documente de subsol: linkuri reale, în afara navigației din header.
+     Aceeași stilizare discretă ca înainte; min-h-[44px] pentru țintă de tap,
+     ca la rândul ANPC/SAL de deasupra. -->
+<p class="font-body-md text-[13px] text-secondary flex flex-row flex-wrap items-center gap-x-2">
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="../termeni-si-conditii.html">Termeni și condiții</a>
+<span aria-hidden="true" class="opacity-50">·</span>
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="../politica-cookie.html">Politica de cookie-uri</a>
+<span aria-hidden="true" class="opacity-50">·</span>
+<!-- Hub-ul de zone: intră în footer, nu în nav-ul desktop (vezi comentariul
+     de deasupra header-ului — a opta intrare de nav rupe header-ul la 1024).
+     Pagina NU EXISTĂ încă; href="#" până e creată, slug propus: /zone.
+     Când apare, linkul se adaugă identic în footerul canonic al tuturor
+     paginilor, nu doar aici. -->
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="#">Zone deservite</a>
+</p>
+</div>
+
+<!-- TODO client — rând de date de firmă, OBLIGATORIU înainte de lansare.
+     Concurența afișează CUI + Reg. Com.; pentru un site care încasează avans,
+     legitimitatea juridică e argument de conversie.
+     Scos din DOM doar cât ține demo-ul: un placeholder vizibil citește ca
+     lucru neterminat, nu ca dependență de client. Se reactivează completând
+     cele două valori și ștergând comentariul din jurul rândului de mai jos.
+     ATENȚIE: datele Grand Music Events (clientul), NU Green Pheonix Concept
+     (furnizorul site-ului).
+<p class="font-body-md text-[12px] text-secondary opacity-80">Grand Music Events · CUI ... · Reg. Com. ...</p>
+-->
+
+<!-- Banda 3: juridic. Benzile se separă prin spațiere, nu prin linie.
+     Pe desktop cele trei elemente stau pe un rând, separate prin punct median
+     (separatorul deja folosit în proiect); pe mobil se stivuiesc, centrate.
+     „Pheonix" este ortografia juridică înregistrată a firmei — nu se corectează. -->
+<div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-center gap-x-2 gap-y-1 text-center">
+<p class="font-body-md text-[12px] text-secondary">© 2026 Ioana Balan. Toate drepturile rezervate.</p>
+<span aria-hidden="true" class="hidden sm:inline font-body-md text-[12px] text-secondary opacity-50">·</span>
+<p class="font-body-md text-[12px] text-secondary">Proiect dezvoltat de <a class="hover:text-primary transition-colors" href="https://grand-music.ro" target="_blank" rel="noopener">Grand Music Events</a></p>
+<span aria-hidden="true" class="hidden sm:inline font-body-md text-[12px] text-secondary opacity-50">·</span>
+<p class="font-body-md text-[12px] text-secondary">Site realizat de Green Pheonix Concept</p>
+</div>
+
+</div>
+</footer>
+<script>
+    // Mobile Menu Logic (canonic)
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    // Meniul închis e doar translatat în afara ecranului, deci ar rămâne în
+    // tab order. `inert` îl scoate din tab order ȘI din arborele de
+    // accesibilitate cât timp e ascuns.
+    const setMenu = (open) => {
+        mobileMenu.classList.toggle('translate-x-full', !open);
+        document.body.classList.toggle('overflow-hidden', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        mobileMenu.inert = !open;
+    };
+
+    const closeMenu = ({ refocus = false } = {}) => {
+        setMenu(false);
+        if (refocus) menuToggle.focus();
+    };
+
+    menuToggle.addEventListener('click', () => {
+        setMenu(mobileMenu.classList.contains('translate-x-full'));
+    });
+    menuClose.addEventListener('click', () => closeMenu({ refocus: true }));
+
+    // Escape închide meniul și readuce focusul pe butonul care l-a deschis.
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+            closeMenu({ refocus: true });
+        }
+    });
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => closeMenu());
+    });
+
+    </script>
+<script>
+    // aria-expanded nu se actualizează singur pe <summary>; îl sincronizăm din
+    // evenimentul `toggle`, care se declanșează și la tastatură (Enter/Space).
+    document.querySelectorAll('.faq-item details').forEach(d => {
+        d.addEventListener('toggle', () => {
+            d.querySelector('summary').setAttribute('aria-expanded', String(d.open));
+        });
+    });
+    </script>
+<!-- WhatsApp Widget (canonic) -->
+<a aria-label="Contact Ioana Balan pe WhatsApp" class="whatsapp-float group" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20mai%20multe%20informa%C8%9Bii." target="_blank" rel="noopener">
+<svg class="shrink-0 md:w-8 md:h-8" fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.607zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+</svg>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs group-focus-visible:max-w-xs group-hover:ml-2 group-focus-visible:ml-2 transition-all duration-300 font-label-md text-[12px] md:text-label-md uppercase whitespace-nowrap hidden sm:inline">Salut! Scrie-mi pe WhatsApp</span>
+</a>
+</body></html>
