@@ -28,12 +28,11 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="assets/tailwind.config.js"></script>
 <link rel="stylesheet" href="assets/styles.css">
-<!-- Nunta declară prețul: cele patru cifre sunt confirmate ferme de client
-     (2026-09-17), câte o ofertă pe zi, cu `areaServed` pe București și Ilfov,
-     unde e valabilă grila. Botezul NU declară `price`: cifrele lui sunt încă
-     neconfirmate (vezi .price-tbc), iar un preț provizoriu publicat în date
-     structurate ajunge în rezultatele Google ca preț ferm. Se completează odată
-     cu ștergerea marcajelor „De confirmat". Fără `aggregateRating`. -->
+<!-- Toate cele opt prețuri sunt confirmate ferme de client: nunta pe
+     2026-09-17, botezul în runda a doua. Câte o ofertă pe zi, cu `areaServed`
+     pe București și Ilfov, unde e valabilă grila. Descrierile nu conțin nume
+     de orașe: geografia stă doar în `areaServed` (regula bag-of-words citește
+     toate descrierile ca un singur câmp). Fără `aggregateRating`. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,8 +46,10 @@
     { "@type": "Offer", "name": "Standard Nuntă — duminică", "description": "Preț de duminică pentru grila de bază; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 4800, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 4800, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] },
     { "@type": "Offer", "name": "Premium Nuntă — sâmbătă", "description": "Preț de sâmbătă pentru grila de bază; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 6500, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 6500, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] },
     { "@type": "Offer", "name": "Premium Nuntă — duminică", "description": "Preț de duminică pentru grila de bază; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 5500, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 5500, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] },
-    { "@type": "Offer", "name": "Standard Botez", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "areaServed": ["București", "Ploiești", "Brașov", "Craiova", "Pitești"] },
-    { "@type": "Offer", "name": "Premium Botez", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "areaServed": ["București", "Ploiești", "Brașov", "Craiova", "Pitești"] }
+    { "@type": "Offer", "name": "Standard Botez — sâmbătă", "description": "Preț de sâmbătă pentru grila de bază a botezului; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 3200, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 3200, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] },
+    { "@type": "Offer", "name": "Standard Botez — duminică", "description": "Preț de duminică pentru grila de bază a botezului; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 2800, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 2800, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] },
+    { "@type": "Offer", "name": "Premium Botez — sâmbătă", "description": "Preț de sâmbătă pentru grila de bază a botezului; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 3800, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 3800, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] },
+    { "@type": "Offer", "name": "Premium Botez — duminică", "description": "Preț de duminică pentru grila de bază a botezului; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 3300, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 3300, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] }
   ]
 }
 </script>
@@ -214,8 +215,7 @@
 <h3 class="font-headline-md text-xl md:text-headline-md mb-5">Pachet Standard</h3>
 <div class="mb-5">
 <span class="font-label-md text-[12px] uppercase tracking-widest text-on-surface-variant block mb-2">Sâmbătă</span>
-<!-- [PLACEHOLDER-3200] — cifră neconfirmată de client -->
-<span class="price-tbc"><span class="price-tbc__flag">De confirmat</span><span class="price-tbc__value font-display-lg text-3xl md:text-4xl">3.200&nbsp;€</span></span>
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface">3.200&nbsp;€</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mb-6">Formație de trei instrumente și DJ, cu două programe live de câte 45 de minute.</p>
 <ul class="motif-list space-y-3 mb-6">
@@ -229,8 +229,7 @@
 </ul>
 <div class="mt-auto pt-5 border-t border-outline-variant/20">
 <span class="font-label-md text-[12px] uppercase tracking-widest text-on-surface-variant block mb-2">Duminică</span>
-<!-- [PLACEHOLDER-2800] — cifră neconfirmată de client -->
-<span class="price-tbc"><span class="price-tbc__flag">De confirmat</span><span class="price-tbc__value font-display-lg text-xl md:text-2xl">2.800&nbsp;€</span></span>
+<span class="font-display-lg text-xl md:text-2xl text-on-surface">2.800&nbsp;€</span>
 </div>
 <a class="block text-center w-full mt-6 py-4 font-label-md text-label-md uppercase tracking-widest transition-all border border-outline text-on-surface bg-transparent hover:bg-white/5" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20M%C4%83%20g%C3%A2ndesc%20la%20pachetul%20Standard%20pentru%20botez.%20Ave%C8%9Bi%20liber%C4%83%20data%20la%20care%20a%C8%99%20vrea%20s%C4%83%20organizez%20evenimentul%3F" target="_blank" rel="noopener">Scrieți-ne pe WhatsApp</a>
 </article>
@@ -241,8 +240,7 @@
 <h3 class="font-headline-md text-xl md:text-headline-md mb-5">Pachet Premium</h3>
 <div class="mb-5">
 <span class="font-label-md text-[12px] uppercase tracking-widest text-on-surface-variant block mb-2">Sâmbătă</span>
-<!-- [PLACEHOLDER-3800] — cifră neconfirmată de client -->
-<span class="price-tbc"><span class="price-tbc__flag">De confirmat</span><span class="price-tbc__value font-display-lg text-3xl md:text-4xl">3.800&nbsp;€</span></span>
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface">3.800&nbsp;€</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mb-6">Formație de patru instrumente pentru un sunet mai plin, cu DJ pe toată durata petrecerii.</p>
 <ul class="motif-list space-y-3 mb-6">
@@ -256,8 +254,7 @@
 </ul>
 <div class="mt-auto pt-5 border-t border-outline-variant/20">
 <span class="font-label-md text-[12px] uppercase tracking-widest text-on-surface-variant block mb-2">Duminică</span>
-<!-- [PLACEHOLDER-3300] — cifră neconfirmată de client -->
-<span class="price-tbc"><span class="price-tbc__flag">De confirmat</span><span class="price-tbc__value font-display-lg text-xl md:text-2xl">3.300&nbsp;€</span></span>
+<span class="font-display-lg text-xl md:text-2xl text-on-surface">3.300&nbsp;€</span>
 </div>
 <a class="block text-center w-full mt-6 py-4 font-label-md text-label-md uppercase tracking-widest transition-all border border-outline text-on-surface bg-transparent hover:bg-white/5" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20s%C4%83%20%C8%99tiu%20mai%20multe%20despre%20pachetul%20Premium%20pentru%20botez%20%C8%99i%20dac%C4%83%20mai%20ave%C8%9Bi%20disponibil%C4%83%20data%20pe%20care%20o%20am%20%C3%AEn%20vedere." target="_blank" rel="noopener">Scrieți-ne pe WhatsApp</a>
 </article>
@@ -510,9 +507,9 @@
         100 km).                                                     AJUSTAT
      6. CTA final — titlu, paragraf și eticheta acțiunii secundare.        NOU
 
-     Confirmate de client pe 2026-09-17: cele patru prețuri de nuntă și tariful
-     de 6 lei/km (grila e valabilă pentru București și Ilfov). De confirmat
-     înainte de lansare: cele patru prețuri de botez, încă marcate .price-tbc.
+     Confirmate de client: cele patru prețuri de nuntă și tariful de 6 lei/km
+     (2026-09-17), apoi cele patru prețuri de botez (runda a doua). Grila e
+     valabilă pentru București și Ilfov. Niciun .price-tbc rămas pe pagină.
      ========================================================================== -->
 <script>
     // aria-expanded nu se actualizează singur pe <summary>; îl sincronizăm din

@@ -1,30 +1,17 @@
-# Răspunsuri urgente — a doua rundă, pentru Liviu
+# Răspunsuri urgente — ce a rămas după a doua rundă
 
-**De ce direct la Liviu.** Prima rundă a fost completată de altcineva decât Liviu: patru
-răspunsuri spun explicit „de întrebat Liviu” (puterea electrică, durata montajului, salonul
-vecin, ora-limită de sonor). Întrebările de mai jos sunt tehnice sau țin de contract, așa că
-runda asta merge direct la el.
+A doua rundă, cu răspunsurile lui Liviu, a închis toate cele 9 rânduri: montajul (4–5 ore),
+puterea electrică și cele două afirmații de sonor (scoase de pe site), piesele nedorite,
+prețurile de botez (ferme), denumirea „interpret manele” și paginile de serviciu în extinderea
+de 450 €. Rândul orfan din prima rundă e închis: clientul nu își amintește la ce se referea.
+Detaliile sunt în `DECIZII-CLIENT.md`.
 
-Din prima rundă s-au confirmat prețurile de nuntă, tariful de 6 lei/km, cazarea ca cost separat
-și majoritatea afirmațiilor despre programul serii; sunt deja trecute pe pagini. Au rămas **9
-rânduri**: cele 8 deschise din prima rundă și prețurile de botez. Referința completă, cu toate
-răspunsurile primei runde, e în `DECIZII-CLIENT.md`.
+Nu mai blochează nimic publicarea. A rămas un singur lucru de obținut, pentru că răspunsul
+a venit doar verbal:
 
 | Temă | Ce trebuie confirmat | Ref. | Răspuns |
 |---|---|---|---|
-| Tehnic | Cu câte ore înainte de începerea evenimentului ajunge echipa tehnică la locație. Pe grand-music.ro scrie **4–5 ore**; e valabil și pentru evenimentele Ioanei Balan? | A24 | |
-| Tehnic | Ce putere electrică totală consumă echipamentul, în kW, pentru pachetul Standard și pentru Premium | A25 | |
-| Tehnic | Ce trebuie să asigure locația la scenă: câte circuite sau prize separate, monofazat ori trifazat | A27 | |
-| Tehnic | Cât durează montajul, de la sosirea echipei tehnice până la scena gata de probă | A26 | |
-| Sunet | La o oră-limită de sonor: momentele cu volum mare intră mai devreme, iar finalul se face în formulă redusă sau acustică? | B26 | |
-| Sunet | Când alături e alt eveniment, despărțit doar de un panou mobil: cereți programul lor și ajustați volumul? | B43 | |
-| Piese | Piesele pe care mirii nu le vor **se scot din program** (publicat pe grand-music.ro). Rămâne valabil? | B75 | |
-| Contract | Vă rugăm să ne **confirmați în scris** că paginile de serviciu (nuntă, botez, eveniment privat, evenimente de firmă) fac parte din **extinderea de 450 €**, nu din contractul inițial. Nu e nevoie de alte detalii despre contract. | D9 | |
-| Prețuri | **Prețuri botez.** Grila de pe `oferte.html` listează 3.200 / 2.800 € (Standard) și 3.800 / 3.300 € (Premium). Nu sunt confirmate nici de client, nici publicate pe `grand-music.ro`. Sunt corecte și ferme, ca cele de nuntă? | A92 | |
+| Contract | Ne-ați confirmat verbal că paginile pe tip de eveniment (nuntă, botez, eveniment privat, evenimente de firmă) fac parte din **extinderea de 450 €**, nu din contractul inițial. Vă rugăm să ne trimiteți confirmarea **în scris** (un e-mail e suficient). | D9 | |
 
-## O clarificare din prima rundă
-
-În documentul completat, textul **„aici nu înțeleg întrebarea”** a rămas lipit de linia de
-separator a tabelului, nu de o întrebare anume. La ce se referea? Rândul de sub ea era cel
-despre ofertă („Oferta pleacă în aceeași zi, cu prețul final: pachet, transport și cazare”),
-dar poate fi și antetul tabelului sau altă întrebare. Dacă e cea despre ofertă, o reformulăm.
+Cele trei nepotriviri de semnalat clientului (plata restului, cazarea, editările directe în
+WordPress) nu sunt întrebări și stau în `DECIZII-CLIENT.md`, secțiunea E.
