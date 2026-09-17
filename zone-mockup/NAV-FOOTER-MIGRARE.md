@@ -190,121 +190,205 @@ linkuri sitewide către pagini din aceeași categorie ar fi footer stuffing.
 6. **Pe mobil**, cele două coloane se stivuiesc sub contact, înaintea rândului de
    documente. Structura rămâne containere flexbox, fără grid.
 
-### Demo v3 (actual): trei benzi
+### Demo v4 (actual): trei benzi, spațiere ajustată
 
-Măsurat pe `index.html`. v2 lăsa jumătatea dreaptă a footer-ului goală pe desktop:
-contactul și ANPC · SAL stăteau pe un nivel, coloanele pe altul, iar social pe rândul
-brandului. v3 reorganizează aceleași elemente pe trei benzi, doar cu containere flexbox.
+Măsurat pe `index.html`, în Chromium. v3 a pus aceleași elemente pe trei benzi, doar cu
+containere flexbox. v4 păstrează structura și ajustează spațierea din banda 1:
+proporția coloanelor, înălțimea linkurilor pe desktop și marcajul D8.
 
 ```
-Banda 1:  Logo + descriere    │  SERVICII           │  REPERTORIU
-          E-mail                 Nuntă                 Repertoriu
-          Telefon                Botez                 Componența formației
-                                 Eveniment privat      Folclor și petrecere
-                                 Corporate
-                                 [CORPORATE — de confirmat, D8]
+Banda 1:  Logo + descriere (40%)   │  SERVICII            │  REPERTORIU
+          E-mail                      Nuntă                  Repertoriu
+          Telefon                     Botez                  Componența formației
+                                      Eveniment privat       Folclor și petrecere
+                                      Corporate *
+                                      * de confirmat (D8)
 
-Banda 2:  Social (4 iconițe)                              ANPC · SAL
+Banda 2:  Social (4 iconițe)                                  ANPC · SAL
 
 Banda 3:  Termeni · Cookie-uri · Zone deservite · Blog
           © 2026 · Proiect dezvoltat de · Site realizat de
 ```
 
-Banda 3 e neschimbată față de v2: rândul de documente și rândul juridic, doar mutate
-în ordinea benzilor. Rândul juridic e centrat, nu cu grupuri la capete.
+Banda 2 și banda 3 sunt neschimbate față de v3. Rândul juridic e centrat, nu cu grupuri
+la capete.
 
 #### Pragurile alese
 
-| Interval | Banda 1 | Banda 2 |
-|---|---|---|
-| ≥ 1024 (`lg`) | trei coloane egale pe un rând (`basis-0 flex-1`, gap 64 px): 256 px la 1024, 315 px la 1280 și 1440 | social stânga, ANPC · SAL dreapta |
-| 640–1023 (`sm`, `md`) | brandul pe toată lățimea (`sm:basis-full`), „Servicii” și „Repertoriu” alăturate dedesubt | la capete opuse |
-| < 640 | totul stivuit; linkurile din fiecare secțiune câte două pe rând (`basis-1/2 sm:basis-auto`) | stivuite, social deasupra |
+| Interval | Banda 1 | Linkuri din banda 1 | Banda 2 |
+|---|---|---|---|
+| ≥ 1024 (`lg`) | trei coloane pe un rând: brandul are 40% (`lg:basis-[40%]`), iar „Servicii” și „Repertoriu” sunt late cât conținutul (`lg:flex-none`). Restul de 60% se împarte în două goluri egale (`lg:justify-between`, cu `gap-x-16` ca minim) | 36 px (`lg:min-h-9`) | social stânga, ANPC · SAL dreapta |
+| 640–1023 (`sm`, `md`) | brandul pe toată lățimea (`sm:basis-full`), „Servicii” și „Repertoriu” alăturate dedesubt | 44 px | la capete opuse |
+| < 640 | totul stivuit; linkurile din fiecare secțiune câte două pe rând (`basis-1/2 sm:basis-auto`) | 44 px | stivuite, social deasupra |
 
-**De ce nu trei coloane între 768 și 1023.** Pe prototip, cu trei coloane, la 768 ar
-rămâne 170 px pe coloană, iar marcajul D8 are 234 px. La 1023, „Servicii” și
-„Repertoriu” se strâng la 160 px, iar marcajul și „Componența formației” se rup. Lățimea
-care decide pragul e marcajul, nu eticheta cea mai lungă (168 px). La 1024, cu 256 px,
-marcajul are 22 px rezervă.
+**Proporția: de ce nu trei coloane 40 / 30 / 30.** Varianta literală (`lg:flex-[2]` pe
+brand și `lg:flex-[1.5]` pe celelalte două coloane) s-a implementat și s-a măsurat. Golul
+din dreapta a scăzut, dar golurile vizibile dintre coloane au ieșit inegale:
 
-**`max-w-md` mutat de pe coloana de brand pe descriere.** Pe coloană, `max-w-md` (448 px)
-împiedica `basis-full` să ocupe rândul, iar între 640 și 1023 „Servicii” urca lângă
-brand, la 128–160 px.
+| La 1440 | v3 (coloane egale) | 40 / 30 / 30 | **v4 (40% + conținut)** |
+|---|---|---|---|
+| Brand: x / lățime | 184 / 314,7 | 184 / 377,6 | **184 / 428,8** |
+| Servicii: x / lățime | 562,7 / 314,7 | 625,6 / 283,2 | **787 / 126,5** |
+| Repertoriu: x / lățime | 941,3 / 314,7 | 972,8 / 283,2 | **1087,7 / 168,3** |
+| Gol între coloane (între cutii) | 64 / 64 | 64 / 64 | **174,2 / 174,2** |
+| Gol vizibil (textul coloanei → coloana următoare) | 70,4 / 144,6 | 82 / 220,7 | **181,8 / 174,2** |
+| Gol vizibil la dreapta benzii 1 | 146,4 | 114,9 | **0** |
+
+Cauza inegalității e **proporția**, nu `max-w-md` și nici `gap`. `gap-x-16` era uniform,
+iar `max-w-md` (448 px) nu mai limitează nimic de la 1024 în sus, pentru că descrierea e
+mai îngustă decât coloana. Golul apare pentru că „Servicii” folosește doar 126,5 px
+(„Eveniment privat”) dintr-o coloană de 283 px, pe când textul brandului își umple
+coloana. Cu coloanele aliniate la stânga, orice lățime fixă a coloanelor de linkuri
+lasă gol după conținutul lor.
+
+Ajustarea: brandul păstrează 40%, iar coloanele de linkuri se strâng la conținut. Cei
+60% rămași se împart în două goluri egale între cutii. Diferența de 7,5 px dintre
+golurile vizibile de la 1280 și 1440 vine din marginea dreaptă neregulată a descrierii
+(descrierea se oprește la 421 px din 428,8). „Repertoriu” se termină exact la marginea
+containerului, aliniat cu „SAL” din banda 2. Când „Componența formației” se scurtează la
+„Formația”, golurile se reechilibrează singure.
+
+| Coloane, x / lățime | 1024 | 1280 | 1440 |
+|---|---|---|---|
+| Brand | 64 / 358,4 | 104 / 428,8 | 184 / 428,8 |
+| Servicii | 543,8 / 126,5 | 707 / 126,5 | 787 / 126,5 |
+| Repertoriu | 791,7 / 168,3 | 1007,7 / 168,3 | 1087,7 / 168,3 |
+| Goluri între cutii, 1→2 / 2→3 | 121,4 / 121,4 | 174,2 / 174,2 | 174,2 / 174,2 |
+| Goluri vizibile, 1→2 / 2→3 | 124,6 / 121,4 | 181,8 / 174,2 | 181,8 / 174,2 |
+
+În Elementor: containerul brandului are lățimea 40%, containerele de linkuri au lățime
+automată, iar containerul-părinte are `justify-content: space-between` și gap de 64 px.
+
+**Linkurile pe desktop: 36 px.** Cei 44 px sunt dimensiunea pentru ținta de tap. De la
+1024 în sus, linkurile din banda 1 (e-mail, telefon, „Servicii”, „Repertoriu”) coboară la
+36 px, cu `lg:min-h-9` din scara de spațiere implicită. Logo-ul și banda 2 rămân la
+44 px. Sub 1024, toate linkurile au 44 px.
+
+**Tranziția 1023 → 1024.** Pasul dintre linkuri trece de la 44 la 36 px exact la pragul
+unde brandul urcă lângă coloane. Nu există nicio lățime cu linkuri de 36 px în aranjamentul
+cu brandul deasupra sau cu linkuri de 44 px în aranjamentul pe trei coloane. Schimbarea de
+ritm coincide cu schimbarea de aranjament (footer: 761 → 517 px), deci nu apare ca salt
+separat.
+
+**Marcajul D8, reformulat.** În v3, marcajul era un bloc mono cu contur, de 234 × 22,5 px:
+`[CORPORATE — de confirmat, D8]`. Citea ca eroare și bloca trei coloane sub 1024. În v4,
+linkul e „Corporate *”, iar sub ultimul link din coloană stă nota `* de confirmat (D8)`:
+un `<p>` de 12 px (cea mai mică dimensiune din footer), `leading-5`, `text-secondary`.
+Nota ocupă 20 px pe verticală. Rămâne vizibilă ca element de confirmat.
+
+**Trei coloane de la 768: nu intră, pragul rămâne 1024.** Fără marcajul lat, lățimea
+minimă a benzii 1 pe trei coloane e dată de e-mail, de cele două coloane de linkuri și de
+goluri:
+
+- v4 la 768: 40% × 640 = 256 px pentru brand + 126,5 + 168,3 + 2 × 64 = **678,8 px**,
+  într-un container de 640 px. „Repertoriu” trece pe rândul următor. Verificat în
+  randare, pe o copie temporară cu pragul mutat pe `md`: trei coloane pe un rând abia de
+  la **833 px**.
+- Coloane egale la 768: 170,7 px, sub lățimea e-mailului (220,9 px).
+- 40 / 30 / 30 literal la 768: 153,6 px pe coloanele de linkuri, sub „Componența
+  formației” (168,3 px).
+
+Între 768 și 1024 nu există alt breakpoint (`tailwind.config.js` nu redefinește
+`screens`), deci pragul rămâne la 1024. Blocajul nu mai e marcajul D8, ci suma
+conținuturilor. Cu „Formația” în loc de „Componența formației”, pragul minim ar coborî la
+aproximativ 794 px, tot peste 768.
+
+**`max-w-md` rămâne pe descriere, nu pe coloana de brand** (din v3): pe coloană,
+împiedica `basis-full` să ocupe rândul, iar între 640 și 1023 „Servicii” urca lângă brand.
+
+#### Ritmul vertical
+
+Benzile sunt separate de `gap-8` pe containerul footer-ului: 32 px între cutii, la toate
+lățimile. Distanța vizibilă se măsoară de la ultimul element pictat dintr-o bandă (text,
+imagine, SVG) până la primul element pictat din banda următoare:
+
+| Distanță vizibilă | < 640 | 640–1023 | ≥ 1024 (v3) | **≥ 1024 (v4)** |
+|---|---|---|---|---|
+| Banda 1 → banda 2 | 56 | 47 | 56 la 1024, 49,5 la 1280/1440 | **52** |
+| Banda 2 → banda 3 (rândul de documente) | 58 | 58 | 58 | **58** |
+| Documente → juridic | 50 | 50 | 50 | **50** |
+
+Banda 2 nu stă mai departe de banda 1 decât stă banda 3 de banda 2: 52 față de 58 px, cu
+aceeași cutie de 32 px. **Clasa de spațiere nu s-a schimbat.** Dacă gap-ul ar scădea,
+banda 1 → 2 ar coborî sub referința de 58 px și ritmul ar deveni inegal în sens invers.
+
+Cei „~90 px” percepuți se măsoară de la **ultimul link din coloanele de linkuri**, nu de la
+bandă. Coloanele sunt mai scurte decât brandul, care e cel mai înalt element din bandă
+(212 px). La 1440, ultimul element pictat din fiecare coloană stă la:
+
+| Până la banda 2 | Brand | Servicii | Repertoriu |
+|---|---|---|---|
+| v3 | 56 | 49,5 (marcajul D8); 84 de la „Corporate” | 128 |
+| v4 | 52 | 71 (nota D8); 96 de la „Corporate *” | 132 |
+
+Diferența vine din conținut: „Servicii” are 188 px și „Repertoriu” 132 px, față de 212 px
+la brand. De la „Corporate *” până la iconițe sunt acum 96 px, cu 12 px mai mult decât în
+v3: banda s-a scurtat cu 16 px, dar „Servicii” a pierdut 34,5 px (linkurile de 36 px și
+nota în locul marcajului). Spațierea benzilor nu poate închide golul fără să strice
+ritmul dintre ele.
 
 #### Înălțimea footer-ului
 
 Chromium, fereastră de 800 px înălțime, înălțimea elementului `<footer>` de pe
-`index.html` (canonic = `e3c3a95`, v1 = `ab54ef9`, v2 = `29adebc`).
+`index.html` (canonic = `e3c3a95`, v1 = `ab54ef9`, v2 = `29adebc`, v3 = `d8b0351`).
 
-| Lățime | Canonic | Demo v1 | Demo v2 | **Demo v3** | v3 față de v2 | v3 față de canonic |
-|---|---|---|---|---|---|---|
-| 360 | 605 | 1059,5 | 931,5 | **943,5** | +12 | +338,5 (+56%) |
-| 768 | 489 | 727,5 | 727,5 | **791,5** | +64 | +302,5 (+62%) |
-| 1024 | 437 | 675,5 | 675,5 | **557** | −118,5 | +120 (+27%) |
-| 1280 | 437 | 675,5 | 675,5 | **533** | −142,5 | +96 (+22%) |
-| 1440 | 437 | 675,5 | 675,5 | **533** | −142,5 | +96 (+22%) |
+| Lățime | Canonic | Demo v1 | Demo v2 | Demo v3 | **Demo v4** | v4 față de v3 | v4 față de canonic |
+|---|---|---|---|---|---|---|---|
+| 360 | 605 | 1059,5 | 931,5 | 943,5 | **941** | −2,5 | +336 (+56%) |
+| 768 | 489 | 727,5 | 727,5 | 791,5 | **789** | −2,5 | +300 (+61%) |
+| 1024 | 437 | 675,5 | 675,5 | 557 | **517** | −40 | +80 (+18%) |
+| 1280 | 437 | 675,5 | 675,5 | 533 | **517** | −16 | +80 (+18%) |
+| 1440 | 437 | 675,5 | 675,5 | 533 | **517** | −16 | +80 (+18%) |
 
-Pe capetele de interval, v3 măsoară: 871,5 px la 480 și 639, 759,5 px la 640 și 767,
-763,5 px la 900 și 1023. La 768, înălțimea (791,5) e cu 28 px peste cea de la 900,
-pentru că rândul juridic din banda 3 trece pe două linii.
+Pe capetele de interval, v4 măsoară: 869 px la 639, 757 px la 640 și 767, 761 px la 1023
+(v3: 871,5 / 759,5 / 763,5). La 768, înălțimea (789) e peste cea de la 1023, pentru că
+rândul juridic din banda 3 trece pe două linii.
 
-- **Desktop (≥ 1024): scade.** Coloanele urcă lângă brand: −118,5 px la 1024, −142,5 px
-  de la 1280.
-- **640–1023: crește.** Brandul ocupă un rând întreg, iar coloanele stau dedesubt, deci
-  benzile se adună în loc să stea alăturate: +28 px la 640–767, +64 px la 768, +88 px la
-  1023. Aici restructurarea rezolvă golul, nu înălțimea.
-- **360: +12 px față de v2.** Banda 3 e acum bandă proprie (gap 32 px față de banda 2), iar
-  în v2 rândul de documente stătea la 16 px sub coloane.
+- **Sub 1024: −2,5 px.** Nota D8 (20 px) înlocuiește marcajul (22,5 px). Pragul nu s-a
+  mutat, deci aranjamentul e cel din v3.
+- **1024: −40 px.** Brandul dă înălțimea benzii 1: două linkuri × 8 px, plus un rând de
+  descriere (24 px). La 358 px, descrierea are trei rânduri în loc de patru (256 px în v3).
+- **1280 și 1440: −16 px.** Brandul (212 px) dă înălțimea benzii 1: două linkuri × 8 px.
 
-#### Golul din dreapta, măsurat
+#### Celelalte verificări, v4
 
-Conținutul pictat (text, imagini, SVG, marcaj) raportat la marginea dreaptă a
-containerului (1072 px la 1440).
-
-| La 1440 | v2 | v3 |
-|---|---|---|
-| Coloanele „Servicii”/„Repertoriu”: gol la dreapta | **606 px** (acoperit 402 / 1072) | — |
-| Rândul contact │ ANPC · SAL: cel mai mare gol interior | 755 px | — |
-| Banda 1 (brand │ Servicii │ Repertoriu): gol la dreapta | — | **146 px** (acoperit 711 / 1072) |
-| Banda 1: cel mai mare gol interior | 467 px (brand │ social) | 145 px |
-| Banda 2 (social │ ANPC · SAL): gol interior | — | 800 px, intenționat: capete opuse |
-
-La 1024, banda 1 lasă 88 px la dreapta. Cei 146 px de la 1440 sunt restul coloanei
-„Repertoriu” (315 px) după eticheta cea mai lungă (168 px). Coloanele sunt aliniate la
-stânga, deci golul nu poate coborî sub asta fără altă distribuție a lățimilor.
-
-#### Celelalte verificări, v3
-
-- Fără overflow orizontal la 360, 480, 639, 640, 767, 768, 900, 1023, 1024, 1100, 1280
-  și 1440. Nicio etichetă ruptă de la 480 în sus; la 360, „Componența formației” trece
-  pe două rânduri, ca în v2.
-- Toate linkurile din footer au 44 px pe verticală (48 px la 360 pe rândul lui
-  „Componența formației”). Excepție: „Grand Music Events” din rândul juridic are 15 px,
-  preexistent, în banda 3.
-- Tranzițiile sunt directe: 639 → 640 (secțiuni stivuite → alăturate) și 1023 → 1024
-  (brand deasupra → trei coloane), fără lățime intermediară cu aspect rupt.
+- Fără overflow orizontal (`scrollWidth` = `clientWidth`, deficit 0) la 360, 639, 640, 767,
+  768, 1023, 1024, 1280 și 1440. Niciun element din footer nu trece de marginea dreaptă.
+  Singurele elemente peste margine sunt în afara footer-ului, neatinse: drawer-ul mobil
+  (fix, în afara ecranului) și decorul `absolute -bottom-6 -right-6` din conținut, cu 8 px,
+  sub 768. Ambele sunt decupate.
+- Ținte de tap: sub 1024, toate linkurile din footer au 44 px pe verticală. De la 1024,
+  linkurile din banda 1 au 36 px, iar restul au 44 px. Excepție la toate lățimile:
+  „Grand Music Events” din rândul juridic, cu 15 px, preexistent (D12).
 - Titlurile rămân `<p>`; outline-ul paginii are aceleași 14 heading-uri.
-- Zero tokeni sau culori noi. Clasele noi sunt doar utilitare flex (`basis-0`,
-  `basis-full`, `flex-1`, `gap-x-16`, `gap-y-8`), pe tokeni de spațiere existenți.
-- Ordinea pe mobil: brand (logo, descriere, e-mail, telefon) → Servicii → Repertoriu →
-  social → ANPC · SAL → documente → juridic. **Observația din v2 (ANPC · SAL între
-  contact și coloane) nu mai există:** ANPC · SAL stă acum lângă documente.
+- Zero tokeni sau culori noi. Clasele noi sunt utilitare flex și de spațiere din scara
+  implicită (`lg:basis-[40%]`, `lg:flex-none`, `lg:justify-between`, `lg:min-h-9`,
+  `leading-5`). Culoarea notei D8 e `text-secondary`, deja folosită în footer.
+  `assets/styles.css` și `tailwind.config.js` au hash-uri identice.
+- Header-ul, JSON-LD, tot ce e înainte de `<footer>` și după `</footer>`, banda 3: hash-uri
+  identice față de v3.
+- Ordinea pe mobil, neschimbată: brand (logo, descriere, e-mail, telefon) → Servicii →
+  Repertoriu → social → ANPC · SAL → documente → juridic.
 
 #### De rezolvat la migrare
 
 1. **„Componența formației” se scurtează la „Formația”**, cum se numește și pagina.
-   Pe demo nu s-a schimbat. La 360 ar evita ruperea pe două rânduri (+4 px).
+   Pe demo nu s-a schimbat. La 360 ar evita ruperea pe două rânduri (+4 px). Pe desktop,
+   coloana „Repertoriu” s-ar îngusta de la 168,3 la 145,2 px („Folclor și petrecere”), iar
+   golurile egale se recalculează singure.
 2. **Punctul median rămâne la capăt de rând.** În banda 3, la 360, rândul de documente se
    rupe după „Politica de cookie-uri ·”; la 768, rândul juridic se rupe după
    „Grand Music Events ·”. Separatorii sunt `<span>` între linkuri și nu dispar la rupere.
 3. **„Grand Music Events” are 15 px ca țintă de tap** (rândul juridic, fără
-   `min-h-[44px]`). Preexistent; nu s-a atins, pentru că banda 3 e neschimbată.
+   `min-h-[44px]`). Preexistent, pe toate cele 31 de pagini. Se repară o dată, în
+   template-ul unic: `DECIZII-CLIENT.md`, D12.
 4. **Iconițele sociale par decalate cu 12 px** față de textul de deasupra, acum că stau
    la stânga: fiecare link are `w-11` (44 px), cu iconița de 20 px centrată. În footer-ul
    canonic erau aliniate la dreapta, unde decalajul nu se vedea.
-5. **Între 640 și 1023 footer-ul e mai înalt decât în v2** (vezi tabelul). Dacă
-   contează, varianta e marcajul D8 mai îngust sau scos (după răspunsul la D8), ceea ce
-   ar permite trei coloane de la 768.
+5. **Între 640 și 1023 footer-ul rămâne mai înalt decât în v2** (vezi tabelul). Marcajul D8
+   nu mai e cauza: trei coloane cer minimum 833 px (794 px cu „Formația”). Dacă înălțimea
+   contează pe tabletă, variantele sunt un gap mai mic sub 1024 sau un breakpoint
+   intermediar în Elementor.
 
 ### Istoric: demo v1 și v2 (coloanele sub contact)
 
@@ -367,8 +451,9 @@ petrecere”). Fără ruperea asta, înălțimea ar fi 927,5 px, tot peste 900.
   `bg-surface-container`, `border-outline/40`), pentru că `.ph` e definită doar în
   `<style>`-ul paginilor din `zone-mockup/`.
 
-**Pentru Elementor:** cifrele din tabelul de înălțimi v3 sunt ce trebuie reverificat pe
-template-ul de footer, la aceleași cinci lățimi, plus golul de 146 px la 1440.
+**Pentru Elementor:** cifrele din tabelul de înălțimi v4 sunt ce trebuie reverificat pe
+template-ul de footer, la aceleași cinci lățimi, plus golurile egale dintre coloane
+(174,2 px la 1440) și golul de 0 px din dreapta benzii 1.
 
 ---
 

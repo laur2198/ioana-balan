@@ -409,52 +409,54 @@
 <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/10">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 flex flex-col gap-8">
 <!-- Banda 1: brand (logo, descriere, e-mail, telefon) | „Servicii” | „Repertoriu”.
-     Demonstrație pentru client, 2026-09-17 (v3, trei benzi). Inversează deliberat
+     Demonstrație pentru client, 2026-09-17 (v4, trei benzi). Inversează deliberat
      decizia din aedc92e („Compact the footer and drop its navigation”), care scosese
      navigația și titlurile de coloană din footer. Titlurile sunt <p>, nu heading:
      nu intră în outline-ul paginii.
      Praguri, doar flexbox (flex-wrap + basis), măsurate în Chromium:
-       ≥1024 (lg): trei coloane egale pe un rând (basis-0 flex-1, gap 64px):
-              256px la 1024, 315px la 1280 și 1440.
+       ≥1024 (lg): trei coloane pe un rând. Brandul are 40% (lg:basis-[40%]);
+              „Servicii” și „Repertoriu” sunt late cât conținutul (lg:flex-none),
+              iar restul de 60% se împarte în două goluri egale (lg:justify-between,
+              minimum gap-x-16): 121 px la 1024, 174 px la 1280 și 1440.
+              Linkurile coboară la 36 px (lg:min-h-9): pe desktop nu e touch.
        640–1023 (sm, md): brandul pe toată lățimea, „Servicii” și „Repertoriu”
-              alăturate dedesubt. Trei coloane nu încap sub 1024: la 768 ar avea
-              170px, iar marcajul D8 are 234px, deci se rupe (la 1023 se rup și
-              marcajul, și „Componența formației”).
+              alăturate dedesubt. Trei coloane intră abia de la 833 px (40% +
+              126 px + 168 px + 2 × 64 px), deci nu de la 768; linkuri de 44 px.
        <640: totul stivuit; linkurile din fiecare secțiune câte două pe rând
               (basis-1/2 sm:basis-auto): „Servicii” 2×2, „Repertoriu” 2+1.
      max-w-md stă pe descriere, nu pe coloana de brand: pe coloană, împiedica
      basis-full să ocupe rândul și trăgea „Servicii” lângă brand între 640 și 1023.
      Țintele sunt paginile-prototip din zone-mockup/ (noindex); slug-urile finale
      depind de D9 din DECIZII-CLIENT.md. -->
-<div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-x-16 sm:gap-y-8">
-<div class="flex flex-col gap-3 sm:basis-full lg:basis-0 lg:flex-1">
+<div class="flex flex-col sm:flex-row sm:flex-wrap lg:justify-between gap-4 sm:gap-x-16 sm:gap-y-8">
+<div class="flex flex-col gap-3 sm:basis-full lg:basis-[40%]">
 <a aria-label="Ioana Balan Acasă" class="inline-flex items-center min-h-[44px] self-start" href="index.html"><img alt="Ioana Balan" class="h-8 md:h-10 w-auto" src="assets/logo-alb-400w.png" srcset="assets/logo-alb-400w.png 1x, assets/logo-alb-800w.png 2x" width="400" height="137" loading="lazy" decoding="async"></a>
 <p class="font-body-md text-body-md text-on-surface-variant opacity-80 max-w-md">Muzică pentru evenimente care rămân în suflet. Calitate corporate cu pasiune artistică și profesionalism garantat.</p>
 <div class="flex flex-col">
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="mailto:ioanabalanoficial@gmail.com">ioanabalanoficial@gmail.com</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="tel:+40722911485">+40 722 911 485</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] lg:min-h-9" href="mailto:ioanabalanoficial@gmail.com">ioanabalanoficial@gmail.com</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] lg:min-h-9" href="tel:+40722911485">+40 722 911 485</a>
 </div>
 </div>
-<div class="flex flex-col sm:basis-0 sm:flex-1">
+<div class="flex flex-col sm:basis-0 sm:flex-1 lg:flex-none">
 <p class="font-body-md text-[12px] text-secondary uppercase tracking-widest">Servicii</p>
 <div class="flex flex-row flex-wrap sm:flex-col">
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/nunta.html">Nuntă</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/botez.html">Botez</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/eveniment-privat.html">Eveniment privat</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/corporate.html">Corporate</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] lg:min-h-9 basis-1/2 sm:basis-auto" href="zone-mockup/nunta.html">Nuntă</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] lg:min-h-9 basis-1/2 sm:basis-auto" href="zone-mockup/botez.html">Botez</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] lg:min-h-9 basis-1/2 sm:basis-auto" href="zone-mockup/eveniment-privat.html">Eveniment privat</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] lg:min-h-9 basis-1/2 sm:basis-auto" href="zone-mockup/corporate.html">Corporate *</a>
 </div>
-<!-- Marcaj de placeholder, echivalentul lui .ph din zone-mockup/ (clasa nu există
-     pe paginile din rădăcină). Aceleași valori, din tokeni existenți: text în
-     outline, fond surface-container, bordură outline la 40%. Dacă răspunsul
-     la D8 e „nu”, linkul „Corporate” și marcajul ies, iar coloana rămâne cu trei. -->
-<span class="self-start inline-block font-mono text-[12px] leading-snug px-2 py-0.5 text-outline bg-surface-container border border-dashed border-outline/40">[CORPORATE — de confirmat, D8]</span>
+<!-- Marcaj de placeholder pentru D8, reformulat în v4: asteriscul de pe „Corporate *”
+     trimite la nota de sub linkuri, la dimensiunea cea mai mică din footer (12 px),
+     în text-secondary. Rămâne vizibil ca element de confirmat. Dacă răspunsul la D8
+     e „nu”, linkul „Corporate” și nota ies, iar coloana rămâne cu trei linkuri. -->
+<p class="font-body-md text-[12px] leading-5 text-secondary">* de confirmat (D8)</p>
 </div>
-<div class="flex flex-col sm:basis-0 sm:flex-1">
+<div class="flex flex-col sm:basis-0 sm:flex-1 lg:flex-none">
 <p class="font-body-md text-[12px] text-secondary uppercase tracking-widest">Repertoriu</p>
 <div class="flex flex-row flex-wrap sm:flex-col">
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/repertoriu.html">Repertoriu</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/formatia.html">Componența formației</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/folclor-si-manele.html">Folclor și petrecere</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] lg:min-h-9 basis-1/2 sm:basis-auto" href="zone-mockup/repertoriu.html">Repertoriu</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] lg:min-h-9 basis-1/2 sm:basis-auto" href="zone-mockup/formatia.html">Componența formației</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] lg:min-h-9 basis-1/2 sm:basis-auto" href="zone-mockup/folclor-si-manele.html">Folclor și petrecere</a>
 </div>
 </div>
 </div>
