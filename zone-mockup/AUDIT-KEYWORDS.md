@@ -726,7 +726,7 @@ Textul e copiat din markup, după normalizarea spațiilor. „—” = câmp abs
   - Unsprezece localități lipite de București
   - Un județ muntenesc cu invitați din toată țara
   - Contează ora plecării, nu distanța
-  - Aceleași pachete, cel mai mic supliment
+  - Aceleași pachete, fără supliment de transport
   - Ce ne întreabă cei care organizează lângă București
   - Localitatea, data și de unde vin familiile
 - **H3** (6):

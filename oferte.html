@@ -28,8 +28,9 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="assets/tailwind.config.js"></script>
 <link rel="stylesheet" href="assets/styles.css">
-<!-- Ofertele NU declară `price`/`priceCurrency`: cifrele din pagină sunt încă
-     neconfirmate de client (vezi .price-tbc). Un preț provizoriu publicat în
+<!-- Ofertele NU declară `price`/`priceCurrency`: prețurile de botez sunt încă
+     neconfirmate de client (vezi .price-tbc); cele de nuntă sunt confirmate din
+     2026-09-17, dar JSON-LD-ul nu s-a atins în runda aceea. Un preț provizoriu publicat în
      date structurate ajunge în rezultatele Google ca preț ferm. Se completează
      odată cu ștergerea marcajelor „De confirmat". -->
 <script type="application/ld+json">
@@ -125,10 +126,7 @@
 <ul class="motif-list space-y-4">
 <li class="font-body-md text-body-md text-on-surface-variant">Prețurile sunt exprimate în euro și se achită în lei, la cursul BNR din ziua în care semnăm contractul.</li>
 <li class="font-body-md text-body-md text-on-surface-variant">Configurația pachetelor și prețurile de mai jos sunt valabile pentru evenimente din 2026 și 2027.</li>
-<li class="font-body-md text-body-md text-on-surface-variant">Pentru evenimentele din afara localității se adaugă un tarif de deplasare de
-<!-- [PLACEHOLDER-TARIF-KM] — valoare neprimită de la client -->
-<span class="price-tbc"><span class="price-tbc__flag">De confirmat</span><span class="price-tbc__value font-headline-md text-lg">__ RON/km</span></span>
-calculat dus-întors.</li>
+<li class="font-body-md text-body-md text-on-surface-variant">Grila se aplică în București și Ilfov. În celelalte județe se adaugă transportul, 6&nbsp;lei/km, calculat dus-întors.</li>
 </ul>
 </div>
 </section>
@@ -147,8 +145,7 @@ calculat dus-întors.</li>
 <h3 class="font-headline-md text-xl md:text-headline-md mb-5">Pachet Standard</h3>
 <div class="mb-5">
 <span class="font-label-md text-[12px] uppercase tracking-widest text-on-surface-variant block mb-2">Sâmbătă</span>
-<!-- [PLACEHOLDER-5500] — cifră neconfirmată de client -->
-<span class="price-tbc"><span class="price-tbc__flag">De confirmat</span><span class="price-tbc__value font-display-lg text-3xl md:text-4xl">5.500&nbsp;€</span></span>
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface">5.500&nbsp;€</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mb-6">Formație live, doi interpreți și DJ pentru toată seara, cu sonorizarea și efectele incluse.</p>
 <ul class="motif-list space-y-3 mb-6">
@@ -165,8 +162,7 @@ calculat dus-întors.</li>
 </ul>
 <div class="mt-auto pt-5 border-t border-outline-variant/20">
 <span class="font-label-md text-[12px] uppercase tracking-widest text-on-surface-variant block mb-2">Duminică</span>
-<!-- [PLACEHOLDER-4800] — cifră neconfirmată de client -->
-<span class="price-tbc"><span class="price-tbc__flag">De confirmat</span><span class="price-tbc__value font-display-lg text-xl md:text-2xl">4.800&nbsp;€</span></span>
+<span class="font-display-lg text-xl md:text-2xl text-on-surface">4.800&nbsp;€</span>
 </div>
 <a class="block text-center w-full mt-6 py-4 font-label-md text-label-md uppercase tracking-widest transition-all border border-outline text-on-surface bg-transparent hover:bg-white/5" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20M%C4%83%20intereseaz%C4%83%20pachetul%20Standard%20pentru%20nunt%C4%83.%20%C3%8Emi%20pute%C8%9Bi%20spune%20dac%C4%83%20ave%C8%9Bi%20liber%C4%83%20data%20evenimentului%20meu%3F" target="_blank" rel="noopener">Scrieți-ne pe WhatsApp</a>
 </article>
@@ -177,8 +173,7 @@ calculat dus-întors.</li>
 <h3 class="font-headline-md text-xl md:text-headline-md mb-5">Pachet Premium</h3>
 <div class="mb-5">
 <span class="font-label-md text-[12px] uppercase tracking-widest text-on-surface-variant block mb-2">Sâmbătă</span>
-<!-- [PLACEHOLDER-6500] — cifră neconfirmată de client -->
-<span class="price-tbc"><span class="price-tbc__flag">De confirmat</span><span class="price-tbc__value font-display-lg text-3xl md:text-4xl">6.500&nbsp;€</span></span>
+<span class="font-display-lg text-3xl md:text-4xl text-on-surface">6.500&nbsp;€</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mb-6">Formație extinsă, trei interpreți și producție completă de lumini, efecte și imagine.</p>
 <ul class="motif-list space-y-3 mb-6">
@@ -205,8 +200,7 @@ calculat dus-întors.</li>
 <p class="font-body-md text-[13px] text-on-surface-variant mb-6">Elementele marcate „opțional” se tarifează separat.</p>
 <div class="mt-auto pt-5 border-t border-outline-variant/20">
 <span class="font-label-md text-[12px] uppercase tracking-widest text-on-surface-variant block mb-2">Duminică</span>
-<!-- [PLACEHOLDER-5500] — cifră neconfirmată de client -->
-<span class="price-tbc"><span class="price-tbc__flag">De confirmat</span><span class="price-tbc__value font-display-lg text-xl md:text-2xl">5.500&nbsp;€</span></span>
+<span class="font-display-lg text-xl md:text-2xl text-on-surface">5.500&nbsp;€</span>
 </div>
 <a class="block text-center w-full mt-6 py-4 font-label-md text-label-md uppercase tracking-widest transition-all bg-accent text-white hover:bg-accent-hover" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20detalii%20despre%20pachetul%20Premium%20pentru%20nunt%C4%83%20%C8%99i%20s%C4%83%20verific%20dac%C4%83%20data%20noastr%C4%83%20mai%20este%20disponibil%C4%83." target="_blank" rel="noopener">Scrieți-ne pe WhatsApp</a>
 </article>
@@ -513,8 +507,9 @@ calculat dus-întors.</li>
         100 km).                                                     AJUSTAT
      6. CTA final — titlu, paragraf și eticheta acțiunii secundare.        NOU
 
-     De confirmat cu clientul înainte de lansare: cele nouă cifre marcate
-     .price-tbc (opt prețuri de pachet + tariful pe kilometru).
+     Confirmate de client pe 2026-09-17: cele patru prețuri de nuntă și tariful
+     de 6 lei/km (grila e valabilă pentru București și Ilfov). De confirmat
+     înainte de lansare: cele patru prețuri de botez, încă marcate .price-tbc.
      ========================================================================== -->
 <script>
     // aria-expanded nu se actualizează singur pe <summary>; îl sincronizăm din

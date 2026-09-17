@@ -9,6 +9,15 @@ Citatele de mai jos sunt **verbatim**, cu greșelile de tipar ale originalului. 
 textul era spart pe mai multe elemente HTML, fragmentele sunt unite cu un spațiu sau
 separate cu „/”.
 
+> **Actualizare 2026-09-17, după prima rundă de răspunsuri.** Clientul a confirmat ca ferme
+> cifrele de nuntă de pe `/oferte/` (Standard 5.500 € sâmbătă / 4.800 € duminică, Premium
+> 6.500 € / 5.500 €), valabile pentru București și Ilfov, tariful de **6 lei/km dus-întors** în
+> celelalte județe și cazarea ca cost separat. Nu mai sunt „de validat”: marcajele `.price-tbc`
+> au fost scoase de pe ele în prototip. **Prețurile de botez** (3.200 / 2.800 / 3.800 /
+> 3.300 €) **nu** fac parte din confirmare și nu apar pe niciun domeniu verificat: rămân
+> marcate. A24 și B75 rămân „de validat”, în a doua rundă. Verdictele din §4 sunt
+> actualizate; restul documentului descrie verificarea față de live, așa cum a fost făcută.
+
 ---
 
 ## 1. Metodă
@@ -67,10 +76,11 @@ adică textul editat direct pe live și absent din repo**, sunt doar acestea:
   e **tariful de 6 lei/km** (A2). Nu am putut verifica cine a completat-o: interogarea
   reviziilor WordPress (autor și dată pentru fiecare revizie) a fost refuzată în sesiune.
   Valoarea e identică cu cea de pe `grand-music.ro`, deci independența nu e demonstrabilă.
-  De aceea A2 e `confirmat, de validat`, nu `confirmat`.
+  De aceea A2 era `confirmat, de validat`, nu `confirmat`, până la răspunsul clientului din 2026-09-17.
 - **Problemă separată, în afara acestei sarcini:** live-ul publică fără marcaj cifrele pe
-  care prototipul le ține ca `.price-tbc` (toată grila din `/oferte/`) și răspunsul
-  `answer-tbc` despre plata restului.
+  care prototipul le ține ca `.price-tbc` și răspunsul `answer-tbc` despre plata restului.
+  Din 2026-09-17 cifrele de nuntă și tariful pe km sunt confirmate de client, deci pentru ele
+  problema nu mai există; rămân publicate neconfirmat **prețurile de botez** și plata restului.
 - **Anomalie de dată:** `/termeni-si-conditii/` declară `article:modified_time`
   2026-01-23, dar conținutul e șablonul adăugat în repo pe 2026-09-03 (commit `69d4557`).
   Data declarată de pe acest domeniu nu e de încredere.
@@ -173,8 +183,8 @@ nicio informație despre preț, transport, cazare sau montaj.
 
 ## 4. Corespondențe, pe rând
 
-Legendă: **DV** = `confirmat, de validat` · **N** = `neconfirmat`, rămâne blocant.
-Niciun rând nu e `confirmat` fără rezervă.
+Legendă: **C** = `confirmat` de client (2026-09-17) · **DV** = `confirmat, de validat` · **N** = `neconfirmat`, rămâne blocant.
+La verificarea față de live niciun rând nu era `confirmat` fără rezervă; **C** vine din răspunsul clientului, nu dintr-o sursă publicată.
 
 Surse citate des:
 - **GM-OF** = `https://grand-music.ro/oferta-formatii-nunta/`, modificată 2026-01-03
@@ -185,9 +195,9 @@ Surse citate des:
 
 | Rând | Verdict | Sursă | Citat verbatim | Motivul verdictului |
 |---|---|---|---|---|
-| A1, A3–A12, A14 (intervale de preț pe județ) | DV | GM-OF | „Configurația pachetelor și preturile sunt valabile doar pentru București și Ilfov pentru anul 2026-2027.” / „STANDARD / NUNTĂ / € / 5500 / PENTRU ZILELE DE SÂMBATĂ” / „PREȚ SPECIAL DUMINICĂ 4800EURO” / „PREMIUM / NUNTĂ / € / 6500” / „PREȚ SPECIAL DUMINICĂ  5500EURO” | Doar pe grand-music.ro (grila de pe `ioana-balan.ro/oferte/` e textul prototipului). Grila se aplică direct doar pentru Ilfov (A11); pentru celelalte 11 județe, intervalul nu e publicat ca cifră și rezultă din grilă plus A2. |
-| A2 (tarif RON/km) | DV | GM-OF · GM-FAQ · IB-TC · `ioana-balan.ro/oferte/` | GM-OF: „Pentru deplasări în afara localităților menționate, se percepe un tarif de 6 RON/Km dus-întors.” · GM-FAQ: „percepem un cost suplimentar de transport (in suma de 6RON/km dus-întors) și cazare” · IB-TC: „se percepe un tarif de deplasare de 6 lei/km, calculat dus-întors” | Publicat pe ambele domenii, dar pe `ioana-balan.ro` e o completare în șablonul nostru, cu autor neverificat (§2). Vezi și contradicția C4. |
-| A17–A21 (cine suportă cazarea) | DV | GM-FAQ · `grand-music.ro/` (2026-01-03) · `grand-music.ro/formatie-nunta-bucuresti/` (2025-06-13) | GM-FAQ: „Oferta acoperă toate costurile dacă evenimentul dumneavoastră are loc în București sau Județul Ilfov. Pentru deplasarea în afara localităților menționate percepem un cost suplimentar de transport (in suma de 6RON/km dus-întors) și cazare .” · homepage: „Cheltuieli suplimetare(transport si cazare, unde este cazul).” | Valoarea: cazarea e cost suplimentar, perceput separat de pachet. Doar pe grand-music.ro; fraza de pe `ioana-balan.ro` („costurile aferente se stabilesc separat”) e textul prototipului. Nu spune dacă gazdele pot asigura ele cazarea. |
+| A1, A3–A12, A14 (intervale de preț pe județ) | **C** (era DV) | GM-OF | „Configurația pachetelor și preturile sunt valabile doar pentru București și Ilfov pentru anul 2026-2027.” / „STANDARD / NUNTĂ / € / 5500 / PENTRU ZILELE DE SÂMBATĂ” / „PREȚ SPECIAL DUMINICĂ 4800EURO” / „PREMIUM / NUNTĂ / € / 6500” / „PREȚ SPECIAL DUMINICĂ  5500EURO” | Doar pe grand-music.ro (grila de pe `ioana-balan.ro/oferte/` e textul prototipului). Grila se aplică direct doar pentru Ilfov (A11); pentru celelalte 11 județe, intervalul nu e publicat ca cifră și rezultă din grilă plus A2. |
+| A2 (tarif RON/km) | **C** (era DV) | GM-OF · GM-FAQ · IB-TC · `ioana-balan.ro/oferte/` | GM-OF: „Pentru deplasări în afara localităților menționate, se percepe un tarif de 6 RON/Km dus-întors.” · GM-FAQ: „percepem un cost suplimentar de transport (in suma de 6RON/km dus-întors) și cazare” · IB-TC: „se percepe un tarif de deplasare de 6 lei/km, calculat dus-întors” | Publicat pe ambele domenii, dar pe `ioana-balan.ro` e o completare în șablonul nostru, cu autor neverificat (§2). Vezi și contradicția C4. |
+| A17–A21 (cine suportă cazarea) | **C** (era DV) | GM-FAQ · `grand-music.ro/` (2026-01-03) · `grand-music.ro/formatie-nunta-bucuresti/` (2025-06-13) | GM-FAQ: „Oferta acoperă toate costurile dacă evenimentul dumneavoastră are loc în București sau Județul Ilfov. Pentru deplasarea în afara localităților menționate percepem un cost suplimentar de transport (in suma de 6RON/km dus-întors) și cazare .” · homepage: „Cheltuieli suplimetare(transport si cazare, unde este cazul).” | Valoarea: cazarea e cost suplimentar, perceput separat de pachet. Doar pe grand-music.ro; fraza de pe `ioana-balan.ro` („costurile aferente se stabilesc separat”) e textul prototipului. Nu spune dacă gazdele pot asigura ele cazarea. |
 | A24 (marjă montaj) | DV | GM-FAQ | „Staff-ul tehnic ajunge la locație cu aproximativ 4-5 ore inainte de începereea evenimentului.” | Doar pe grand-music.ro. Reperul e „începerea evenimentului”, nu „primul moment muzical”. |
 | A25, A27 (putere electrică) | N | — | Nimic pe `grand-music.ro`. Pe `ioana-balan.ro/faq/` apare doar „Locația asigură spațiul convenit și alimentarea electrică la scenă.”, text din prototip, fără valoare. | |
 | A26 (durată montaj) | N | GM-FAQ, parțial | „După instalarea echipamentelor formația efectuează probele de sunet, care durează între 30-60 de minute.” | Se publică ora de sosire și durata probei, nu durata montajului. |
@@ -226,6 +236,8 @@ Surse citate des:
 | A (22) | 0 | 19 | 3 |
 | B (22) | 0 | 1 | 21 |
 | **Total (44)** | **0** | **20** | **24** |
+
+După răspunsul clientului (2026-09-17), pe aceleași rânduri: **A** — 18 confirmate (A1–A12, A14, A17–A21), A24 de validat, A25–A27 neconfirmate. **B** — toate confirmate sau reformulate ca decizie per eveniment, cu excepția B26 și B43 (neconfirmate) și B75 (de validat). Detaliul e în `DECIZII-CLIENT.md`.
 
 ---
 
