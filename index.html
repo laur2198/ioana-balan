@@ -27,7 +27,7 @@
 <link rel="preload" href="assets/fonts/eb-garamond-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Imaginea de hero e LCP-ul paginii: se preîncarcă varianta webp, cu același
      srcset/sizes ca <picture>, ca browserul să aleagă aceeași lățime. -->
-<link rel="preload" as="image" type="image/webp" href="assets/img/ioana-balan-ie-cosita-impletita-1440.webp" imagesrcset="assets/img/ioana-balan-ie-cosita-impletita-800.webp 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.webp 1440w" imagesizes="(min-width: 1280px) 440px, (min-width: 1024px) 40vw, 100vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="assets/img/ioana-balan-portret-dantela-rosie-1200.webp" imagesrcset="assets/img/ioana-balan-portret-dantela-rosie-800.webp 800w, assets/img/ioana-balan-portret-dantela-rosie-1200.webp 1200w" imagesizes="(min-width: 1024px) 408px, (min-width: 768px) calc(100vw - 128px), calc(100vw - 32px)" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -107,11 +107,23 @@
 </div>
 <main id="continut" tabindex="-1">
 <!-- Hero Section
-     Compoziție pe două coloane, nu bandă full-bleed: singura fotografie
-     disponibilă e portret 4:5 (1440×1800), iar object-cover într-o bandă
-     lată o mărea până rămânea o fâșie la nivelul ochilor (1920px: se vedeau
-     doar 41% din înălțimea sursei). În coloană proprie portretul păstrează
-     raportul nativ și chipul intră întreg la toate lățimile.
+     Compoziție pe două coloane, nu bandă full-bleed: sursa e portret 3:4
+     (ioana-balan-portret-dantela-rosie, 1200×1600), iar object-cover într-o
+     bandă lată ar mări-o până la o fâșie la nivelul ochilor (cu portretul
+     anterior, 4:5, la 1920px se vedeau doar 41% din înălțimea sursei). În
+     coloană proprie portretul rămâne aproape de raportul nativ.
+     object-[64%_21%]: recalculat la schimbarea sursei. Fața stă în treimea
+     superioară și deplasată spre dreapta (în sursă x 555–985, y 215–775;
+     jumătatea de jos e dantelă), iar 50% 6% era încadrat pentru portretul
+     anterior, cu fața sus și centrată. Sub 1024px imaginea umple lățimea și
+     contează doar componenta verticală; la 1024–~1150 umple înălțimea și
+     contează cea orizontală. Măsurat în Chromium: fața intră întreagă la
+     360, 768, 1024 și 1440; la 768 gradientul atinge bărbia (~45%).
+     Limită cunoscută, nereparată: la capetele de interval cutia e prea lată
+     pentru înălțimea ei (767 → 588px de sursă vizibili, 1023 → 563px, față
+     de 560px ai feței). La 767 fața ajunge la 1px de muchia de sus, la 1023
+     e tăiată cu 2px. Nicio valoare de object-position nu rezolvă asta fără
+     alte înălțimi pe praguri.
      Fototeca nu conține sursă peisaj ≥1440px — vezi CLAUDE.md §10. -->
 <section class="relative overflow-hidden">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
@@ -129,8 +141,8 @@
 </div>
 <div class="w-full lg:flex-1 relative">
 <picture>
-<source type="image/webp" srcset="assets/img/ioana-balan-ie-cosita-impletita-800.webp 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.webp 1440w" sizes="(min-width: 1280px) 440px, (min-width: 1024px) 40vw, 100vw">
-<img alt="Ioana Balan în ie albă cu broderie aurie, cu cosița împletită în coroniță" class="w-full h-[300px] sm:h-[360px] md:h-[420px] lg:h-[520px] object-cover object-[50%_6%]" src="assets/img/ioana-balan-ie-cosita-impletita-1440.jpg" srcset="assets/img/ioana-balan-ie-cosita-impletita-800.jpg 800w, assets/img/ioana-balan-ie-cosita-impletita-1440.jpg 1440w" sizes="(min-width: 1280px) 440px, (min-width: 1024px) 40vw, 100vw" width="1440" height="1800" loading="eager" fetchpriority="high" decoding="async">
+<source type="image/webp" srcset="assets/img/ioana-balan-portret-dantela-rosie-800.webp 800w, assets/img/ioana-balan-portret-dantela-rosie-1200.webp 1200w" sizes="(min-width: 1024px) 408px, (min-width: 768px) calc(100vw - 128px), calc(100vw - 32px)">
+<img alt="Ioana Balan în bluză roșie din dantelă cu volane, cu mâna ridicată spre obiectiv în semnul V" class="w-full h-[300px] sm:h-[360px] md:h-[420px] lg:h-[520px] object-cover object-[64%_21%]" src="assets/img/ioana-balan-portret-dantela-rosie-1200.jpg" srcset="assets/img/ioana-balan-portret-dantela-rosie-800.jpg 800w, assets/img/ioana-balan-portret-dantela-rosie-1200.jpg 1200w" sizes="(min-width: 1024px) 408px, (min-width: 768px) calc(100vw - 128px), calc(100vw - 32px)" width="1200" height="1600" loading="eager" fetchpriority="high" decoding="async">
 </picture>
 <!-- Gradient de contrast — înlocuiește textura hexagonală. Fără model, fără
      zgomot: doar stinge marginea dinspre text, ca fotografia să nu fie o
