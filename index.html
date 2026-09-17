@@ -398,7 +398,14 @@
 </section>
 </main>
 <!-- Footer -->
-<!-- Footer (canonic) -->
+<!-- Footer (DEMONSTRAȚIE — doar pe index.html, NU e footer-ul canonic)
+     Modificat 2026-09-17, la cererea clientului: demonstrație de structură pentru
+     banda 2 din NAV-FOOTER-MIGRARE.md §2 (coloanele „Servicii” și „Repertoriu”,
+     „Zone deservite” și „Blog” în rândul de documente). index.html e pagină din
+     contractul de bază.
+     Celelalte 10 pagini din rădăcină și cele 20 din zone-mockup/ rămân pe footer-ul
+     canonic. La migrare footer-ul devine un template unic și diferența dispare;
+     excepția corespunzătoare din zone-mockup/verify/integritate.py se șterge atunci. -->
 <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/10">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 flex flex-col gap-8">
 
@@ -432,7 +439,8 @@
 </ul>
 </div>
 
-<!-- Banda 2: contact (stânga) + informații legale (dreapta), fără titluri de coloană -->
+<!-- Banda 2: contact (stânga) + informații legale (dreapta), apoi coloanele
+     „Servicii” și „Repertoriu” (demonstrație, vezi mai jos) și rândul de documente -->
 <div class="flex flex-col gap-4">
 <div class="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-8">
 <div class="flex flex-col">
@@ -448,6 +456,35 @@
 <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" aria-label="SAL — Soluționarea alternativă a litigiilor">SAL</a>
 </div>
 </div>
+<!-- Coloanele „Servicii” și „Repertoriu” — demonstrație pentru client, 2026-09-17.
+     Inversează deliberat decizia din aedc92e („Compact the footer and drop its
+     navigation”), care scosese navigația și titlurile de coloană din footer.
+     Titlurile sunt <p>, nu heading: nu intră în outline-ul paginii.
+     Pe mobil coloanele se stivuiesc sub contact, înaintea rândului de documente;
+     de la sm stau alăturate. Doar flexbox, ca restul footer-ului; aceleași clase
+     de link și aceeași țintă de tap (min-h-[44px]) ca e-mailul și telefonul.
+     Țintele sunt paginile-prototip din zone-mockup/ (noindex); slug-urile finale
+     depind de D9 din DECIZII-CLIENT.md. -->
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-16">
+<div class="flex flex-col">
+<p class="font-body-md text-[12px] text-secondary uppercase tracking-widest">Servicii</p>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/nunta.html">Nuntă</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/botez.html">Botez</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/eveniment-privat.html">Eveniment privat</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/corporate.html">Corporate</a>
+<!-- Marcaj de placeholder, echivalentul lui .ph din zone-mockup/ (clasa nu există
+     pe paginile din rădăcină). Aceleași valori, din tokeni existenți: text în
+     outline, fond surface-container, bordură outline la 40%. Dacă răspunsul
+     la D8 e „nu”, linkul „Corporate” și marcajul ies, iar coloana rămâne cu trei. -->
+<span class="self-start inline-block font-mono text-[12px] leading-snug px-2 py-0.5 text-outline bg-surface-container border border-dashed border-outline/40">[CORPORATE — de confirmat, D8]</span>
+</div>
+<div class="flex flex-col">
+<p class="font-body-md text-[12px] text-secondary uppercase tracking-widest">Repertoriu</p>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/repertoriu.html">Repertoriu</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/formatia.html">Componența formației</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/folclor-si-manele.html">Folclor și petrecere</a>
+</div>
+</div>
 <!-- Documente de subsol: linkuri reale, în afara navigației din header.
      Aceeași stilizare discretă ca înainte; min-h-[44px] pentru țintă de tap,
      ca la rândul ANPC/SAL de deasupra. -->
@@ -455,6 +492,13 @@
 <a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="termeni-si-conditii.html">Termeni și condiții</a>
 <span aria-hidden="true" class="opacity-50">·</span>
 <a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="politica-cookie.html">Politica de cookie-uri</a>
+<span aria-hidden="true" class="opacity-50">·</span>
+<!-- Demonstrație 2026-09-17: „Zone deservite” duce la hub (pe paginile din
+     zone-mockup/ are încă href="#"), iar „Blog” intră după el (NAV-FOOTER-MIGRARE.md
+     §2: documentele juridice întâi, apoi linkurile de navigație). -->
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="zone-mockup/zone.html">Zone deservite</a>
+<span aria-hidden="true" class="opacity-50">·</span>
+<a class="hover:text-primary transition-colors inline-flex items-center min-h-[44px]" href="blog.html">Blog</a>
 </p>
 </div>
 

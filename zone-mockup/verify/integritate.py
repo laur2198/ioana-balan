@@ -1,6 +1,8 @@
 """4.4 — Integritate: blocuri protejate, ținte relative, JSON-LD, interdicții.
 
 Referința pentru blocurile protejate e zona-brasov.html (șablonul A).
+Separat: footer-ul celor 11 pagini din rădăcină, comparat între ele, cu excepția
+temporară FOOTER_DEMO.
 """
 import json
 import os
@@ -8,7 +10,7 @@ import re
 import sys
 from urllib.parse import unquote, urldefrag
 
-from _common import ALL_PAGES, MOCKUP, read, soup
+from _common import ALL_PAGES, MOCKUP, OLD_PAGES, ROOT, read, soup
 
 REFERENCE = "zona-brasov.html"
 
@@ -30,6 +32,22 @@ FORBIDDEN = {
     "localStorage": r"localStorage",
     "offers/price în JSON-LD": None,  # verificat separat, doar în JSON-LD
 }
+
+# --- Footer-ul paginilor din rădăcină -----------------------------------------
+# Paginile din rădăcină au propria familie de footer: aceleași clase ca în
+# zone-mockup/, dar căi fără `../` și fără „Zone deservite” (href="#" pe paginile
+# noi). De aceea nu se compară cu zona-brasov.html, ci între ele.
+#
+# EXCEPȚIE TEMPORARĂ — SE ȘTERGE LA MIGRARE.
+# index.html are footer-ul de DEMONSTRAȚIE pentru client (2026-09-17, cerere client,
+# demonstrație de structură pentru NAV-FOOTER-MIGRARE.md §2): coloanele „Servicii”
+# și „Repertoriu”, „Zone deservite” către hub și „Blog”. Celelalte 10 pagini din
+# rădăcină și cele 20 din zone-mockup/ rămân pe footer-ul canonic până la migrare.
+# La migrare footer-ul devine un template unic în Elementor, iar FOOTER_DEMO se
+# golește. Dacă footer-ul de pe o pagină din FOOTER_DEMO revine la cel canonic,
+# verificarea pică: excepția a expirat și trebuie scoasă de aici.
+FOOTER_DEMO = {"index.html"}
+FOOTER_RE = re.compile(r"<footer\b.*?</footer>", re.S)
 
 COLOR_RE = re.compile(r"#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3}\b|rgba?\([^)]*\)")
 
@@ -81,6 +99,34 @@ def jsonld_keys(node):
             yield from jsonld_keys(v)
 
 
+def check_root_footers():
+    """Footer-ul celor 11 pagini din rădăcină: identic între ele, cu FOOTER_DEMO ca excepție."""
+    footers = {}
+    for page in OLD_PAGES:
+        m = FOOTER_RE.search(open(os.path.join(ROOT, page), encoding="utf-8").read())
+        footers[page] = m.group(0) if m else None
+    canonical_pages = [p for p in OLD_PAGES if p not in FOOTER_DEMO]
+    canonical = footers[canonical_pages[0]]
+    failures = 0
+    print(f"\nFooter — paginile din rădăcină (referință: {canonical_pages[0]}; "
+          f"excepție temporară: {', '.join(sorted(FOOTER_DEMO)) or 'niciuna'}):")
+    for page in OLD_PAGES:
+        f = footers[page]
+        if f is None:
+            verdict, bad = "footer lipsă", True
+        elif page in FOOTER_DEMO:
+            if f == canonical:
+                verdict, bad = "EXCEPȚIE EXPIRATĂ: footer identic cu cel canonic, scoate pagina din FOOTER_DEMO", True
+            else:
+                verdict, bad = "diferit — footer de demonstrație, excepție temporară (FOOTER_DEMO)", False
+        else:
+            verdict, bad = ("identic" if f == canonical else "DIFERIT față de footer-ul canonic"), f != canonical
+        failures += bad
+        print(f"  {page:26} {verdict}")
+    print(f"Pagini din rădăcină cu problemă de footer: {failures}")
+    return failures
+
+
 def main():
     ref = read(REFERENCE)
     ref_colors = set(c.lower() for c in COLOR_RE.findall(ref))
@@ -126,7 +172,8 @@ def main():
         for p in problems:
             print(f"    · {p}")
     print(f"\nPagini cu probleme: {failures}")
-    return 1 if failures else 0
+    root_failures = check_root_footers()
+    return 1 if failures or root_failures else 0
 
 
 if __name__ == "__main__":

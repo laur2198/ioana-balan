@@ -139,6 +139,19 @@ rând de documente: „Termeni și condiții · Politica de cookie-uri · **Zone
 toate cele 20 de pagini, „Zone deservite” are `href="#"`, pentru că hub-ul nu exista când
 a fost scris footer-ul.
 
+**Două familii de footer, nu una.** Cele 11 pagini din rădăcină au footer-ul canonic
+fără „Zone deservite” (rândul de documente se oprește la „Politica de cookie-uri”), cu
+căi fără `../`. Cele 20 din `zone-mockup/` îl au cu `href="#"`. Fiecare familie e
+identică în interiorul ei. `verify/integritate.py` le verifică separat: paginile noi față
+de `zona-brasov.html`, iar paginile din rădăcină între ele.
+
+**Excepție: `index.html` are footer-ul de demonstrație** (2026-09-17, la cererea
+clientului), cu tot ce descrie tabelul de mai jos. Celelalte 10 pagini din rădăcină și
+cele 20 din `zone-mockup/` rămân pe footer-ul canonic. `integritate.py` tratează
+diferența prin `FOOTER_DEMO`, marcată ca excepție temporară: la migrare footer-ul devine
+un template unic, excepția se șterge, iar dacă `index.html` revine la footer-ul canonic
+înainte de asta, verificarea pică și cere scoaterea excepției.
+
 ### Ce se adaugă
 
 | Element | Linkuri | Slug propus |
@@ -176,6 +189,37 @@ linkuri sitewide către pagini din aceeași categorie ar fi footer stuffing.
 5. **Ținte de tap ≥ 44 px**, ca în restul footer-ului (`min-h-[44px]`).
 6. **Pe mobil**, cele două coloane se stivuiesc sub contact, înaintea rândului de
    documente. Structura rămâne containere flexbox, fără grid.
+
+### Măsurat pe demonstrația de pe `index.html`
+
+Chromium, fereastră de 800 px înălțime, înălțimea elementului `<footer>`. „Înainte” =
+footer-ul canonic, „după” = footer-ul de demonstrație.
+
+| Lățime | Înainte | După | Creștere | După, în ecrane de 800 px |
+|---|---|---|---|---|
+| 360 | 605 px | 1059,5 px | +454,5 px (+75%) | 1,32 |
+| 768 | 489 px | 727,5 px | +238,5 px (+49%) | 0,91 |
+| 1024 | 437 px | 675,5 px | +238,5 px (+55%) | 0,84 |
+| 1440 | 437 px | 675,5 px | +238,5 px (+55%) | 0,84 |
+
+- **La 360 footer-ul depășește 1000 px și nu mai încape într-un ecran.** Pe mobil cele
+  două coloane stau una sub alta: 7 linkuri × 44 px = 308 px, plus titlurile, marcajul
+  „Corporate” și spațierea. Tot pe mobil, „Zone deservite · Blog” trece pe un al doilea
+  rând de documente, alte 44 px. **Nereparat, decizie de design deschisă.** Variante:
+  coloanele colapsate într-un `<details>` pe mobil, sau linkurile pe două coloane în loc
+  de una.
+- De la `sm` coloanele stau alăturate, deci creșterea e fixă (+238,5 px): înălțimea
+  coloanei „Servicii” (titlu, 4 linkuri, marcaj).
+- Fiecare link nou are exact 44 px pe verticală, la toate cele patru lățimi.
+- Titlurile „Servicii” și „Repertoriu” sunt `<p>`: outline-ul paginii are aceleași 14
+  heading-uri ca înainte.
+- Fără overflow orizontal la nicio lățime (`scrollWidth` = `clientWidth`).
+- Marcajul `[CORPORATE — de confirmat, D8]` folosește tokeni existenți (`text-outline`,
+  `bg-surface-container`, `border-outline/40`), pentru că `.ph` e definită doar în
+  `<style>`-ul paginilor din `zone-mockup/`.
+
+**Pentru Elementor:** cifrele de mai sus sunt ce trebuie reverificat pe template-ul de
+footer, la aceleași patru lățimi.
 
 ---
 
