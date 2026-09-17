@@ -28,11 +28,12 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="assets/tailwind.config.js"></script>
 <link rel="stylesheet" href="assets/styles.css">
-<!-- Ofertele NU declară `price`/`priceCurrency`: prețurile de botez sunt încă
-     neconfirmate de client (vezi .price-tbc); cele de nuntă sunt confirmate din
-     2026-09-17, dar JSON-LD-ul nu s-a atins în runda aceea. Un preț provizoriu publicat în
-     date structurate ajunge în rezultatele Google ca preț ferm. Se completează
-     odată cu ștergerea marcajelor „De confirmat". -->
+<!-- Nunta declară prețul: cele patru cifre sunt confirmate ferme de client
+     (2026-09-17), câte o ofertă pe zi, cu `areaServed` pe București și Ilfov,
+     unde e valabilă grila. Botezul NU declară `price`: cifrele lui sunt încă
+     neconfirmate (vezi .price-tbc), iar un preț provizoriu publicat în date
+     structurate ajunge în rezultatele Google ca preț ferm. Se completează odată
+     cu ștergerea marcajelor „De confirmat". Fără `aggregateRating`. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -42,8 +43,10 @@
   "url": "https://ioana-balan.ro/oferte.html",
   "brand": { "@type": "Brand", "name": "Ioana Balan" },
   "offers": [
-    { "@type": "Offer", "name": "Standard Nuntă", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "areaServed": ["București", "Ploiești", "Brașov", "Craiova", "Pitești"] },
-    { "@type": "Offer", "name": "Premium Nuntă", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "areaServed": ["București", "Ploiești", "Brașov", "Craiova", "Pitești"] },
+    { "@type": "Offer", "name": "Standard Nuntă — sâmbătă", "description": "Preț de sâmbătă pentru grila de bază; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 5500, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 5500, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] },
+    { "@type": "Offer", "name": "Standard Nuntă — duminică", "description": "Preț de duminică pentru grila de bază; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 4800, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 4800, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] },
+    { "@type": "Offer", "name": "Premium Nuntă — sâmbătă", "description": "Preț de sâmbătă pentru grila de bază; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 6500, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 6500, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] },
+    { "@type": "Offer", "name": "Premium Nuntă — duminică", "description": "Preț de duminică pentru grila de bază; în celelalte județe se adaugă transport, 6 lei/km dus-întors.", "price": 5500, "priceCurrency": "EUR", "priceSpecification": { "@type": "PriceSpecification", "price": 5500, "priceCurrency": "EUR" }, "availability": "https://schema.org/InStock", "areaServed": [{ "@type": "City", "name": "București" }, { "@type": "AdministrativeArea", "name": "Județul Ilfov" }] },
     { "@type": "Offer", "name": "Standard Botez", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "areaServed": ["București", "Ploiești", "Brașov", "Craiova", "Pitești"] },
     { "@type": "Offer", "name": "Premium Botez", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "areaServed": ["București", "Ploiești", "Brașov", "Craiova", "Pitești"] }
   ]
@@ -277,7 +280,7 @@
 <div class="max-w-3xl mx-auto text-center">
 <span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-3">Unde cântăm</span>
 <h2 class="font-headline-lg text-2xl md:text-headline-lg mb-6" id="acoperire-titlu">Acoperire</h2>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant leading-relaxed">Cele mai multe evenimente le avem în București, Ploiești, Brașov, Craiova și Pitești, dar ne deplasăm în orice localitate aflată pe o rază de circa 300 de kilometri de București. Dacă sala dumneavoastră este mai departe, întrebați-ne oricum — depinde de dată și de restul calendarului, iar răspunsul vi-l dăm în aceeași zi.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant leading-relaxed">Cele mai multe evenimente le avem în București, Ploiești, Brașov, Craiova și Pitești, dar ne deplasăm în orice localitate aflată pe o rază de circa 300 de kilometri de București. Dacă sala dumneavoastră este mai departe, întrebați-ne oricum — depinde de dată și de restul calendarului.</p>
 </div>
 </section>
 
@@ -310,7 +313,7 @@
 <h3 class="font-headline-md text-[16px] md:text-headline-md pr-4 leading-snug">Cum rezerv data — avans și contract?</h3>
 <svg aria-hidden="true" class="transition-transform duration-300 group-open:rotate-180 shrink-0" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
 </summary>
-<div class="px-5 md:px-6 pb-6 text-secondary font-body-md">Data se blochează pe bază de contract și un avans. Scrieți-ne pe WhatsApp cu data și locația, iar în aceeași zi primiți confirmarea disponibilității și oferta.</div>
+<div class="px-5 md:px-6 pb-6 text-secondary font-body-md">Data se blochează pe bază de contract și un avans. Scrieți-ne pe WhatsApp cu data și locația: vă confirmăm disponibilitatea și vă trimitem oferta, cu prețurile finale ale pachetelor.</div>
 </details>
 </div>
 <div class="faq-item border border-outline-variant/30 bg-surface-container-low">
@@ -351,7 +354,7 @@
 <section class="py-16 md:py-24 bg-surface-container-low border-t border-outline-variant/10 text-center">
 <div class="max-w-2xl mx-auto px-margin-mobile">
 <h2 class="font-display-lg text-[28px] md:text-display-lg mb-5 leading-tight">Verificați dacă data este liberă</h2>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-10">Scrieți-ne data și localitatea. Vă răspundem în aceeași zi cu disponibilitatea și cu oferta pentru configurația care vi se potrivește.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-10">Scrieți-ne data și localitatea. Vă răspundem cu disponibilitatea și cu oferta pentru configurația care vi se potrivește.</p>
 <div class="flex flex-col sm:flex-row justify-center gap-4">
 <a class="inline-block bg-accent text-white px-8 md:px-12 py-4 md:py-5 uppercase font-label-md text-label-md tracking-widest hover:bg-accent-hover transition-colors w-full sm:w-auto" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20rezerv%20o%20dat%C4%83%20pentru%20evenimentul%20meu." target="_blank" rel="noopener">Rezervă pe WhatsApp</a>
 <a class="inline-block border border-outline text-on-surface bg-transparent px-8 md:px-12 py-4 md:py-5 uppercase font-label-md text-label-md tracking-widest hover:bg-white/5 transition-colors w-full sm:w-auto" href="tel:+40722911485">+40 722 911 485</a>

@@ -6,8 +6,9 @@ vecin, ora-limită de sonor). Întrebările de mai jos sunt tehnice sau țin de 
 runda asta merge direct la el.
 
 Din prima rundă s-au confirmat prețurile de nuntă, tariful de 6 lei/km, cazarea ca cost separat
-și majoritatea afirmațiilor despre programul serii; sunt deja trecute pe pagini. Au rămas **8
-rânduri**. Referința completă, cu toate răspunsurile primei runde, e în `DECIZII-CLIENT.md`.
+și majoritatea afirmațiilor despre programul serii; sunt deja trecute pe pagini. Au rămas **9
+rânduri**: cele 8 deschise din prima rundă și prețurile de botez. Referința completă, cu toate
+răspunsurile primei runde, e în `DECIZII-CLIENT.md`.
 
 | Temă | Ce trebuie confirmat | Ref. | Răspuns |
 |---|---|---|---|
@@ -19,6 +20,7 @@ rânduri**. Referința completă, cu toate răspunsurile primei runde, e în `DE
 | Sunet | Când alături e alt eveniment, despărțit doar de un panou mobil: cereți programul lor și ajustați volumul? | B43 | |
 | Piese | Piesele pe care mirii nu le vor **se scot din program** (publicat pe grand-music.ro). Rămâne valabil? | B75 | |
 | Contract | Vă rugăm să ne **confirmați în scris** că paginile de serviciu (nuntă, botez, eveniment privat, evenimente de firmă) fac parte din **extinderea de 450 €**, nu din contractul inițial. Nu e nevoie de alte detalii despre contract. | D9 | |
+| Prețuri | **Prețuri botez.** Grila de pe `oferte.html` listează 3.200 / 2.800 € (Standard) și 3.800 / 3.300 € (Premium). Nu sunt confirmate nici de client, nici publicate pe `grand-music.ro`. Sunt corecte și ferme, ca cele de nuntă? | A92 | |
 
 ## O clarificare din prima rundă
 
