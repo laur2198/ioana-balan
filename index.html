@@ -461,17 +461,22 @@
      navigation”), care scosese navigația și titlurile de coloană din footer.
      Titlurile sunt <p>, nu heading: nu intră în outline-ul paginii.
      Pe mobil coloanele se stivuiesc sub contact, înaintea rândului de documente;
-     de la sm stau alăturate. Doar flexbox, ca restul footer-ului; aceleași clase
+     de la sm stau alăturate. Sub sm, linkurile din fiecare coloană curg câte două
+     pe rând (flex-wrap + basis-1/2): „Servicii” 2×2, „Repertoriu” 2+1. Stivuite
+     unul sub altul, cele 7 linkuri urcau footer-ul la 1059,5 px la 360. De la sm,
+     basis-auto și flex-col le readuc câte unul pe rând. Doar flexbox, ca restul footer-ului; aceleași clase
      de link și aceeași țintă de tap (min-h-[44px]) ca e-mailul și telefonul.
      Țintele sunt paginile-prototip din zone-mockup/ (noindex); slug-urile finale
      depind de D9 din DECIZII-CLIENT.md. -->
 <div class="flex flex-col sm:flex-row gap-4 sm:gap-16">
 <div class="flex flex-col">
 <p class="font-body-md text-[12px] text-secondary uppercase tracking-widest">Servicii</p>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/nunta.html">Nuntă</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/botez.html">Botez</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/eveniment-privat.html">Eveniment privat</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/corporate.html">Corporate</a>
+<div class="flex flex-row flex-wrap sm:flex-col">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/nunta.html">Nuntă</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/botez.html">Botez</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/eveniment-privat.html">Eveniment privat</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/corporate.html">Corporate</a>
+</div>
 <!-- Marcaj de placeholder, echivalentul lui .ph din zone-mockup/ (clasa nu există
      pe paginile din rădăcină). Aceleași valori, din tokeni existenți: text în
      outline, fond surface-container, bordură outline la 40%. Dacă răspunsul
@@ -480,9 +485,11 @@
 </div>
 <div class="flex flex-col">
 <p class="font-body-md text-[12px] text-secondary uppercase tracking-widest">Repertoriu</p>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/repertoriu.html">Repertoriu</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/formatia.html">Componența formației</a>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px]" href="zone-mockup/folclor-si-manele.html">Folclor și petrecere</a>
+<div class="flex flex-row flex-wrap sm:flex-col">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/repertoriu.html">Repertoriu</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/formatia.html">Componența formației</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center min-h-[44px] basis-1/2 sm:basis-auto" href="zone-mockup/folclor-si-manele.html">Folclor și petrecere</a>
+</div>
 </div>
 </div>
 <!-- Documente de subsol: linkuri reale, în afara navigației din header.

@@ -192,25 +192,58 @@ linkuri sitewide către pagini din aceeași categorie ar fi footer stuffing.
 
 ### Măsurat pe demonstrația de pe `index.html`
 
-Chromium, fereastră de 800 px înălțime, înălțimea elementului `<footer>`. „Înainte” =
-footer-ul canonic, „după” = footer-ul de demonstrație.
+Chromium, fereastră de 800 px înălțime, înălțimea elementului `<footer>`.
 
-| Lățime | Înainte | După | Creștere | După, în ecrane de 800 px |
-|---|---|---|---|---|
-| 360 | 605 px | 1059,5 px | +454,5 px (+75%) | 1,32 |
-| 768 | 489 px | 727,5 px | +238,5 px (+49%) | 0,91 |
-| 1024 | 437 px | 675,5 px | +238,5 px (+55%) | 0,84 |
-| 1440 | 437 px | 675,5 px | +238,5 px (+55%) | 0,84 |
+- **Canonic** = footer-ul fără coloane.
+- **Demo v1** = coloanele cu linkurile câte unul pe rând (`ab54ef9`).
+- **Demo v2** = varianta actuală: sub `sm` (640 px), linkurile din fiecare coloană
+  curg câte două pe rând.
 
-- **La 360 footer-ul depășește 1000 px și nu mai încape într-un ecran.** Pe mobil cele
-  două coloane stau una sub alta: 7 linkuri × 44 px = 308 px, plus titlurile, marcajul
-  „Corporate” și spațierea. Tot pe mobil, „Zone deservite · Blog” trece pe un al doilea
-  rând de documente, alte 44 px. **Nereparat, decizie de design deschisă.** Variante:
-  coloanele colapsate într-un `<details>` pe mobil, sau linkurile pe două coloane în loc
-  de una.
-- De la `sm` coloanele stau alăturate, deci creșterea e fixă (+238,5 px): înălțimea
-  coloanei „Servicii” (titlu, 4 linkuri, marcaj).
-- Fiecare link nou are exact 44 px pe verticală, la toate cele patru lățimi.
+| Lățime | Canonic | Demo v1 | Demo v2 (actual) | v2 față de canonic | v2, în ecrane de 800 px |
+|---|---|---|---|---|---|
+| 360 | 605 px | 1059,5 px | **931,5 px** | +326,5 px (+54%) | 1,16 |
+| 768 | 489 px | 727,5 px | 727,5 px | +238,5 px (+49%) | 0,91 |
+| 1024 | 437 px | 675,5 px | 675,5 px | +238,5 px (+55%) | 0,84 |
+| 1440 | 437 px | 675,5 px | 675,5 px | +238,5 px (+55%) | 0,84 |
+
+Între 360 și 640, v2 măsoară: 927,5 px la 375–430 și 859,5 px la 480–639. La 480 px
+rândul de documente încape pe o singură linie.
+
+**Structura v2, sub 640 px.** „Servicii” și „Repertoriu” rămân blocuri stivuite unul sub
+altul. În fiecare, containerul de linkuri e `flex flex-row flex-wrap sm:flex-col`, iar
+fiecare link are `basis-1/2 sm:basis-auto`: „Servicii” 2×2, „Repertoriu” 2+1. S-a ales
+`flex-wrap` în locul a două containere pe coloană, pentru că păstrează ordinea din DOM
+(Nuntă, Botez, Eveniment privat, Corporate) și se anulează la `sm` cu o singură clasă.
+Fără `<details>`: conținutul se scanează oricum, iar un accordion ar adăuga JS de
+întreținut la migrare. De la 640 px, comportamentul e cel din v1.
+
+**Ținta de sub 900 px la 360 nu e atinsă: 931,5 px.** Ce adaugă v2 peste footer-ul
+canonic la 360:
+
+| Element | px |
+|---|---|
+| „Servicii”: titlu 24 + 2 rânduri de linkuri 88 + marcaj D8 22,5 | 134,5 |
+| gap între cele două blocuri | 16 |
+| „Repertoriu”: titlu 24 + 2 rânduri de linkuri 92 | 116 |
+| gap-ul benzii 2, înaintea blocului de coloane | 16 |
+| al doilea rând de documente („Zone deservite · Blog”) | 44 |
+| **Total** | **326,5** |
+
+Rândurile de linkuri dau 4 × 44 px = 176 px, ca în calcul. Restul vine din titluri,
+marcajul D8, cele două gap-uri și rândul de documente care se rupe. În plus, la 360 px
+„Componența formației” nu încape în jumătatea de 164 px și trece pe două rânduri, deci
+rândul ei are 48 px în loc de 44 (la 320 px se întâmplă la fel și cu „Folclor și
+petrecere”). Fără ruperea asta, înălțimea ar fi 927,5 px, tot peste 900.
+
+- La trecerea 639 → 640, linkurile trec direct de la două pe rând la unul pe rând, cu
+  coloanele alăturate. Nu există o lățime intermediară cu aspect rupt. Între 480 și 639,
+  a doua coloană de linkuri pornește de la jumătatea lățimii, deci aspectul e aerisit.
+- La 360 px, rândul de documente se rupe după „Politica de cookie-uri ·”: punctul median
+  rămâne la capătul primului rând.
+- De la `sm`, creșterea e fixă (+238,5 px): înălțimea coloanei „Servicii” (titlu,
+  4 linkuri, marcaj).
+- Fiecare link nou are minimum 44 px pe verticală, la toate lățimile: 44 px, sau 48 px
+  unde eticheta trece pe două rânduri.
 - Titlurile „Servicii” și „Repertoriu” sunt `<p>`: outline-ul paginii are aceleași 14
   heading-uri ca înainte.
 - Fără overflow orizontal la nicio lățime (`scrollWidth` = `clientWidth`).
@@ -218,8 +251,25 @@ footer-ul canonic, „după” = footer-ul de demonstrație.
   `bg-surface-container`, `border-outline/40`), pentru că `.ph` e definită doar în
   `<style>`-ul paginilor din `zone-mockup/`.
 
-**Pentru Elementor:** cifrele de mai sus sunt ce trebuie reverificat pe template-ul de
-footer, la aceleași patru lățimi.
+### Ordinea pe mobil, de rezolvat la migrare
+
+Sub 640 px, footer-ul de demonstrație se citește în ordinea: **contact (e-mail,
+telefon) → ANPC · SAL → Servicii → Repertoriu → documente**. Coloanele stau unde cere
+punctul 6 de mai sus, sub contact și înaintea documentelor, dar rândul ANPC · SAL rămâne
+între contact și ele.
+
+Ordinea e consecința structurii existente a benzii 2. Contactul și ANPC · SAL sunt două
+jumătăți ale aceluiași rând flex (`flex-col sm:flex-row`), care pe desktop stau
+stânga–dreapta și pe mobil se stivuiesc. Coloanele sunt un container separat, sub acest
+rând. Pe demo nu s-a mutat nimic: ar fi cerut restructurarea benzii 2.
+
+**La migrare**, când footer-ul se rescrie ca template unic în Elementor, se decide
+ordinea pe mobil. Dacă ANPC · SAL trebuie să stea lângă documente, rândul de contact și
+cel juridic devin containere separate. În Elementor, pe containere flexbox, ordinea se
+poate regla și per breakpoint.
+
+**Pentru Elementor:** cifrele din tabelul de mai sus (coloana „Demo v2”) sunt ce trebuie
+reverificat pe template-ul de footer, la aceleași patru lățimi.
 
 ---
 
