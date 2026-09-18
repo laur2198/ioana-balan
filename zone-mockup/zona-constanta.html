@@ -305,9 +305,10 @@
 <!-- ======================================================================
      1. HERO — H1 + subtitlu + CTA
      Aceeași structură ca la layout A: fundal fotografic real, nu slot gol.
-     Fotografia e PROVIZORIE — `ioana-balan-live-show.jpg` e un placeholder
-     Stitch de 512px, nu material de pe litoral (CLAUDE.md §10). Cererea rămâne
-     exprimată ca notă sub intro, nu ca gol în pagină.
+     Fotografia e `ioana-balan-scena-costum-rosu`, din fototeca clientei, grupa
+     curată (CLAUDE.md §10), încadrată cu `object-[center_6%]`. Rămâne
+     PROVIZORIE aici: nu e material de pe litoral. Cererea rămâne exprimată ca
+     notă sub intro, nu ca gol în pagină.
      H1-ul e construit altfel decât cel de la Brașov, nu doar cu orașul
      schimbat: acolo e o sintagmă simplă, aici oferta e desfăcută după cele
      trei registre de repertoriu, care sunt argumentul zonei.
@@ -317,7 +318,10 @@
      identic — <img> absolut cu object-cover, dimmat, plus voal în gradient
      dinspre tokenul de fundal. -->
 <div class="absolute inset-0 z-0">
-<img alt="Ioana Balan pe scenă, alături de formație" class="w-full h-full object-cover opacity-30 md:opacity-40" src="../assets/img/ioana-balan-live-show.jpg" loading="eager" decoding="async">
+<picture class="block w-full h-full">
+<source type="image/webp" srcset="../assets/img/ioana-balan-scena-costum-rosu-800.webp 800w, ../assets/img/ioana-balan-scena-costum-rosu-1440.webp 1440w" sizes="100vw">
+<img alt="Ioana Balan cântând la microfon, în ie cu broderie roșie și fustă roșie cu bată tradițională" class="w-full h-full object-cover object-[center_6%] opacity-30 md:opacity-40" src="../assets/img/ioana-balan-scena-costum-rosu-1440.jpg" srcset="../assets/img/ioana-balan-scena-costum-rosu-800.jpg 800w, ../assets/img/ioana-balan-scena-costum-rosu-1440.jpg 1440w" sizes="100vw" width="1440" height="1800" loading="eager" decoding="async">
+</picture>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30"></div>
 </div>
 <div class="relative z-10 max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20">

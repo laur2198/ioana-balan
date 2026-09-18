@@ -311,17 +311,17 @@ Stitch de 512px. Lista se actualizează când clienta trimite material nou.
 | Fișier (bază) | px | Conținut | Folosit pe |
 |---|---|---|---|
 | `ioana-balan-ie-broderie-aurie` | 1440×1800 | portret, ie albă cu broderie aurie, cercei-frunză | despre |
-| `ioana-balan-ie-cosita-impletita` | 1440×1800 | portret, cosiță împletită în coroniță, ie cu broderie bej | despre, index |
-| `ioana-balan-scena-costum-rosu` | 1440×1800 | cântând la microfon, ie cu broderie roșie, fustă roșie | despre, index |
+| `ioana-balan-ie-cosita-impletita` | 1440×1800 | portret, cosiță împletită în coroniță, ie cu broderie bej | despre, galerie |
+| `ioana-balan-scena-costum-rosu` | 1440×1800 | cântând la microfon, ie cu broderie roșie, fustă roșie | despre, index, **oferte + 27 pagini `zone-mockup/` (hero)** |
 | `ioana-balan-portret-lumina-violet` | 1440×1800 | portret în lumină violet, cămașă cu imprimeu | galerie |
 | `ioana-balan-hora-mireasa` | 1440×954 | horă de nuntă, mireasa din spate, saxofonist în centru | galerie |
 | `formatia-in-alb-costum-popular` | 1440×1196 | formație de cinci în cămăși albe — vioară, sax, acordeon | — retrasă |
-| `formatie-instrumentala-tambal` | 1304×978 | șase instrumentiști pe scenă, țambal în centru | oferte |
-| `hora-nunta-invitati` | 1024×683 | cântând în horă, între miri și invitați | despre (hero), galerie |
+| `formatie-instrumentala-tambal` | 1304×978 | șase instrumentiști pe scenă, țambal în centru | oferte, `zone-mockup/formatia` |
+| `hora-nunta-invitati` | 1024×683 | cântând în horă, între miri și invitați | despre (hero), galerie, `zone-mockup/nunta` |
 | `ioana-balan-rochie-alba-imprimeu` | 694×705 | așezată pe fotoliu de răchită, rochie lungă cu imprimeu | galerie |
 | `formatie-sacouri-albe` | 480×640 | formație în sacouri albe, exterior cu palmieri | galerie |
 | `ioana-balan-sala-eveniment` | 480×640 | rochie-palton brodată, ring de dans gol | galerie |
-| `formatie-ring-dans` | 480×478 | formație pe ring de marmură | galerie |
+| `formatie-ring-dans` | 480×478 | formație pe ring de marmură | — nefolosită |
 | `formatie-lumini-scena` | 480×320 | formație în negru sub lumini verzi și violet | galerie |
 | `invitati-aplauze` | 480×320 | trei invitați aplaudând în sală | — retrasă |
 
@@ -330,6 +330,26 @@ lățime**, cu subiectul în treimea orizontală centrală. Fără ea, banda de
 hero de pe `despre.html` rulează la 1,25× pe desktop, cu cea mai bună
 sursă disponibilă (`hora-nunta-invitati`, 1024px). Marcat ca provizoriu în
 markup.
+
+Aceeași lipsă lovește și hero-urile late de pe `oferte.html` și de pe cele
+27 de pagini din `zone-mockup/`: acolo stă acum `ioana-balan-scena-costum-rosu`,
+care e portret 1440×1800, încadrat cu `object-[center_6%]` ca să păstreze capul
+în cadru. Marcajele `.ph` care cer fotografie peisaj rămân pe fiecare pagină.
+
+### Fotografii scoase de pe site
+
+| Fișier | Data | Motiv | Unde era |
+|---|---|---|---|
+| `ioana-balan-live-show.jpg` | 18.09.2026 | **scoasă la cererea clientului.** Nu e o decizie de design | hero pe `oferte.html` și pe cele 27 de pagini din `zone-mockup/` — 45 de referințe în 31 de fișiere |
+
+Fișierul a fost **șters din `assets/img/`**, împreună cu toate referințele:
+HTML, comentarii de markup, `SEO-AUDIT.md` și `geometrie/oferte.md`. Nu avea
+derivate `-800` / `-1440` și nu apărea în CSS, în JSON-LD sau în `og:image`.
+Rămâne recuperabil din istoricul git.
+
+Era un placeholder Stitch de 512×341, servit fără `srcset` și fără webp, până
+la 2,50× peste rezoluția nativă la 1280 px — vezi `SEO-AUDIT.md` §5. Înlocuirea
+cu `ioana-balan-scena-costum-rosu` rezolvă și constatarea aceea.
 
 ### Identitate neconfirmată în fotografii
 

@@ -11,6 +11,22 @@ Toate valorile de mai jos sunt **masurate in browser**, nu deduse din clase.
 - `y` este pozitia absoluta in document (pagina nu e derulata, deci `scrollY = 0`).
 - Se masoara doar continutul din `<main>`: header-ul si footer-ul sunt masurate in `RANDARE.md` / `RANDARE-MOBIL.md`.
 
+**Actualizare 18.09.2026 — fotografia din hero.** `ioana-balan-live-show.jpg` a
+fost scoasa de pe site la cererea clientului si inlocuita cu
+`ioana-balan-scena-costum-rosu-1440`. Etichetele din Tabel 2 si Tabel 3 poarta
+numele nou. Doua precizari, ca tabelele sa nu induca in eroare:
+
+- **Cutia elementului nu s-a schimbat.** Remasurat cu harness-ul dupa inlocuire:
+  1440 → `0,128 1440×404`; 1024 → `0,128 1024×404`; 768 → `0,80 768×460`;
+  390 → `0,80 390×443`. Identice cu valorile din tabel, la pixel. Geometria e
+  data de containerul absolut, nu de fisierul servit.
+- **Parintele s-a schimbat.** `<img>` e acum invelit in
+  `<picture class="block w-full h-full">`, ca sa serveasca webp-ul, la fel ca pe
+  `despre.html` si `index.html`. In Tabel 3, randul
+  `div.absolute | img … | div.absolute` descrie deci o relatie de frati care
+  trece acum prin `<picture>`; distantele raman aceleasi, pentru ca `<picture>`
+  are exact cutia containerului.
+
 ## Cadrul paginii — `<main>`
 
 | Nivel | Viewport | width | height | pad T/R/B/L | bg | border |
@@ -81,10 +97,10 @@ Titlu: «Pachete și prețuri pentru nuntă și botez»
 
 | Element | Tag | Viewport | x | y | width | height | font-size | line-height | letter-spacing | font-weight | color | text-align |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| img ioana-balan-live-show.jpg | img | 1440 | 0 | 128 | 1440 | 404 | 16 | 24 | normal | 400 | #e5e2e1 | start |
-| img ioana-balan-live-show.jpg | img | 1024 | 0 | 128 | 1024 | 404 | 16 | 24 | normal | 400 | #e5e2e1 | start |
-| img ioana-balan-live-show.jpg | img | 768 | 0 | 80 | 768 | 460 | 16 | 24 | normal | 400 | #e5e2e1 | start |
-| img ioana-balan-live-show.jpg | img | 390 | 0 | 80 | 390 | 443 | 16 | 24 | normal | 400 | #e5e2e1 | start |
+| img ioana-balan-scena-costum-rosu-1440 | img | 1440 | 0 | 128 | 1440 | 404 | 16 | 24 | normal | 400 | #e5e2e1 | start |
+| img ioana-balan-scena-costum-rosu-1440 | img | 1024 | 0 | 128 | 1024 | 404 | 16 | 24 | normal | 400 | #e5e2e1 | start |
+| img ioana-balan-scena-costum-rosu-1440 | img | 768 | 0 | 80 | 768 | 460 | 16 | 24 | normal | 400 | #e5e2e1 | start |
+| img ioana-balan-scena-costum-rosu-1440 | img | 390 | 0 | 80 | 390 | 443 | 16 | 24 | normal | 400 | #e5e2e1 | start |
 | Oferte 2026-2027 | span | 1440 | 367.63 | 208 | 704.75 | 20 | 14 | 20 | 2.80 | 600 | #c8c6c5 | center |
 | Oferte 2026-2027 | span | 1024 | 159.63 | 208 | 704.75 | 20 | 14 | 20 | 2.80 | 600 | #c8c6c5 | center |
 | Oferte 2026-2027 | span | 768 | 80 | 160 | 608 | 20 | 14 | 20 | 2.80 | 600 | #c8c6c5 | center |
@@ -103,7 +119,7 @@ Titlu: «Pachete și prețuri pentru nuntă și botez»
 | Container | De la | Pana la | 1440 | 1024 | 768 | 390 |
 |---|---|---|---|---|---|---|
 | `section` | div.absolute | [Oferte 2026-2027 Pachete și prețuri pent] | -364 | -364 | -420 | -403 |
-| `div.absolute` | img ioana-balan-live-show.jpg | div.absolute | -404 | -404 | -460 | -443 |
+| `div.absolute` | img ioana-balan-scena-costum-rosu-1440 | div.absolute | -404 | -404 | -460 | -443 |
 | `div.relative` | Oferte 2026-2027 | Pachete și prețuri pentru nuntă și botez | 12 | 12 | 12 | 12 |
 | `div.relative` | Pachete și prețuri pentru nuntă și botez | Ioana Balan este solistă de muzică populară și d | 20 | 20 | 20 | 20 |
 | `div.relative` | Ioana Balan este solistă de muzică populară și d | div.motif-separator | 28 | 28 | 28 | 28 |
@@ -1169,10 +1185,10 @@ Titlu: «Verificați dacă data este liberă»
 - in `section`: «div.absolute» si «[Oferte 2026-2027 Pachete și prețuri pent]» se suprapun pe verticala cu 364px la 1024 (suprapunere orizontala 736.75px, position absolute/relative) — stratificare intentionata (`position: absolute`)
 - in `section`: «div.absolute» si «[Oferte 2026-2027 Pachete și prețuri pent]» se suprapun pe verticala cu 420px la 768 (suprapunere orizontala 640px, position absolute/relative) — stratificare intentionata (`position: absolute`)
 - in `section`: «div.absolute» si «[Oferte 2026-2027 Pachete și prețuri pent]» se suprapun pe verticala cu 403px la 390 (suprapunere orizontala 342px, position absolute/relative) — stratificare intentionata (`position: absolute`)
-- in `div.absolute`: «img ioana-balan-live-show.jpg» si «div.absolute» se suprapun pe verticala cu 404px la 1440 (suprapunere orizontala 1440px, position static/absolute) — stratificare intentionata (`position: absolute`)
-- in `div.absolute`: «img ioana-balan-live-show.jpg» si «div.absolute» se suprapun pe verticala cu 404px la 1024 (suprapunere orizontala 1024px, position static/absolute) — stratificare intentionata (`position: absolute`)
-- in `div.absolute`: «img ioana-balan-live-show.jpg» si «div.absolute» se suprapun pe verticala cu 460px la 768 (suprapunere orizontala 768px, position static/absolute) — stratificare intentionata (`position: absolute`)
-- in `div.absolute`: «img ioana-balan-live-show.jpg» si «div.absolute» se suprapun pe verticala cu 443px la 390 (suprapunere orizontala 390px, position static/absolute) — stratificare intentionata (`position: absolute`)
+- in `div.absolute`: «img ioana-balan-scena-costum-rosu-1440» si «div.absolute» se suprapun pe verticala cu 404px la 1440 (suprapunere orizontala 1440px, position static/absolute) — stratificare intentionata (`position: absolute`)
+- in `div.absolute`: «img ioana-balan-scena-costum-rosu-1440» si «div.absolute» se suprapun pe verticala cu 404px la 1024 (suprapunere orizontala 1024px, position static/absolute) — stratificare intentionata (`position: absolute`)
+- in `div.absolute`: «img ioana-balan-scena-costum-rosu-1440» si «div.absolute» se suprapun pe verticala cu 460px la 768 (suprapunere orizontala 768px, position static/absolute) — stratificare intentionata (`position: absolute`)
+- in `div.absolute`: «img ioana-balan-scena-costum-rosu-1440» si «div.absolute» se suprapun pe verticala cu 443px la 390 (suprapunere orizontala 390px, position static/absolute) — stratificare intentionata (`position: absolute`)
 
 
 ## Mapare Elementor

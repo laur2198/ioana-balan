@@ -378,6 +378,7 @@ paginii pentru a declanșa `lazy`.
 | despre:178 | ioana-balan-scena-costum-rosu-1440 | 1440×1800 | jpg+webp | 146/108 | da | da | da | lazy |
 | index:133 | ioana-balan-ie-cosita-impletita-1440 | 1440×1800 | jpg+webp | 143/116 | da | da | da | eager |
 | index:208 | ioana-balan-scena-costum-rosu-1440 | 1440×1800 | jpg+webp | 146/108 | da | da | da | lazy |
+| oferte:115 + 27 × zone-mockup | ioana-balan-scena-costum-rosu-1440 | 1440×1800 | jpg+webp | 146/108 | da | da | da | eager |
 | index:244,253 | video-thumbs/XFdALRgk7Fg, hzOdwacBNN0 | 1280×720 | jpg | 94/96 | **gol** | da | nu | lazy |
 | galerie:138,166,188,210,228 | video-thumbs ×5 | 1280×720 | jpg | 57–100 | **gol** | da | nu | lazy |
 | galerie:149 | ioana-balan-hora-mireasa-1440 | 1440×954 | jpg+webp | 147/152 | da | da | da | lazy |
@@ -396,7 +397,6 @@ paginii pentru a declanșa `lazy`.
 | **blog:174** | **blog-cover-4.jpg** | **512×341** | jpg | 55 | **slab** | **NU** | **nu** | **NU** |
 | **contact:109** | **…portrait-artist-muzica-populara-s.jpg** | **410×512** | jpg | 54 | **stuffing** | **NU** | **nu** | **NU** |
 | **discografie:118** | **…portrait-artist-muzica-populara-s.jpg** | **410×512** | jpg | 54 | **greșit** | **NU** | **nu** | **NU** |
-| **oferte:110** | **ioana-balan-live-show.jpg** | **512×341** | jpg | 69 | ok | **NU** | **nu** | **NU** |
 | **galerie:252** | **…portret-sesiune-foto-cal.jpg** | **512×511** | jpg | 52 | **slab** | **NU** | **nu** | lazy |
 
 ### Alt lipsă sau gol pe imagini de conținut
@@ -435,7 +435,6 @@ roșie cu bată tradițională".
 | Fișier:linie | Imagine | Nativ | @375 | @768 | @1280 |
 |---|---|---|---|---|---|
 | contact:109 | …portrait-artist-…-s.jpg | 410×512 | ascuns | ascuns | **2,56×** |
-| oferte:110 | ioana-balan-live-show.jpg | 512×341 | **1,30×** | **1,50×** | **2,50×** |
 | discografie:118 | …portrait-artist-…-s.jpg | 410×512 | 0,83× | **1,75×** | 1,05× |
 | articol:119 | ioana-balan-and-band.jpg | 512×341 | **1,47×** | **1,47×** | **1,47×** |
 | despre:112 | hora-nunta-invitati-1024 | 1024×683 | 1,06× | 1,00× | **1,25×** |
@@ -445,6 +444,21 @@ Toate celelalte imagini rămân sub 1,0× la toate trei lățimile — `srcset` 
 exact placeholderele Stitch de 512 px, servite fără `srcset`. Cazul
 `despre:112` e deja documentat ca provizoriu în markup (`despre.html:105-109`)
 și în CLAUDE.md.
+
+**Actualizare 18.09.2026 — un rând rezolvat, `oferte:110`.**
+`ioana-balan-live-show.jpg` (512×341, fără `srcset`, fără webp, servit până la
+2,50× peste nativ la 1280) a fost **scoasă de pe site la cererea clientului** și
+ștearsă din repo. În locul ei, pe hero-ul de pe `oferte.html` și pe cele 27 de
+pagini din `zone-mockup/`, stă `ioana-balan-scena-costum-rosu-1440` — 1440×1800,
+din fototeca clientei, servită prin `<picture>` cu webp și `srcset` 800/1440.
+Rândul a trecut deci din tabelul de mai sus în tabelul imaginilor corecte, iar
+din tabelul „peste rezoluția nativă" a dispărut: la 1280 px lățime de bandă,
+sursa de 1440 px rămâne sub 1,0×.
+
+Fotografia e portret (1440×1800) într-o bandă lată, deci e încadrată cu
+`object-[center_6%]`. Remăsurat: la 1440 se vede felia 4,7%–27,1% din înălțimea
+sursei, adică exact capul și microfonul. `loading="eager"` e intenționat — e
+imagine deasupra pliului, nu o scăpare de `lazy`.
 
 ---
 
