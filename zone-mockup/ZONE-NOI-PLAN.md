@@ -469,9 +469,15 @@ fără să atingă paleta de suprafețe și fără să schimbe cât de „plin�
 badge-ul. P1 e mai corectă conceptual, dar mișcă o suprafață, iar suprafețele
 sunt cele care dau tonul întregului site.
 
-**Niciuna nu s-a aplicat.** Ambele cer o decizie, pentru că ambele schimbă un
-token, iar `integritate.py` derivă culorile permise din `zona-brasov.html` —
-vezi ordinea de operații de mai jos.
+**ÎNCHIS — amânat la migrare (19.09.2026).** Niciuna nu s-a aplicat și niciuna
+nu se aplică în prototip. Motivul e că amândouă schimbă valoarea unui token, iar
+badge-ul e singurul element rămas unde bordo-ul stă sub 3:1 **fără să fie o
+neconformitate** — e decorativ. Restul cazurilor sub prag, cele care chiar erau
+neconformități, s-au reparat separat și fără atingerea vreunui token: vezi
+`AUDIT-ACCENT-EDGE.md` §4.
+
+Decizia se reia în Faza 3, când paleta se mapează oricum pe variabile globale în
+Elementor și schimbarea unui token nu mai cere sincronizare pe 38 de fișiere.
 
 ### Unde s-ar modifica, dacă se decide
 

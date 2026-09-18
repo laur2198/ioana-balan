@@ -1,8 +1,13 @@
 # `--accent-edge` pe suprafețe întunecate — audit complet
 
 Măsurat pe `79f61be`, 19.09.2026. Acoperă **toate cele 38 de pagini HTML**: 11 în
-rădăcină, 27 în `zone-mockup/`. Auditul e **doar citire** — nicio culoare, niciun
-token și nicio regulă CSS nu s-au modificat în urma lui.
+rădăcină, 27 în `zone-mockup/`.
+
+> **STARE: cele trei neconformități sunt REPARATE** (`88ed6ae` → reparația de
+> față). Regula moartă `.price-tbc` e ștearsă. Valoarea `--accent-edge` nu s-a
+> schimbat și nu s-a adăugat nicio culoare. Cifrele de mai jos sunt păstrate ca
+> „înainte", iar fiecare rând reparat poartă și valoarea de după, **măsurată pe
+> elementul randat în browser**, nu doar calculată. Vezi §5.
 
 `--accent-edge: #C41236` e definit o singură dată, în `assets/styles.css:146`.
 Pe paginile de zonă e re-expus ca `--accent-zona`, în blocul de stiluri al
@@ -46,10 +51,10 @@ design, nu o neconformitate, și e marcat ca atare.
 | 1 | `.bg-accent` — bordură 1px | CTA primar, **componentă** | pagină `#131313` | **3,09:1** | conform |
 | 1b | `.bg-accent` — bordură 1px | idem, în interiorul unui card | card `#1c1b1b` | **2,85:1** | **la limită** — vezi §3.0 |
 | 2 | `.btn-secundar-zona` — bordură 1px | CTA secundar, **componentă** | pagină `#131313` | **3,09:1** | conform |
-| 2b | `.btn-secundar-zona` — bordură 1px | idem, în interiorul unui card | card `#1c1b1b` | **2,85:1** | **NECONFORMITATE** |
-| 3 | `.toc summary::after` — chevron 2px | indicator deschis/închis, **stare** | card `#1c1b1b` | **2,85:1** | **NECONFORMITATE** |
-| 4 | `.legal-prose a` — `text-decoration-color` | sublinierea care identifică linkul | card `#1c1b1b` | **2,06:1** | **NECONFORMITATE** |
-| 4b | `.legal-prose a:hover` — `text-decoration-color` | idem, la hover | card `#1c1b1b` | **2,85:1** | parte din #4 |
+| 2b | `.btn-secundar-zona` — bordură 1px | idem, în interiorul unui card | card `#1c1b1b` | 2,85:1 → **5,41:1** | **REPARAT** |
+| 3 | `.toc summary::after` — chevron 2px | indicator deschis/închis, **stare** | card `#1c1b1b` | 2,85:1 → **10,06:1** | **REPARAT** |
+| 4 | `.legal-prose a` — `text-decoration-color` | sublinierea care identifică linkul | card `#1c1b1b` | 2,06:1 → **13,34:1** | **REPARAT** |
+| 4b | `.legal-prose a:hover` — `text-decoration-color` | întărire la hover, nu identificare | card `#1c1b1b` | 2,85:1 | nemodificat, intenționat |
 | 5 | `.video-card__play` — `border-color` la hover/focus | întărire vizuală | `#A01028` | 1,34:1 | conform — vezi §3.0 |
 | 6 | `.zona-badge` — bordură 1px | etichetă de zonă, **decorativ** | badge `#20201f` | 2,71:1 | fără prag |
 | 7 | `.zona-divider` — gradient | separator, **decorativ** | pagină `#131313` | 3,09:1 | fără prag |
@@ -57,7 +62,7 @@ design, nu o neconformitate, și e marcat ca atare.
 | 9 | `.legal-tbc` — bordură 2px punctată | marcaj de valoare lipsă, **decorativ** | propriu `#331319` | 2,79:1 | fără prag |
 | 10 | `.answer-tbc` — bordură 2px punctată | marcaj de răspuns neconfirmat, **decorativ** | propriu `#331319` | 2,79:1 | fără prag |
 | 11 | `.legal-draft-banner` — bordură | casetă „document în lucru", **decorativ** | propriu `#2C1318` | 2,87:1 | fără prag |
-| 12 | `.price-tbc` — bordură 2px punctată | **regulă moartă** | — | — | 0 apariții în HTML |
+| 12 | `.price-tbc` — bordură 2px punctată | **regulă moartă** | — | — | **ȘTEARSĂ** |
 
 ### Unde apar, pe pagini
 
@@ -169,22 +174,60 @@ poate rămâne pe `:hover`, unde e întărire, nu identificare.
 
 ---
 
-## 4. Ce nu s-a făcut, și de ce
+## 4. Ce s-a reparat
 
-**Nimic nu s-a reparat.** Cele trei propuneri sunt scrise, nu aplicate. Toate
-trei ating `assets/styles.css`, care e partajat de toate cele 38 de pagini, iar
-o modificare acolo se vede pe tot site-ul deodată — inclusiv pe cele 11 pagini
-din rădăcină, care sunt în contractul de bază.
+Toate trei, plus regula moartă. Modificările sunt **doar CSS**: niciun text de
+pagină nu s-a atins, nicio valoare de token nu s-a schimbat.
 
-Ordinea recomandată, dacă se decid:
+| § | Unde | Ce | Contrast |
+|---|---|---|---|
+| 3.3 | `assets/styles.css` | `text-decoration-color: currentColor` | 2,06 → **13,34:1** |
+| 3.1 | blocul `<style>`, ×27 pagini | regulă nouă `.glass-card .btn-secundar-zona { border-color: var(--outline) }` | 2,85 → **5,41:1** |
+| 3.2 | `assets/styles.css` | `border-*-color: var(--on-surface-variant)` | 2,85 → **10,06:1** |
+| — | `assets/styles.css` | `.price-tbc`, `__flag`, `__value` șterse | — |
 
-1. **§3.3, sublinierea legală.** Cea mai gravă, cea mai ieftină, zero risc
-   vizual — `currentColor` nu adaugă nimic în paletă.
-2. **§3.1, butonul secundar.** Cea mai vizibilă ca suprafață: 73 de instanțe.
-   De decis împreună cu P1/P2 din `ZONE-NOI-PLAN.md` §4, pentru că P2 le-ar
-   rezolva pe amândouă cu o singură schimbare de token.
-3. **§3.2, chevronul.** Cea mai mică, și singura cu o atenuare reală.
+### O corectură la propunerile din prima versiune a acestui audit
 
-Separat: **`.price-tbc` e o regulă moartă** — 0 apariții în HTML, pe toate cele
-38 de pagini. Se șterge din `styles.css` la curățenia de dinaintea migrării,
-odată cu celelalte marcaje de prototip.
+Propunerile scriau `var(--outline)` și `var(--on-surface-variant)` ca și cum ar
+fi existat. **Nu existau.** Singura variabilă CSS din `:root` era
+`--accent-edge`; restul paletei trăiește doar în `assets/tailwind.config.js`, ca
+tokeni Tailwind. Scrise așa, cele două declarații ar fi fost invalide, iar
+bordurile ar fi căzut pe `currentColor` — adică exact invers față de intenție.
+
+Reparația a adăugat cele două variabile în `:root`, cu **valorile identice** din
+`tailwind.config.js` (`#8e9192` și `#c6c6c6`). Nu e o culoare nouă și nu e o
+valoare schimbată: sunt aceiași doi tokeni, expuși și ca variabile CSS. Fișierul
+o cerea el însuși, în nota de deasupra lui `:root`: *„Variabile CSS reale, nu
+doar fallback-uri: la migrarea în Elementor tokenii se mapează pe variabile
+globale, iar unul care trăiește doar ca fallback într-o regulă se pierde."*
+
+### Ce NU s-a reparat, deliberat
+
+- **`.bg-accent` în card (2,85:1)** — rămâne „la limită", cum era clasificat.
+  Butonul primar are umplutură și text alb la 8,08:1; nu depinde de bordură.
+- **`.legal-prose a:hover` (2,85:1)** — la hover, sublinierea bordo e întărire,
+  nu identificare. Identificarea o face acum `currentColor` în starea de bază.
+- **Badge-ul (2,71:1)** — decorativ, vezi `ZONE-NOI-PLAN.md` §4.
+- **Referințele la `.price-tbc` din comentarii** — rămân în `oferte.html:512`
+  („Niciun .price-tbc rămas pe pagină", încă adevărat) și în comentariul din
+  blocul `<style>` al celor 27 de pagini, care descrie familia de marcaje. Sunt
+  în afara scopului acestei reparații.
+
+---
+
+## 5. Contrastul măsurat pe elementul randat
+
+Nu calculat din CSS-ul sursă, ci citit din `getComputedStyle` într-un Chromium
+real, cu Tailwind încărcat, la **360 px și 1440 px**. Identic la ambele lățimi.
+
+| Element | Culoare randată | Fond randat | Contrast |
+|---|---|---|---|
+| `.legal-prose a`, subliniere, pe pagină | `rgb(229,226,225)` | `rgb(19,19,19)` | **14,42:1** |
+| `.legal-prose a`, subliniere, în card | `rgb(229,226,225)` | `rgb(28,27,27)` | **13,34:1** |
+| `.toc summary::after`, chevron | `rgb(198,198,198)` | `rgb(28,27,27)` | **10,06:1** |
+| `.btn-secundar-zona` în `.glass-card` | `rgb(142,145,146)` | `rgb(28,27,27)` | **5,41:1** |
+| `.btn-secundar-zona` în afara cardului | `rgb(196,18,54)` | `rgb(19,19,19)` | 3,09:1 |
+
+Ultimul rând confirmă că reparația e **contextuală**: butonul secundar rămâne
+bordo acolo unde bordo-ul trecea deja pragul, și devine argintiu doar pe card.
+Valorile măsurate coincid cu cele calculate, până la a doua zecimală.

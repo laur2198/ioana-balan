@@ -181,6 +181,20 @@
   .btn-secundar-zona {
     border: 1px solid var(--accent-zona);
   }
+
+  /* REPARAȚIE 19.09.2026 (AUDIT-ACCENT-EDGE.md §3.1).
+     Butonul secundar nu are umplutură: bordura e SINGURUL lui contur. Pe
+     fundalul paginii (#131313) bordo-ul dă 3,09:1, deci trece la limită. Pe
+     fundal de card (#1c1b1b) scade la 2,85:1, sub pragul de 3:1 pentru
+     componente de interfață — iar cele mai multe dintre cele 73 de instanțe
+     stau chiar într-un .glass-card, în secțiunea de pachete.
+     Token existent, valoare neschimbată: --outline e #8e9192, adică 5,41:1 pe
+     card. Diferența față de butonul primar, care rămâne bordo: acela are
+     umplutură și text alb la 8,08:1, deci nu depinde de bordură ca să fie
+     identificat. */
+  .glass-card .btn-secundar-zona {
+    border-color: var(--outline);
+  }
 </style>
 <!-- Service + provider MusicGroup. Fără `aggregateRating`: scos deliberat din
      tot proiectul (politica Google privind recenziile auto-servite) — verificat,
