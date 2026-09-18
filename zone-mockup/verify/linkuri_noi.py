@@ -50,6 +50,17 @@ NEIGHBOURS = {
     "zona-brasov.html": {"prahova", "buzau", "dambovita"},
     "zona-constanta.html": {"calarasi", "ialomita"},
     "zona-dolj.html": {"teleorman", "arges"},
+    # Runda a doua de zone, 19.09.2026. Fiecare legătură pornește de la o
+    # relație reală între județe — drum, râu sau trecere cu bacul — nu de la
+    # vecinătatea de pe hartă: Tulcea și Galați nu au hotar terestru comun,
+    # dar au bacul de la Brăila–Smârdan și malul celălalt al Dunării.
+    "zona-tulcea.html": {"constanta", "galati"},
+    "zona-valcea.html": {"arges", "dolj", "olt"},
+    "zona-galati.html": {"bacau", "braila", "tulcea"},
+    "zona-mehedinti.html": {"dolj", "valcea"},
+    "zona-olt.html": {"dolj", "teleorman", "valcea"},
+    "zona-braila.html": {"buzau", "galati", "ialomita", "tulcea"},
+    "zona-bacau.html": {"buzau", "galati"},
 }
 
 # Cuvinte funcționale păstrate în schelet (pliate, fără diacritice).

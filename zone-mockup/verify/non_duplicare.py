@@ -36,7 +36,8 @@ import sys
 from difflib import SequenceMatcher
 from functools import lru_cache
 
-from _common import ALL_PAGES, MOCKUP, OLD_PAGES, ROOT, ZONE_PAGES, content_blocks, mask, tokens
+from _common import (ALL_PAGES, CLUSTER, MOCKUP, OLD_PAGES, ROOT, SERVICE, ZONE_PAGES,
+                     content_blocks, mask, tokens)
 
 REPORT = 0.85
 SYSTEMIC = 0.75
@@ -113,7 +114,12 @@ def short(page):
 
 
 def main():
-    assert len(ALL_PAGES) == 20, ALL_PAGES
+    # Numărul total crește odată cu fiecare rundă de pagini noi. Ce trebuie să
+    # rămână adevărat e compoziția: toate paginile de zonă, hub-ul, cele trei
+    # de cluster și cele patru de serviciu, fără duplicate și fără lipsuri.
+    asteptat = len(ZONE_PAGES) + 1 + len(CLUSTER) + len(SERVICE)
+    assert len(ALL_PAGES) == asteptat, (len(ALL_PAGES), asteptat, ALL_PAGES)
+    assert len(set(ALL_PAGES)) == len(ALL_PAGES), "pagini duplicate în ALL_PAGES"
     old = [os.path.join(ROOT, p) for p in OLD_PAGES]
     pairs = [(a, b) for a in ALL_PAGES for b in ALL_PAGES if b != a] + [(a, b) for a in ALL_PAGES for b in old]
 

@@ -86,6 +86,56 @@ Runda următoare compară față de **aceste trei cifre**, prin ambele metode.
 
 ---
 
+## 2bis. Grupul Oltenia — bază nouă, 19.09.2026
+
+Adăugat odată cu `zona-olt` și `zona-mehedinti`. E acum grupul cu cel mai mare
+risc structural din site: **patru pagini care pleacă din același bloc de
+repertoriu**, „Oltenia: hore iuți și căluș” din `repertoriu.html`.
+
+`zona-dolj` · `zona-valcea` · `zona-olt` · `zona-mehedinti` — 6 perechi.
+
+| Măsură | Valoare |
+|---|---|
+| **Metoda A** — toate cele 6 perechi | **65,3%** |
+| **Metoda B** — peste prefiltru (toate 6 sunt) | **65,3%** |
+| **Maximul grupului** | **71%** (`dolj ↔ valcea`) |
+| Perechi ≥ 75% | 0 |
+
+Cele două metode coincid aici pentru că **nicio pereche nu e sub prefiltru** —
+patru pagini de aceeași regiune nu ajung niciodată sub 50%. Asta face grupul mai
+ușor de urmărit decât câmpia: o singură cifră spune totul.
+
+### Cum s-a ajuns aici
+
+Prima variantă a paginilor Olt și Mehedinți a dat **max 100%**, cu trei perechi
+peste 85%. Cauza nu era conținutul, ci refolosirea verbatim a frazelor de
+serviciu — transport, montaj, cazare — de pe o pagină pe alta. Paginile vechi le
+variau deja, fiecare pe județul ei; noi le copiaserăm.
+
+Ce a scos grupul din zona roșie, în ordinea impactului:
+
+1. **Frazele de logistică, rescrise ca structură, nu ca sinonime.** „Sonorizarea
+   pleacă prima…” a devenit o propoziție construită altfel pe fiecare pagină, nu
+   aceeași propoziție cu alte cuvinte. Un sinonim schimbă 15 puncte; o
+   construcție diferită schimbă 40.
+2. **Titlurile de secțiune, deparalelizate.** Patru H2 de forma „Nouă localități,
+   de la X până la Y” se mascau în același șablon și dădeau 100% la trecerea
+   mascată.
+3. **Citatele din `repertoriu.html`, reformulate.** Vezi mai jos.
+
+### Regula care lipsea
+
+**Quoting-ul din `repertoriu.html` e limitat de aceeași măsură.** Brieful cere
+ca afirmațiile de folclor să vină exclusiv din blocul regional; non-duplicarea
+interzice preluarea lui verbatim. Cele două nu se contrazic: **faptul se ia din
+sursă, formularea e a paginii.** Trei pagini au depășit 75% față de
+`repertoriu.html` exact pentru că au citat prea aproape de literă.
+
+Pragul se verifică automat, în ieșirea lui `non_duplicare.py`:
+„Pagini de zonă cu maxim > 75% față de repertoriu.html”. Ținta e **0**.
+
+---
+
 ## 3. Istoric, și capcana pe care o arată
 
 | Dată | Metoda A | Metoda B | Max | Ce se întâmplase |
@@ -106,6 +156,11 @@ maximul — singura cifră care nu s-a clintit în tot intervalul.
 
 Pe 19.09 perechea a coborât din nou sub prefiltru, iar grupul e exact pe cifrele
 de pornire.
+
+**19.09.2026, runda de șapte pagini noi.** Câmpia a rămas neschimbată —
+51,3% / 59,2%, max 71% — deși site-ul a trecut de la 12 la 19 pagini de zonă.
+Era și testul principal al rundei: dacă adăugarea a șapte pagini ar fi mișcat
+grupul de câmpie, ar fi însemnat că noile pagini împrumută din cele vechi.
 
 ---
 

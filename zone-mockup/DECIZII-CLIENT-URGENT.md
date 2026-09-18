@@ -22,6 +22,7 @@ sala a fost mutată înapoi pe pagina Ilfov, la Snagov. Detaliile în `SURSE-LIV
 | Hanul Vlăsia / Vlăsiei | Am găsit **două** localuri cu acest nume: **Hanul Vlăsiei** în Snagov, Ilfov, și **Hanul Vlăsia** pe DN7, la Gulia (com. Tărtășești, Dâmbovița). L-am pus pe pagina Ilfov, la Snagov — adică exact acolo unde îl trecuserăți dumneavoastră. **Confirmați că e cel din Snagov?** | S2 | |
 | Bacsoridana | Apare fără localitate. E cel din **Tecuci** sau cel din **Valea Mărului**? Ambele sunt în județul Galați. Nu e încă pe nicio pagină. | S4 | |
 | Cernica Events | Adresa publicată e în **Pantelimon** (Str. Ștrandului 52), nu în comuna Cernica — numele vine de la lac. Am corectat pe pagină; e acum pe aceeași stradă cu Toya Concept Events. Semnalăm, nu întrebăm. | S1 | ✔ rezolvat |
+| **Locații în Mehedinți, Olt, Brăila, Bacău** | Am construit paginile pentru toate patru, dar ele sunt singurele din site fără nicio sală confirmată. Aveți evenimente în aceste județe? Dacă da, ne trimiteți numele sălilor și localitatea, ca la celelalte. Dacă nu, ne spuneți — le tratăm altfel. **Cele patru pagini rămân neindexate până primim cel puțin o locație pentru fiecare.** | S7 | |
 | Restul de locații | Lista mai conține **8 săli din Tulcea, Galați, Vrancea și Vâlcea**, pentru care nu avem încă paginile de județ. Ne trimiteți numele lor complete, ca să le verificăm înainte de runda următoare? | S6 | |
 
 **Tariful de transport nu mai e pe această listă.** 6 lei/km, dus-întors, e confirmat din

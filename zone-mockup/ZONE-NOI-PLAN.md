@@ -10,6 +10,47 @@ Măsurat pe `ae8f8b0`.
 
 ---
 
+## STARE — actualizat după runda de construcție
+
+**Toate cele 7 pagini sunt construite.** Ce le desparte e dovada locală, nu
+calitatea execuției.
+
+### Construite CU locații — 3
+
+| Pagină | Locații | Formă |
+|---|---|---|
+| `zona-tulcea.html` | 2 — Hotel Delta, Apollo Ballroom (ambele în Tulcea) | modulul de locații, secțiune dedicată |
+| `zona-valcea.html` | 2 — Stephany Ballroom, Grand Imperial Deluxe (ambele în Râmnicu Vâlcea) | modulul de locații, secțiune dedicată |
+| `zona-galati.html` | 1 — Bacsoridana Events, cu `.ph` pe localitate | frază în „Localități deservite”, fără secțiune |
+
+### Construite FĂRĂ locații — 4, în așteptarea clientei
+
+| Pagină | Repertoriu | Ce așteaptă |
+|---|---|---|
+| `zona-mehedinti.html` | Oltenia | orice locație din județ |
+| `zona-olt.html` | Oltenia | orice locație din județ |
+| `zona-braila.html` | Muntenia | orice locație din județ |
+| `zona-bacau.html` | Moldova | orice locație din județ |
+
+Toate patru: **nicio afirmație de experiență în județ**, nicăieri pe pagină.
+Fiecare are în HTML un comentariu de conversie care spune exact ce se întâmplă
+la primirea locațiilor — 1 locație → frază, 2 sau mai multe → modulul din
+`NAV-FOOTER-MIGRARE.md` §5.
+
+Toate patru rămân **`noindex` la migrare** până primesc cel puțin o locație
+confirmată. Regula e consemnată în `DECIZII-CLIENT.md`, rândul D14, și repetată
+ca marcaj în capul fiecăreia dintre cele patru pagini.
+
+### Vrancea — fără pagină, ca și până acum
+
+Ballroom President, Adjud. A intrat pe hub, în blocul „Am mai cântat și în…”,
+ca listă de text, fără link și fără card. Un card ar sugera o pagină care nu
+există. Când județul ajunge la 2 locații confirmate, devine candidat de pagină
+proprie și iese din bloc.
+
+
+---
+
 ## 0. Trei premise din brief care nu s-au confirmat
 
 Le pun în față pentru că schimbă ce se poate livra.
