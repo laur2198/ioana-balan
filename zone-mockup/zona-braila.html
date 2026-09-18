@@ -46,8 +46,42 @@
      pentru Ardeal / Muntenia / Oltenia / Dobrogea; ar produce patru nuanțe pe
      care nimeni nu le citește ca sistem, plus riscul ca o zonă să primească
      #800020 (1,72:1 pe #131313, adică o bordură invizibilă). Varianta aleasă
-     e accent-edge, singura din familie care trece pragul de 3:1 pentru UI
-     non-text (3,93:1).
+     e accent-edge, cea mai deschisă din familie.
+
+     CIFRE REALE, recalculate 19.09.2026. Versiunea anterioară a acestui
+     comentariu spunea că accent-edge „trece pragul de 3:1 pentru UI non-text
+     (3,93:1)". Valoarea era greșită. Corect:
+
+         #C41236 pe #131313 (fundalul paginii) ....... 3,09:1
+         #C41236 pe #20201f (fundalul badge-ului) .... 2,71:1
+
+     Deci bordura badge-ului e SUB pragul de 3:1 pe fondul pe care apare.
+
+     De ce nu e totuși o neconformitate. WCAG 1.4.11 acoperă două categorii:
+     componentele de interfață și obiectele grafice necesare înțelegerii
+     conținutului. Badge-ul nu e nici una, nici alta:
+
+       · nu e acționabil — e un <span> într-un <p>, fără link și fără buton,
+         deci nu e componentă de interfață;
+       · informația („Dobrogea · Județul Tulcea") e purtată integral de text,
+         la 9,55:1 (#c6c6c6 pe #20201f). Dacă bordura ar dispărea, nu s-ar
+         pierde niciun sens — doar forma de badge.
+
+     Bordura rămâne deci decorativă în sensul lui 1.4.11, iar cei 2,71:1 nu
+     sunt o neconformitate. Culoarea NU se schimbă.
+
+     Ce rămâne adevărat și merită știut la migrare: fondul badge-ului, #20201f,
+     e la 1,14:1 față de #131313 — practic invizibil. Toată sarcina de
+     delimitare o duce bordura, singură, la 2,71:1. E o problemă de citire, nu
+     de conformitate. Două propuneri sunt documentate în
+     zone-mockup/ZONE-NOI-PLAN.md §4 — P1 corectează fondul, P2 urcă bordura la
+     #DB143C (3,70:1 pe pagină, 3,24:1 pe badge). Niciuna nu s-a aplicat:
+     ambele schimbă un token, iar integritate.py derivă culorile permise din
+     zona-brasov.html, deci ordinea de operații contează.
+
+     Auditul complet al lui --accent-edge pe toate suprafețele întunecate,
+     inclusiv cele trei neconformități reale găsite în afara badge-ului, e în
+     zone-mockup/AUDIT-ACCENT-EDGE.md.
 
      Variabila rămâne totuși variabilă, ca punct de extensie: dacă paleta se
      extinde cu o familie de accente de zonă reale, se schimbă o linie pe
@@ -370,7 +404,7 @@
 <p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Jocul muntenesc e un joc de grup: în cerc sau în șir, cu mâinile prinse ori cu brațele pe umerii vecinilor, pe o măsură binară care pune pasul pe fiecare bătaie. Figurile sunt puține și revin des, așa că cineva care n-a mai jucat niciodată prinde ritmul uitându-se la vecin, după câteva măsuri. Hora și sârba se deosebesc mai ales prin tempo — una așezată și cu cercul larg, cealaltă iute, cu pași mărunți și mișcare laterală.</p>
 
 <h3 class="font-headline-md text-lg md:text-headline-md text-on-surface leading-snug mt-9 mb-4">Unde se schimbă lucrurile</h3>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Brâul e altceva. Aici apar figurile: talpa bate, direcția se schimbă, iar semnalul îl dă omul din fruntea șirului — de regulă strigând. Asta înseamnă că nu formația conduce momentul, ci un om din sală, iar noi îl urmăm. Practic, e singura parte din seară în care tempoul se negociază pe loc, și de aceea ne interesează dinainte dacă în familie există cineva care duce brâul. În rest, o seară de câmpie stă pe jocuri: tempo ridicat, pas apăsat, iar momentele de ascultare rămân scurte.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">Brâul e altceva. Aici apar figurile: talpa bate, direcția se schimbă, iar semnalul îl dă omul din fruntea șirului — de regulă strigând. Asta înseamnă că nu formația conduce momentul, ci un om din sală, iar noi îl urmăm. Practic, e singura parte din seară în care tempoul se negociază pe loc, și de aceea ne interesează dinainte dacă în familie există cineva care duce brâul. <span class="ph">[angajament de confirmat de client — B78]</span> În rest, o seară de câmpie stă pe jocuri: tempo ridicat, pas apăsat, iar momentele de ascultare rămân scurte.</p>
 <!-- Link intern către repertoriu.html, pagina de cluster: acolo e explicația
      extinsă a repertoriului, aici afirmația scurtă. La migrare: /repertoriu. -->
 <p class="mt-8"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex flex-wrap items-center gap-2 min-h-[44px]" href="repertoriu.html">Vezi repertoriul complet</a></p>
