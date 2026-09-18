@@ -20,3 +20,13 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Harness-ul de randare: dependențe Node și CSS-ul generat. Se reconstruiesc
+# cu `npm install && node build-tailwind.js` — vezi verify/render/README.md.
+zone-mockup/verify/render/node_modules/
+zone-mockup/verify/render/build/
+
+# Bytecode Python din suita de verificare. run_all.sh setează
+# PYTHONDONTWRITEBYTECODE, dar rularea directă a unui script îl produce.
+__pycache__/
+*.pyc

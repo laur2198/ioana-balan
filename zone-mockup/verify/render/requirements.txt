@@ -1,0 +1,3 @@
+# Dependența Python a harness-ului de randare. Separată de
+# ../requirements.txt: suita de bază NU are nevoie de ea.
+playwright==1.63.0
