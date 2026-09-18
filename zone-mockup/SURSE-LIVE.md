@@ -251,3 +251,99 @@ După răspunsul clientului (2026-09-17), pe aceleași rânduri: **A** — 18 co
 | C4 | Unde nu se percepe transport | GM-OF și GM-FAQ: gratuit în „București și Ilfov” · IB-TC: tariful se aplică „în afara localității de reședință a Prestatorului”, cu sediul în „sat Săftica, județul Ilfov” · `ioana-balan.ro/oferte/`: „din afara localității” | A2, A11, B5; `zona-ilfov` |
 | C5 | Unde e valabilă grila | GM-OF: „valabile doar pentru București și Ilfov” · `ioana-balan.ro/oferte/`: „valabile pentru evenimente din 2026 și 2027”, fără restricție geografică | A1, A3–A12, A14 |
 | C6 | Ofertă ferm vs. întâlnire | GM-FAQ: rezervarea trece printr-o întâlnire · `ioana-balan.ro` (textul prototipului): ofertă în aceeași zi | B9 |
+
+---
+
+## 6. Locațiile din lista clientei (18.09.2026)
+
+### Metodă și avertisment
+
+Clienta a trimis o listă de săli unde a cântat formația. Lista **nu e în repo**:
+a venit în briefing, deja rescrisă, cu mențiunea că fusese verificată pe
+18.09.2026. Am verificat-o din nou, independent, pe surse publice — site-uri
+proprii ale locațiilor, agregatoare de nunți, pagini de Facebook — pentru **un
+singur lucru: locația administrativă**.
+
+Ce **nu** verifică această secțiune: că artista a cântat efectiv acolo. Asta e
+afirmația clientei și rămâne pe răspunderea ei. Nicio sursă publică nu o poate
+confirma, iar paginile o preiau ca atare.
+
+Trei numere din brief nu se închid și le consemnez ca atare:
+
+| Brief | Realitate |
+|---|---|
+| „cele 20 de locații plasate pe pagini" | **21**: 14 pe Ilfov + 3 pe Dâmbovița + 4 singulare |
+| „cele 30 de locații" în această secțiune | **29** ar fi 21 + 8; documentate aici sunt **21** |
+| „cele 8 locații din afara paginilor actuale (Tulcea, Galați, Vrancea, Vâlcea)" | **nu au nume în brief.** Nu se pot documenta. Vezi mai jos. |
+
+### 6.1 Verdicte, pe locație
+
+Legendă: **✓** localitatea din tabelul de brief se confirmă pe sursă publică ·
+**≠** sursa publică dă altă localitate · **~** nume oficial diferit de cel din brief.
+
+#### Pe `zona-ilfov.html` — grupul Ilfov
+
+| # | Locație | Localitate (brief) | Verdict | Sursă |
+|---|---|---|---|---|
+| L1 | Cernica Events | Cernica | **≠** adresa publicată e Str. Ștrandului 52, **Pantelimon**, pe malul lacului Cernica | cernicaevents.ro; bestmarkets.ro |
+| L2 | Toya Concept Events | Pantelimon | ✓ Str. Ștrandului 101, Pantelimon | toyaconcept.ro |
+| L3 | Domeniile Săftica | Săftica | ✓ Calea București 51, Săftica | domeniilesaftica.ro |
+| L4 | Noor Events | Popești-Leordeni | ✓ Splaiul Unirii 9D, Popești-Leordeni | noor-events.ro |
+| L5 | Palatul Snagov | Snagov | ✓ Siliștea Snagovului, com. Snagov, pe malul lacului | palatulsnagovoficial.ro |
+| L6 | Jubile Concept | Voluntari | ✓ Str. Emil Racoviță 7, Voluntari | jubile.ro |
+| L7 | Velveto Embassy | Mogoșoaia | ✓ Str. Chitila Pădure 2 bis, Mogoșoaia — **~** numele complet e „Velveto Embassy Lake View" | velvetolakeview.ro |
+| L8 | Domeniul cu Cireși | 1 Decembrie | ✓ Str. Giurgiului 9, com. **1 Decembrie, Ilfov** | domeniulcuciresi.ro |
+
+#### Pe `zona-ilfov.html` — grupul București
+
+| # | Locație | Verdict | Sursă |
+|---|---|---|---|
+| L9 | Autentic Events Hall | ✓ Str. Avionului 9, București | autenticeventshall.ro |
+| L10 | Burlesque Events | ✓ B-dul Bucureștii Noi 48, Sector 1 | burlesque-events.ro |
+| L11 | Twins by the Lake | ✓ Sector 2, București | twins-bythelake.ro |
+| L12 | Palatul Bragadiru | ✓ Calea Rahovei 147–159, Sector 5, București — monument istoric, **nu** orașul Bragadiru din Ilfov | ro.wikipedia.org; zilesinopti.ro |
+| L13 | Terra Events Hall | ✓ B-dul Lacul Tei 1, București | terraevents.ro |
+| L14 | Monarh | ✓ Calea Plevnei 46–48 și Șos. Pipera 48, București | locatiilemonarh.ro |
+
+#### Pe `zona-dambovita.html`
+
+| # | Locație | Localitate (brief) | Verdict | Sursă |
+|---|---|---|---|---|
+| L15 | Cireșul Sălbatic | Butimanu | ✓ Pădurea Lucianca, DN1A, Butimanu, Dâmbovița — agregatoarele îl indexează sub „Buftea", care e doar reperul de drum | ciresulsalbatic.ro |
+| L16 | Heritage Ballroom | Fieni | ✓ DC3, Fieni, Dâmbovița | heritageballroom.ro |
+| L17 | Hanul Vlăsia | Gulia (Tărtășești) | ✓ Gulia, com. Tărtășești, pe DN7 — marcat `.ph` pe pagină, vezi 6.3 | restaurantguru.com; ghidul.ro |
+
+#### Câte una pe pagină
+
+| # | Pagină | Locație | Localitate | Verdict | Sursă |
+|---|---|---|---|---|---|
+| L18 | `zona-giurgiu` | TreeHouse Cosoba | Cosoba | ✓ Str. Principală, com. Cosoba, Giurgiu — **~** brieful scrie „Tree House", forma oficială e „TreeHouse", într-un cuvânt | treehouse.ro |
+| L19 | `zona-arges` | Premier Ballroom | Curtea de Argeș | ✓ Str. Valea Iașului 99, Curtea de Argeș | firmania.ro; pagina oficială de Facebook |
+| L20 | `zona-calarasi` | Hestia Park Lounge | Călărași | ✓ Șos. Chiciului 2a, Călărași, în complexul Hestia Hotel | hestia-hotel.ro |
+| L21 | `zona-constanta` | Nuba Beach Club | Mamaia | ✓ Aleea Lamia, Mamaia, Constanța | nuba.ro |
+
+### 6.2 Cele două corecturi de județ din brief — ambele se confirmă
+
+| Locație | Clienta a spus | Corect | De ce a greșit |
+|---|---|---|---|
+| Domeniul cu Cireși | Giurgiu | **Ilfov** (com. 1 Decembrie) | strada se numește Giurgiului, iar comuna e lipită de granița cu județul Giurgiu |
+| Hanul Vlăsia | Ilfov | **Dâmbovița** (Gulia, Tărtășești) | există un **Hanul Vlăsiei în Snagov, Ilfov** — altă firmă, alt loc |
+
+### 6.3 Ce rămâne de confirmat cu clienta
+
+| # | Item | De ce |
+|---|---|---|
+| S1 | **Cernica Events — Cernica sau Pantelimon?** | Toate sursele publice dau Pantelimon, Str. Ștrandului 52. Numele firmei și lacul sunt „Cernica", dar comuna Cernica e altă unitate administrativă. Pagina afișează **Cernica**, conform tabelului din brief. Dacă adresa publicată e cea corectă, rândul se schimbă în Pantelimon — și atunci L1 și L2 sunt două săli pe aceeași stradă, la 50 de numere distanță. |
+| S2 | **Hanul Vlăsia — care dintre ele?** | Marcat `.ph` pe `zona-dambovita.html`: `[de confirmat: locația de pe DN7]`. Brieful indică drept risc un local omonim din Mamaia; riscul real, găsit la verificare, e **Hanul Vlăsiei din Snagov** — e și explicația pentru „Ilfov" din lista clientei. |
+| S3 | **TreeHouse sau Tree House?** | Pagina scrie **TreeHouse Cosoba**, forma de pe site-ul propriu al locației, nu forma din brief. Un nume de firmă scris greșit pe o pagină publică e o eroare vizibilă pentru locație. |
+| S4 | **Bacsoridana — Tecuci sau Valea Mărului?** | Ambele sunt în județul Galați. Nu e pe nicio pagină actuală. |
+| S5 | **Brașov nu are nicio locație în lista clientei** | `zona-brasov.html` e layout A, construit pe trei carduri de locație plus card video plus recenzie — adică pagina care cere cel mai mult material și singura care n-a primit niciun nume. |
+| S6 | **Cele 8 locații din Tulcea, Galați, Vrancea și Vâlcea** | Brieful le numără, dar nu le numește. Fără nume, nu pot fi nici verificate, nici documentate, nici folosite în runda următoare. **E nevoie de listă.** |
+
+### 6.4 Notă de conținut, nu de verificare
+
+`Nuba Beach Club` e beach club și destinație de nightlife, nu sală de nunți în
+sensul celorlalte douăzeci. Locația găzduiește evenimente private („Events by
+Nuba"), deci afirmația stă în picioare, dar registrul ei diferă de restul listei
+și de tonul paginii, care e despre nunți și botezuri. De revăzut cu clienta dacă
+e evenimentul pe care vrea să-l reprezinte pe `zona-constanta.html`.

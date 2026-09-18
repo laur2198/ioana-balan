@@ -337,7 +337,41 @@
 <div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
 
 <!-- ======================================================================
-     3. REPERTORIU — sud de câmpie, nord de deal; Târgoviștea la granița
+     3. LOCAȚII — sălile confirmate de clientă, din lista trimisă pe
+     18.09.2026. Un singur grup: toate trei sunt în județ.
+     Modulul e IDENTIC ca markup pe toate paginile de zonă cu 2+ locații.
+     Documentat ca pattern de migrare în NAV-FOOTER-MIGRARE.md, §„Modulul
+     de locații”: în Elementor devine un repeater ACF cu două câmpuri,
+     „nume” și „localitate”, grupat pe etichetă.
+     Avem DOAR nume și localitate. Fără an, fără tip de eveniment, fără
+     fotografie, clip sau recenzie legată de locație — de aceea pagina NU
+     se convertește la layout A sau B, care cer toate trei. Vezi
+     comentariul de conversie de deasupra secțiunii de repertoriu.
+     Etichetele de subgrup nu sunt heading-uri: outline-ul paginii câștigă
+     un singur H2.
+     ====================================================================== -->
+<section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="locatii-titlu">
+<div class="max-w-3xl mb-8 md:mb-12">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Locații</span>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-4" id="locatii-titlu">Trei săli, pe trei drumuri diferite</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">La Butimanu se ajunge pe DN1A, dinspre Buftea, iar la Gulia pe DN7; Fieni e sus, în nordul județului, acolo unde drumul urcă spre Valea Ialomiței. Sunt cele trei săli din Dâmbovița unde am cântat până acum.</p>
+</div>
+<div class="glass-card silver-border p-6 md:p-10 max-w-4xl">
+<p class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant mb-4">Dâmbovița</p>
+<ul class="motif-list grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+<li class="font-body-lg text-base md:text-body-lg">Cireșul Sălbatic <span class="font-body-md text-body-md text-on-surface-variant">· Butimanu</span></li>
+<li class="font-body-lg text-base md:text-body-lg">Heritage Ballroom <span class="font-body-md text-body-md text-on-surface-variant">· Fieni</span></li>
+<li class="font-body-lg text-base md:text-body-lg">Hanul Vlăsia <span class="font-body-md text-body-md text-on-surface-variant">· Gulia (Tărtășești)</span> <span class="ph">[de confirmat: locația de pe DN7]</span></li>
+</ul>
+<div class="motif-rule max-w-[180px] w-full mt-8"><span class="motif-rule__gem zona-gem"></span></div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-6">Pentru o sală din județ care nu apare aici, drumul și programul se stabilesc la fel: contează pe ce drum se intră și la ce oră, nu dacă am mai cântat acolo.</p>
+</div>
+</section>
+
+<div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
+
+<!-- ======================================================================
+     4. REPERTORIU — sud de câmpie, nord de deal; Târgoviștea la granița
      dintre ele. Accentele de Argeș spre nord sunt reluate din cardul hub.
      ====================================================================== -->
 <!-- LAYOUT C — fără module de dovadă, pentru că nu există încă material
@@ -349,7 +383,15 @@
      3. ordinea devine A (repertoriu pe 2, logistică pe 4) pentru județele
         apropiate, sau B (logistică pe 2) pentru cele care cer cazare
      4. intro-ul din hero se întărește de la poziționare la experiență locală
-     Până atunci, niciuna dintre cele patru nu se scrie. -->
+     Până atunci, niciuna dintre cele patru nu se scrie.
+
+     STARE 18.09.2026 — PAGINA RĂMÂNE PE C. Clienta a trimis nume de locații
+     din județ, iar acestea au intrat în secțiunea 3, ca listă. Niciunul
+     dintre cele patru puncte de mai sus nu se deblochează, pentru că
+     punctul 1 cere „3 carduri foto + 1 card video”, iar punctul 2 o
+     recenzie: avem DOAR numele și localitatea. Un card de fotografie cu
+     `.ph-zone` gol lângă un nume real comunică „lipsă”, nu „urmează”.
+     Conversia se reia când vin fotografiile, clipul și recenzia. -->
 <section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="repertoriu-titlu">
 <div class="max-w-3xl">
 <span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Repertoriu</span>
@@ -367,7 +409,7 @@
 <div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
 
 <!-- ======================================================================
-     4. LOGISTICĂ — cardul care vinde e „fără cazare”, formulat pe
+     5. LOGISTICĂ — cardul care vinde e „fără cazare”, formulat pe
      argumentul Dâmboviței (DN7 / A1, fără trecători), nu pe cel de Giurgiu
      sau Ilfov. Tariful pe km stă în intro.
      ====================================================================== -->
@@ -404,7 +446,7 @@
 <div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
 
 <!-- ======================================================================
-     5. PACHETE — fără cifră; intervalul stă în hero.
+     6. PACHETE — fără cifră; intervalul stă în hero.
      ====================================================================== -->
 <section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="pachete-titlu">
 <div class="max-w-3xl mx-auto glass-card silver-border p-6 md:p-12 text-center flex flex-col items-center gap-5">
@@ -424,7 +466,7 @@
 <div class="max-w-max-width mx-auto px-6 md:px-margin-desktop"><div class="zona-divider"></div></div>
 
 <!-- ======================================================================
-     6. FAQ — cinci întrebări: luatul miresei cu distanțe scurte între
+     7. FAQ — cinci întrebări: luatul miresei cu distanțe scurte între
      comune, capătul nordic al județului (Moroeni), un recital la
      Târgoviște, curtea de deal toamna, sala din comună vs. sala din oraș.
      ====================================================================== -->

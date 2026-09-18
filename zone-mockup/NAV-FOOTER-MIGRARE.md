@@ -499,3 +499,85 @@ Drawer-ul mobil primește aceeași stare ca nav-ul desktop.
 - [ ] Coloanele din footer au titluri care nu sunt heading-uri
 - [ ] „Zone” activ pe hub și pe toate cele 12 zone; inactiv pe servicii și pe cluster
 - [ ] „Corporate” și slug-urile de serviciu, confirmate (D8, D9)
+
+---
+
+## 5. Modulul de locații — pattern de migrare
+
+Adăugat pe 18.09.2026, odată cu lista de locații trimisă de clientă. Documentat
+aici, nu într-un fișier nou, pentru că e al treilea bloc care se repetă
+byte-identic pe mai multe pagini de zonă, după nav și footer.
+
+### Ce e
+
+O secțiune care listează sălile unde a cântat formația, în județul paginii.
+Conține **doar nume și localitate** — atât avem. Fără an, fără tip de eveniment,
+fără fotografie, clip sau recenzie legată de locație, fără link către site-ul
+sălii.
+
+### Regula de formă
+
+| Locații pe pagină | Ce primește pagina |
+|---|---|
+| 2 sau mai multe | secțiune dedicată, cu listă, imediat după „Localități deservite” |
+| exact 1 | o frază în „Localități deservite”; fără secțiune |
+| 0 | nimic |
+
+Pragul nu e estetic. O secțiune cu titlu, eyebrow și card pentru un singur nume
+citește ca un slot gol, exact efectul pe care layout-ul C a fost construit să-l
+evite („patru sloturi punctate goale nu comunică «urmează material», ci «nu avem
+nimic aici»", `zona-giurgiu.html`).
+
+### Unde e implementat azi
+
+- **Secțiune:** `zona-ilfov.html` (14 locații, două subgrupuri) și
+  `zona-dambovita.html` (3). Markup **identic** între ele; diferă doar
+  eticheta de subgrup, titlul, intro-ul, nota și rândurile din listă.
+- **Frază:** `zona-giurgiu.html`, `zona-arges.html`, `zona-calarasi.html`,
+  `zona-constanta.html` — câte o locație fiecare.
+
+Pe `zona-constanta.html` (layout B) cardurile `.ph-zone` de la secțiunea 4
+**rămân goale**: un nume nu umple un card care cere fotografie sau clip.
+
+### Consecință pentru exemplele de layout C
+
+`zona-giurgiu.html` a fost până acum exemplul canonic de layout C — zonă fără
+niciun material de dovadă. Nu mai e: pagina numește acum TreeHouse Cosoba.
+Exemplul curat de layout C **trece pe `zona-prahova.html`**, singura pagină care
+păstrează toate cele trei absențe (fără locații, fără card video, fără recenzie)
+și zero `.ph-zone`. Referința rămâne valabilă pentru structura de secțiuni,
+nu pentru „zero locații".
+
+### În Elementor
+
+Modulul devine un **repeater ACF** pe template-ul de zonă:
+
+| Câmp | Tip | Obligatoriu | Note |
+|---|---|---|---|
+| `nume` | text | da | numele sălii, exact cum îl scrie ea |
+| `localitate` | text | da | localitatea administrativă, nu cea de pe firmă |
+| `grup` | select | nu | eticheta de subgrup; gol = un singur grup |
+
+Randarea: un container flexbox per grup, cu eticheta ca `<p>` (nu heading — vezi
+mai jos), și lista ca `<ul>`. Nimic din modul nu cere grid complex, overlap sau
+poziționare absolută, deci trece în containere flexbox fără CSS custom
+(CLAUDE.md §8).
+
+### Trei reguli care trebuie să supraviețuiască migrării
+
+1. **Etichetele de subgrup nu sunt heading-uri.** Pe `zona-ilfov.html`,
+   „Ilfov" și „București" sunt `<p>` cu stil de label. Un `<h3>București</h3>`
+   ar băga termenul principal al site-ului în outline-ul unei pagini de județ.
+   Modulul adaugă paginii **un singur H2**.
+2. **Localitatea e cea administrativă.** `Domeniul cu Cireși` e la 1 Decembrie,
+   Ilfov, deși strada se numește Giurgiului și comuna e lipită de județul
+   Giurgiu. Numele străzii și cel al firmei nu decid județul.
+3. **Nimic nu se completează din memorie.** Dacă lipsește localitatea, rândul
+   primește `.ph`, nu o presupunere. Vezi `Hanul Vlăsia` pe
+   `zona-dambovita.html`.
+
+### Verificare
+
+`verify/integritate.py` nu validează conținutul modulului — numele de săli nu
+sunt verificabile programatic. Verdictele per locație stau în `SURSE-LIVE.md`,
+§6.

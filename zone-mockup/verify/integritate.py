@@ -2,7 +2,7 @@
 
 Referința pentru blocurile protejate e zona-brasov.html (șablonul A).
 Separat: footer-ul celor 11 pagini din rădăcină, comparat între ele, cu excepția
-temporară FOOTER_DEMO.
+temporară FOOTER_DEMO, și tariful de transport pe cele 12 pagini de zonă.
 """
 import json
 import os
@@ -10,7 +10,7 @@ import re
 import sys
 from urllib.parse import unquote, urldefrag
 
-from _common import ALL_PAGES, MOCKUP, OLD_PAGES, ROOT, read, soup
+from _common import ALL_PAGES, MOCKUP, OLD_PAGES, ROOT, ZONE_PAGES, read, soup
 
 REFERENCE = "zona-brasov.html"
 
@@ -127,6 +127,66 @@ def check_root_footers():
     return failures
 
 
+# --- Tariful de transport pe paginile de zonă ---------------------------------
+# Rândul A2 din DECIZII-CLIENT.md e confirmat (2026-09-17): 6 lei/km, dus-întors,
+# în afara Bucureștiului și a Ilfovului. Sursa: grand-music.ro, două pagini.
+#
+# Valoarea e scrisă pe fiecare pagină în fraza proprie județului (distanțe,
+# cazare), nu într-o formulare unică, iar formele diferă: unsprezece pagini scriu
+# „6 lei/km”, zona-ialomita.html scrie „Kilometrii … se plătesc separat, cu 6 lei
+# fiecare”. De aceea verificarea e pe VALOARE și pe BAZA DE CALCUL, nu pe textul
+# din jur: orice cifră legată de leu-pe-kilometru trebuie să fie 6, iar pagina
+# trebuie să spună „dus-întors”.
+#
+# Ilfovul e singura excepție prevăzută: intră în grila de bază împreună cu
+# Bucureștiul, deci pagina lui NEAGĂ explicit suplimentul. Dacă de pe
+# zona-ilfov.html dispare negarea, verificarea pică — ar contrazice
+# ../oferte.html și rândul A11.
+TARIF = "6"
+# Formele acceptate, ambele cu valoarea capturată în grupul 1.
+TARIF_FORME = (
+    re.compile(r"(\d+(?:[.,]\d+)?)\s*lei\s*/\s*km"),
+    re.compile(r"(\d+(?:[.,]\d+)?)\s*lei\s+fiecare"),
+)
+BAZA_RE = re.compile(r"dus[-\s]?întors")
+# Doar placeholderul de tarif KILOMETRIC. `[TARIF ORĂ SUPLIMENTARĂ]` și
+# `[TARIF ÎN ZI LUCRĂTOARE]` sunt alte blocante, încă deschise legitim.
+PLACEHOLDER_TARIF_RE = re.compile(r"\[TARIF[^\]]*\b(?:km|kilometr)[^\]]*\]", re.I)
+ILFOV_FARA_SUPLIMENT = "Fără supliment de transport"
+
+
+def check_transport():
+    """Tariful de transport: aceeași valoare și aceeași bază de calcul pe cele 12."""
+    print("\nTransport — 6 lei/km, dus-întors (DECIZII-CLIENT.md, A2):")
+    failures = 0
+    for page in ZONE_PAGES:
+        src_page = read(page)
+        # `&nbsp;` e separator de cifră în markup; comentariile nu contează.
+        code = re.sub(r"<!--.*?-->", "", src_page, flags=re.S).replace("&nbsp;", " ")
+        problems = []
+        valori = [m for rx in TARIF_FORME for m in rx.findall(code)]
+        if not valori:
+            problems.append("tariful pe kilometru lipsește din pagină")
+        for v in valori:
+            if v != TARIF:
+                problems.append(f"alt tarif pe km: {v} lei (așteptat {TARIF})")
+        if valori and not BAZA_RE.search(code):
+            problems.append("baza de calcul „dus-întors” lipsește")
+        ph = PLACEHOLDER_TARIF_RE.search(src_page)
+        if ph:
+            problems.append(f"placeholder de tarif nerezolvat: {ph.group(0)!r}")
+        if page == "zona-ilfov.html" and ILFOV_FARA_SUPLIMENT not in code:
+            problems.append("Ilfov: lipsește negarea explicită a suplimentului "
+                            "(contrazice ../oferte.html și A11)")
+        failures += bool(problems)
+        forme = ", ".join(f"{v} lei" for v in valori) or "—"
+        print(f"  {page:22} {forme:<24} " + ("ok" if not problems else "PROBLEME"))
+        for p in problems:
+            print(f"    · {p}")
+    print(f"Pagini de zonă cu problemă de transport: {failures}")
+    return failures
+
+
 def main():
     ref = read(REFERENCE)
     ref_colors = set(c.lower() for c in COLOR_RE.findall(ref))
@@ -173,7 +233,8 @@ def main():
             print(f"    · {p}")
     print(f"\nPagini cu probleme: {failures}")
     root_failures = check_root_footers()
-    return 1 if failures or root_failures else 0
+    transport_failures = check_transport()
+    return 1 if failures or root_failures or transport_failures else 0
 
 
 if __name__ == "__main__":
