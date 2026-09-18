@@ -409,6 +409,70 @@ rundei de pagini noi** — altfel cele 7 pagini noi moștenesc problema. Variant
 de mai sus, `#DB143C`, o rezolvă exact (3,24 pe badge) fără să schimbe familia
 de culoare și fără să pretindă că e un accent etnografic.
 
+### Verdictul, 19.09.2026: bordura e NECESARĂ, nu decorativă
+
+Întrebarea era dacă bordura `.zona-badge` identifică badge-ul sau doar îl
+decorează. Criteriul are trei clauze; două trec, una pică.
+
+| Clauză | Rezultat |
+|---|---|
+| Textul peste 4,5:1 | **DA** — `#c6c6c6` pe `#20201f` dă **9,55:1** |
+| Badge-ul nu e interactiv | **DA** — e un `<span>` într-un `<p>`, fără link și fără buton |
+| Badge-ul rămâne recognoscibil fără bordură | **NU** |
+
+Clauza a treia pică dintr-un motiv care nu se vede din markup: **fondul
+badge-ului e la 1,14:1 față de fondul paginii.** `#20201f` pe `#131313` —
+o diferență pe care ochiul nu o separă. Scoate bordura și nu rămâne un badge
+fără contur, ci **text obișnuit cu puțin padding în jur**. Bordura nu
+însoțește forma, ea *este* forma.
+
+Deci nu se aplică corectura de comentariu prevăzută pentru varianta
+„decorativă”. Blocul de stiluri rămâne neatins, pe toate cele 19 pagini.
+
+### Nuanța care rămâne, și de ce nu schimbă verdictul
+
+Strict după litera WCAG 1.4.11, criteriul acoperă două categorii: componente de
+interfață și „obiecte grafice necesare pentru înțelegerea conținutului”.
+Badge-ul nu e componentă — nu e acționabil. Și nu e nici obiect grafic necesar
+înțelegerii: informația („Dobrogea · Județul Tulcea”) e purtată integral de
+text, iar dacă bordura ar dispărea nu s-ar pierde niciun sens.
+
+Se poate deci argumenta că **1.4.11 nu se aplică deloc**, iar cei 2,71:1 nu
+sunt o neconformitate. Nu schimb verdictul din două motive:
+
+1. Criteriul pe care trebuia să-l aplic e „necesară ca să identifici
+   badge-ul”, iar la 1,14:1 fond răspunsul e fără echivoc.
+2. Chiar dacă am numi-o decorativă, ar rămâne un element de design care poartă
+   singur toată sarcina de delimitare, la 2,71:1. Asta e o problemă de citire,
+   nu de conformitate — dar e tot o problemă.
+
+### Propunerea
+
+**Nu una, ci două, și se pot lua separat.**
+
+**P1 — fondul, nu bordura.** Problema reală e că `#20201f` nu se distinge de
+`#131313`. Un fond care se vede ar face badge-ul recognoscibil prin formă, iar
+bordura ar redeveni ce pretinde comentariul că e: decorativă. Ar fi și cea mai
+mică schimbare ca suprafață vizuală. Valoarea se alege astfel încât fondul să
+treacă 3:1 față de pagină, iar textul `#c6c6c6` să rămână peste 4,5:1 față de
+noul fond — cele două condiții se strâng repede, deci valoarea se calculează,
+nu se alege din ochi.
+
+**P2 — bordura, la `#DB143C`.** Aceeași familie de bordo, luminozitate urcată
+de la 0,42 la 0,47. Dă **3,70:1** pe pagină și **3,24:1** pe fondul badge-ului,
+deci trece pragul în ambele situații. Nu e un accent etnografic și nu pretinde
+să fie: e `accent-edge` corectat. Detaliile și contrastele complete, mai sus,
+în tabelul din secțiunea „Dar dacă se răstoarnă decizia”.
+
+**Recomand P2**, dacă se face una singură: rezolvă neconformitatea potențială
+fără să atingă paleta de suprafețe și fără să schimbe cât de „plin” arată
+badge-ul. P1 e mai corectă conceptual, dar mișcă o suprafață, iar suprafețele
+sunt cele care dau tonul întregului site.
+
+**Niciuna nu s-a aplicat.** Ambele cer o decizie, pentru că ambele schimbă un
+token, iar `integritate.py` derivă culorile permise din `zona-brasov.html` —
+vezi ordinea de operații de mai jos.
+
 ### Unde s-ar modifica, dacă se decide
 
 | Fișier | Ce |

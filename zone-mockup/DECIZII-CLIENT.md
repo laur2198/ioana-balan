@@ -423,6 +423,21 @@ B75 lipseau din prima extracție, deși sunt pe pagini.
 
 ---
 
+### B76–B81. Modul de lucru, de pe cele șapte zone noi (19.09.2026)
+
+Ies din secțiunea C pentru că **nu sunt afirmații de folclor**: nu descriu muzica
+unei regiuni, ci ce face formația. O eroare aici nu e o greșeală de etnografie, ci
+un angajament pe care echipa trebuie să-l poată ține.
+
+| # | Afirmație | Pagini | Nivel | da / nu / parțial |
+|---|---|---|---|---|
+| B76 | Blocul dobrogean se repetă cu metronomul pornit, nu „după ureche”, pentru că gruparea măsurii asimetrice nu are voie să varieze. | `zona-tulcea` | neblocant | ☐ da ☐ nu ☐ parțial |
+| B77 | La bătută formația nu conduce tempoul, ci îl susține: reperul vine din sală, prin strigături, iar dacă formația forțează, șirul se rupe. | `zona-galati` | neblocant | ☐ da ☐ nu ☐ parțial |
+| B78 | La brâu momentul e condus de cel din capătul șirului, nu de formație; tempoul „se negociază pe loc”. | `zona-braila` | neblocant | ☐ da ☐ nu ☐ parțial |
+| B79 | Blocul oltenesc „nu se citește la prima vedere, ci se repetă”: dacă notele de trecere se pierd, jocul sună a altă regiune. | `zona-olt` | neblocant | ☐ da ☐ nu ☐ parțial |
+| B80 | Ceata de călușari nu vine cu formația: se pregătește separat și se caută local. Formația cântă doar repertoriul instrumental de căluș. | `zona-valcea` | neblocant | ☐ da ☐ nu ☐ parțial |
+| B81 | Alegerea între taraf și suflători, în Bacău, „schimbă aranjamentele, nu lista de piese”. | `zona-bacau` | neblocant | ☐ da ☐ nu ☐ parțial |
+
 ## C. Afirmații de folclor și repertoriu — pentru artistă
 
 **Nivel: neblocant — anexă.** Toată secțiunea. O eroare de folclor se corectează după
@@ -440,9 +455,9 @@ respectivă. Titlurile de piese nu apar în text: au marcaje separate, în A6.
 
 | # | Afirmație | Pagini | da / nu / parțial | Notă |
 |---|---|---|---|---|
-| C1 | Jocurile muntenești sunt jocuri de grup, în cerc sau în șir, pe măsură binară de doi pe patru, cu figuri puține care revin des. | `repertoriu`, `zona-giurgiu`, `zona-ialomita`, `zona-ilfov`, `zone` | ☐ da ☐ nu ☐ parțial | |
-| C2 | Hora are tempoul cel mai așezat și cercul cel mai larg; sârba e mai iute, cu pași mărunți și deplasări laterale; brâul are figuri, bătăi din talpă și schimbări de direcție comandate de capul șirului, adesea prin strigături. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
-| C3 | La câmpie (Bărăgan, Vlașca, lunca Dunării) domină cântecul de joc, cu tempouri ridicate; pe dealurile de sub munte, din nordul Buzăului până în Muscel, rămân mai multe melodii lente, cu brâuri și hore proprii fiecărei văi. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C1 | Jocurile muntenești sunt jocuri de grup, în cerc sau în șir, pe măsură binară de doi pe patru, cu figuri puține care revin des. | `repertoriu`, `zona-giurgiu`, `zona-ialomita`, `zona-ilfov`, `zone`, `zona-braila` | ☐ da ☐ nu ☐ parțial | |
+| C2 | Hora are tempoul cel mai așezat și cercul cel mai larg; sârba e mai iute, cu pași mărunți și deplasări laterale; brâul are figuri, bătăi din talpă și schimbări de direcție comandate de capul șirului, adesea prin strigături. | `repertoriu`, `zona-braila` | ☐ da ☐ nu ☐ parțial | |
+| C3 | La câmpie (Bărăgan, Vlașca, lunca Dunării) domină cântecul de joc, cu tempouri ridicate; pe dealurile de sub munte, din nordul Buzăului până în Muscel, rămân mai multe melodii lente, cu brâuri și hore proprii fiecărei văi. | `repertoriu`, `zona-braila` | ☐ da ☐ nu ☐ parțial | |
 | C4 | Giurgiu: „sudul Munteniei și Bucureștiul ascultă în mare parte același lucru”, deci nu e nevoie de un bloc regional separat. | `zona-giurgiu`, `zone` | ☐ da ☐ nu ☐ parțial | |
 | C5 | Prahova: spre Câmpina și Breaza, influențe subcarpatice, cu jocuri de pe văile Prahovei și Doftanei; „Ca la Breaza” își ia numele de la localitate; piesele de Valea Prahovei au intrat în repertoriul de petrecere. | `zona-prahova`, `zone` | ☐ da ☐ nu ☐ parțial | |
 | C6 | Dâmbovița: satele de deal de pe văile Ialomiței și Dâmboviței țin de un cântec legat de Muscel și de Argeș, cu brâuri și jocuri de deal. | `zona-dambovita`, `zone` | ☐ da ☐ nu ☐ parțial | |
@@ -468,21 +483,21 @@ respectivă. Titlurile de piese nu apar în text: au marcaje separate, în A6.
 
 | # | Afirmație | Pagini | da / nu / parțial | Notă |
 |---|---|---|---|---|
-| C19 | Dintre regiunile de câmpie, Oltenia are pasul cel mai rapid: horele pornesc de la tempouri pe care Muntenia le atinge abia la sârbă. | `repertoriu`, `zona-dolj`, `zone` | ☐ da ☐ nu ☐ parțial | |
-| C20 | Horele oltenești se joacă prinși de mână, în cerc strâns; sârbele și brâulețele sunt mărunte și bătute, cu figuri de virtuozitate pentru bărbați (sărituri, pinteni, lovituri din călcâi). | `repertoriu`, `zona-dolj` | ☐ da ☐ nu ☐ parțial | |
-| C21 | Cântecul oltenesc e mai ornamentat, „cu înflorituri pe care vocea și vioara și le pasează una alteia”; lăutarii din zonă au format o școală în care melodia se variază la fiecare repetare. | `zona-dolj`, `repertoriu` | ☐ da ☐ nu ☐ parțial | |
-| C22 | Țambalul e „acasă” în Oltenia: taraful clasic se sprijină pe el pentru armonie și pentru ritm. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
-| C23 | Călușul e ritual de Rusalii, jucat de o ceată de bărbați condusă de un vătaf, cu bețe, clopoței și pălării cu panglici, înscris de UNESCO în patrimoniul imaterial; muzica de căluș trăiește și separat, ca repertoriu instrumental. | `repertoriu`, `zona-dolj` | ☐ da ☐ nu ☐ parțial | |
+| C19 | Dintre regiunile de câmpie, Oltenia are pasul cel mai rapid: horele pornesc de la tempouri pe care Muntenia le atinge abia la sârbă. | `repertoriu`, `zona-dolj`, `zone`, `zona-valcea`, `zona-olt`, `zona-mehedinti` | ☐ da ☐ nu ☐ parțial | |
+| C20 | Horele oltenești se joacă prinși de mână, în cerc strâns; sârbele și brâulețele sunt mărunte și bătute, cu figuri de virtuozitate pentru bărbați (sărituri, pinteni, lovituri din călcâi). | `repertoriu`, `zona-dolj`, `zona-valcea`, `zona-olt`, `zona-mehedinti` | ☐ da ☐ nu ☐ parțial | |
+| C21 | Cântecul oltenesc e mai ornamentat, „cu înflorituri pe care vocea și vioara și le pasează una alteia”; lăutarii din zonă au format o școală în care melodia se variază la fiecare repetare. | `zona-dolj`, `repertoriu`, `zona-valcea` | ☐ da ☐ nu ☐ parțial | |
+| C22 | Țambalul e „acasă” în Oltenia: taraful clasic se sprijină pe el pentru armonie și pentru ritm. | `repertoriu`, `zona-valcea` | ☐ da ☐ nu ☐ parțial | |
+| C23 | Călușul e ritual de Rusalii, jucat de o ceată de bărbați condusă de un vătaf, cu bețe, clopoței și pălării cu panglici, înscris de UNESCO în patrimoniul imaterial; muzica de căluș trăiește și separat, ca repertoriu instrumental. | `repertoriu`, `zona-dolj`, `zona-valcea` | ☐ da ☐ nu ☐ parțial | |
 
 ### C4. Dobrogea
 
 | # | Afirmație | Pagini | da / nu / parțial | Notă |
 |---|---|---|---|---|
 | C24 | Dobrogea are comunități mixte (români, aromâni, turci, tătari, greci, lipoveni), iar la o nuntă din Constanța repertoriul cerut „trece des dincolo de folclorul românesc”: machedonesc, grecesc, balcanic. | `zona-constanta` | ☐ da ☐ nu ☐ parțial | |
-| C25 | Ritmurile balcanice sunt în măsuri asimetrice de șapte sau nouă timpi, grupate de pildă 2+2+3 sau 2+2+2+3. | `repertoriu`, `zona-constanta`, `zone` | ☐ da ☐ nu ☐ parțial | |
-| C26 | Geamparaua are nume venit din turcă, e adoptată de satele românești și se joacă iute, „pe un ritm șchiopătat”. | `repertoriu`, `zona-calarasi` | ☐ da ☐ nu ☐ parțial | |
-| C27 | Aromânilor „localnicii le spun adesea machedoni”; muzica lor aduce jocuri în șir și cântec de grup pe mai multe voci. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
-| C28 | Repertoriul grecesc „a venit odată cu comunitățile din porturi”. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C25 | Ritmurile balcanice sunt în măsuri asimetrice de șapte sau nouă timpi, grupate de pildă 2+2+3 sau 2+2+2+3. | `repertoriu`, `zona-constanta`, `zone`, `zona-tulcea` | ☐ da ☐ nu ☐ parțial | |
+| C26 | Geamparaua are nume venit din turcă, e adoptată de satele românești și se joacă iute, „pe un ritm șchiopătat”. | `repertoriu`, `zona-calarasi`, `zona-tulcea` | ☐ da ☐ nu ☐ parțial | |
+| C27 | Aromânilor „localnicii le spun adesea machedoni”; muzica lor aduce jocuri în șir și cântec de grup pe mai multe voci. | `repertoriu`, `zona-tulcea` | ☐ da ☐ nu ☐ parțial | |
+| C28 | Repertoriul grecesc „a venit odată cu comunitățile din porturi”. | `repertoriu`, `zona-tulcea` | ☐ da ☐ nu ☐ parțial | |
 | C29 | În Dobrogea ringul se umple pe horă și sârbă, „la care se prinde oricine”, spre deosebire de Ardeal, unde se joacă în pereche. | `zona-constanta` | ☐ da ☐ nu ☐ parțial | |
 
 ### C5. Moldova
@@ -490,8 +505,8 @@ respectivă. Titlurile de piese nu apar în text: au marcaje separate, în A6.
 | # | Afirmație | Pagini | da / nu / parțial | Notă |
 |---|---|---|---|---|
 | C30 | Muzica moldovenească se cere la evenimente din Buzău, Ialomița, Brașov și din jurul Bucureștiului. | `repertoriu`, `zona-buzau`, `zona-ilfov`, `zona-brasov` | ☐ da ☐ nu ☐ parțial | Textul de pe `repertoriu`, corectat: „În Buzău o aduce vecinătatea cu Vrancea, iar în Ialomița drumul: DN2 trece prin Buzău spre Moldova. La Brașov și în jurul Bucureștiului o aduc familiile care s-au mutat acolo din Moldova.” Rutele (vecinătatea Buzău–Vrancea, DN2 prin Buzău) sunt geografie verificabilă și nu se confirmă; se confirmă doar dacă repertoriul moldovenesc chiar e cerut în aceste zone. |
-| C31 | Hora moldovenească se joacă în cerc, prinși de mână, pe tempo potrivit și cu melodie „mai cântată și mai legată”; bătuta are pași apăsați în podea și strigături care țin ritmul. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
-| C32 | Melodica moldovenească are frazare largă și ornamentație mai reținută decât cea oltenească, apropiată de doină. În centru și în sud cântă taraful (vioară, cobză sau țambal, acordeon), iar în nord fanfarele de alămuri. | `repertoriu` | ☐ da ☐ nu ☐ parțial | |
+| C31 | Hora moldovenească se joacă în cerc, prinși de mână, pe tempo potrivit și cu melodie „mai cântată și mai legată”; bătuta are pași apăsați în podea și strigături care țin ritmul. | `repertoriu`, `zona-galati`, `zona-bacau` | ☐ da ☐ nu ☐ parțial | |
+| C32 | Melodica moldovenească are frazare largă și ornamentație mai reținută decât cea oltenească, apropiată de doină. În centru și în sud cântă taraful (vioară, cobză sau țambal, acordeon), iar în nord fanfarele de alămuri. | `repertoriu`, `zona-bacau` | ☐ da ☐ nu ☐ parțial | |
 
 ### C6. Transversale: program și registre
 
@@ -502,6 +517,22 @@ respectivă. Titlurile de piese nu apar în text: au marcaje separate, în A6.
 | C35 | Registrul balcanic e muzică „de sorginte sârbească, grecească și aromână”, pe măsuri adesea inegale. | `folclor-si-manele`, `repertoriu` | ☐ da ☐ nu ☐ parțial | |
 | C36 | Cumetria e, în unele regiuni, masa de după botez, cu nașii în rolul principal. | `eveniment-privat` | ☐ da ☐ nu ☐ parțial | |
 | C37 | La unele botezuri, nașii rup turta deasupra capului copilului. | `botez` | ☐ da ☐ nu ☐ parțial | |
+
+### C7. Runda de șapte zone noi (19.09.2026)
+
+Afirmații care **nu** se regăsesc în C1–C37. Coloana „Derivă din” spune de unde
+vine fiecare în `repertoriu.html` — sau, când nu vine de acolo, că e deducția
+noastră. Două dintre ele sunt întrebări, nu afirmații: paginile nu susțin nimic,
+ci poartă marcaj `.ph`.
+
+| # | Zonă | Afirmație | Pagini | Derivă din | da / nu / parțial |
+|---|---|---|---|---|---|
+| C38 | Dobrogea | Fondul de joc al Dobrogei rămâne cel de câmpie — hora și sârba —, iar straturile celorlalte comunități se așază peste el, nu în locul lui. | `repertoriu`, `zona-tulcea` | `repertoriu.html`, blocul „Dobrogea”, fraza a doua. Pe `zona-tulcea` e premisa întregii secțiuni de repertoriu. | ☐ da ☐ nu ☐ parțial |
+| C39 | Oltenia | Melodia de joc oltenească e densă, cu multe note de trecere — nu se ține din câteva sunete lungi; vioara și vocea duc linia împreună. | `repertoriu`, `zona-olt` | `repertoriu.html`, blocul „Oltenia”, fraza despre melodia de joc. Distinctă de C21, care privește **cântecul** ornamentat și școala de lăutari, nu **jocul**. | ☐ da ☐ nu ☐ parțial |
+| C40 | Moldova | Într-un program din sud blocul moldovenesc rămâne compact, câteva hore și o bătută; în Moldova însă nu e un moment dedicat, ci materialul obișnuit al serii. | `repertoriu`, `zona-galati`, `zona-bacau` | `repertoriu.html`, blocul „Moldova”, ultima frază. Prima jumătate e din sursă; **inversarea** pentru paginile moldovenești e deducția noastră și de asta e aici. | ☐ da ☐ nu ☐ parțial |
+| C41 | Oltenia | **Întrebare deschisă, nu afirmație.** Cât de mult se schimbă registrul urcând pe valea Oltului, spre Călimănești și Brezoi? | `zona-valcea` | Marcată pe pagină cu `.ph`: „[afirmație de folclor — de validat de Ioana]”. Pagina **nu** afirmă nimic; întreabă. Dacă răspunsul e „nu se schimbă”, marcajul se scoate fără alt text. | ☐ da ☐ nu ☐ parțial |
+| C42 | Oltenia | **Întrebare deschisă, nu afirmație.** Diferă registrul între malul drept și malul stâng al Oltului, în interiorul județului Olt? | `zona-olt` | Marcată pe pagină cu `.ph`. Judeţul e tăiat de râu, iar malul stâng ţine istoric de altă zonă etnografică — dar `repertoriu.html` nu conţine afirmaţia, deci pagina nu o face. | ☐ da ☐ nu ☐ parțial |
+| C43 | Oltenia | Blocul de jocuri cu figuri bărbătești nu se pune la începutul petrecerii, când sala e încă la mese, nici la final; stă la mijloc, după hora mare. | `zona-mehedinti` | Construcție de program derivată din C20 (figurile nu se joacă de toată lumea) și din B73 (hora mare adună sala). Ordinea propriu-zisă e propunerea noastră, nu e în `repertoriu.html`. | ☐ da ☐ nu ☐ parțial |
 
 ---
 
