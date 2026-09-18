@@ -3,10 +3,10 @@
      unul singur. Trăiește în /zone-mockup/ cât timp e material de validare:
      toate căile către assets și către paginile existente urcă un nivel (../).
 
-     Rol dublu: punct de intrare către cele 12 zone și ținta linkurilor
+     Rol dublu: punct de intrare către cele 20 de zone și ținta linkurilor
      „Toate zonele deservite" din paginile de județ, care până acum duceau la
-     href="#". Toate cele 12 carduri au link real: Brașov (A), Constanța (B) și cele
-     zece pagini pe layout C.
+     href="#". Toate cele 20 de carduri au link real: Brașov (A), Constanța (B) și
+     cele optsprezece pagini pe layout C.
 
      Blocul de stiluri, header, drawer, footer, scripturile, widgetul WhatsApp
      și legenda de placeholder sunt IDENTICE cu zona-brasov.html.
@@ -18,8 +18,8 @@
 <!-- noindex cât timp pagina conține marcaje [de confirmat]. Se scoate odată cu
      ultimul .ph, împreună cu mutarea fișierului din /zone-mockup/ în rădăcină. -->
 <meta name="robots" content="noindex, follow">
-<title>Zone Deservite — 12 Județe | Muzică Live pentru Evenimente | Ioana Balan</title>
-<meta content="Douăsprezece județe din Muntenia, Ardeal, Dobrogea și Oltenia, cu plecare din București. Repertoriul se construiește pe zona în care are loc evenimentul." name="description">
+<title>Zone Deservite — 20 de Județe | Muzică Live pentru Evenimente | Ioana Balan</title>
+<meta content="Douăzeci de județe din Muntenia, Oltenia, Moldova, Dobrogea și Ardeal, cu plecare din București. Repertoriul se construiește pe zona în care are loc evenimentul." name="description">
 <!-- Canonical necompletat intenționat: slug-ul final se decide la migrare.
      Constrângere fermă — slug-ul NU poate conține sintagma rezervată altui
      domeniu al clientului (cea cu „formație” + „nuntă” + oraș); nu o scriem
@@ -191,7 +191,7 @@
   }
 </style>
 <!-- Service + provider MusicGroup, cu areaServed ca listă de AdministrativeArea
-     pentru toate cele 19 județe — hub-ul e singurul loc din site unde
+     pentru toate cele 20 de județe — hub-ul e singurul loc din site unde
      acoperirea se declară integral. Fără `aggregateRating`: scos deliberat din
      tot proiectul (politica Google privind recenziile auto-servite). Fără
      `offers`/`price`: pagina nu afișează niciun interval, iar prețurile din
@@ -200,9 +200,9 @@
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Muzică de petrecere și folclor live pentru evenimente, în 19 județe",
+  "name": "Muzică de petrecere și folclor live pentru evenimente, în 20 de județe",
   "serviceType": "Muzică live pentru nuntă, botez și eveniment corporate",
-  "description": "Muzică de petrecere și folclor live pentru nunți, botezuri și evenimente corporate, cu deplasare din București în nouăsprezece județe din Muntenia, Moldova, Oltenia, Dobrogea și Ardeal.",
+  "description": "Muzică de petrecere și folclor live pentru nunți, botezuri și evenimente corporate, cu deplasare din București în douăzeci de județe din Muntenia, Oltenia, Moldova, Dobrogea și Ardeal.",
   "areaServed": [
     {
       "@type": "AdministrativeArea",
@@ -247,6 +247,10 @@
     {
       "@type": "AdministrativeArea",
       "name": "Județul Bacău"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Județul Vrancea"
     },
     {
       "@type": "AdministrativeArea",
@@ -414,8 +418,8 @@
 <p class="font-label-md text-label-md uppercase tracking-[0.2em] mb-4">
 <span class="zona-badge inline-block px-3 py-1.5 text-secondary">Acoperire</span>
 </p>
-<h1 class="font-display-lg text-2xl sm:text-3xl md:text-display-lg leading-tight mb-5" id="hero-titlu">Unde cântăm: 19 județe din cinci zone etnografice</h1>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-8 max-w-2xl">Plecarea e din București, iar raza de deplasare merge de la 20 de kilometri până la aproximativ 230 — tot sudul țării, plus un urcuș peste munte. Pe drumul ăsta intră patru zone etnografice: Muntenia, Ardealul, Dobrogea și Oltenia. Nu sunt interschimbabile, iar programul nu se copiază de la una la alta: repertoriul se construiește pe zona în care are loc evenimentul, pentru că ringul răspunde la jocurile pe care le știe, nu la un set unic de piese.</p>
+<h1 class="font-display-lg text-2xl sm:text-3xl md:text-display-lg leading-tight mb-5" id="hero-titlu">Unde cântăm: 20 de județe din cinci zone etnografice</h1>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-8 max-w-2xl">Plecarea e din București, iar raza de deplasare merge de la 20 de kilometri până la aproximativ 340 — tot sudul țării, Moldova de sub munte, și un singur urcuș peste Carpați, la Brașov. Pe drumul ăsta intră cinci zone etnografice: Muntenia, Oltenia, Moldova, Dobrogea și Ardealul. Nu sunt interschimbabile, iar programul nu se copiază de la una la alta: repertoriul se construiește pe zona în care are loc evenimentul, pentru că ringul răspunde la jocurile pe care le știe, nu la un set unic de piese.</p>
 <div class="flex flex-col sm:flex-row gap-4">
 <a class="inline-block text-center whitespace-nowrap bg-accent text-white px-8 md:px-10 py-4 uppercase font-label-md text-label-md tracking-widest hover:bg-accent-hover transition-colors w-full sm:w-auto" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20%C8%99tiu%20dac%C4%83%20acoperi%C8%9Bi%20zona%20%C3%AEn%20care%20organizez%20evenimentul." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
 <a class="btn-secundar-zona inline-block text-center whitespace-nowrap text-on-surface bg-transparent px-8 md:px-10 py-4 uppercase font-label-md text-label-md tracking-widest hover:bg-white/5 transition-colors w-full sm:w-auto" href="tel:+40722911485">+40 722 911 485</a>
@@ -440,19 +444,24 @@
      intrări pentru 13 locuri distincte. -->
 
 <!-- ======================================================================
-     2. GRILA DE ZONE — 12 carduri
-     Grupate pe zonă etnografică, nu alfabetic: gruparea e chiar argumentul
-     paginii — repertoriul diferă pe regiune, nu pe județ. În interiorul
-     Munteniei ordinea urmează proximitatea, ca cititorul care caută „e
-     aproape?" să găsească răspunsul în primele carduri.
-     Toate cele 12 carduri au link real către pagina de zonă.
-     Distanțele sunt fapte, măsurate pe drum, nu în linie dreaptă.
+     2. GRILA DE ZONE — 20 de carduri
+     Ordonate după distanță, nu grupate pe zonă etnografică. Gruparea pe
+     regiune a fost ordinea de la 12 carduri; la 20 nu mai funcționează,
+     pentru că prima întrebare a cititorului e „e aproape?", iar un cititor
+     din Ploiești nu caută sub „Muntenia”, ci în primele carduri. Regiunea
+     n-a dispărut: stă ca etichetă pe fiecare card și în paragraful de
+     deasupra grilei, cu numărul de județe per zonă.
+     Cheia de sortare e mijlocul intervalului acolo unde distanța e dată ca
+     interval (Ilfov 20–40 → 30), crescător, fără excepții.
+     Toate cele 20 de carduri au link real către pagina de zonă.
+     Distanțele sunt fapte, măsurate pe drum, nu în linie dreaptă; metoda și
+     sursa sunt în SURSE-LIVE.md §7.
      ====================================================================== -->
 <section class="max-w-max-width mx-auto px-6 md:px-margin-desktop py-12 md:py-20" aria-labelledby="zone-titlu">
 <div class="max-w-3xl mb-8 md:mb-12">
 <span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-4">Județe</span>
-<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-4" id="zone-titlu">Cele nouăsprezece județe, grupate pe zonă etnografică</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Nouă județe de Muntenie, unul de Ardeal, unul de Dobrogea și unul de Oltenia. Sub fiecare nume stau distanța rutieră din București și ce anume se cere muzical acolo — două informații care, împreună, spun aproape tot ce contează înainte de o discuție.</p>
+<h2 class="font-headline-lg text-2xl md:text-headline-lg leading-tight mb-4" id="zone-titlu">Cele douăzeci de județe, de la cel mai apropiat la cel mai depărtat</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Zece județe de Muntenie, patru de Oltenia, trei de Moldova, două de Dobrogea și unul de Ardeal. Ordinea de mai jos e a distanței, nu a regiunii: sub fiecare nume stau kilometrii rutieri din București și ce anume se cere muzical acolo — două informații care, împreună, spun aproape tot ce contează înainte de o discuție.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-gutter items-stretch">
 
@@ -462,14 +471,6 @@
 <p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~20–40 km din București</p>
 <p class="font-body-md text-body-md text-on-surface-variant">Aceleași jocuri ca în Capitală — horă, sârbă și brâu în măsuri de doi timpi. La distanța asta nu se pune problema cazării, iar transportul nu se adaugă deloc: Ilfovul are aceleași prețuri ca Bucureștiul.</p>
 <p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-ilfov.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
-</article>
-
-<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
-<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Muntenia</span>
-<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Giurgiu</h3>
-<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~60–90 km din București</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Muntenie de câmpie, la Dunăre: repertoriu muntenesc curat, fără capitol regional separat. Fără cazare.</p>
-<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-giurgiu.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
 </article>
 
 <article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
@@ -490,6 +491,14 @@
 
 <article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
 <span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Muntenia</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Giurgiu</h3>
+<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~60–90 km din București</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Muntenie de câmpie, la Dunăre: repertoriu muntenesc curat, fără capitol regional separat. Fără cazare.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-giurgiu.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Muntenia</span>
 <h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Teleorman</h3>
 <p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~90–110 km din București</p>
 <p class="font-body-md text-body-md text-on-surface-variant">Câmpie dunăreană. Jocul rapid e în doi timpi, cu tempo iute și pas apăsat. Fără cazare.</p>
@@ -506,18 +515,18 @@
 
 <article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
 <span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Muntenia</span>
-<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Ialomița</h3>
-<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~100–130 km din București</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Bărăgan. Fond muntenesc, cu localități spre est care ating pragul de la care cazarea intră în discuție.</p>
-<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-ialomita.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
-</article>
-
-<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
-<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Muntenia</span>
 <h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Buzău</h3>
 <p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~110 km din București</p>
 <p class="font-body-md text-body-md text-on-surface-variant">Trecere dinspre Muntenia spre Moldova: repertoriul cerut le amestecă des pe amândouă. Pentru localitățile de munte, cazarea se discută.</p>
 <p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-buzau.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Muntenia</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Ialomița</h3>
+<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~100–130 km din București</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Bărăgan. Fond muntenesc, cu localități spre est care ating pragul de la care cazarea intră în discuție.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-ialomita.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
 </article>
 
 <article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
@@ -534,6 +543,46 @@
 <p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~170 km din București</p>
 <p class="font-body-md text-body-md text-on-surface-variant">Învârtită, joc de doi și bărbunc, cu melodica pe vioară dublată de contră. Cazare obligatorie la eveniment de seară.</p>
 <p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-brasov.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Oltenia</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Olt</h3>
+<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~165–180 km din București</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Cursul inferior al Oltului, de la Slatina până la Dunăre. Melodie de joc densă, cu multe note de trecere. Kilometrii se schimbă mult între capete.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-olt.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Oltenia</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Vâlcea</h3>
+<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~180 km din București</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Oltenie de sub munte, pe valea Oltului. Taraf cu țambal și repertoriu de căluș, separat de ritual. Cazarea, după localitate și oră.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-valcea.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Moldova</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Vrancea</h3>
+<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~190 km din București</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Județul-prag, cu Milcovul la sud. Locul prin care repertoriul moldovenesc ajunge în Muntenia. Trei trepte: câmpie, podgorie, munte.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-vrancea.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Muntenia</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Brăila</h3>
+<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~200 km din București</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Oraș-port cu Bărăganul în spate. Brâul, cu figurile comandate din capătul șirului. Distanțe interne mici, un singur centru.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-braila.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+</article>
+
+<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
+<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Moldova</span>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Galați</h3>
+<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~220 km din București</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Moldova de la Dunăre, cu Prutul la est. Bătuta și strigăturile care țin ritmul. Două centre, Galați și Tecuci, cu distanță reală între ele.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-galati.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
 </article>
 
 <article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
@@ -555,76 +604,27 @@
 <article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
 <span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Dobrogea</span>
 <h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Tulcea</h3>
-<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant"><span class="ph">[DISTANȚĂ — de confirmat]</span></p>
+<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~280 km din București</p>
 <p class="font-body-md text-body-md text-on-surface-variant">Dobrogea de nord, cu Delta în spate. Geamparale și măsuri asimetrice peste fondul de câmpie. Pentru locațiile fără acces rutier, drumul are și o etapă pe apă.</p>
 <p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-tulcea.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
 </article>
 
 <article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
-<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Oltenia</span>
-<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Vâlcea</h3>
-<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant"><span class="ph">[DISTANȚĂ — de confirmat]</span></p>
-<p class="font-body-md text-body-md text-on-surface-variant">Oltenie de sub munte, pe valea Oltului. Taraf cu țambal și repertoriu de căluș, separat de ritual. Cazarea, după localitate și oră.</p>
-<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-valcea.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
-</article>
-
-<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
 <span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Moldova</span>
-<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Galați</h3>
-<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant"><span class="ph">[DISTANȚĂ — de confirmat]</span></p>
-<p class="font-body-md text-body-md text-on-surface-variant">Moldova de la Dunăre, cu Prutul la est. Bătuta și strigăturile care țin ritmul. Între Galați și Tecuci, aproape optzeci de kilometri.</p>
-<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-galati.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Bacău</h3>
+<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~295 km din București</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Moldova de sub munte, la confluența Siretului cu Trotușul. Horă moldovenească, iar în nord fanfare de alămuri. Cu cazare.</p>
+<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-bacau.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
 </article>
 
 <article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
 <span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Oltenia</span>
 <h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Mehedinți</h3>
-<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant"><span class="ph">[DISTANȚĂ — de confirmat]</span></p>
+<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant">~340 km din București</p>
 <p class="font-body-md text-body-md text-on-surface-variant">Capătul de sud-vest, unde Dunărea intră în defileu. Sârbe și brâulețe cu figuri de virtuozitate. Cazare, la orice program.</p>
 <p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-mehedinti.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
 </article>
 
-<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
-<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Oltenia</span>
-<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Olt</h3>
-<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant"><span class="ph">[DISTANȚĂ — de confirmat]</span></p>
-<p class="font-body-md text-body-md text-on-surface-variant">Cursul inferior al Oltului, de la Slatina până la Dunăre. Melodie de joc densă, cu multe note de trecere. Kilometrii se schimbă mult între capete.</p>
-<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-olt.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
-</article>
-
-<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
-<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Muntenia</span>
-<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Brăila</h3>
-<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant"><span class="ph">[DISTANȚĂ — de confirmat]</span></p>
-<p class="font-body-md text-body-md text-on-surface-variant">Oraș-port cu Bărăganul în spate. Brâul, cu figurile comandate din capătul șirului. Distanțe interne mici, un singur centru.</p>
-<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-braila.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
-</article>
-
-<article class="glass-card silver-border p-6 md:p-8 flex flex-col gap-3">
-<span class="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant">Moldova</span>
-<h3 class="font-headline-md text-xl md:text-headline-md leading-snug">Bacău</h3>
-<p class="font-body-md text-[13px] uppercase tracking-widest text-on-surface-variant"><span class="ph">[DISTANȚĂ — de confirmat]</span></p>
-<p class="font-body-md text-body-md text-on-surface-variant">Moldova de sub munte, la confluența Siretului cu Trotușul. Horă moldovenească, iar în nord fanfare de alămuri. Cu cazare.</p>
-<p class="mt-auto pt-2"><a class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-white transition-colors inline-flex items-center gap-2 min-h-[44px]" href="zona-bacau.html">Vezi pagina zonei <svg aria-hidden="true" class="text-[18px]" width="1em" height="1em" viewBox="0 -960 960 960" fill="currentColor" style="vertical-align:-.125em"><path d="M693.69-457.31H180v-45.38h513.69L448.39-748 480-780l300 300-300 300-31.61-32 245.3-245.31Z"/></svg></a></p>
-</article>
-
-<!-- ======================================================================
-     AM MAI CÂNTAT ȘI ÎN… — locații confirmate din județe FĂRĂ pagină.
-     Deliberat listă de text, nu carduri: un card sugerează o pagină care
-     nu există, iar aici nu există. Fără link.
-     Regula de creștere: când un județ din blocul ăsta ajunge la 2 locații
-     confirmate, devine candidat de pagină proprie și iese de aici.
-     ====================================================================== -->
-<div class="mt-12 md:mt-16 max-w-3xl">
-<div class="motif-rule max-w-[180px] w-full mb-8"><span class="motif-rule__gem zona-gem"></span></div>
-<h3 class="font-headline-md text-xl md:text-headline-md leading-snug mb-4">Am mai cântat și în…</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4">Județe în care avem evenimente, dar încă nu și o pagină proprie. Deplasarea se calculează la fel ca pentru cele de mai sus.</p>
-<ul class="motif-list grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
-<li class="font-body-lg text-base md:text-body-lg">Ballroom President <span class="font-body-md text-body-md text-on-surface-variant">· Adjud, județul Vrancea</span></li>
-</ul>
-</div>
-
-</div>
 <!-- Tipuri de eveniment: link contextual către paginile de serviciu. -->
 <p class="font-body-md text-body-md text-on-surface-variant mt-10 md:mt-12 max-w-3xl">Județul spune ce jocuri se cer, dar forma serii o dă ocazia. Cum arată ea la o <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="nunta.html">nuntă</a>, la un <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="botez.html">botez</a>, la o <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="eveniment-privat.html">petrecere de familie</a> sau la un <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="corporate.html">eveniment de firmă</a> e explicat pe pagini separate. Ce se cântă în fiecare regiune e pe pagina de <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="repertoriu.html">repertoriu</a>, iar cine urcă pe scenă, pe cea despre <a class="text-primary underline underline-offset-4 hover:text-white transition-colors" href="formatia.html">componența formației</a>.</p>
 </section>
@@ -636,7 +636,7 @@
      Secțiunea cea mai expusă la reciclare: fiecare pagină de zonă are deja o
      secțiune de logistică. Aici rolul e ALTUL — nu descrie un județ, ci
      explică mecanismul care produce cifra, o singură dată, pentru toate cele
-     douăsprezece. Formulare proprie, verificată frază cu frază față de A, B
+     douăzeci. Formulare proprie, verificată frază cu frază față de A, B
      și C.
      Grila de prețuri rămâne pe oferte.html: o singură sursă.
      ====================================================================== -->
@@ -659,7 +659,7 @@
 <section class="py-16 md:py-24 bg-surface-container-low border-t border-outline-variant/10 text-center">
 <div class="max-w-2xl mx-auto px-6 md:px-margin-desktop">
 <h2 class="font-display-lg text-2xl sm:text-3xl md:text-display-lg mb-5 leading-tight">Nu vedeți județul în listă?</h2>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-10">Cele nouăsprezece de mai sus sunt cele cerute cel mai des, nu o graniță. Spuneți-ne localitatea și data: dacă distanța permite, calculul se face la fel ca pentru oricare dintre ele.</p>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-10">Cele douăzeci de mai sus sunt cele cerute cel mai des, nu o graniță. Spuneți-ne localitatea și data: dacă distanța permite, calculul se face la fel ca pentru oricare dintre ele.</p>
 <div class="flex flex-col sm:flex-row justify-center gap-4">
 <a class="inline-block whitespace-nowrap bg-accent text-white px-8 md:px-10 py-4 md:py-5 uppercase font-label-md text-label-md tracking-widest hover:bg-accent-hover transition-colors w-full sm:w-auto" href="https://wa.me/40722911485?text=Bun%C4%83%20ziua%21%20Organizez%20un%20eveniment%20%C8%99i%20a%C8%99%20dori%20s%C4%83%20%C8%99tiu%20dac%C4%83%20ajunge%C8%9Bi%20%C3%AEn%20localitatea%20mea." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
 <a class="btn-secundar-zona inline-block whitespace-nowrap text-center text-on-surface bg-transparent px-8 md:px-10 py-4 md:py-5 uppercase font-label-md text-label-md tracking-widest hover:bg-white/5 transition-colors w-full sm:w-auto" href="../contact.html">Formular de contact</a>

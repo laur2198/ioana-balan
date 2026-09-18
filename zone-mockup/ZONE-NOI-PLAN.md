@@ -41,12 +41,17 @@ Toate patru rămân **`noindex` la migrare** până primesc cel puțin o locați
 confirmată. Regula e consemnată în `DECIZII-CLIENT.md`, rândul D14, și repetată
 ca marcaj în capul fiecăreia dintre cele patru pagini.
 
-### Vrancea — fără pagină, ca și până acum
+### Vrancea — are pagină, a opta din rundă
 
-Ballroom President, Adjud. A intrat pe hub, în blocul „Am mai cântat și în…”,
-ca listă de text, fără link și fără card. Un card ar sugera o pagină care nu
-există. Când județul ajunge la 2 locații confirmate, devine candidat de pagină
-proprie și iese din bloc.
+`zona-vrancea.html` a fost construită în runda de distanțe, cu o singură locație
+confirmată (Ballroom President, Adjud), scrisă ca frază în „Localități
+deservite”, ca la Galați. Regula „2 locații înainte de pagină” din §3 nu s-a
+aplicat.
+
+Consecința pe hub: blocul „Am mai cântat și în…” a rămas fără conținut și a fost
+**eliminat**. Markup-ul lui e păstrat ca pattern documentat în
+`NAV-FOOTER-MIGRARE.md`, pentru următorul județ cu o locație și fără pagină.
+Hub-ul are **20 de carduri**, nu 19. Fișa completă: §3.
 
 
 ---
@@ -174,6 +179,7 @@ Toate trec: **0 încălcări de bag-of-words, 0 apariții de `formatie nunta`.**
 | **Vâlcea** | Cântec de Sub Carpați și Muzică de Petrecere în Râmnicu Vâlcea și Vâlcea \| Nunți, Botezuri \| Ioana Balan | Cântec de sub Carpați și joc oltenesc, la nunți și botezuri în Vâlcea |
 | **Galați** | Folclor Moldovenesc și Muzică de Petrecere în Galați \| Nunți, Botezuri \| Ioana Balan | Folclor de Dunăre moldovenească, la nunți și botezuri în Galați |
 | **Tulcea** | Folclor Dobrogean și Muzică de Petrecere în Tulcea și Delta Dunării \| Nunți, Botezuri \| Ioana Balan | Folclor dobrogean și ritmuri de Deltă, la nunți și botezuri în Tulcea |
+| **Vrancea** *(adăugat ulterior)* | Cântec de Milcov și Muzică de Petrecere în Focșani și Vrancea \| Nunți, Botezuri \| Ioana Balan | Muzică moldovenească la hotarul de sud, pentru nunți și botezuri în Focșani și Vrancea |
 
 **Vâlcea a fost rescrisă.** Prima variantă începea cu „Formație Folclor” și
 încălca regula: formație + nuntă + toponim în același title. Scriptul a prins-o.
@@ -312,10 +318,29 @@ primesc lista de localități. Rezultatul de acum e un minim, nu un verdict fina
 | Title/H1 | §2.4 |
 | **Notă** | cea mai puternică pagină a setului: două locații plus un argument geografic pe care nicio altă pagină nu-l are |
 
-### Vrancea — fără pagină
+### Vrancea — fișă adăugată ulterior, a opta pagină
 
-Ballroom President, Adjud. **Nu primește pagină în acest set.** Merge pe hub, în
-blocul „Am mai cântat și în…”, în runda B2.
+Decizia de mai jos („fără pagină”) a fost răsturnată. Fișa reflectă
+`zona-vrancea.html` așa cum a fost scrisă, nu planul inițial.
+
+| Câmp | Conținut |
+|---|---|
+| Zona etnografică | **Moldova** |
+| Distanța de la București | `~190 km`, literal, fără `.ph`. Sursa și metoda: `SURSE-LIVE.md` §7 |
+| Localități principale | Focșani, Adjud, Mărășești, Panciu, Odobești |
+| Locații confirmate | **1** — Ballroom President (Adjud) |
+| Layout și formă | C + **frază** în „Localități deservite” (o singură locație), nu secțiune — ca la Galați |
+| Cazare | deschis, marcaj `.ph` — `[CAZARE VRANCEA — de confirmat]` |
+| Transport | 6 lei/km, dus-întors |
+| Vecini de non-duplicare | **`zona-bacau`** și **`zona-galati`** (Moldova, același bloc de repertoriu) plus **`zona-buzau`** și **`zona-braila`** (județe lipite). Grupul cel mai dens din tot repo-ul |
+| Sursa de repertoriu | `repertoriu.html`, H3 „Moldova: hore moldovenești și bătute” — exclusiv |
+| Title | Cântec de Milcov și Muzică de Petrecere în Focșani și Vrancea \| Nunți, Botezuri \| Ioana Balan |
+| H1 | Muzică moldovenească la hotarul de sud, pentru nunți și botezuri în Focșani și Vrancea |
+| Afirmații de folclor | una singură iese din blocul Moldova al `repertoriu.html` — registrul „de Milcov”. E marcată `.ph` cu `[afirmație de folclor — de validat de Ioana]` și are rând propriu în lista C |
+| **Notă** | poarta de non-duplicare pe grupul Moldova a picat la prima scriere (Bacău↔Vrancea 88%, Galați↔Vrancea 89%). Rescrisă structural, nu prin sinonime; grupul a coborât la max 73% |
+
+**Planul inițial, păstrat ca istoric:** Ballroom President, Adjud. Nu primește
+pagină în acest set. Merge pe hub, în blocul „Am mai cântat și în…”, în runda B2.
 
 ### Rezumatul setului
 
@@ -544,6 +569,11 @@ o pagină care nu există.
 
 Regula de creștere: când un județ din blocul ăsta ajunge la 2 locații
 confirmate, devine candidat de pagină proprie și iese din bloc.
+
+**STARE: blocul nu mai există pe hub.** Vrancea a primit pagină proprie cu o
+singură locație, deci blocul a rămas gol și a fost scos din `zone.html`.
+Markup-ul e păstrat ca pattern documentat în `NAV-FOOTER-MIGRARE.md` și se
+reintroduce identic când apare un județ cu locație confirmată și fără pagină.
 
 ---
 

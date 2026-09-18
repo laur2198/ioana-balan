@@ -56,6 +56,10 @@ PROPUNERI = [
     ("Galați",
      "Folclor Moldovenesc și Muzică de Petrecere în Galați | Nunți, Botezuri | Ioana Balan",
      "Folclor de Dunăre moldovenească, la nunți și botezuri în Galați"),
+    ("Vrancea",
+     # Runda a treia, 19.09.2026. Moldova, a treia pagină din regiune.
+     "Cântec de Milcov și Muzică de Petrecere în Focșani și Vrancea | Nunți, Botezuri | Ioana Balan",
+     "Muzică moldovenească la hotarul de sud, pentru nunți și botezuri în Focșani și Vrancea"),
     ("Tulcea",
      "Folclor Dobrogean și Muzică de Petrecere în Tulcea și Delta Dunării | Nunți, Botezuri | Ioana Balan",
      "Folclor dobrogean și ritmuri de Deltă, la nunți și botezuri în Tulcea"),

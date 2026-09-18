@@ -61,6 +61,10 @@ NEIGHBOURS = {
     "zona-olt.html": {"dolj", "teleorman", "valcea"},
     "zona-braila.html": {"buzau", "galati", "ialomita", "tulcea"},
     "zona-bacau.html": {"buzau", "galati"},
+    # Vrancea, 18.09.2026. Bacău și Galați sunt vecinii de Moldova, cu același
+    # bloc de repertoriu; Buzău e trecerea peste Milcov spre Muntenia, singura
+    # legătură a paginii cu setul vechi.
+    "zona-vrancea.html": {"bacau", "buzau", "galati"},
 }
 
 # Cuvinte funcționale păstrate în schelet (pliate, fără diacritice).

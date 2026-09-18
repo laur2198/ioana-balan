@@ -137,7 +137,8 @@ accesibil, inclusiv la tastatură.
 Banda 2 are contactul în stânga (e-mail, telefon), ANPC · SAL în dreapta și, dedesubt, un
 rând de documente: „Termeni și condiții · Politica de cookie-uri · **Zone deservite**”. Pe
 toate cele 20 de pagini, „Zone deservite” are `href="#"`, pentru că hub-ul nu exista când
-a fost scris footer-ul.
+a fost scris footer-ul. (Excepția `index.html` a mutat linkul în coloana „Servicii” —
+vezi mai jos. Footer-ul canonic îl păstrează aici până la migrare.)
 
 **Două familii de footer, nu una.** Cele 11 pagini din rădăcină au footer-ul canonic
 fără „Zone deservite” (rândul de documente se oprește la „Politica de cookie-uri”), cu
@@ -158,15 +159,31 @@ un template unic, excepția se șterge, iar dacă `index.html` revine la footer-
 |---|---|---|
 | Coloană **„Servicii”** | Nuntă · Botez · Eveniment privat · Corporate | `/nunta/`, `/botez/`, `/eveniment-privat/`, `/corporate/` |
 | Coloană **„Repertoriu”** | Repertoriu · Componența formației · Folclor și petrecere | `/repertoriu/`, `/formatia/`, `/folclor-si-manele/` |
-| **„Zone deservite”** | hub-ul. **Înlocuiește `href="#"`** din rândul de documente | `/zone/` |
+| **„Zone deservite”** | hub-ul. **Ultimul link din coloana „Servicii”**, după „Corporate”. În footer-ul canonic rămâne deocamdată în rândul de documente, cu `href="#"` de înlocuit | `/zone/` |
 | **„Blog”** | arhiva de articole, adăugată **la finalul rândului de documente**, după „Zone deservite” | `/blog/` |
 
-**De ce „Blog” stă în rândul de documente, nu într-o coloană.** Rândul acela e deja locul
-linkurilor secundare care nu au intrare în nav: „Zone deservite” stă acolo din același
-motiv. O coloană „Blog” ar avea un singur link sub un titlu, iar în coloanele „Servicii”
-sau „Repertoriu” ar amesteca o arhivă de articole cu pagini de ofertă. Rândul devine:
-„Termeni și condiții · Politica de cookie-uri · Zone deservite · Blog”. Ordinea pune
-întâi documentele juridice, care erau deja acolo, apoi linkurile de navigație.
+**De ce „Blog” stă în rândul de documente, nu într-o coloană.** O coloană „Blog” ar avea
+un singur link sub un titlu, iar în coloanele „Servicii” sau „Repertoriu” ar amesteca o
+arhivă de articole cu pagini de ofertă. Rândul devine: „Termeni și condiții · Politica de
+cookie-uri · Blog”.
+
+**De ce „Zone deservite” NU mai stă acolo (revizuit 19.09.2026).** Stătea în rândul de
+documente din inerție: era un link secundar fără intrare în nav, iar rândul acela era
+singurul loc rămas. Argumentul nu se ține — hub-ul e o pagină de navigație către
+servicii, pe o singură lățime cu „Nuntă”, „Botez” sau „Corporate”, nu un document
+juridic lângă Termeni și Politica de cookie-uri. În demo-ul de pe `index.html` a fost
+mutat **ultimul în coloana „Servicii”**, după tipurile de eveniment: întâi *ce* cântăm,
+apoi *unde*. Clasele sunt identice cu ale celorlalte patru linkuri din coloană
+(`min-h-[44px] lg:min-h-9 basis-1/2 sm:basis-auto`), deci la <640 px intră în aceeași
+grilă de două pe rând și rămâne pe rândul al treilea, singur — ca „Folclor și petrecere”
+în coloana vecină.
+
+**În footer-ul canonic linkul rămâne în rândul de documente până la migrare.** Cele 10
+pagini din rădăcină rămase pe footer-ul canonic și cele 20 din `zone-mockup/` nu au
+coloană „Servicii” deloc; dacă s-ar scoate linkul de acolo fără să existe unde să-l pui,
+hub-ul ar pierde legăturile din footer de pe 30 de pagini. Mutarea se propagă abia când
+footer-ul devine template unic, în Elementor — atunci dispare și `FOOTER_DEMO` din
+`verify/integritate.py`.
 
 **Nu intră în footer:** cele 12 pagini de zonă, individual. Hub-ul le acoperă, iar 12
 linkuri sitewide către pagini din aceeași categorie ar fi footer stuffing.
@@ -202,15 +219,18 @@ Banda 1:  Logo + descriere (40%)   │  SERVICII            │  REPERTORIU
           Telefon                     Botez                  Componența formației
                                       Eveniment privat       Folclor și petrecere
                                       Corporate *
+                                      Zone deservite
                                       * de confirmat (D8)
 
 Banda 2:  Social (4 iconițe)                                  ANPC · SAL
 
-Banda 3:  Termeni · Cookie-uri · Zone deservite · Blog
+Banda 3:  Termeni · Cookie-uri · Blog
           © 2026 · Proiect dezvoltat de · Site realizat de
 ```
 
-Banda 2 și banda 3 sunt neschimbate față de v3. Rândul juridic e centrat, nu cu grupuri
+Banda 2 e neschimbată față de v3. Banda 3 a pierdut „Zone deservite” pe 19.09.2026, mutat
+în coloana „Servicii” — motivul e mai sus, la „Ce se adaugă”. Nota D8 rămâne ultima din
+coloană, sub linkuri, nu lipită de „Corporate *”. Rândul juridic e centrat, nu cu grupuri
 la capete.
 
 #### Pragurile alese
@@ -586,3 +606,64 @@ poziționare absolută, deci trece în containere flexbox fără CSS custom
 `verify/integritate.py` nu validează conținutul modulului — numele de săli nu
 sunt verificabile programatic. Verdictele per locație stau în `SURSE-LIVE.md`,
 §6.
+
+---
+
+## 6. Blocul „Am mai cântat și în…” — pattern retras, păstrat pentru reintroducere
+
+### Ce era
+
+Un bloc de pe `zone.html`, sub grila de carduri: lista locațiilor confirmate din
+județe care **nu** au pagină proprie. Listă de text, fără link și fără card —
+deliberat. Un card sugerează o pagină în spate; acolo nu exista niciuna.
+
+### De ce a fost scos
+
+Avea un singur rând, Ballroom President (Adjud, Vrancea). Pe 18.09.2026 Vrancea
+a primit pagină proprie, deci locația a trecut în fraza din „Localități
+deservite” de pe `zona-vrancea.html`, iar blocul a rămas gol. Un H3 peste o
+listă vidă nu se publică, deci a ieșit din `zone.html` în aceeași rundă.
+
+**Nu e o decizie de design răsturnată, e lipsă de conținut.** Regula care l-a
+produs rămâne validă: o locație confirmată într-un județ fără pagină nu se pierde
+și nu se promovează la card.
+
+### Când se reintroduce
+
+Când apare **cel puțin un** județ cu locație confirmată și fără pagină proprie.
+Se reintroduce markup-ul de mai jos, identic, imediat sub grila de carduri, cu
+`<li>`-uri câte unul pe locație. Când un județ din bloc ajunge la **2** locații
+confirmate, devine candidat de pagină proprie și iese din bloc — regula de
+creștere, neschimbată.
+
+### Markup-ul, ca referință
+
+Scos din `zone.html` pe 18.09.2026. Depinde doar de `.motif-rule`, `.zona-gem` și
+`.motif-list` din `assets/styles.css`, toate încă în repo. Containerele sunt
+flexbox și grid simplu, deci se exprimă direct în Elementor.
+
+```html
+<!-- ======================================================================
+     AM MAI CÂNTAT ȘI ÎN… — locații confirmate din județe FĂRĂ pagină.
+     Deliberat listă de text, nu carduri: un card sugerează o pagină care
+     nu există, iar aici nu există. Fără link.
+     Regula de creștere: când un județ din blocul ăsta ajunge la 2 locații
+     confirmate, devine candidat de pagină proprie și iese de aici.
+     ====================================================================== -->
+<div class="mt-12 md:mt-16 max-w-3xl">
+<div class="motif-rule max-w-[180px] w-full mb-8"><span class="motif-rule__gem zona-gem"></span></div>
+<h3 class="font-headline-md text-xl md:text-headline-md leading-snug mb-4">Am mai cântat și în…</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Județe în care avem evenimente, dar încă nu și o pagină proprie. Deplasarea se calculează la fel ca pentru cele de mai sus.</p>
+<ul class="motif-list grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+<li class="font-body-lg text-base md:text-body-lg">Ballroom President <span class="font-body-md text-body-md text-on-surface-variant">· Adjud, județul Vrancea</span></li>
+</ul>
+</div>
+```
+
+### În Elementor
+
+Un container cu trei copii: separatorul cu motiv, titlul (Heading H3) și lista.
+Lista devine un repeater ACF cu două câmpuri per rând — `locatie` și
+`localitate_judet` — randat ca `<li>`, cu partea a doua într-un `<span>` la
+`text-on-surface-variant`. Același mecanism ca modulul de locații din §5, doar
+că aici rândurile nu se grupează pe subtitluri și nu duc nicăieri.

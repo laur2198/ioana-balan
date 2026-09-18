@@ -367,3 +367,41 @@ sensul celorlalte douăzeci. Locația găzduiește evenimente private („Events
 Nuba"), deci afirmația stă în picioare, dar registrul ei diferă de restul listei
 și de tonul paginii, care e despre nunți și botezuri. De revăzut cu clienta dacă
 e evenimentul pe care vrea să-l reprezinte pe `zona-constanta.html`.
+
+
+---
+
+## 7. Distanțele rutiere din București (18.09.2026)
+
+Până acum, fiecare pagină de zonă nouă purta un marcaj `.ph` în locul distanței,
+pentru că nu aveam sursă. Marcajele s-au închis pe 19.09.2026, cu cifrele de mai
+jos.
+
+**Metoda:** distanță **rutieră**, București → reședința de județ, prin Rome2Rio,
+consultat pe 18.09.2026. Nu distanță în linie dreaptă și nu timp de parcurs:
+cifra intră în calculul de transport, iar acolo contează kilometrii efectivi.
+Valorile se rotunjesc și poartă „~”, pentru că ruta concretă depinde de adresa
+sălii.
+
+| Zonă | Reședință | Text pe pagină |
+|---|---|---|
+| Olt | Slatina | ~165–180 km din București |
+| Vâlcea | Râmnicu Vâlcea | ~180 km din București |
+| Vrancea | Focșani | ~190 km din București |
+| Brăila | Brăila | ~200 km din București |
+| Galați | Galați | ~220 km din București |
+| Tulcea | Tulcea | ~280 km din București |
+| Bacău | Bacău | ~295 km din București |
+| Mehedinți | Drobeta-Turnu Severin | ~340 km din București |
+
+**Excepția, de consemnat:** pentru **Brăila**, sursa nu dă o rută directă către
+municipiu, ci una aproximată prin **Gropeni**, localitate din același județ, pe
+malul Dunării la sud de oraș. Cei ~200 km sunt deci o aproximare, nu o
+măsurătoare până la adresa reședinței. Diferența e mică la scara paginii, dar
+cifra nu se citează ca exactă.
+
+**Olt** e singura cu interval, nu cu valoare unică: rutele prin Pitești și prin
+Alexandria diferă suficient cât să nu se poată da un singur număr onest.
+
+Cifrele sunt identice pe pagina de zonă și pe cardul din `zone.html` — verificat
+programatic la fiecare rundă.

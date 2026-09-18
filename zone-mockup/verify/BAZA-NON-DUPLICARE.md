@@ -136,6 +136,57 @@ Pragul se verifică automat, în ieșirea lui `non_duplicare.py`:
 
 ---
 
+## 2ter. Grupul Moldova — bază nouă, 18.09.2026
+
+Adăugat odată cu `zona-vrancea`. Trei pagini care pleacă din același bloc de
+repertoriu, „Moldova: hore moldovenești și bătute” din `repertoriu.html`:
+
+`zona-bacau` · `zona-galati` · `zona-vrancea` — 3 perechi.
+
+| Măsură | Valoare |
+|---|---|
+| **Metoda A** — toate cele 3 perechi | **69,0%** |
+| **Metoda B** — peste prefiltru (toate 3 sunt) | **69,0%** |
+| **Maximul grupului** | **73%** (`bacau ↔ galati` și `galati ↔ vrancea`, la egalitate) |
+| Perechi ≥ 75% | 0 |
+| Perechi ≥ 85% | 0 |
+
+Ca la Oltenia, cele două metode coincid: nicio pereche nu cade sub prefiltru.
+
+### Vecinii din afara grupului
+
+Vrancea se lipește de două județe care nu sunt de Moldova, deci perechile lor se
+urmăresc separat — sunt exact locurile unde o pagină ar putea împrumuta din
+setul vechi:
+
+| Pereche | Maxim |
+|---|---|
+| `vrancea ↔ buzau` | **53%** |
+| `vrancea ↔ braila` | **63%** |
+
+Grupul lărgit (Moldova + Brăila + Buzău, 10 perechi): A = B = **63,5%**, max
+**73%**, tot din interiorul Moldovei. Adăugarea celor doi vecini nu ridică
+maximul, ceea ce confirmă că riscul e regional, nu geografic.
+
+### Cum s-a ajuns aici
+
+Prima variantă a paginii Vrancea a dat **`bacau ↔ vrancea` 88%** și
+**`galati ↔ vrancea` 89%**, ambele peste pragul inacceptabil, plus
+**`valcea ↔ vrancea` 100%** la trecerea mascată. Poarta prevăzută în brief —
+„rulează non-duplicarea pe Moldova înainte de hub” — a oprit runda exact acolo
+unde trebuia.
+
+Cauza e aceeași ca la Oltenia în 19.09: opt fraze preluate ca structură de pe
+paginile surori, nu ca text identic. Rescrise structural (altă construcție de
+propoziție, nu alte cuvinte), grupul a coborât la max 73%.
+
+**Lecția care se repetă, a doua oară la rând:** un set nou de pagini nu pică
+pentru că repetă cuvinte, ci pentru că repetă **forma frazei**. Sinonimele mută
+5–15 puncte; o construcție diferită mută 30–40. Verificarea se face pe grup
+înainte de orice altceva, nu la sfârșit.
+
+---
+
 ## 3. Istoric, și capcana pe care o arată
 
 | Dată | Metoda A | Metoda B | Max | Ce se întâmplase |
@@ -161,6 +212,12 @@ de pornire.
 51,3% / 59,2%, max 71% — deși site-ul a trecut de la 12 la 19 pagini de zonă.
 Era și testul principal al rundei: dacă adăugarea a șapte pagini ar fi mișcat
 grupul de câmpie, ar fi însemnat că noile pagini împrumută din cele vechi.
+
+**18.09.2026, runda Vrancea.** Aceeași verificare, la a 20-a pagină: câmpia
+rămâne pe **51,3% / 59,2%, max 71%**, iar Oltenia pe **65,3% / 65,3%, max 71%**
+— ambele identice cu cifrele de mai sus, la virgulă. O pagină nouă de Moldova nu
+are de ce să miște grupurile din sud, și nu le-a mișcat. Dacă le-ar fi mișcat,
+ar fi însemnat că `zona-vrancea` s-a scris copiind din ele.
 
 ---
 
