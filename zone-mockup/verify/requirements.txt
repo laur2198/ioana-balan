@@ -1,0 +1,10 @@
+# Dependențele suitei de verificare din /zone-mockup/verify/.
+# Instalare:  pip install -r zone-mockup/verify/requirements.txt
+#
+# Singura dependență terță e beautifulsoup4, folosită de _common.py (parsarea
+# paginilor, extragerea comentariilor) și direct de linkuri_noi.py. Restul
+# importurilor din suită sunt din biblioteca standard.
+# soupsieve vine ca dependență a lui beautifulsoup4 și e necesar pentru
+# selectorii CSS din `doc.select(...)` — de aceea e trecut explicit.
+beautifulsoup4>=4.12
+soupsieve>=2.4

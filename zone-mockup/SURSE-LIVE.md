@@ -285,7 +285,7 @@ Legendă: **✓** localitatea din tabelul de brief se confirmă pe sursă public
 
 | # | Locație | Localitate (brief) | Verdict | Sursă |
 |---|---|---|---|---|
-| L1 | Cernica Events | Cernica | **≠** adresa publicată e Str. Ștrandului 52, **Pantelimon**, pe malul lacului Cernica | cernicaevents.ro; bestmarkets.ro |
+| L1 | Cernica Events | ~~Cernica~~ → **Pantelimon** | **corectat 19.09.2026.** Adresa publicată e Str. Ștrandului 52, Pantelimon; numele vine de la lac, nu de la comună. Acum la aceeași localitate cu L2, pe aceeași stradă. | cernicaevents.ro; bestmarkets.ro |
 | L2 | Toya Concept Events | Pantelimon | ✓ Str. Ștrandului 101, Pantelimon | toyaconcept.ro |
 | L3 | Domeniile Săftica | Săftica | ✓ Calea București 51, Săftica | domeniilesaftica.ro |
 | L4 | Noor Events | Popești-Leordeni | ✓ Splaiul Unirii 9D, Popești-Leordeni | noor-events.ro |
@@ -311,7 +311,7 @@ Legendă: **✓** localitatea din tabelul de brief se confirmă pe sursă public
 |---|---|---|---|---|
 | L15 | Cireșul Sălbatic | Butimanu | ✓ Pădurea Lucianca, DN1A, Butimanu, Dâmbovița — agregatoarele îl indexează sub „Buftea", care e doar reperul de drum | ciresulsalbatic.ro |
 | L16 | Heritage Ballroom | Fieni | ✓ DC3, Fieni, Dâmbovița | heritageballroom.ro |
-| L17 | Hanul Vlăsia | Gulia (Tărtășești) | ✓ Gulia, com. Tărtășești, pe DN7 — marcat `.ph` pe pagină, vezi 6.3 | restaurantguru.com; ghidul.ro |
+| L17 | Hanul Vlăsiei | ~~Gulia (Tărtășești)~~ → **Snagov** | **MUTAT pe `zona-ilfov.html` pe 19.09.2026.** Vezi 6.2. Rândul rămâne numerotat aici pentru trasabilitate; pe Dâmbovița nu mai există. | ro.wikipedia.org; tripadvisor.com |
 
 #### Câte una pe pagină
 
@@ -327,14 +327,34 @@ Legendă: **✓** localitatea din tabelul de brief se confirmă pe sursă public
 | Locație | Clienta a spus | Corect | De ce a greșit |
 |---|---|---|---|
 | Domeniul cu Cireși | Giurgiu | **Ilfov** (com. 1 Decembrie) | strada se numește Giurgiului, iar comuna e lipită de granița cu județul Giurgiu |
-| Hanul Vlăsia | Ilfov | **Dâmbovița** (Gulia, Tărtășești) | există un **Hanul Vlăsiei în Snagov, Ilfov** — altă firmă, alt loc |
+| ~~Hanul Vlăsia~~ | ~~Ilfov~~ | ~~**Dâmbovița**~~ | **CORECTURĂ RETRASĂ, 19.09.2026** — vezi mai jos |
+
+**Rămâne o singură corectură de județ, nu două.**
+
+Pe 18.09.2026 am mutat Hanul Vlăsia din Ilfov în Dâmbovița, pe motiv că sala de pe
+DN7 e în com. Tărtășești. Raționamentul era invers față de dovezi: existența unui
+**Hanul Vlăsiei în Snagov, Ilfov** nu e o capcană în care căzuse clienta, ci
+explicația cea mai simplă pentru ce scrisese ea. Un om care lucrează în inelul
+Bucureștiului și notează „Ilfov” lângă „Hanul Vlăsia” se referă cel mai probabil la
+sala din Snagov, nu la omonimul de pe șoseaua spre Târgoviște.
+
+Ce s-a făcut pe 19.09.2026:
+
+- rândul a plecat de pe `zona-dambovita.html` (rămâne cu 2 locații, tot cu secțiune);
+- a intrat pe `zona-ilfov.html`, subgrupul „Ilfov”, ca **Hanul Vlăsiei — Snagov**;
+- marcajul `.ph` s-a schimbat din `[de confirmat: locația de pe DN7]` în
+  `[de confirmat: Hanul Vlăsiei din Snagov sau Hanul Vlăsia de pe DN7]`, pentru că
+  întrebarea reală e care dintre cele două, nu unde e cea de pe DN7.
+
+**Gruparea clientei era, probabil, corectă.** Confirmarea rămâne necesară — de aceea
+marcajul nu se scoate.
 
 ### 6.3 Ce rămâne de confirmat cu clienta
 
 | # | Item | De ce |
 |---|---|---|
-| S1 | **Cernica Events — Cernica sau Pantelimon?** | Toate sursele publice dau Pantelimon, Str. Ștrandului 52. Numele firmei și lacul sunt „Cernica", dar comuna Cernica e altă unitate administrativă. Pagina afișează **Cernica**, conform tabelului din brief. Dacă adresa publicată e cea corectă, rândul se schimbă în Pantelimon — și atunci L1 și L2 sunt două săli pe aceeași stradă, la 50 de numere distanță. |
-| S2 | **Hanul Vlăsia — care dintre ele?** | Marcat `.ph` pe `zona-dambovita.html`: `[de confirmat: locația de pe DN7]`. Brieful indică drept risc un local omonim din Mamaia; riscul real, găsit la verificare, e **Hanul Vlăsiei din Snagov** — e și explicația pentru „Ilfov" din lista clientei. |
+| S1 | ~~Cernica Events — Cernica sau Pantelimon?~~ **ÎNCHIS 19.09.2026** | Pagina afișează acum **Pantelimon**, adresa publicată (Str. Ștrandului 52). L1 și L2 sunt într-adevăr două săli pe aceeași stradă, la ~50 de numere distanță, amândouă pe malul lacului Cernica. |
+| S2 | **Hanul Vlăsiei sau Hanul Vlăsia?** (rescris 19.09.2026) | Marcat `.ph` acum pe `zona-ilfov.html`: `[de confirmat: Hanul Vlăsiei din Snagov sau Hanul Vlăsia de pe DN7]`. Presupunerea de lucru e cea din **Snagov**, adică exact gruparea clientei. Brieful indica drept risc un omonim din Mamaia; acela nu s-a confirmat ca sursă a confuziei. |
 | S3 | **TreeHouse sau Tree House?** | Pagina scrie **TreeHouse Cosoba**, forma de pe site-ul propriu al locației, nu forma din brief. Un nume de firmă scris greșit pe o pagină publică e o eroare vizibilă pentru locație. |
 | S4 | **Bacsoridana — Tecuci sau Valea Mărului?** | Ambele sunt în județul Galați. Nu e pe nicio pagină actuală. |
 | S5 | **Brașov nu are nicio locație în lista clientei** | `zona-brasov.html` e layout A, construit pe trei carduri de locație plus card video plus recenzie — adică pagina care cere cel mai mult material și singura care n-a primit niciun nume. |

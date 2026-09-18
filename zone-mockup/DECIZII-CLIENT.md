@@ -158,8 +158,15 @@ se înlocuiește. Răspunsul se poate da o dată, pentru tot grupul.
 > card care cere imagine.
 >
 > Verdictele per locație, cu sursele publice, sunt în `SURSE-LIVE.md` §6.
-> Două corecturi de județ față de lista clientei: **Domeniul cu Cireși →
-> Ilfov** (clienta: Giurgiu) și **Hanul Vlăsia → Dâmbovița** (clienta: Ilfov).
+> **O singură corectură de județ** față de lista clientei: **Domeniul cu
+> Cireși → Ilfov** (clienta: Giurgiu).
+>
+> **19.09.2026:** a doua corectură, `Hanul Vlăsia → Dâmbovița`, **s-a
+> retras** — sala e cel mai probabil Hanul Vlăsiei din Snagov, adică exact
+> unde o pusese clienta. A fost mutată pe `zona-ilfov`, care are acum 15
+> locații; `zona-dambovita` rămâne cu 2, tot cu secțiune. Tot atunci,
+> `Cernica Events` a trecut de la Cernica la Pantelimon. Total neschimbat:
+> 21 de locații pe 6 pagini. Vezi `SURSE-LIVE.md` §6.2.
 
 
 **Excepție de la deduplicare.** Aici textul marcajului e același pe cele două pagini, dar

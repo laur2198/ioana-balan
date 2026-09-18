@@ -530,8 +530,8 @@ nimic aici»", `zona-giurgiu.html`).
 
 ### Unde e implementat azi
 
-- **Secțiune:** `zona-ilfov.html` (14 locații, două subgrupuri) și
-  `zona-dambovita.html` (3). Markup **identic** între ele; diferă doar
+- **Secțiune:** `zona-ilfov.html` (15 locații, două subgrupuri) și
+  `zona-dambovita.html` (2). Markup **identic** între ele; diferă doar
   eticheta de subgrup, titlul, intro-ul, nota și rândurile din listă.
 - **Frază:** `zona-giurgiu.html`, `zona-arges.html`, `zona-calarasi.html`,
   `zona-constanta.html` — câte o locație fiecare.
@@ -569,12 +569,17 @@ poziționare absolută, deci trece în containere flexbox fără CSS custom
    „Ilfov" și „București" sunt `<p>` cu stil de label. Un `<h3>București</h3>`
    ar băga termenul principal al site-ului în outline-ul unei pagini de județ.
    Modulul adaugă paginii **un singur H2**.
-2. **Localitatea e cea administrativă.** `Domeniul cu Cireși` e la 1 Decembrie,
-   Ilfov, deși strada se numește Giurgiului și comuna e lipită de județul
-   Giurgiu. Numele străzii și cel al firmei nu decid județul.
-3. **Nimic nu se completează din memorie.** Dacă lipsește localitatea, rândul
-   primește `.ph`, nu o presupunere. Vezi `Hanul Vlăsia` pe
-   `zona-dambovita.html`.
+2. **Localitatea e cea administrativă, nu cea din nume.** `Domeniul cu Cireși`
+   e la 1 Decembrie, Ilfov, deși strada se numește Giurgiului și comuna e lipită
+   de județul Giurgiu. `Cernica Events` e în Pantelimon, nu în comuna Cernica —
+   numele vine de la lac. Nici strada, nici firma, nici lacul nu decid județul.
+3. **Nimic nu se completează din memorie.** Dacă nu se știe *care* locație e,
+   rândul primește `.ph`, nu o presupunere. Vezi `Hanul Vlăsiei` pe
+   `zona-ilfov.html`, unde marcajul numește ambii candidați.
+4. **O corectură adusă listei clientei trebuie să explice și eroarea ei.** Dacă
+   nu poți spune plauzibil de ce a scris ea altceva, cel mai probabil greșești
+   tu. Corectura de județ pe Hanul Vlăsia s-a retras exact din acest motiv —
+   vezi `SURSE-LIVE.md` §6.2.
 
 ### Verificare
 
