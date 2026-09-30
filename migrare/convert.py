@@ -151,16 +151,19 @@ def is_text_p(t):
 
 TEXTISH = ('h1', 'h2', 'h3', 'h4')
 
+LAYOUT_OK = re.compile(r'^(?:md:|sm:|lg:)?(?:max-w-\S+|mx-auto|m[tb]-\S+|text-center|w-full)$')
+
 def is_text_wrapper(t):
+    """Div de continut fara layout propriu: copiii se convertesc individual
+    (text nativ, restul HTML). Cel putin un copil trebuie sa fie text."""
     if t.name != 'div':
+        return False
+    if not all(LAYOUT_OK.match(x) for x in cls(t)):
         return False
     kids = [k for k in t.children if isinstance(k, Tag)]
     if not kids:
         return False
-    for k in kids:
-        if not (is_eyebrow(k) or k.name in TEXTISH or is_text_p(k)):
-            return False
-    return True
+    return any(is_eyebrow(k) or k.name in TEXTISH or is_text_p(k) for k in kids)
 
 def margins(t):
     c = cls(t)

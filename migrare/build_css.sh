@@ -36,6 +36,10 @@ pre=('/* zone.css - generat de migrare/build_css.sh din zone-mockup. Nu se edite
  ':where(.ib-tw) a{color:inherit;text-decoration:inherit}\n'
  ':where(.ib-tw) img,:where(.ib-tw) svg{display:block;max-width:100%}:where(.ib-tw) img{height:auto}\n'
  ':where(.ib-tw) summary{list-style:none}:where(.ib-tw) summary::-webkit-details-marker{display:none}\n'
+ '/* p: temele/kit-ul pun margin-bottom pe p cu specificitate mai mare decat un element */\n'
+ '.ib-tw p{margin:0}\n'
+ '/* din assets/styles.css al prototipului: bordura CTA-ului primar */\n'
+ '.ib-tw .bg-accent{border:1px solid var(--accent-edge)}\n'
  '.ib-tw{font-family:Inter,sans-serif;font-size:16px;color:#e5e2e1;line-height:1.5}\n')
 open(out,'w').write(pre+st+'\n'+open(util).read()+'\n')
 print(out, len(open(out).read()))
