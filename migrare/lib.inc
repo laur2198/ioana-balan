@@ -172,9 +172,12 @@ function ib_mig_page( $name ) {
 	}
 	update_post_meta( $id, '_ib_jsonld', wp_slash( wp_json_encode( $m['jsonld'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) ) );
 
-	// lectiile din 9 sept.: CSS regenerat per document, cache-ul de element golit
+	// CSS-ul NU se regenereaza de aici: in contextul execute-php kit-ul nu rezolva __globals__
+	// si custom_css (Pro) lipseste din fisier. Se sterge, iar Elementor il reface la prima
+	// randare pe frontend (verificat 30.09 pe 3894). Cache-ul de element se goleste explicit.
 	delete_post_meta( $id, '_elementor_element_cache' );
-	\Elementor\Core\Files\CSS\Post::create( $id )->update();
+	delete_post_meta( $id, '_elementor_css' );
+	@unlink( wp_upload_dir()['basedir'] . '/elementor/css/post-' . $id . '.css' );
 
 	return array( 'id' => $id, 'new' => $new, 'status' => get_post_status( $id ), 'slug' => get_post_field( 'post_name', $id ), 'parent' => $parent );
 }
