@@ -285,6 +285,10 @@ def w_faq(P, item):
          f'<h3>{inner_html(q)}</h3>{CHEVRON}</summary><div class="faq-item__answer">{body}</div></details></div>')
     return {'id': P.id(), 'elType': 'widget', 'widgetType': 'html', 'settings': {'html': h, 'custom_css': FAQ_CSS}, 'elements': []}
 
+def cmargins(t):
+    """Containerele Elementor citesc 'margin', nu '_margin' (verificat pe CSS-ul generat, 30.09)."""
+    return {k.lstrip('_'): v for k, v in margins(t).items()}
+
 def container(P, elements, **s):
     base = {'container_type': 'flex', 'content_width': 'full', 'flex_direction': 'column',
             'padding': dim(0, 0, 0, 0), 'flex_gap': {'unit': 'px', 'size': 0, 'column': '0', 'row': '0', 'isLinked': True}}
@@ -307,8 +311,7 @@ def wrapper_container(P, t, kids, align):
     gb, gd = spacing(c, 'gap')
     if gd:
         s['flex_gap'] = {'unit': 'px', 'size': gd, 'column': str(gd), 'row': str(gd), 'isLinked': True}
-    mg = margins(t)
-    s.update(mg)
+    s.update(cmargins(t))
     if css:
         s['custom_css'] = css
     return container(P, kids, **s)
@@ -328,7 +331,7 @@ def convert_children(P, parent, align):
         elif k.name == 'div' and any(x.startswith('space-y') for x in c) and k.find(class_='faq-item'):
             items = [w_faq(P, it) for it in k.find_all('div', class_='faq-item', recursive=False)]
             s = {'width': size(768), 'width_mobile': size(100, '%'), 'custom_css': 'selector{max-width:100%}'}
-            s.update(margins(k))
+            s.update(cmargins(k))
             out.append(container(P, items, **s))
         elif is_text_wrapper(k):
             sub_align = 'center' if 'text-center' in c else align
