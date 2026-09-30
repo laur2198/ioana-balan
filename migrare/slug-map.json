@@ -1,0 +1,184 @@
+{
+ "new": {
+  "zone.html": {
+   "slug": "zone",
+   "parent": null,
+   "path": "/zone/",
+   "noindex": false
+  },
+  "zona-arges.html": {
+   "slug": "arges",
+   "parent": "zone",
+   "path": "/zone/arges/",
+   "noindex": false
+  },
+  "zona-bacau.html": {
+   "slug": "bacau",
+   "parent": "zone",
+   "path": "/zone/bacau/",
+   "noindex": true
+  },
+  "zona-braila.html": {
+   "slug": "braila",
+   "parent": "zone",
+   "path": "/zone/braila/",
+   "noindex": true
+  },
+  "zona-brasov.html": {
+   "slug": "brasov",
+   "parent": "zone",
+   "path": "/zone/brasov/",
+   "noindex": false
+  },
+  "zona-buzau.html": {
+   "slug": "buzau",
+   "parent": "zone",
+   "path": "/zone/buzau/",
+   "noindex": false
+  },
+  "zona-calarasi.html": {
+   "slug": "calarasi",
+   "parent": "zone",
+   "path": "/zone/calarasi/",
+   "noindex": false
+  },
+  "zona-constanta.html": {
+   "slug": "constanta",
+   "parent": "zone",
+   "path": "/zone/constanta/",
+   "noindex": false
+  },
+  "zona-dambovita.html": {
+   "slug": "dambovita",
+   "parent": "zone",
+   "path": "/zone/dambovita/",
+   "noindex": false
+  },
+  "zona-dolj.html": {
+   "slug": "dolj",
+   "parent": "zone",
+   "path": "/zone/dolj/",
+   "noindex": false
+  },
+  "zona-galati.html": {
+   "slug": "galati",
+   "parent": "zone",
+   "path": "/zone/galati/",
+   "noindex": false
+  },
+  "zona-giurgiu.html": {
+   "slug": "giurgiu",
+   "parent": "zone",
+   "path": "/zone/giurgiu/",
+   "noindex": false
+  },
+  "zona-ialomita.html": {
+   "slug": "ialomita",
+   "parent": "zone",
+   "path": "/zone/ialomita/",
+   "noindex": false
+  },
+  "zona-ilfov.html": {
+   "slug": "ilfov",
+   "parent": "zone",
+   "path": "/zone/ilfov/",
+   "noindex": false
+  },
+  "zona-mehedinti.html": {
+   "slug": "mehedinti",
+   "parent": "zone",
+   "path": "/zone/mehedinti/",
+   "noindex": true
+  },
+  "zona-olt.html": {
+   "slug": "olt",
+   "parent": "zone",
+   "path": "/zone/olt/",
+   "noindex": true
+  },
+  "zona-prahova.html": {
+   "slug": "prahova",
+   "parent": "zone",
+   "path": "/zone/prahova/",
+   "noindex": false
+  },
+  "zona-teleorman.html": {
+   "slug": "teleorman",
+   "parent": "zone",
+   "path": "/zone/teleorman/",
+   "noindex": false
+  },
+  "zona-tulcea.html": {
+   "slug": "tulcea",
+   "parent": "zone",
+   "path": "/zone/tulcea/",
+   "noindex": false
+  },
+  "zona-valcea.html": {
+   "slug": "valcea",
+   "parent": "zone",
+   "path": "/zone/valcea/",
+   "noindex": false
+  },
+  "zona-vrancea.html": {
+   "slug": "vrancea",
+   "parent": "zone",
+   "path": "/zone/vrancea/",
+   "noindex": false
+  },
+  "nunta.html": {
+   "slug": "nunta",
+   "parent": null,
+   "path": "/nunta/",
+   "noindex": false
+  },
+  "botez.html": {
+   "slug": "botez",
+   "parent": null,
+   "path": "/botez/",
+   "noindex": false
+  },
+  "eveniment-privat.html": {
+   "slug": "eveniment-privat",
+   "parent": null,
+   "path": "/eveniment-privat/",
+   "noindex": false
+  },
+  "corporate.html": {
+   "slug": "corporate",
+   "parent": null,
+   "path": "/corporate/",
+   "noindex": false
+  },
+  "repertoriu.html": {
+   "slug": "repertoriu",
+   "parent": null,
+   "path": "/repertoriu/",
+   "noindex": false
+  },
+  "formatia.html": {
+   "slug": "formatia",
+   "parent": null,
+   "path": "/formatia/",
+   "noindex": false
+  },
+  "folclor-si-manele.html": {
+   "slug": "folclor-si-manele",
+   "parent": null,
+   "path": "/folclor-si-manele/",
+   "noindex": false
+  }
+ },
+ "live": {
+  "index.html": "/",
+  "oferte.html": "/oferte/",
+  "despre.html": "/despre/",
+  "galerie.html": "/galerie/",
+  "discografie.html": "/video-clipuri/",
+  "faq.html": "/faq/",
+  "contact.html": "/contact/",
+  "blog.html": "/blog/",
+  "termeni-si-conditii.html": "/termeni-si-conditii/",
+  "politica-cookie.html": "/politica-cookie/"
+ }
+}

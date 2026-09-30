@@ -316,7 +316,7 @@ Stitch de 512px. Lista se actualizează când clienta trimite material nou.
 | `ioana-balan-portret-lumina-violet` | 1440×1800 | portret în lumină violet, cămașă cu imprimeu | galerie |
 | `ioana-balan-hora-mireasa` | 1440×954 | horă de nuntă, mireasa din spate, saxofonist în centru | galerie |
 | `formatia-in-alb-costum-popular` | 1440×1196 | formație de cinci în cămăși albe — vioară, sax, acordeon | — retrasă |
-| `formatie-instrumentala-tambal` | 1304×978 | șase instrumentiști pe scenă, țambal în centru | oferte, `zone-mockup/formatia` |
+| `formatie-instrumentala-tambal` | 1304×978 | șase instrumentiști pe scenă, țambal în centru | — **scoasă la cererea clientului (30.09.2026)**, vezi mai jos |
 | `hora-nunta-invitati` | 1024×683 | cântând în horă, între miri și invitați | despre (hero), galerie, `zone-mockup/nunta` |
 | `ioana-balan-rochie-alba-imprimeu` | 694×705 | așezată pe fotoliu de răchită, rochie lungă cu imprimeu | galerie |
 | `formatie-sacouri-albe` | 480×640 | formație în sacouri albe, exterior cu palmieri | galerie |
@@ -324,6 +324,7 @@ Stitch de 512px. Lista se actualizează când clienta trimite material nou.
 | `formatie-ring-dans` | 480×478 | formație pe ring de marmură | — nefolosită |
 | `formatie-lumini-scena` | 480×320 | formație în negru sub lumini verzi și violet | galerie |
 | `invitati-aplauze` | 480×320 | trei invitați aplaudând în sală | — retrasă |
+| `ioana-balan-portret-dantela-rosie` | 1200×1600 | selfie, bluză roșie din dantelă cu volane, semnul V | index (hero); **live: hero homepage, Media Library 4059 (30.09.2026)** |
 
 **Ce lipsește din fototecă:** o fotografie **peisaj de minimum 1440px
 lățime**, cu subiectul în treimea orizontală centrală. Fără ea, banda de
@@ -341,8 +342,9 @@ care e portret 1440×1800, încadrat cu `object-[center_6%]` ca să păstreze ca
 | Fișier | Data | Motiv | Unde era |
 |---|---|---|---|
 | `ioana-balan-live-show.jpg` | 18.09.2026 | **scoasă la cererea clientului.** Nu e o decizie de design | hero pe `oferte.html` și pe cele 27 de pagini din `zone-mockup/` — 45 de referințe în 31 de fișiere |
+| `formatie-instrumentala-tambal` | 30.09.2026 | **scoasă la cererea clientului.** Nu e o decizie de design | galeria live (3817); în prototip, `oferte.html`. Fișierul rămâne în repo și în Media Library (3791), nefolosit |
 
-Fișierul a fost **șters din `assets/img/`**, împreună cu toate referințele:
+Pentru `ioana-balan-live-show`: fișierul a fost **șters din `assets/img/`**, împreună cu toate referințele:
 HTML, comentarii de markup, `SEO-AUDIT.md` și `geometrie/oferte.md`. Nu avea
 derivate `-800` / `-1440` și nu apărea în CSS, în JSON-LD sau în `og:image`.
 Rămâne recuperabil din istoricul git.
