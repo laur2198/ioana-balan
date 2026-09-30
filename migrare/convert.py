@@ -36,6 +36,15 @@ def spacing(classes, prop):
         bp = ''
         if ':' in c:
             bp, c = c.split(':', 1)
+        named = {'margin-desktop': 64, 'margin-mobile': 16, 'gutter': 24, 'unit': 8}
+        mn = re.fullmatch(prop + r'-([a-z-]+)', c)
+        if mn and mn.group(1) in named:
+            v = named[mn.group(1)]
+            if bp == '':
+                base = v
+            elif bp == 'md':
+                md = v
+            continue
         m = re.fullmatch(prop + r'-(\d+(?:\.\d+)?)', c)
         if not m:
             m2 = re.fullmatch(prop + r'-\[(\d+)px\]', c)
@@ -166,6 +175,16 @@ def margins(t):
         s['_margin'] = dim(0, 0, 0, 0)
     return s
 
+def own_width_css(t):
+    c = cls(t)
+    mw = next((MAXW[x] for x in c if x in MAXW), None)
+    css = ''
+    if mw:
+        css += 'selector{max-width:%dpx}' % mw
+        if 'mx-auto' in c:
+            css += 'selector{margin-left:auto;margin-right:auto}'
+    return css
+
 def color_of(t, default='secondary'):
     for c in cls(t):
         if c in G_COL:
@@ -198,6 +217,8 @@ def w_heading(P, t, align):
     if align:
         s['align'] = align
     s.update(margins(t))
+    if own_width_css(t):
+        s['custom_css'] = own_width_css(t)
     if t.get('id'):
         s['_element_id'] = t['id']
     return {'id': P.id(), 'elType': 'widget', 'widgetType': 'heading', 'settings': s, 'elements': []}
@@ -228,7 +249,7 @@ def w_text(P, t, align):
     fix_markup(t)
     clean_inline(t)
     body = inner_html(t)
-    s = {'editor': f'<p>{body}</p>', 'text_color': HEX[col], 'custom_css': 'selector p{margin:0}',
+    s = {'editor': f'<p>{body}</p>', 'text_color': HEX[col], 'custom_css': 'selector p{margin:0}' + own_width_css(t),
          '__globals__': {'text_color': f'globals/colors?id={col}', 'typography_typography': f'globals/typography?id={typo}'}}
     if align:
         s['align'] = align

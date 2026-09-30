@@ -34,7 +34,7 @@ pre=('/* zone.css - generat de migrare/build_css.sh din zone-mockup. Nu se edite
  '.ib-tw a{color:inherit;text-decoration:inherit}\n'
  '.ib-tw img,.ib-tw svg{display:block;max-width:100%}.ib-tw img{height:auto}\n'
  '.ib-tw summary{list-style:none}.ib-tw summary::-webkit-details-marker{display:none}\n'
- '.ib-tw{font-family:Inter,sans-serif;color:#e5e2e1;line-height:1.5}\n')
+ '.ib-tw{font-family:Inter,sans-serif;font-size:16px;color:#e5e2e1;line-height:1.5}\n')
 open(out,'w').write(pre+st+'\n'+open(util).read()+'\n')
 print(out, len(open(out).read()))
 EOF
