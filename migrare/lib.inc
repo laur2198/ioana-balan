@@ -6,11 +6,14 @@
  * Toate paginile se creeaza/actualizeaza ca DRAFT. Nu publica nimic.
  */
 
-const IB_MIG_RAW    = 'https://raw.githubusercontent.com/laur2198/ioana-balan/migrare-elementor/migrare/out/';
+// raw.githubusercontent tine ~5 min cache pe branch, indiferent de query string:
+// apelantul seteaza $GLOBALS['ib_mig_ref'] = <sha commit>, ca sa citeasca exact versiunea impinsa.
+const IB_MIG_RAW    = 'https://raw.githubusercontent.com/laur2198/ioana-balan/%s/migrare/out/';
 const IB_MIG_BACKUP = '/home/grandmusic/_novamira-backups/migrare-28-pagini/';
 
 function ib_mig_fetch( $name ) {
-	$r = wp_remote_get( IB_MIG_RAW . $name . '?t=' . time(), array( 'timeout' => 30 ) );
+	$ref = $GLOBALS['ib_mig_ref'] ?? 'migrare-elementor';
+	$r   = wp_remote_get( sprintf( IB_MIG_RAW, $ref ) . $name, array( 'timeout' => 30 ) );
 	if ( is_wp_error( $r ) || 200 !== wp_remote_retrieve_response_code( $r ) ) {
 		throw new Exception( 'fetch esuat: ' . $name );
 	}
@@ -177,7 +180,10 @@ function ib_mig_page( $name ) {
 	// randare pe frontend (verificat 30.09 pe 3894). Cache-ul de element se goleste explicit.
 	delete_post_meta( $id, '_elementor_element_cache' );
 	delete_post_meta( $id, '_elementor_css' );
-	@unlink( wp_upload_dir()['basedir'] . '/elementor/css/post-' . $id . '.css' );
+	$f = wp_upload_dir()['basedir'] . '/elementor/css/post-' . $id . '.css';
+	if ( file_exists( $f ) ) {
+		unlink( $f );
+	}
 
 	return array( 'id' => $id, 'new' => $new, 'status' => get_post_status( $id ), 'slug' => get_post_field( 'post_name', $id ), 'parent' => $parent );
 }
