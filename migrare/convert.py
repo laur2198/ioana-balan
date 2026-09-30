@@ -134,6 +134,10 @@ def is_text_p(t):
             return False
     if t.find(['svg', 'img', 'div']):
         return False
+    # badge-uri si alte span-uri stilizate raman in HTML; .ph e CSS global (zone.css)
+    for d in t.find_all(True):
+        if d.name != 'a' and cls(d) and cls(d) != ['ph']:
+            return False
     return True
 
 TEXTISH = ('h1', 'h2', 'h3', 'h4')
@@ -213,8 +217,14 @@ def w_eyebrow(P, t, align):
 
 def w_text(P, t, align):
     c = cls(t)
-    typo = 'quote' if any('body-lg' in x for x in c) else 'text'
-    col = color_of(t, 'secondary')
+    if 'font-display-lg' in c:
+        typo, dcol = 'stat', 'primary'
+    elif 'font-headline-md' in c:
+        typo, dcol = 'lead', 'primary'
+    else:
+        typo = 'quote' if any('body-lg' in x for x in c) else 'text'
+        dcol = 'secondary'
+    col = color_of(t, dcol)
     fix_markup(t)
     clean_inline(t)
     body = inner_html(t)
@@ -273,6 +283,9 @@ def wrapper_container(P, t, kids, align):
     if 'mx-auto' in c:
         s['_flex_align_self'] = 'center'
         css += 'selector{margin-left:auto;margin-right:auto}'
+    gb, gd = spacing(c, 'gap')
+    if gd:
+        s['flex_gap'] = {'unit': 'px', 'size': gd, 'column': str(gd), 'row': str(gd), 'isLinked': True}
     mg = margins(t)
     s.update(mg)
     if css:
