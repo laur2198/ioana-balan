@@ -180,7 +180,7 @@ def own_width_css(t):
     mw = next((MAXW[x] for x in c if x in MAXW), None)
     css = ''
     if mw:
-        css += 'selector{max-width:%dpx}' % mw
+        css += 'selector{max-width:%dpx !important}' % mw
         if 'mx-auto' in c:
             css += 'selector{margin-left:auto;margin-right:auto}'
     return css
@@ -369,7 +369,7 @@ def top_container(P, elements, boxed, c, extra_css='', align=None, **more):
     s = {'container_type': 'flex', 'content_width': 'boxed', 'boxed_width': size(boxed),
          'flex_direction': 'column', 'flex_gap': {'unit': 'px', 'size': 0, 'column': '0', 'row': '0', 'isLinked': True}}
     if align == 'center':
-        s['flex_align_items'] = 'center'
+        # fara flex_align_items:center - widget-urile HTML s-ar strange pe continut (butoanele w-full)
         extra_css += 'selector{text-align:center}'
     s.update(bg)
     s['custom_css'] = bgcss + section_css(c) + extra_css
