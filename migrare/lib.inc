@@ -268,3 +268,108 @@ PHP;
 	}
 	return $out;
 }
+
+/* =====================================================================
+ * E4 — footer si meniu. Se PREGATESC acum, se ACTIVEAZA la publicarea hub-ului.
+ * Varianta A: footer-ul live 3844 + banda de linkuri „Servicii” / „Repertoriu”.
+ * ===================================================================== */
+
+function ib_mig_ftnav_widget() {
+	$u  = function ( $p ) { return esc_url( home_url( $p ) ); };
+	$li = function ( $p, $t ) use ( $u ) { return '<li><a href="' . $u( $p ) . '">' . $t . '</a></li>'; };
+	$html = '<nav class="ib-ftnav" aria-label="Servicii și repertoriu">'
+		. '<div class="ib-ftnav__col"><p class="ib-ftnav__t">Servicii</p><ul>'
+		. $li( '/nunta/', 'Nuntă' ) . $li( '/botez/', 'Botez' ) . $li( '/eveniment-privat/', 'Eveniment privat' )
+		. $li( '/corporate/', 'Corporate' ) . $li( '/zone/', 'Zone deservite' )
+		. '</ul></div>'
+		. '<div class="ib-ftnav__col"><p class="ib-ftnav__t">Repertoriu</p><ul>'
+		. $li( '/repertoriu/', 'Repertoriu' ) . $li( '/formatia/', 'Formația' ) . $li( '/folclor-si-manele/', 'Folclor și petrecere' )
+		. '</ul></div></nav>';
+	$css = 'selector .ib-ftnav{display:flex;flex-wrap:wrap;gap:24px 64px}'
+		. 'selector .ib-ftnav__t{margin:0 0 4px;font-family:Inter,sans-serif;font-size:12px;line-height:20px;letter-spacing:.1em;text-transform:uppercase;color:var(--e-global-color-secondary)}'
+		. 'selector ul{list-style:none;margin:0;padding:0}'
+		. 'selector a{display:flex;align-items:center;min-height:44px;color:var(--e-global-color-secondary)!important;text-decoration:none;font-family:Inter,sans-serif;font-size:16px;line-height:24px;transition:color .2s ease}'
+		. 'selector a:hover{color:var(--e-global-color-primary)!important}'
+		. '@media(min-width:1024px){selector a{min-height:36px}}'
+		. '@media(max-width:639px){selector .ib-ftnav__col{flex-basis:100%}selector ul{display:grid;grid-template-columns:1fr 1fr}}';
+	return array( 'id' => 'ftnav', 'elType' => 'widget', 'widgetType' => 'html', 'settings' => array( 'html' => $html, 'custom_css' => $css ), 'elements' => array() );
+}
+
+/** Copie draft a footer-ului 3844 cu banda ftnav dupa ftband1. Fara conditii de afisare. */
+function ib_mig_footer_draft() {
+	$src = json_decode( get_post_meta( 3844, '_elementor_data', true ), true );
+	foreach ( $src as &$wrap ) {
+		if ( 'ftwrap' !== $wrap['id'] ) {
+			continue;
+		}
+		$out = array();
+		foreach ( $wrap['elements'] as $el ) {
+			if ( 'ftnav' === $el['id'] ) {
+				continue;
+			}
+			$out[] = $el;
+			if ( 'ftband1' === $el['id'] ) {
+				$out[] = ib_mig_ftnav_widget();
+			}
+		}
+		$wrap['elements'] = $out;
+	}
+	unset( $wrap );
+
+	$q  = get_posts( array( 'post_type' => 'elementor_library', 'post_status' => 'any', 'meta_key' => '_ib_src', 'meta_value' => 'footer-zone', 'fields' => 'ids', 'numberposts' => 1 ) );
+	$id = $q ? (int) $q[0] : 0;
+	if ( ! $id ) {
+		$id = wp_insert_post( array( 'post_type' => 'elementor_library', 'post_status' => 'draft', 'post_title' => 'Footer principal + Servicii/Repertoriu (DRAFT, se activeaza cu hub-ul)' ), true );
+		if ( is_wp_error( $id ) ) {
+			throw new Exception( $id->get_error_message() );
+		}
+		update_post_meta( $id, '_ib_src', 'footer-zone' );
+		update_post_meta( $id, '_elementor_template_type', 'footer' );
+		update_post_meta( $id, '_elementor_edit_mode', 'builder' );
+		wp_set_object_terms( $id, 'footer', 'elementor_library_type' );
+	}
+	\Elementor\Plugin::$instance->documents->get( $id, false )->save( array( 'elements' => $src ) );
+	delete_post_meta( $id, '_elementor_css' );
+	delete_post_meta( $id, '_elementor_element_cache' );
+	return $id;
+}
+
+/**
+ * Activare la publicarea hub-ului (NU se ruleaza inainte):
+ * footer nou pe include/general, 3844 fara conditii (pastrat pentru rollback),
+ * „Blog” -> „Zone” in meniurile Principal (66) si Mobil (67).
+ */
+function ib_mig_activate_nav_footer( $apply = false ) {
+	$hub = ib_mig_find( 'zone.html' );
+	$ft  = get_posts( array( 'post_type' => 'elementor_library', 'post_status' => 'any', 'meta_key' => '_ib_src', 'meta_value' => 'footer-zone', 'fields' => 'ids', 'numberposts' => 1 ) );
+	$plan = array( 'hub' => $hub, 'hub_status' => get_post_status( $hub ), 'footer_nou' => $ft ? $ft[0] : null, 'meniuri' => array() );
+	foreach ( array( 66, 67 ) as $mid ) {
+		foreach ( wp_get_nav_menu_items( $mid ) as $it ) {
+			if ( 'Blog' === $it->title ) {
+				$plan['meniuri'][ $mid ] = $it->ID;
+			}
+		}
+	}
+	if ( ! $apply ) {
+		return $plan;
+	}
+	if ( 'publish' !== get_post_status( $hub ) ) {
+		throw new Exception( 'hub-ul nu e publicat; activarea ar crea linkuri 404' );
+	}
+	foreach ( $plan['meniuri'] as $mid => $item ) {
+		$pos = get_post_meta( $item, '_menu_item_position', true );
+		wp_update_nav_menu_item( $mid, $item, array(
+			'menu-item-title'     => 'Zone',
+			'menu-item-object-id' => $hub,
+			'menu-item-object'    => 'page',
+			'menu-item-type'      => 'post_type',
+			'menu-item-status'    => 'publish',
+			'menu-item-position'  => get_post_field( 'menu_order', $item ),
+		) );
+	}
+	wp_update_post( array( 'ID' => $ft[0], 'post_status' => 'publish' ) );
+	update_post_meta( $ft[0], '_elementor_conditions', array( 'include/general' ) );
+	update_post_meta( 3844, '_elementor_conditions', array() );
+	\ElementorPro\Modules\ThemeBuilder\Module::instance()->get_conditions_manager()->get_cache()->regenerate();
+	return $plan;
+}
