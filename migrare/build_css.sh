@@ -27,13 +27,14 @@ st=re.sub(r'/\*.*?\*/','',st,flags=re.S)
 st=re.sub(r'\s+',' ',st).strip()
 pre=('/* zone.css - generat de migrare/build_css.sh din zone-mockup. Nu se editeaza manual. */\n'
  ':root{--accent-edge:#C41236;--outline:#8e9192}\n'
- '.ib-tw,.ib-tw *,.ib-tw *::before,.ib-tw *::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#444748}\n'
- '.ib-tw h1,.ib-tw h2,.ib-tw h3,.ib-tw h4,.ib-tw p,.ib-tw blockquote,.ib-tw figure,.ib-tw ol,.ib-tw ul,.ib-tw dl,.ib-tw dd{margin:0}\n'
- '.ib-tw ol,.ib-tw ul{list-style:none;padding:0}\n'
- '.ib-tw h1,.ib-tw h2,.ib-tw h3,.ib-tw h4{font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit}\n'
- '.ib-tw a{color:inherit;text-decoration:inherit}\n'
- '.ib-tw img,.ib-tw svg{display:block;max-width:100%}.ib-tw img{height:auto}\n'
- '.ib-tw summary{list-style:none}.ib-tw summary::-webkit-details-marker{display:none}\n'
+ '/* preflight cu :where() = specificitate 0: componentele din site.css (.motif-rule__gem etc.) castiga */\n'
+ ':where(.ib-tw),:where(.ib-tw) *,:where(.ib-tw) *::before,:where(.ib-tw) *::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#444748}\n'
+ ':where(.ib-tw) :where(h1,h2,h3,h4,p,blockquote,figure,ol,ul,dl,dd){margin:0}\n'
+ ':where(.ib-tw) :where(ol,ul){list-style:none;padding:0}\n'
+ ':where(.ib-tw) :where(h1,h2,h3,h4){font-size:inherit;font-weight:inherit;line-height:inherit;color:inherit}\n'
+ ':where(.ib-tw) :where(a){color:inherit;text-decoration:inherit}\n'
+ ':where(.ib-tw) :where(img,svg){display:block;max-width:100%}:where(.ib-tw) :where(img){height:auto}\n'
+ ':where(.ib-tw) :where(summary){list-style:none}.ib-tw summary::-webkit-details-marker{display:none}\n'
  '.ib-tw{font-family:Inter,sans-serif;font-size:16px;color:#e5e2e1;line-height:1.5}\n')
 open(out,'w').write(pre+st+'\n'+open(util).read()+'\n')
 print(out, len(open(out).read()))
