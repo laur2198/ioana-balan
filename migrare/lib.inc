@@ -173,6 +173,10 @@ function ib_mig_page( $name ) {
 	if ( $m['noindex'] ) {
 		update_post_meta( $id, '_yoast_wpseo_meta-robots-noindex', '1' );
 	}
+	if ( ! empty( $m['faq'] ) ) {
+		// acelasi mecanism ca articolele: ib_child_faq_schema() din functions.php
+		update_post_meta( $id, '_ib_faq', wp_slash( wp_json_encode( $m['faq'], JSON_UNESCAPED_UNICODE ) ) );
+	}
 	update_post_meta( $id, '_ib_jsonld', wp_slash( wp_json_encode( $m['jsonld'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) ) );
 
 	// CSS-ul NU se regenereaza de aici: in contextul execute-php kit-ul nu rezolva __globals__
@@ -186,4 +190,81 @@ function ib_mig_page( $name ) {
 	}
 
 	return array( 'id' => $id, 'new' => $new, 'status' => get_post_status( $id ), 'slug' => get_post_field( 'post_name', $id ), 'parent' => $parent );
+}
+
+/**
+ * Schema pentru paginile migrate, in graful Yoast (nu bloc separat).
+ * 1. Scoate nodul MusicGroup din ib_child_artist_schema() intr-o functie reutilizabila,
+ *    fara sa schimbe iesirea de pe homepage (se verifica inainte/dupa).
+ * 2. Adauga ib_child_migrated_schema(): Service din _ib_jsonld, cu provider pe @id-ul
+ *    unic al artistei + nodul artistei pe pagina (altfel referinta ar fi goala).
+ */
+function ib_mig_install_schema() {
+	$fn  = get_stylesheet_directory() . '/functions.php';
+	$src = file_get_contents( $fn );
+	$out = array();
+	if ( false !== strpos( $src, 'ib_child_migrated_schema' ) ) {
+		return array( 'stare' => 'exista' );
+	}
+	copy( $fn, IB_MIG_BACKUP . 'functions.php.' . date( 'Ymd-His' ) );
+
+	$start = strpos( $src, 'function ib_child_artist_schema( $graph ) {' );
+	$a0    = strpos( $src, '$graph[] = array(', $start );
+	$end   = strpos( $src, "\t);\n\n\treturn \$graph;\n}\nadd_filter( 'wpseo_schema_graph', 'ib_child_artist_schema', 21 );", $a0 );
+	if ( false === $start || false === $a0 || false === $end ) {
+		throw new Exception( 'nu gasesc ib_child_artist_schema in forma asteptata' );
+	}
+	$arr  = substr( $src, $a0 + strlen( '$graph[] = ' ), $end + 3 - ( $a0 + strlen( '$graph[] = ' ) ) );
+	$tail = "\n\n\treturn \$graph;\n}\nadd_filter( 'wpseo_schema_graph', 'ib_child_artist_schema', 21 );";
+	$new  = "/* Nodul MusicGroup unic (#artist): folosit pe homepage si pe paginile migrate. */\n"
+		. "function ib_child_artist_node() {\n\treturn " . $arr . ";\n}\n\n"
+		. "function ib_child_artist_schema( \$graph ) {\n\tif ( ! is_front_page() ) {\n\t\treturn \$graph;\n\t}\n\n\t\$graph[] = ib_child_artist_node();"
+		. $tail;
+	$src = substr( $src, 0, $start ) . $new . substr( $src, $end + 3 + strlen( $tail ) );
+
+	$src .= <<<'PHP'
+
+
+/* ---- Schema pentru paginile migrate din zone-mockup (meta _ib_jsonld) ----
+   Service cu provider pe #artist; pe /formatia/ nodul artistei primeste membrii.
+   FAQPage vine separat, din _ib_faq (ib_child_faq_schema). */
+function ib_child_migrated_schema( $graph ) {
+	if ( ! is_singular( 'page' ) || is_front_page() ) {
+		return $graph;
+	}
+	$raw = get_post_meta( get_queried_object_id(), '_ib_jsonld', true );
+	$ld  = $raw ? json_decode( $raw, true ) : null;
+	if ( ! is_array( $ld ) || empty( $ld ) ) {
+		return $graph;
+	}
+	$url    = get_permalink();
+	$artist = ib_child_artist_node();
+	foreach ( $ld as $node ) {
+		$type = $node['@type'] ?? '';
+		if ( 'Service' === $type ) {
+			unset( $node['@context'] );
+			$node['@id']              = $url . '#service';
+			$node['url']              = $url;
+			$node['provider']         = array( '@id' => home_url( '/#artist' ) );
+			$node['mainEntityOfPage'] = array( '@id' => $url . '#webpage' );
+			$graph[]                  = $node;
+		} elseif ( 'MusicGroup' === $type && ! empty( $node['member'] ) ) {
+			$artist['member'] = $node['member'];
+		}
+	}
+	$artist['mainEntityOfPage'] = array( '@id' => home_url( '/' ) );
+	$graph[]                    = $artist;
+	return $graph;
+}
+add_filter( 'wpseo_schema_graph', 'ib_child_migrated_schema', 22 );
+PHP;
+
+	file_put_contents( $fn, $src );
+	exec( 'php -l ' . escapeshellarg( $fn ) . ' 2>&1', $lint );
+	$out['lint'] = implode( ' ', $lint );
+	if ( false === strpos( $out['lint'], 'No syntax errors' ) ) {
+		copy( IB_MIG_BACKUP . basename( glob( IB_MIG_BACKUP . 'functions.php.*' )[ count( glob( IB_MIG_BACKUP . 'functions.php.*' ) ) - 1 ] ), $fn );
+		$out['rollback'] = true;
+	}
+	return $out;
 }

@@ -443,7 +443,12 @@ def meta_of(soup, fname):
     ld = [json.loads(s.string) for s in soup.find_all('script', type='application/ld+json')]
     sm = SLUGS['new'][fname]
     h1 = soup.find('h1').get_text(' ', strip=True)
-    return {'src': fname, 'slug': sm['slug'], 'parent': sm['parent'], 'noindex': sm['noindex'],
+    faq = []
+    for it in soup.find('main').find_all('div', class_='faq-item'):
+        q = it.find('summary').get_text(' ', strip=True)
+        a = it.find('summary').find_next_sibling('div').get_text(' ', strip=True)
+        faq.append({'q': ' '.join(q.split()), 'a': ' '.join(a.split())})
+    return {'faq': faq, 'src': fname, 'slug': sm['slug'], 'parent': sm['parent'], 'noindex': sm['noindex'],
             'seo_title': title, 'metadesc': desc['content'] if desc else '', 'jsonld': ld, 'h1': h1}
 
 def convert(fname, code):
