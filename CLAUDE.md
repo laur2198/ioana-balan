@@ -342,7 +342,6 @@ care e portret 1440×1800, încadrat cu `object-[center_6%]` ca să păstreze ca
 | Fișier | Data | Motiv | Unde era |
 |---|---|---|---|
 | `ioana-balan-live-show.jpg` | 18.09.2026 | **scoasă la cererea clientului.** Nu e o decizie de design | hero pe `oferte.html` și pe cele 27 de pagini din `zone-mockup/` — 45 de referințe în 31 de fișiere |
-
 | `formatie-instrumentala-tambal` | 30.09.2026 | **scoasă la cererea clientului.** Nu e o decizie de design | galeria live (3817); în prototip, `oferte.html`. Fișierul rămâne în repo și în Media Library (3791), nefolosit |
 
 Pentru `ioana-balan-live-show`: fișierul a fost **șters din `assets/img/`**, împreună cu toate referințele:
